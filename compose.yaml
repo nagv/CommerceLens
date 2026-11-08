@@ -1,0 +1,111 @@
+name: commercelens
+services:
+  orders-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: commerce
+      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD:-local-demo-only}
+    volumes: [orders-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U commerce -d orders"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  inventory-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: inventory
+      POSTGRES_USER: commerce
+      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD:-local-demo-only}
+    volumes: [inventory-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U commerce -d inventory"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  notifications-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: notifications
+      POSTGRES_USER: commerce
+      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD:-local-demo-only}
+    volumes: [notifications-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U commerce -d notifications"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: commerce
+      RABBITMQ_DEFAULT_PASS: ${LOCAL_BROKER_PASSWORD:-local-demo-only}
+    ports: ['127.0.0.1:15672:15672']
+    volumes: [rabbit-data:/var/lib/rabbitmq]
+    healthcheck:
+      test: [CMD, rabbitmq-diagnostics, -q, ping]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  mock-providers:
+    build: ./mock-providers
+    volumes: [provider-data:/data]
+  inventory-service:
+    build: ../commercelens-inventory-service
+    environment:
+      DATABASE_URL: postgres://commerce:${LOCAL_DB_PASSWORD:-local-demo-only}@inventory-db:5432/inventory?sslmode=disable
+    depends_on:
+      inventory-db: {condition: service_healthy}
+  payment-service:
+    build: ../commercelens-payment-service
+    environment:
+      PAYMENT_PROVIDER_URL: http://mock-providers:8080
+      PROVIDER_TIMEOUT_SECONDS: '3'
+    depends_on: [mock-providers]
+  shipping-service:
+    build: ../commercelens-shipping-service
+    environment:
+      SHIPPING_PROVIDER_URL: http://mock-providers:8080
+      PROVIDER_TIMEOUT_SECONDS: '3'
+    depends_on: [mock-providers]
+  notification-worker:
+    build: ../commercelens-notification-worker
+    environment:
+      DATABASE_URL: postgres://commerce:${LOCAL_DB_PASSWORD:-local-demo-only}@notifications-db:5432/notifications
+      RABBITMQ_URL: amqp://commerce:${LOCAL_BROKER_PASSWORD:-local-demo-only}@rabbitmq:5672
+      EMAIL_PROVIDER_URL: http://mock-providers:8080
+      PROVIDER_TIMEOUT_MS: '3000'
+    depends_on:
+      notifications-db: {condition: service_healthy}
+      rabbitmq: {condition: service_healthy}
+      mock-providers: {condition: service_started}
+  order-service:
+    build: ../commercelens-order-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://orders-db:5432/orders
+      SPRING_DATASOURCE_USERNAME: commerce
+      SPRING_DATASOURCE_PASSWORD: ${LOCAL_DB_PASSWORD:-local-demo-only}
+      INVENTORY_URL: http://inventory-service:8080
+      PAYMENT_URL: http://payment-service:8080
+      SHIPPING_URL: http://shipping-service:8080
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: '5672'
+      SPRING_RABBITMQ_USERNAME: commerce
+      SPRING_RABBITMQ_PASSWORD: ${LOCAL_BROKER_PASSWORD:-local-demo-only}
+    depends_on:
+      orders-db: {condition: service_healthy}
+      rabbitmq: {condition: service_healthy}
+      inventory-service: {condition: service_started}
+      payment-service: {condition: service_started}
+      shipping-service: {condition: service_started}
+  customer-portal:
+    build: ../commercelens-customer-portal
+    ports: ['127.0.0.1:3000:80']
+    depends_on: [order-service, notification-worker]
+volumes:
+  orders-data:
+  inventory-data:
+  notifications-data:
+  rabbit-data:
+  provider-data:

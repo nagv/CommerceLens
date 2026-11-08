@@ -1,8 +1,8 @@
 # CommerceLens
 
-Starter repository and agreed MVP scope for a polyglot commerce application, application-context pipeline, agentic RAG assistant, and evaluation harness.
+Runnable service MVP and roadmap for a polyglot commerce application, application-context pipeline, agentic RAG assistant, and evaluation harness.
 
-Status: planning repository. Application services, UI, pipeline, and evaluation commands are not implemented yet.
+Status: six application services and the customer/operations UI are implemented. Docker Compose runs the connected checkout flow with PostgreSQL, RabbitMQ, and explicit mock external providers. Documentation generation, catalog aggregation, Pinecone, the chatbot, and RAG evaluations remain subsequent milestones. See [the runbook](docs/RUNBOOK.md) for startup and verification.
 
 ## Product UI
 
@@ -12,11 +12,11 @@ Status: planning repository. Application services, UI, pipeline, and evaluation 
 
 The assistant initially answers questions about documented architecture and behavior. Live operational questions require explicit read-only operational tools; documentation retrieval alone cannot establish current system status.
 
-## Planned services
+## Services and planned assistant
 
 | Service | Stack | Responsibility | Dependencies |
 | --- | --- | --- | --- |
-| customer-portal | React / TypeScript | Customer and operations UI | order-service, assistant-api |
+| customer-portal | React / TypeScript | Customer and operations UI | order-service, notification-worker; assistant-api planned |
 | order-service | Java / Spring Boot | Order lifecycle and checkout coordination | PostgreSQL, inventory-service, payment-service, shipping-service, event broker |
 | inventory-service | Go | Stock and reservations | PostgreSQL with separately owned data |
 | payment-service | Python / FastAPI | Payment authorization and refunds | External payment sandbox or explicit local mock |
@@ -24,11 +24,11 @@ The assistant initially answers questions about documented architecture and beha
 | notification-worker | Node.js / TypeScript | Consume order events and deliver notifications | Event broker, external email sandbox or explicit local mock |
 | assistant-api | Python / FastAPI / LangGraph | Application Q&A and evidence tools | Pinecone, catalog, dependency graph, LLM provider |
 
-Local mocks provide reproducible failures. Sandbox-provider profiles are separate. Credentials are supplied through environment variables and are never committed.
+Local mocks provide reproducible failures. Real provider adapters are future work. Credentials are supplied through environment variables and are never committed.
 
 ## Repository strategy
 
-This repository owns orchestration, UI/API contracts, application-context tooling, and evaluations. The six business-service repositories have been created privately under the GitHub account `nagv`, each initialized with a README. Their Git URLs are registered in `services.example.yaml`; service implementations are pending. Clone them beside this checkout and copy the example to `services.yaml` to configure local paths.
+This repository owns orchestration, UI/API contracts, application-context tooling, and evaluations. The six business-service repositories have been created privately under the GitHub account `nagv`, each containing service code, tests, and Dockerfiles. Their Git URLs are registered in `services.example.yaml`. Clone them beside this checkout and copy the example to `services.yaml` to configure local paths.
 
 Begin with a small connected workflow, then expand toward 30 services. Different technology stacks are intentional, but are not required for every later service.
 
