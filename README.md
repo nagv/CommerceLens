@@ -28,7 +28,7 @@ Local mocks provide reproducible failures. Sandbox-provider profiles are separat
 
 ## Repository strategy
 
-This repository owns orchestration, UI/API contracts, application-context tooling, and evaluations. Business services should become independent sibling repositories, registered by stable IDs and local paths in services.yaml. The example manifest is a template, not a list of existing repositories.
+This repository owns orchestration, UI/API contracts, application-context tooling, and evaluations. The six business-service repositories have been created privately under the GitHub account `nagv`, each initialized with a README. Their Git URLs are registered in `services.example.yaml`; service implementations are pending. Clone them beside this checkout and copy the example to `services.yaml` to configure local paths.
 
 Begin with a small connected workflow, then expand toward 30 services. Different technology stacks are intentional, but are not required for every later service.
 
