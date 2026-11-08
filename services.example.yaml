@@ -1,0 +1,29 @@
+application:
+  id: commercelens
+  name: CommerceLens
+
+# Proposed sibling repositories; these paths do not exist yet.
+services:
+  - id: customer-portal
+    path: ../commercelens-customer-portal
+    aliases: [web-portal]
+  - id: order-service
+    path: ../commercelens-order-service
+    aliases: [orders-api, orders.internal]
+  - id: inventory-service
+    path: ../commercelens-inventory-service
+    aliases: [inventory-api, inventory.internal]
+  - id: payment-service
+    path: ../commercelens-payment-service
+    aliases: [payments-api, payments.internal]
+  - id: shipping-service
+    path: ../commercelens-shipping-service
+    aliases: [shipping-api, shipping.internal]
+  - id: notification-worker
+    path: ../commercelens-notification-worker
+    aliases: [notifications]
+
+pipeline:
+  per_repository_order: [graphify, openwiki, normalize]
+  graphify_command: [graphify, extract, '.', --code-only, --force]
+  openwiki_command: [openwiki, --update, --print]
