@@ -1,0 +1,77 @@
+{
+  "id": "notification-worker",
+  "repository": "https://github.com/nagv/commercelens-notification-worker.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "b58513effb085e8409da52e080e97dbdf79fdc989389c5478ab9cf5124b0a415",
+  "page_hashes": {
+    "openwiki/concepts/delivery-retry.md": "5a60a36e49150ccc1f2ad56c7afc5884a84b070ca95aefe8098a6a95195135c3",
+    "openwiki/concepts/lifecycle.md": "0a18ca08851c6da19e66dcf74bb3c9f9aee79425bef594a4c4535d6ca2207bad",
+    "openwiki/flows/message-consumption.md": "00848def41509d27ccc466940dd1bfe169cb356e0c8483ff8c664a886a6bfa52",
+    "openwiki/operations/configuration.md": "672e5b1cef5285aa3155d2a098d45b5785ad5e8f3d6ad13678a4ca05736a822c",
+    "openwiki/quickstart.md": "ae6f58903473cd9aae5d63f316ca840bbec201de0b236f436923dde531f318c4",
+    "openwiki/service-context.md": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
+  },
+  "summary": {
+    "purpose": "Consume durable order.confirmed RabbitMQ messages, send order-confirmation emails via an HTTP provider, and persist delivery state in PostgreSQL.",
+    "stack": "Node.js 22, TypeScript, amqplib, pg",
+    "interfaces": [
+      "HTTP GET /health",
+      "HTTP GET /api/notifications (unauthenticated, max 100 rows)",
+      "AMQP consume queue order.confirmed (durable, prefetch 1)",
+      "AMQP dead-letter queue order.confirmed.dead",
+      "HTTP POST /email to external provider"
+    ],
+    "data": [
+      "PostgreSQL table notification_deliveries (event_id, order_id, payload JSONB, status, attempts, last_error, updated_at)",
+      "Configuration: DATABASE_URL, RABBITMQ_URL, EMAIL_PROVIDER_URL, PROVIDER_TIMEOUT_MS, PORT",
+      "Inbound message schema: eventId, orderId, customerEmail, totalCents, trackingNumber"
+    ],
+    "events": [
+      "Consumes AMQP order.confirmed",
+      "Dead-letters to AMQP order.confirmed.dead",
+      "Publishes no events/topics"
+    ],
+    "flow": [
+      "Consume order.confirmed AMQP message",
+      "Parse and validate JSON payload",
+      "Upsert notification_deliveries and acquire advisory lock on hashtext(eventId)",
+      "Evaluate status gate (sent, dead, pending)",
+      "If pending, POST /email to HTTP provider with Idempotency-Key header",
+      "Persist final status, attempts, and last error to PostgreSQL",
+      "Ack sent messages or nack without requeue to dead-letter exhausted/invalid messages"
+    ],
+    "unknowns": [
+      "Email provider defaults to mock-provider:8080 with no documented production service ID or contract beyond Idempotency-Key deduplication.",
+      "GET /api/notifications is explicitly unauthenticated, creating a potential security conflict if exposed beyond private networks.",
+      "No compensation or rollback exists for email failures against confirmed orders.",
+      "Dead messages lack automatic or manual replay implementation."
+    ],
+    "evidence": [
+      "openwiki/service-context.md"
+    ],
+    "dependencies": [
+      {
+        "target": "email-provider",
+        "kind": "external",
+        "interface": "POST /email with Idempotency-Key header",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "rabbitmq",
+        "kind": "consumes",
+        "interface": "Queue order.confirmed (durable, DLX to order.confirmed.dead)",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "postgresql",
+        "kind": "database",
+        "interface": "Table notification_deliveries (CRUD + advisory lock)",
+        "evidence": "openwiki/service-context.md"
+      }
+    ]
+  },
+  "catalog_pages": [
+    "openwiki/service-context.md"
+  ]
+}

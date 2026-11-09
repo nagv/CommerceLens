@@ -1,0 +1,71 @@
+{
+  "id": "inventory-service",
+  "repository": "https://github.com/nagv/commercelens-inventory-service.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "b3ba2f58e06beb90520801669d8217b4a3827bb1f3f59c281016b539e793ab3b",
+  "page_hashes": {
+    "openwiki/data-model/schema.md": "7e97c04f1e00dae32db1888555d43ff9019f39477af69505f06cae8151786e11",
+    "openwiki/operations/configuration.md": "dbc158a81db8bc8d791301327dd4e2b9365d3677949ffaae6e83e7ea21bd5876",
+    "openwiki/quickstart.md": "f582054d0798fa9d89bf7d5f5a54929e940ad423911b93fd012bb462e5f15946",
+    "openwiki/runtime/release-flow.md": "2880e49f922e9a5a90b8ac76ff74be1a46c2e823fc56ff397731be5ba9ec391c",
+    "openwiki/runtime/reservation-flow.md": "fa1863979e81b91a5f38da86042d22bcdfd64debca3a905b8380e6906a1bcd4e",
+    "openwiki/service/api.md": "d95e57a46727fe95fb863a611a77f736569c1b422ee1e73de7a4736bce9294a5",
+    "openwiki/service/dependencies.md": "c6ef069bd5c931988ad849dbd6620292ac21ec2567e62a648fff20388dcccfb0",
+    "openwiki/service/overview.md": "24d6532af3143827a16ac51717856bcb7c5aacb588b2a209202a3be4b5499bda",
+    "openwiki/testing/coverage.md": "06d5f84e4dba55a3e06cb5e6794b0f7399535d21202a002231506b503830c7de"
+  },
+  "summary": {
+    "purpose": "Internal Go HTTP service that owns authoritative product prices and stock reservations for the CommerceLens platform.",
+    "stack": "Go 1.23, net/http, PostgreSQL via pgx/v5, Docker multi-stage build",
+    "interfaces": [
+      "GET /health",
+      "GET /api/products",
+      "POST /api/reservations",
+      "POST /api/reservations/{orderId}/release"
+    ],
+    "data": [
+      "inventory_products (sku, name, price_cents, available)",
+      "inventory_reservations (orderId, items, subtotalCents, status)",
+      "Product",
+      "Reservation",
+      "ReservedItem",
+      "Item"
+    ],
+    "events": [],
+    "flow": [
+      "List products from inventory_products catalog",
+      "Receive reservation request with orderId and items",
+      "Validate JSON body size, unknown fields, and item constraints",
+      "Lock product rows with FOR UPDATE and serialize order with advisory lock",
+      "Read authoritative prices from inventory_products and decrement available stock",
+      "Store reservation and return priced items with subtotal and reserved status",
+      "Receive release request for orderId",
+      "Restore stock to inventory_products and mark reservation released"
+    ],
+    "unknowns": [
+      "Upstream caller identity (checkout service) is mentioned but not formally documented as a dependency in supplied pages",
+      "Database schema details, runtime flows, configuration, and test coverage are referenced but absent from supplied pages",
+      "Reservation fingerprinting algorithm is referenced via code paths but not explained in wiki text",
+      "Exact demo product seed data is not listed in supplied pages"
+    ],
+    "evidence": [
+      "openwiki/service/api.md",
+      "openwiki/service/dependencies.md",
+      "openwiki/service/overview.md"
+    ],
+    "dependencies": [
+      {
+        "target": "PostgreSQL",
+        "kind": "database",
+        "interface": "TCP/Unix socket, SQL via pgxpool",
+        "evidence": "openwiki/service/dependencies.md"
+      }
+    ]
+  },
+  "catalog_pages": [
+    "openwiki/service/api.md",
+    "openwiki/service/dependencies.md",
+    "openwiki/service/overview.md"
+  ]
+}

@@ -1,24 +1,202 @@
 {
-  "quickstart.md": [
-    "CommerceLens links six business service repositories and owns their Compose orchestration."
-  ],
-  "application-overview.md": [
-    "Order coordinates inventory reservation, payment and shipment, and emits confirmed-order events for Notification.",
-    "Order, Inventory and Notification own separate PostgreSQL databases."
-  ],
   "service-catalog.md": [
-    "Inventory owns product catalog and reservation storage; Payment and Shipping adapt HTTP providers without their own application databases."
+    {
+      "statement": "Provide a browser UI for a local CommerceLens sandbox where users browse products, place demo orders, and inspect order and notification history.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        }
+      ]
+    },
+    {
+      "statement": "Checkout coordinator that orchestrates inventory reservation, payment authorization, shipping creation, and durable outbox publishing.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Internal Go HTTP service that owns authoritative product prices and stock reservations for the CommerceLens platform.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "The Payment Service is the payment-authorization and refund boundary within CommerceLens that accepts payment and refund requests from upstream consumers, validates input with Pydantic, assigns durable idempotency keys, forwards the requests to an external payment provider, and returns a JSON result.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Exposes HTTP endpoints for retrieving a fixed shipping rate and creating shipments via an external HTTP provider, defaulting to the CommerceLens mock provider.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Consume durable order.confirmed RabbitMQ messages, send order-confirmation emails via an HTTP provider, and persist delivery state in PostgreSQL.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
   ],
   "dependencies.md": [
-    "Portal proxies /api/notifications to Notification and other /api/ requests to Order.",
-    "Order calls Inventory, Payment and Shipping through HTTP."
+    {
+      "statement": "This page summarizes documented service dependencies.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
   ],
   "data-and-events.md": [
-    "Order persists confirmed orders and outbox rows transactionally and publishes order.confirmed events.",
-    "Notification tracks delivery attempts in PostgreSQL and consumes order.confirmed with a dead-letter queue."
+    {
+      "statement": "This page summarizes documented service data and events.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
   ],
   "checkout-flow.md": [
-    "Checkout checkpoints payment_unknown before payment and treats only payment HTTP 402 as a definite decline.",
-    "Uncertain shipping failures retain payment and stock for manual_review; definite shipping rejection attempts refund and release."
+    {
+      "statement": "This page summarizes documented service business flows.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
+  ],
+  "application-overview.md": [
+    {
+      "statement": "Provide a browser UI for a local CommerceLens sandbox where users browse products, place demo orders, and inspect order and notification history.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        }
+      ]
+    },
+    {
+      "statement": "Checkout coordinator that orchestrates inventory reservation, payment authorization, shipping creation, and durable outbox publishing.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Internal Go HTTP service that owns authoritative product prices and stock reservations for the CommerceLens platform.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "The Payment Service is the payment-authorization and refund boundary within CommerceLens that accepts payment and refund requests from upstream consumers, validates input with Pydantic, assigns durable idempotency keys, forwards the requests to an external payment provider, and returns a JSON result.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Exposes HTTP endpoints for retrieving a fixed shipping rate and creating shipments via an external HTTP provider, defaulting to the CommerceLens mock provider.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        }
+      ]
+    },
+    {
+      "statement": "Consume durable order.confirmed RabbitMQ messages, send order-confirmation emails via an HTTP provider, and persist delivery state in PostgreSQL.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
+  ],
+  "quickstart.md": [
+    {
+      "statement": "This page summarizes documented service navigation and the catalog refresh process.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/service-cards/customer-portal.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/order-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/inventory-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json"
+        },
+        {
+          "resource": "repo://catalog/service-cards/notification-worker.json"
+        }
+      ]
+    }
   ]
 }

@@ -1,0 +1,97 @@
+{
+  "id": "order-service",
+  "repository": "https://github.com/nagv/commercelens-order-service.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "e668581df118face1e3555a93fe3884f3ddd1d72ac9f6ea0f4acdf9bf225e9ab",
+  "page_hashes": {
+    "openwiki/architecture/api-surface.md": "a478528f501a1cf1ae6a42093d4a9557aaf796ba4d623baaa7c85e188179917c",
+    "openwiki/architecture/checkout-saga.md": "bc605a8f7c811dbc3586211b0d9521ce531bb06840358f1e03f6d5630420a494",
+    "openwiki/architecture/data-model.md": "dfc6e2451e7d2a1b54ac0efb2a7858c7f72e319dc36d033e9fc156ad6d25cd32",
+    "openwiki/architecture/outbox-publishing.md": "28f5d1f1c0a4afd8b2e3eb082bbdfe58cd9d5afd820fe4b3a81192557c7f217a",
+    "openwiki/integrations/external-services.md": "2fcf20fafee6aaea8cb53f400c698773b3fb7e1da7fe9a1abbbd8dc45a5d4d51",
+    "openwiki/operations/configuration.md": "3ec7f98a9d06567b46e401744c58905177e1b98ae2c851462d9ad3c9571a86cb",
+    "openwiki/quickstart.md": "426b1f27dd4882246ea51ae4f474f1e5e6e2ad72da09afed181f383a0fd0bdd2",
+    "openwiki/service-context.md": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d",
+    "openwiki/testing/test-strategy.md": "2eddfc875641331a10463a6f884d8cfca7ebf5f51984ebdbe752b624b623a5dc",
+    "openwiki/workflows/failure-handling.md": "7c94751d8f416936fb8f8a7094dd058f0547e5c15ad09b8dfd1dd47780999d80",
+    "openwiki/workflows/idempotency-and-concurrency.md": "0d341d32e80ac6f77bfea6309d9e4f1e8e76da67177b59adfdb0f2a2d459291e"
+  },
+  "summary": {
+    "purpose": "Checkout coordinator that orchestrates inventory reservation, payment authorization, shipping creation, and durable outbox publishing.",
+    "stack": "Java 21, Spring Boot 3.4.2, PostgreSQL, RabbitMQ",
+    "interfaces": [
+      "HTTP GET /health",
+      "HTTP GET /api/products",
+      "HTTP GET /api/orders",
+      "HTTP GET /api/orders/{id}",
+      "HTTP POST /api/orders (requires Idempotency-Key; idempotent by key plus SHA-256 body hash)",
+      "AMQP publisher to order.confirmed on default exchange with DLX order.confirmed.dead"
+    ],
+    "data": [
+      "PostgreSQL orders table (JSONB bodies, idempotency keys, request hashes, HTTP status, timestamps)",
+      "PostgreSQL order_outbox table (transactional outbox for order.confirmed pending delivery)"
+    ],
+    "events": [
+      "order.confirmed (durable, with publisher confirms; consumers must deduplicate by eventId)",
+      "order.confirmed.dead (DLQ for unroutable messages)"
+    ],
+    "flow": [
+      "Client POST /api/orders with Idempotency-Key",
+      "Create pending order and idempotency record",
+      "Reserve inventory via Inventory Service",
+      "Checkpoint order to reserved",
+      "Checkpoint order to payment_unknown before payment call",
+      "Authorize payment via Payment Service",
+      "Checkpoint order to paid",
+      "Create shipment via Shipping Service",
+      "Checkpoint order to confirmed",
+      "Insert order_outbox event for RabbitMQ delivery",
+      "Return 201 with confirmed order"
+    ],
+    "unknowns": [
+      "Documentation conflict: service-context.md groups payment 5xx/timeouts under manual_review; workflows/failure-handling.md says non-402 payment failures remain payment_unknown. Resolve this in the service wiki before treating one statement as authoritative."
+    ],
+    "evidence": [
+      "openwiki/service-context.md",
+      "openwiki/workflows/failure-handling.md"
+    ],
+    "dependencies": [
+      {
+        "target": "Inventory Service",
+        "kind": "http",
+        "interface": "POST /api/reservations, POST /api/reservations/{id}/release, GET /api/products",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "Payment Service",
+        "kind": "http",
+        "interface": "POST /api/payments, POST /api/payments/{paymentId}/refund",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "Shipping Service",
+        "kind": "http",
+        "interface": "POST /api/shipments",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "PostgreSQL",
+        "kind": "database",
+        "interface": "orders table, order_outbox table",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "RabbitMQ",
+        "kind": "publishes",
+        "interface": "order.confirmed queue, order.confirmed.dead DLQ",
+        "evidence": "openwiki/service-context.md"
+      }
+    ]
+  },
+  "review": "Codex reviewed against selected service wiki pages; removed unsupported ambiguity claims and distinguished provider boundaries from mock deployments.",
+  "catalog_pages": [
+    "openwiki/service-context.md",
+    "openwiki/workflows/failure-handling.md"
+  ]
+}

@@ -1,38 +1,40 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4f87cac5763d890689359238d397eb1ea669bc2259ae82024ce844119660d39a",
+  "pageVersion": "sha256:5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922",
   "claims": [
     {
-      "id": "claim_75bb55cb0e37474683c76ecbb048c301",
-      "statement": "Order persists confirmed orders and outbox rows transactionally and publishes order.confirmed events.",
+      "id": "claim_9cb9e262d90441348d63ba94d8ef2741",
+      "statement": "This page summarizes documented service data and events.",
       "evidence": [
         {
-          "resource": "repo://catalog/source-evidence.json",
-          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+          "resource": "repo://catalog/service-cards/customer-portal.json",
+          "version": "repo-file-v1:sha256:6946c47774993552fd39464f1d6d7d09a08821e17ced5e0b22cf2f19b021846e"
         },
         {
-          "resource": "repo://compose.yaml",
-          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
-        }
-      ]
-    },
-    {
-      "id": "claim_69ff31b63d954de4be16827034234822",
-      "statement": "Notification tracks delivery attempts in PostgreSQL and consumes order.confirmed with a dead-letter queue.",
-      "evidence": [
-        {
-          "resource": "repo://catalog/source-evidence.json",
-          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+          "resource": "repo://catalog/service-cards/inventory-service.json",
+          "version": "repo-file-v1:sha256:5b8f4d459d0b6d9fa48956a772926c5751da94c5daa2bd9b2518a6f7ab7acbd9"
         },
         {
-          "resource": "repo://compose.yaml",
-          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+          "resource": "repo://catalog/service-cards/notification-worker.json",
+          "version": "repo-file-v1:sha256:a70bbcbe2cb60473682d87717af53bb2d75714893a85af197116c1241394aecd"
+        },
+        {
+          "resource": "repo://catalog/service-cards/order-service.json",
+          "version": "repo-file-v1:sha256:61bc652fa82fc20cdc5bf68801595eef55078c72e688a710eceb91c8ae0fc277"
+        },
+        {
+          "resource": "repo://catalog/service-cards/payment-service.json",
+          "version": "repo-file-v1:sha256:74d485ed4fb52f9f27e8127c664158ed9e99e093cc7316135029cd9cd73d8f5e"
+        },
+        {
+          "resource": "repo://catalog/service-cards/shipping-service.json",
+          "version": "repo-file-v1:sha256:c061a7846b62b7f7ab87b1c545e35963ed24e834e56c669a59119b7a9dc94aa8"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-11-09T03:50:36.913Z"
+    "at": "2026-11-09T04:25:14.217Z"
   }
 }

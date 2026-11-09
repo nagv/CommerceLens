@@ -1,0 +1,68 @@
+{
+  "id": "customer-portal",
+  "repository": "https://github.com/nagv/commercelens-customer-portal.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "99c044f5284abc61570d26bf80bf35236759f76690b663e8b90c6f6fd2d9b4cc",
+  "page_hashes": {
+    "openwiki/architecture/api-client.md": "b4e1b2474d72bd3e44de2ba050e48130b5574bc6ef9ea86bedca169b19afddbd",
+    "openwiki/architecture/domain-models.md": "cf55861219ede7c4144a58ba0863228e696282c314b97b7059054071c60d65d8",
+    "openwiki/operations/deployment.md": "6453d6f0036f1f404af8839cda53837c0b8d47b68a1bfd5682763f8d74dfc8c2",
+    "openwiki/quickstart.md": "c205f2cd23924e3cb03e28a84daac8802403f73c1673b9eb45c6783b1da860fa",
+    "openwiki/service-context.md": "385e58114654ed68924d03062cee359663461cfc1e13cf9ec3916410fd5bcc68",
+    "openwiki/testing/verification.md": "bf15b5b7848bdb4dbeda561d14c978dd7120a98dbd7dd7527726d9106893ec35",
+    "openwiki/workflows/operations-monitoring.md": "b8f025c9e5c742b91a9558b41204bd6c82b40e5b7f9fde970ff7e37fcb9ac17f",
+    "openwiki/workflows/user-checkout.md": "abf32cc42dc864ff3dc4caee0fc72a5f5eae24ea2a99cefb384aa3e65b35e1f1"
+  },
+  "summary": {
+    "purpose": "Provide a browser UI for a local CommerceLens sandbox where users browse products, place demo orders, and inspect order and notification history.",
+    "stack": "React 19, Vite, nginx",
+    "interfaces": [
+      "No programmatic interfaces exposed (consumer-only browser frontend)"
+    ],
+    "data": [
+      "Product catalog (live inventory)",
+      "Cart quantities and client-computed summaries",
+      "Checkout payload: customerEmail, postalCode, items, paymentScenario, shippingScenario",
+      "Order details: id, status, items, subtotalCents, shippingCents, totalCents, paymentId, trackingNumber, failureReason, createdAt",
+      "Order history list",
+      "Notification delivery records",
+      "Tab-scoped idempotency Attempt (key + payload) in sessionStorage"
+    ],
+    "events": [],
+    "flow": [
+      "User browses storefront product catalog",
+      "User adds or removes items in cart",
+      "User enters email, postal code, and selects demo payment/shipping scenarios",
+      "Frontend validates checkout inputs and stock availability",
+      "Frontend persists Idempotency-Key and Checkout payload in sessionStorage",
+      "Frontend POSTs checkout to backend with Idempotency-Key header",
+      "Frontend displays order status, tracking, error explanation, or network warning",
+      "User views order history and notification records in the Operations tab"
+    ],
+    "unknowns": [
+      "The portal page uses example status names CONFIRMED/PAYMENT_FAILED; the Order wiki uses lowercase states including payment_unknown. Consult the Order failure-handling page for the documented state distinctions."
+    ],
+    "evidence": [
+      "openwiki/service-context.md"
+    ],
+    "dependencies": [
+      {
+        "target": "order-service",
+        "kind": "consumes",
+        "interface": "HTTP /api/products, /api/orders, /api/orders/{id}",
+        "evidence": "openwiki/service-context.md"
+      },
+      {
+        "target": "notification-worker",
+        "kind": "consumes",
+        "interface": "HTTP /api/notifications",
+        "evidence": "openwiki/service-context.md"
+      }
+    ]
+  },
+  "review": "Codex reviewed against selected service wiki pages; removed unsupported ambiguity claims and distinguished provider boundaries from mock deployments.",
+  "catalog_pages": [
+    "openwiki/service-context.md"
+  ]
+}

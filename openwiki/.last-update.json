@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-09T03:50:42.173Z",
+  "updatedAt": "2026-11-09T04:25:20.403Z",
   "command": "update",
-  "gitHead": "e4cca762fbe42094661687d9c4f1d0e12552df4d",
-  "model": "codex-host-review",
+  "gitHead": "92e6c816a6feb1d841a7ecb7336c66e01aca57ff",
+  "model": "nebius-service-summaries/local-master-renderer",
   "status": "complete",
   "language": "en"
 }

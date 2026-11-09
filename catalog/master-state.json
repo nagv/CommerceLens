@@ -1,0 +1,10 @@
+{
+  "cards": {
+    "customer-portal": "07e5c75d7b579cbc3db8139d168fd3e5b5e918274a4a964c10a1d0ffb8f335cc",
+    "order-service": "c53d3ecbd47e92686083e22a6377af8a81eca76bc7662299523e4d5f9948cc6f",
+    "inventory-service": "7a0e5ac2b923a785113dec60656c3ad7423de7bd5774703ed7e06464f9309c1d",
+    "payment-service": "82d50801620cdce8d99bca41632c14adf0de04d30d8de689d9e461306adcaec6",
+    "shipping-service": "77faefb87943ad7aa2e3f03a4b77c1cdae5892cd5d76e9d848a493cfdecd64cd",
+    "notification-worker": "18381f739ed185dcd70b6573907c728c3b94854b6e3b2ef2f2c0c35cbe9f075c"
+  }
+}

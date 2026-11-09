@@ -1,0 +1,56 @@
+{
+  "id": "shipping-service",
+  "repository": "https://github.com/nagv/commercelens-shipping-service.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "9802d47f9132d47775076131742db6f92edc78a6bba939afde5869ca8c4629d7",
+  "page_hashes": {
+    "openwiki/integrations/provider.md": "40afdd1e17ff07fff7f45890c94c3cc5b39c3b839e3074f1d66ebaa304163422",
+    "openwiki/quickstart.md": "9b6f4f80f2c3fc5b545e0efdae0c2323aaa438b61704299ae3b9a1960e650d0e",
+    "openwiki/service/overview.md": "475db81bbc5c78a1ea8131399aa64ce87d4a9c7749bcbc3eb90e559314220c81",
+    "openwiki/testing/contract-tests.md": "358808b26427b1b1fdf0dc06f6fad9525e0c26b8e38dd36b8b58b589d9bece2a"
+  },
+  "summary": {
+    "purpose": "Exposes HTTP endpoints for retrieving a fixed shipping rate and creating shipments via an external HTTP provider, defaulting to the CommerceLens mock provider.",
+    "stack": "ASP.NET Core on .NET 8.0",
+    "interfaces": [
+      "GET /health",
+      "GET /api/shipping/rate",
+      "POST /api/shipments"
+    ],
+    "data": [
+      "ShipmentRequest {orderId, postalCode, scenario}",
+      "Shipment {shipmentId, status, trackingNumber, shippingCents}",
+      "ProviderException {Message, Code, Status}",
+      "Fixed rate response {shippingCents:500, currency:\"USD\"}"
+    ],
+    "events": [],
+    "flow": [
+      "Receive shipment creation request with orderId, postalCode, and scenario",
+      "Validate input constraints before invoking provider",
+      "Send POST /shipments to provider with Idempotency-Key header equal to orderId",
+      "Validate provider response structure and fixed shippingCents value",
+      "Return shipment details or map failures to HTTP 502/504/422 with outcome status"
+    ],
+    "unknowns": [
+      "A logical external shipping-provider boundary is documented; the default is a local mock. A production provider deployment is not established by these pages."
+    ],
+    "evidence": [
+      "openwiki/integrations/provider.md",
+      "openwiki/service/overview.md"
+    ],
+    "dependencies": [
+      {
+        "target": "Shipping provider",
+        "kind": "http",
+        "interface": "POST /shipments",
+        "evidence": "openwiki/service/overview.md"
+      }
+    ]
+  },
+  "review": "Codex reviewed against selected service wiki pages; removed unsupported ambiguity claims and distinguished provider boundaries from mock deployments.",
+  "catalog_pages": [
+    "openwiki/integrations/provider.md",
+    "openwiki/service/overview.md"
+  ]
+}

@@ -1,56 +1,105 @@
 ---
-title: Data ownership and events
+title: Data and events
 type: reference
-description: Source-backed application-wide CommerceLens documentation.
-tags: [commercelens, catalog, architecture]
+sources:
+  - id: openwiki-source-9282d58f9c59816ad510f4a7
+    resource: repo://catalog/service-cards/customer-portal.json
+  - id: openwiki-source-b7e016f3ec280e840708a027
+    resource: repo://catalog/service-cards/inventory-service.json
+  - id: openwiki-source-af11939bbf8643c1b828a699
+    resource: repo://catalog/service-cards/notification-worker.json
+  - id: openwiki-source-b2e7a862b42617e41900fbed
+    resource: repo://catalog/service-cards/order-service.json
+  - id: openwiki-source-a00b66216a2ae442b9ddaee2
+    resource: repo://catalog/service-cards/payment-service.json
+  - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
+    resource: repo://catalog/service-cards/shipping-service.json
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T03:50:36.913Z
-sources:
-  - id: openwiki-source-b3c12cba5f5c82eed11eede7
-    resource: repo://catalog/source-evidence.json
-  - id: openwiki-source-e201e686a785f09b6d899f0b
-    resource: repo://compose.yaml
-generated: { by: "codex/openwiki-lifecycle-review", at: "2026-11-09T03:50:36.913Z" }
+    at: 2026-11-09T04:25:14.217Z
 ---
 
-# Data ownership and events
+# Data and events
 
-## Owned stores
-| Owner | Database / tables | Purpose |
-|---|---|---|
-| Order | orders / orders, order_outbox | Idempotency key and request hash, order JSON and HTTP result; pending event publication |
-| Inventory | inventory / inventory_products, inventory_reservations | Authoritative product prices and stock; reservation identity, request hash and status |
-| Notification | notifications / notification_deliveries | Event identity, payload, status, attempts and last error |
-| Mock providers | SQLite /data/providers.db, operations | Durable demo provider idempotency and stable operation results |
+## customer-portal
 
-Services access their own PostgreSQL databases. The API boundaries carry business requests; there is no cross-service database access in the documented flow. Inventory serializes reservation work with transaction/advisory and row locks; release is idempotent.
+### Documented data / persistence (ownership as stated)
+- Product catalog (live inventory)
+- Cart quantities and client-computed summaries
+- Checkout payload: customerEmail, postalCode, items, paymentScenario, shippingScenario
+- Order details: id, status, items, subtotalCents, shippingCents, totalCents, paymentId, trackingNumber, failureReason, createdAt
+- Order history list
+- Notification delivery records
+- Tab-scoped idempotency Attempt (key + payload) in sessionStorage
 
-## Confirmed-order event
-Order stores a confirmed order and its outbox row in one database transaction. The publisher runs every two seconds, reads unpublished rows, sends persistent messages and waits up to five seconds for publisher confirmation before recording publication.
+### Events
+- Not specified in supplied service documentation.
 
-- Queue: `order.confirmed`, durable.
-- Event ID: `order-confirmed-` followed by the order ID.
-- Payload: `eventId`, `orderId`, `customerEmail`, `totalCents`, `trackingNumber`.
-- Consumer: Notification worker, prefetch 1.
-- Dead-letter queue: `order.confirmed.dead`, via the default exchange.
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md)
 
-This is at-least-once delivery. A crash between broker confirmation and database marking can produce a duplicate. The notification event ID and provider idempotency key protect repeated delivery attempts; this is not an exactly-once guarantee.
+## order-service
 
-## Notification outcomes
-The worker locks by event ID, persists attempts before sending and acknowledges a sent delivery. A previously sent matching event is acknowledged without resending. Provider delivery has at most three total attempts with 250/500 ms retry delays; exhausted delivery is dead-lettered. Payload conflicts and invalid events are rejected. Database errors can requeue messages.
+### Documented data / persistence (ownership as stated)
+- PostgreSQL orders table (JSONB bodies, idempotency keys, request hashes, HTTP status, timestamps)
+- PostgreSQL order_outbox table (transactional outbox for order.confirmed pending delivery)
 
-Email provider requests use the event ID as `Idempotency-Key`. Notification failure does not roll back the confirmed order. The status API returns the latest 100 deliveries.
+### Events
+- order.confirmed (durable, with publisher confirms; consumers must deduplicate by eventId)
+- order.confirmed.dead (DLQ for unroutable messages)
 
-## Source evidence
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md)
 
-[Reviewed source snapshot](../catalog/source-evidence.json) and [deployment configuration](../compose.yaml). Original source baseline:
+## inventory-service
 
-- [customer-portal: nginx.conf](https://github.com/nagv/commercelens-customer-portal/blob/1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95/nginx.conf)
-- [order-service: src/main/java/com/commercelens/orders/OrderStore.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OrderStore.java)
-- [order-service: src/main/java/com/commercelens/orders/OutboxPublisher.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OutboxPublisher.java)
-- [order-service: src/main/java/com/commercelens/orders/Checkout.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/Checkout.java)
-- [inventory-service: main.go](https://github.com/nagv/commercelens-inventory-service/blob/160854d9317c07a55cb5a23703a0487bb98ab4d8/main.go)
-- [notification-worker: src/main.ts](https://github.com/nagv/commercelens-notification-worker/blob/4159264c5465925d8edc99a21fb49565401967d5/src/main.ts)
+### Documented data / persistence (ownership as stated)
+- inventory_products (sku, name, price_cents, available)
+- inventory_reservations (orderId, items, subtotalCents, status)
+- Product
+- Reservation
+- ReservedItem
+- Item
+
+### Events
+- Not specified in supplied service documentation.
+
+Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/overview.md)
+
+## payment-service
+
+### Documented data / persistence (ownership as stated)
+- Not specified in supplied service documentation.
+
+### Events
+- Not specified in supplied service documentation.
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md)
+
+## shipping-service
+
+### Documented data / persistence (ownership as stated)
+- ShipmentRequest {orderId, postalCode, scenario}
+- Shipment {shipmentId, status, trackingNumber, shippingCents}
+- ProviderException {Message, Code, Status}
+- Fixed rate response {shippingCents:500, currency:"USD"}
+
+### Events
+- Not specified in supplied service documentation.
+
+Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md)
+
+## notification-worker
+
+### Documented data / persistence (ownership as stated)
+- PostgreSQL table notification_deliveries (event_id, order_id, payload JSONB, status, attempts, last_error, updated_at)
+- Configuration: DATABASE_URL, RABBITMQ_URL, EMAIL_PROVIDER_URL, PROVIDER_TIMEOUT_MS, PORT
+- Inbound message schema: eventId, orderId, customerEmail, totalCents, trackingNumber
+
+### Events
+- Consumes AMQP order.confirmed
+- Dead-letters to AMQP order.confirmed.dead
+- Publishes no events/topics
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md)
 
 [Master entry point](quickstart.md)

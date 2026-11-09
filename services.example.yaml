@@ -1,35 +1,69 @@
 application:
   id: commercelens
   name: CommerceLens
-
-# Created GitHub repositories. Clone beside CommerceLens to use these local paths.
 services:
-  - id: customer-portal
-    repository: https://github.com/nagv/commercelens-customer-portal.git
-    path: ../commercelens-customer-portal
-    aliases: [web-portal]
-  - id: order-service
-    repository: https://github.com/nagv/commercelens-order-service.git
-    path: ../commercelens-order-service
-    aliases: [orders-api, orders.internal]
-  - id: inventory-service
-    repository: https://github.com/nagv/commercelens-inventory-service.git
-    path: ../commercelens-inventory-service
-    aliases: [inventory-api, inventory.internal]
-  - id: payment-service
-    repository: https://github.com/nagv/commercelens-payment-service.git
-    path: ../commercelens-payment-service
-    aliases: [payments-api, payments.internal]
-  - id: shipping-service
-    repository: https://github.com/nagv/commercelens-shipping-service.git
-    path: ../commercelens-shipping-service
-    aliases: [shipping-api, shipping.internal]
-  - id: notification-worker
-    repository: https://github.com/nagv/commercelens-notification-worker.git
-    path: ../commercelens-notification-worker
-    aliases: [notifications]
-
+- id: customer-portal
+  repository: https://github.com/nagv/commercelens-customer-portal.git
+  path: ../commercelens-customer-portal
+  aliases:
+  - web-portal
+  catalog_pages:
+  - openwiki/service-context.md
+- id: order-service
+  repository: https://github.com/nagv/commercelens-order-service.git
+  path: ../commercelens-order-service
+  aliases:
+  - orders-api
+  - orders.internal
+  catalog_pages:
+  - openwiki/service-context.md
+  - openwiki/workflows/failure-handling.md
+- id: inventory-service
+  repository: https://github.com/nagv/commercelens-inventory-service.git
+  path: ../commercelens-inventory-service
+  aliases:
+  - inventory-api
+  - inventory.internal
+  catalog_pages:
+  - openwiki/service/overview.md
+  - openwiki/service/dependencies.md
+  - openwiki/service/api.md
+- id: payment-service
+  repository: https://github.com/nagv/commercelens-payment-service.git
+  path: ../commercelens-payment-service
+  aliases:
+  - payments-api
+  - payments.internal
+  catalog_pages:
+  - openwiki/service-context.md
+- id: shipping-service
+  repository: https://github.com/nagv/commercelens-shipping-service.git
+  path: ../commercelens-shipping-service
+  aliases:
+  - shipping-api
+  - shipping.internal
+  catalog_pages:
+  - openwiki/service/overview.md
+  - openwiki/integrations/provider.md
+- id: notification-worker
+  repository: https://github.com/nagv/commercelens-notification-worker.git
+  path: ../commercelens-notification-worker
+  aliases:
+  - notifications
+  catalog_pages:
+  - openwiki/service-context.md
 pipeline:
-  per_repository_order: [graphify, openwiki, normalize]
-  graphify_command: [graphify, extract, '.', --code-only, --force]
-  openwiki_command: [openwiki, --update, --print]
+  per_repository_order:
+  - graphify
+  - openwiki
+  - normalize
+  graphify_command:
+  - graphify
+  - extract
+  - .
+  - --code-only
+  - --force
+  openwiki_command:
+  - openwiki
+  - --update
+  - --print

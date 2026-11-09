@@ -5,13 +5,12 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 const central=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const packageRoot=process.env.OPENWIKI_PACKAGE_ROOT || path.join(process.env.APPDATA,'npm/node_modules/openwiki');
 const api=await import(pathToFileURL(path.join(packageRoot,'dist/linking/wiki-workspaces.js')));
-const services=['customer-portal','order-service','inventory-service','payment-service','shipping-service','notification-worker'];
-const roots=services.map(name=>path.resolve(central,'../commercelens-'+name));
-try {await fs.access(path.join(central,'openwiki/.last-update.json')); roots.push(central);} catch {}
+// Generated locally by refresh-catalog.py from the selected service manifest.
+const {roots}=JSON.parse(await fs.readFile(path.join(central,'catalog/workspace-roots.json'),'utf8'));
 for(const root of roots) await fs.access(path.join(root,'openwiki/quickstart.md'));
 const drafts=api.workspaceDrafts(await api.readWikiWorkspaceRegistry());
 const existing=drafts.find(d=>d.name.toLowerCase()==='commercelens');
-if(existing)existing.roots=[...new Set([...existing.roots,...roots])];
+if(existing)existing.roots=[...new Set(roots)];
 else drafts.push({name:'CommerceLens',roots});
 await api.saveWikiWorkspaces(drafts);
 for(const root of roots)await api.setActiveWikiWorkspace(root,'CommerceLens');

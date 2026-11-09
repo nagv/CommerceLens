@@ -1,59 +1,102 @@
 ---
-title: Checkout flow and failure handling
+title: Documented business flows
 type: reference
-description: Source-backed application-wide CommerceLens documentation.
-tags: [commercelens, catalog, architecture]
+sources:
+  - id: openwiki-source-9282d58f9c59816ad510f4a7
+    resource: repo://catalog/service-cards/customer-portal.json
+  - id: openwiki-source-b7e016f3ec280e840708a027
+    resource: repo://catalog/service-cards/inventory-service.json
+  - id: openwiki-source-af11939bbf8643c1b828a699
+    resource: repo://catalog/service-cards/notification-worker.json
+  - id: openwiki-source-b2e7a862b42617e41900fbed
+    resource: repo://catalog/service-cards/order-service.json
+  - id: openwiki-source-a00b66216a2ae442b9ddaee2
+    resource: repo://catalog/service-cards/payment-service.json
+  - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
+    resource: repo://catalog/service-cards/shipping-service.json
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T03:50:36.913Z
-sources:
-  - id: openwiki-source-b3c12cba5f5c82eed11eede7
-    resource: repo://catalog/source-evidence.json
-  - id: openwiki-source-e201e686a785f09b6d899f0b
-    resource: repo://compose.yaml
-generated: { by: "codex/openwiki-lifecycle-review", at: "2026-11-09T03:50:36.913Z" }
+    at: 2026-11-09T04:25:14.217Z
 ---
 
-# Checkout flow and failure handling
+# Documented business flows
 
-## Successful checkout
-1. Portal requests products through Order; Order reads Inventory's product API, backed by its PostgreSQL catalog.
-2. Portal submits checkout with an idempotency key retained in browser session storage. Order stores request identity and protects duplicate submissions.
-3. Order reserves inventory. Inventory supplies authoritative product prices; Order adds 500 cents shipping.
-4. Order records `payment_unknown` before requesting payment authorization. Successful authorization advances to `paid`.
-5. Order requests shipment creation. Success produces `confirmed`, with the order and outbox event persisted transactionally.
-6. The outbox publisher delivers `order.confirmed` through RabbitMQ. Notification persists delivery state and calls the email provider independently.
-7. Portal can query order and notification status through its Nginx routes.
+These per-service flow summaries preserve documented boundaries. Use the linked detailed pages for exact state transitions; the master does not infer one universal sequence for unrelated services.
 
-## Failure decisions
-| Failure | Recorded outcome / action |
-|---|---|
-| Inventory reservation error below 500 | `failed` |
-| Inventory reservation error at least 500 | `manual_review`, HTTP 503; reservation outcome may be uncertain |
-| Payment HTTP 402 | Definite decline: `failed`, release reservation |
-| Other payment failures | Retain `payment_unknown` and stock; do not blindly retry or assume no charge |
-| Shipping error at least 500 | `manual_review`; retain payment and stock because shipment may exist |
-| Definite shipping rejection below 500 | Attempt refund, then release inventory |
-| Refund failure | `manual_review`; release is still attempted |
-| Release failure | `manual_review`, HTTP 503 |
-| Notification delivery failure | Retry/dead-letter independently; confirmed order remains confirmed |
+## customer-portal
 
-These branches are deliberately different. There is no implemented automatic reconciliation or reservation expiry. Unknown outcomes need explicit investigation.
+- User browses storefront product catalog
+- User adds or removes items in cart
+- User enters email, postal code, and selects demo payment/shipping scenarios
+- Frontend validates checkout inputs and stock availability
+- Frontend persists Idempotency-Key and Checkout payload in sessionStorage
+- Frontend POSTs checkout to backend with Idempotency-Key header
+- Frontend displays order status, tracking, error explanation, or network warning
+- User views order history and notification records in the Operations tab
 
-## Timeouts and demo scenarios
-Order's HTTP client connects within two seconds and allows eight seconds per downstream request. Provider adapters default to three-second timeouts; portal fetch allows 30 seconds and Nginx proxy reads 35 seconds.
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md)
 
-The mock payment timeout records authorization before delaying its response, demonstrating why a timeout cannot prove payment failure. The mock supports a definite payment decline, shipping rejection and failed email delivery. These scenarios do not charge cards, ship goods or send real email.
+## order-service
 
-## Source evidence
+- Client POST /api/orders with Idempotency-Key
+- Create pending order and idempotency record
+- Reserve inventory via Inventory Service
+- Checkpoint order to reserved
+- Checkpoint order to payment_unknown before payment call
+- Authorize payment via Payment Service
+- Checkpoint order to paid
+- Create shipment via Shipping Service
+- Checkpoint order to confirmed
+- Insert order_outbox event for RabbitMQ delivery
+- Return 201 with confirmed order
 
-[Reviewed source snapshot](../catalog/source-evidence.json) and [deployment configuration](../compose.yaml). Original source baseline:
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md)
 
-- [customer-portal: nginx.conf](https://github.com/nagv/commercelens-customer-portal/blob/1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95/nginx.conf)
-- [order-service: src/main/java/com/commercelens/orders/OrderStore.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OrderStore.java)
-- [order-service: src/main/java/com/commercelens/orders/OutboxPublisher.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OutboxPublisher.java)
-- [order-service: src/main/java/com/commercelens/orders/Checkout.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/Checkout.java)
-- [inventory-service: main.go](https://github.com/nagv/commercelens-inventory-service/blob/160854d9317c07a55cb5a23703a0487bb98ab4d8/main.go)
-- [notification-worker: src/main.ts](https://github.com/nagv/commercelens-notification-worker/blob/4159264c5465925d8edc99a21fb49565401967d5/src/main.ts)
+## inventory-service
+
+- List products from inventory_products catalog
+- Receive reservation request with orderId and items
+- Validate JSON body size, unknown fields, and item constraints
+- Lock product rows with FOR UPDATE and serialize order with advisory lock
+- Read authoritative prices from inventory_products and decrement available stock
+- Store reservation and return priced items with subtotal and reserved status
+- Receive release request for orderId
+- Restore stock to inventory_products and mark reservation released
+
+Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/overview.md)
+
+## payment-service
+
+- Accept payment or refund request from upstream consumer
+- Validate input with Pydantic
+- Assign durable idempotency key
+- Forward request to external payment provider
+- Validate provider response
+- Return JSON result to caller
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md)
+
+## shipping-service
+
+- Receive shipment creation request with orderId, postalCode, and scenario
+- Validate input constraints before invoking provider
+- Send POST /shipments to provider with Idempotency-Key header equal to orderId
+- Validate provider response structure and fixed shippingCents value
+- Return shipment details or map failures to HTTP 502/504/422 with outcome status
+
+Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md)
+
+## notification-worker
+
+- Consume order.confirmed AMQP message
+- Parse and validate JSON payload
+- Upsert notification_deliveries and acquire advisory lock on hashtext(eventId)
+- Evaluate status gate (sent, dead, pending)
+- If pending, POST /email to HTTP provider with Idempotency-Key header
+- Persist final status, attempts, and last error to PostgreSQL
+- Ack sent messages or nack without requeue to dead-letter exhausted/invalid messages
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md)
 
 [Master entry point](quickstart.md)

@@ -1,55 +1,87 @@
 ---
 title: Service catalog
 type: reference
-description: Source-backed application-wide CommerceLens documentation.
-tags: [commercelens, catalog, architecture]
+sources:
+  - id: openwiki-source-9282d58f9c59816ad510f4a7
+    resource: repo://catalog/service-cards/customer-portal.json
+  - id: openwiki-source-b7e016f3ec280e840708a027
+    resource: repo://catalog/service-cards/inventory-service.json
+  - id: openwiki-source-af11939bbf8643c1b828a699
+    resource: repo://catalog/service-cards/notification-worker.json
+  - id: openwiki-source-b2e7a862b42617e41900fbed
+    resource: repo://catalog/service-cards/order-service.json
+  - id: openwiki-source-a00b66216a2ae442b9ddaee2
+    resource: repo://catalog/service-cards/payment-service.json
+  - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
+    resource: repo://catalog/service-cards/shipping-service.json
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T03:50:36.913Z
-sources:
-  - id: openwiki-source-b3c12cba5f5c82eed11eede7
-    resource: repo://catalog/source-evidence.json
-  - id: openwiki-source-e201e686a785f09b6d899f0b
-    resource: repo://compose.yaml
-generated: { by: "codex/openwiki-lifecycle-review", at: "2026-11-09T03:50:36.913Z" }
+    at: 2026-11-09T04:25:14.217Z
 ---
 
 # Service catalog
 
-## Services
-| Service | Stack | Responsibilities | Owned data | Service wiki |
-|---|---|---|---|---|
-| Customer portal | React / TypeScript, Nginx | Products, cart, checkout, order and notification visibility | Browser session idempotency key | [Wiki](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/quickstart.md) |
-| Order | Java / Spring Boot | Checkout orchestration, order lookup, product facade, outbox publication | PostgreSQL orders and order_outbox | [Wiki](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/quickstart.md) |
-| Inventory | Go | Product catalog, stock reservation and release | PostgreSQL inventory_products and inventory_reservations | [Wiki](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/quickstart.md) |
-| Payment | Python / FastAPI | Provider authorization and refund adapter | No own database | [Wiki](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/quickstart.md) |
-| Shipping | C# / ASP.NET Core | Shipment adapter and fixed rate endpoint | No own database | [Wiki](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/quickstart.md) |
-| Notification worker | Node.js / TypeScript | Consume confirmed orders, send email, expose delivery status | PostgreSQL notification_deliveries | [Wiki](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/quickstart.md) |
+| Service | Purpose | Stack | Detailed wiki |
+|---|---|---|---|
+| customer-portal | Provide a browser UI for a local CommerceLens sandbox where users browse products, place demo orders, and inspect order and notification history. | React 19, Vite, nginx | [Open service wiki](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/quickstart.md) |
+| order-service | Checkout coordinator that orchestrates inventory reservation, payment authorization, shipping creation, and durable outbox publishing. | Java 21, Spring Boot 3.4.2, PostgreSQL, RabbitMQ | [Open service wiki](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/quickstart.md) |
+| inventory-service | Internal Go HTTP service that owns authoritative product prices and stock reservations for the CommerceLens platform. | Go 1.23, net/http, PostgreSQL via pgx/v5, Docker multi-stage build | [Open service wiki](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/quickstart.md) |
+| payment-service | The Payment Service is the payment-authorization and refund boundary within CommerceLens that accepts payment and refund requests from upstream consumers, validates input with Pydantic, assigns durable idempotency keys, forwards the requests to an external payment provider, and returns a JSON result. | Python 3.12, FastAPI, httpx | [Open service wiki](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/quickstart.md) |
+| shipping-service | Exposes HTTP endpoints for retrieving a fixed shipping rate and creating shipments via an external HTTP provider, defaulting to the CommerceLens mock provider. | ASP.NET Core on .NET 8.0 | [Open service wiki](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/quickstart.md) |
+| notification-worker | Consume durable order.confirmed RabbitMQ messages, send order-confirmation emails via an HTTP provider, and persist delivery state in PostgreSQL. | Node.js 22, TypeScript, amqplib, pg | [Open service wiki](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/quickstart.md) |
 
-## Central repository
-CommerceLens owns Compose, mock providers, shared documentation instructions and this master wiki. It is not another business service or the frontend. The planned assistant API is not included in the implemented service count.
+## customer-portal
 
-See [dependencies](dependencies.md) for exact caller/callee relationships and [data and events](data-and-events.md) for storage ownership.
+- No programmatic interfaces exposed (consumer-only browser frontend)
 
-## Source evidence
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md)
 
-[Reviewed source snapshot](../catalog/source-evidence.json) and [deployment configuration](../compose.yaml). Original source baseline:
+## order-service
 
-- [customer-portal: nginx.conf](https://github.com/nagv/commercelens-customer-portal/blob/1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95/nginx.conf)
-- [customer-portal: src/api.ts](https://github.com/nagv/commercelens-customer-portal/blob/1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95/src/api.ts)
-- [customer-portal: src/main.tsx](https://github.com/nagv/commercelens-customer-portal/blob/1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95/src/main.tsx)
-- [order-service: src/main/java/com/commercelens/orders/RemoteServices.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/RemoteServices.java)
-- [order-service: src/main/java/com/commercelens/orders/OrderStore.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OrderStore.java)
-- [order-service: src/main/java/com/commercelens/orders/OutboxPublisher.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OutboxPublisher.java)
-- [order-service: src/main/java/com/commercelens/orders/Checkout.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/Checkout.java)
-- [order-service: src/main/java/com/commercelens/orders/OrderController.java](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/java/com/commercelens/orders/OrderController.java)
-- [order-service: src/main/resources/schema.sql](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/resources/schema.sql)
-- [order-service: src/main/resources/application.properties](https://github.com/nagv/commercelens-order-service/blob/cd8bdf02b98c4033b203fe554e12d95a46a13225/src/main/resources/application.properties)
-- [inventory-service: main.go](https://github.com/nagv/commercelens-inventory-service/blob/160854d9317c07a55cb5a23703a0487bb98ab4d8/main.go)
-- [payment-service: app.py](https://github.com/nagv/commercelens-payment-service/blob/55a3bce4ebb15f3c4b4558005c46e6bc5a6a53cd/app.py)
-- [shipping-service: Program.cs](https://github.com/nagv/commercelens-shipping-service/blob/e12ce558709ff52a0094cd1a1e2f67bdc6f32d00/Program.cs)
-- [notification-worker: src/main.ts](https://github.com/nagv/commercelens-notification-worker/blob/4159264c5465925d8edc99a21fb49565401967d5/src/main.ts)
-- [notification-worker: src/delivery.ts](https://github.com/nagv/commercelens-notification-worker/blob/4159264c5465925d8edc99a21fb49565401967d5/src/delivery.ts)
-- [notification-worker: src/lifecycle.ts](https://github.com/nagv/commercelens-notification-worker/blob/4159264c5465925d8edc99a21fb49565401967d5/src/lifecycle.ts)
+- HTTP GET /health
+- HTTP GET /api/products
+- HTTP GET /api/orders
+- HTTP GET /api/orders/{id}
+- HTTP POST /api/orders (requires Idempotency-Key; idempotent by key plus SHA-256 body hash)
+- AMQP publisher to order.confirmed on default exchange with DLX order.confirmed.dead
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md)
+
+## inventory-service
+
+- GET /health
+- GET /api/products
+- POST /api/reservations
+- POST /api/reservations/{orderId}/release
+
+Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/overview.md)
+
+## payment-service
+
+- GET /health
+- POST /api/payments
+- POST /api/payments/{paymentId}/refund
+- GET /docs
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md)
+
+## shipping-service
+
+- GET /health
+- GET /api/shipping/rate
+- POST /api/shipments
+
+Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md)
+
+## notification-worker
+
+- HTTP GET /health
+- HTTP GET /api/notifications (unauthenticated, max 100 rows)
+- AMQP consume queue order.confirmed (durable, prefetch 1)
+- AMQP dead-letter queue order.confirmed.dead
+- HTTP POST /email to external provider
+
+Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md)
 
 [Master entry point](quickstart.md)

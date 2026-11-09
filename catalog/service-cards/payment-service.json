@@ -1,0 +1,52 @@
+{
+  "id": "payment-service",
+  "repository": "https://github.com/nagv/commercelens-payment-service.git",
+  "pipeline_version": 1,
+  "model": "moonshotai/Kimi-K2.6",
+  "input_hash": "e3cda754da61750ceef1b2c7fbc19c2a0fd0f0f88a5c57c1dfbe0fcf3b58bdb4",
+  "page_hashes": {
+    "openwiki/operations/configuration.md": "5c54127edeeb45fd44b5a288c73572b8ac70464a8f6f642057d3d14e696dff0a",
+    "openwiki/quickstart.md": "71ffd9b68d0607aff9d4282aaf12d2b62eb86dade9185bf2477eba5097b04cfd",
+    "openwiki/runtime/payment-flows.md": "547a3800c562e459992d4572924034d5defacc344997e4f111441fd933430f4c",
+    "openwiki/safety/failure-model.md": "e6cfeaa277a46a514d5914a3837115c1f2087ecf6d19f8bad39911e7352710ec",
+    "openwiki/service-context.md": "0e7fbf818b1053f219b9b1c7d5fc8aba128519073c70f78f8281748239113a56"
+  },
+  "summary": {
+    "purpose": "The Payment Service is the payment-authorization and refund boundary within CommerceLens that accepts payment and refund requests from upstream consumers, validates input with Pydantic, assigns durable idempotency keys, forwards the requests to an external payment provider, and returns a JSON result.",
+    "stack": "Python 3.12, FastAPI, httpx",
+    "interfaces": [
+      "GET /health",
+      "POST /api/payments",
+      "POST /api/payments/{paymentId}/refund",
+      "GET /docs"
+    ],
+    "data": [],
+    "events": [],
+    "flow": [
+      "Accept payment or refund request from upstream consumer",
+      "Validate input with Pydantic",
+      "Assign durable idempotency key",
+      "Forward request to external payment provider",
+      "Validate provider response",
+      "Return JSON result to caller"
+    ],
+    "unknowns": [
+      "A logical external payment-provider boundary is documented; the configured default is a local mock. A production provider deployment is not established by this wiki."
+    ],
+    "evidence": [
+      "openwiki/service-context.md"
+    ],
+    "dependencies": [
+      {
+        "target": "Payment provider",
+        "kind": "http",
+        "interface": "POST /payments and POST /refunds with JSON body and Idempotency-Key header",
+        "evidence": "openwiki/service-context.md"
+      }
+    ]
+  },
+  "review": "Codex reviewed against selected service wiki pages; removed unsupported ambiguity claims and distinguished provider boundaries from mock deployments.",
+  "catalog_pages": [
+    "openwiki/service-context.md"
+  ]
+}

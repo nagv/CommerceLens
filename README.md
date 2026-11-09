@@ -46,11 +46,15 @@ After repositories complete, resolve cross-service dependencies, publish an appl
 
 Exclude generated output and dependencies. Do not blindly exclude source directories named lib or pages. Preserve contracts, tests, migrations, deployment configuration, and safe configuration examples.
 
-Proposed command, not yet implemented:
+Master catalog refresh (from compact service wiki summaries):
 
 ```text
-python -m app_context refresh --manifest services.yaml
+python scripts/refresh-catalog.py refresh --manifest services.example.yaml
+node scripts/finalize-catalog.mjs
+node scripts/link-wikis.mjs
 ```
+
+See [OpenWiki workflow](docs/OPENWIKI.md) for change detection, evidence review and adding services.
 
 ## Agent tools
 
