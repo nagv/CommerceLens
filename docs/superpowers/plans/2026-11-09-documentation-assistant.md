@@ -22,11 +22,11 @@
 - [x] Knowledge: deterministic relationship aggregation with evidence; heading-aware chunks and metadata; local search and incremental Pinecone sync; unit tests for filters, deletion and dependency direction.
 - [x] Assistant: bounded ask/plan routing, citation validation, structured outputs, latency/tool traces; CLI and simple local chat UI; tests with fake model/retriever.
 - [x] Evals: versioned golden dataset, repeated runs, deterministic checks, optional judge/RAGAS and LangSmith experiment upload; explicit failed/missing scores; unit tests.
-- [ ] Integration: configuration/providers, CLI, setup documentation, credential discovery, corpus build, all tests, live smoke where credentials allow; commit and report external blockers honestly.
+- [x] Integration: configuration/providers, CLI, setup documentation, credential discovery, corpus build, all tests, live smoke where credentials allow; commit and report external blockers honestly.
 
 ## Review focus
 Cross-service impact omissions; hallucinated citations; stale vector deletion; documentation-instruction injection; external failures reported as failures rather than empty successes.
 
 ## Execution record
 
-Code, CLI, UI, tests and a live Nebius/RAGAS/LangSmith smoke experiment are complete; see ../../AI_VERIFICATION.md. Pinecone project created; live index creation/ingestion remains blocked on the new project API key being saved locally. No existing index changed. The user explicitly approved Nebius documentation transfer and LangSmith dataset/evidence/result upload.
+Code, CLI, UI, tests and live Nebius/RAGAS/LangSmith experiments are complete; see ../../AI_VERIFICATION.md. The dedicated Pinecone index contains 452 chunks; repeat ingestion made no changes, filtered search passed, and the UI uses Pinecone. Three smoke cases repeated twice completed successfully and uploaded to LangSmith. Quality scores and variable latency remain evaluation findings, not production acceptance. No existing index changed. The user explicitly approved Nebius documentation transfer and LangSmith dataset/evidence/result upload.

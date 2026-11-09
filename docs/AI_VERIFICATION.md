@@ -31,4 +31,16 @@ These mixed scores are retained, not treated as passing quality gates. The refer
 Created a separate CommerceLens project under the user's organization:
 `b51c0ec7-1eec-4cfe-b86c-5a210843a0cf`.
 
-Its one-time default project key dialog is open for the user to copy the key into ignored CommerceLens/.env. At this verification point no project key was saved locally, no CommerceLens index was created, and no live vectors were uploaded. Existing Default-project indexes were untouched. Once configured: run `python -m commercelens_ai setup`, wait for ready, then `ingest`; verify Pinecone search and rerun the same evaluation dataset with the default Pinecone backend. Never describe local lexical results as live Pinecone validation.
+The new project key and index host are configured in ignored CommerceLens/.env. Index `commercelens-docs` is ready: 4096-dimensional dense vectors, cosine similarity, AWS us-east-1. Namespace `commercelens-docs-v1` contains 452 vectors, confirmed through live index statistics. Existing Default-project indexes were untouched.
+
+First ingestion upserted 452 chunks. Repeat ingestion returned zero upserts, zero deletions and 452 unchanged chunks. The local UI was restarted with the default Pinecone backend; its live chat endpoint answered the price/stock ownership question successfully, selected `inventory-service`, and completed in 6.921 seconds. Its health endpoint returned `ok`.
+
+Live filtered search (`service=inventory-service`, `level=service`, limit 3) returned three inventory service chunks, with matching metadata.
+
+## Live Pinecone evaluation
+
+Three smoke cases were run twice against Pinecone: six successful executions, six valid model-judge results, four valid RAGAS factual results, and two plan runs intentionally excluded from factual RAGAS scoring. Reference evidence hashes validated. Citation validity and expected-service recall were 1.0 across all six runs.
+
+Mean factual RAGAS scores: context recall 1.0, context precision 0.7364, faithfulness 0.7976, factual correctness F1 0.6350, answer relevancy 0.6593. Assistant latency ranged from 4.0 to 147.86 seconds (mean 42.47 seconds). These results validate the integration, not production quality or latency acceptance. The provider returned one generation where answer relevancy requested three; RAGAS proceeded with one, reducing sampling for that metric.
+
+LangSmith experiment: `commercelens-eval-0f1b4c9a0c85`; project ID `0e2499f2-5733-4f9b-8b8a-aca7bf8c2e5e`. Dataset: `commercelens-golden-11b1e956f9-bf142730`; dataset ID `fcf3e867-f5fe-4727-a881-d0ca27da3949`. All six runs uploaded successfully. Local artifacts: `evals/results/live-smoke-pinecone/summary.json` and `runs.jsonl` (ignored by Git).
