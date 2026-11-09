@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "application_id": "commercelens",
+  "nodes": [
+    {
+      "id": "Payment provider",
+      "name": "Payment provider",
+      "type": "external"
+    },
+    {
+      "id": "PostgreSQL",
+      "name": "PostgreSQL",
+      "type": "external"
+    },
+    {
+      "id": "RabbitMQ",
+      "name": "RabbitMQ",
+      "type": "external"
+    },
+    {
+      "id": "Shipping provider",
+      "name": "Shipping provider",
+      "type": "external"
+    },
+    {
+      "id": "customer-portal",
+      "name": "customer-portal",
+      "type": "service",
+      "aliases": [
+        "web-portal"
+      ]
+    },
+    {
+      "id": "email-provider",
+      "name": "email-provider",
+      "type": "external"
+    },
+    {
+      "id": "inventory-service",
+      "name": "inventory-service",
+      "type": "service",
+      "aliases": [
+        "inventory-api",
+        "inventory.internal"
+      ]
+    },
+    {
+      "id": "notification-worker",
+      "name": "notification-worker",
+      "type": "service",
+      "aliases": [
+        "notifications"
+      ]
+    },
+    {
+      "id": "order-service",
+      "name": "order-service",
+      "type": "service",
+      "aliases": [
+        "orders-api",
+        "orders.internal"
+      ]
+    },
+    {
+      "id": "payment-service",
+      "name": "payment-service",
+      "type": "service",
+      "aliases": [
+        "payments-api",
+        "payments.internal"
+      ]
+    },
+    {
+      "id": "postgresql",
+      "name": "postgresql",
+      "type": "external"
+    },
+    {
+      "id": "queue:order.confirmed",
+      "name": "order.confirmed",
+      "type": "queue",
+      "broker": "rabbitmq"
+    },
+    {
+      "id": "rabbitmq",
+      "name": "rabbitmq",
+      "type": "external"
+    },
+    {
+      "id": "shipping-service",
+      "name": "shipping-service",
+      "type": "service",
+      "aliases": [
+        "shipping-api",
+        "shipping.internal"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "customer-portal",
+      "to": "notification-worker",
+      "type": "http",
+      "purpose": "HTTP /api/notifications",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "customer-portal",
+      "raw_target": "notification-worker",
+      "raw_kind": "consumes",
+      "evidence_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md",
+      "evidence_version": "385e58114654ed68924d03062cee359663461cfc1e13cf9ec3916410fd5bcc68"
+    },
+    {
+      "from": "customer-portal",
+      "to": "order-service",
+      "type": "http",
+      "purpose": "HTTP /api/products, /api/orders, /api/orders/{id}",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "customer-portal",
+      "raw_target": "order-service",
+      "raw_kind": "consumes",
+      "evidence_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md",
+      "evidence_version": "385e58114654ed68924d03062cee359663461cfc1e13cf9ec3916410fd5bcc68"
+    },
+    {
+      "from": "inventory-service",
+      "to": "PostgreSQL",
+      "type": "database",
+      "purpose": "TCP/Unix socket, SQL via pgxpool",
+      "evidence": "openwiki/service/dependencies.md",
+      "evidence_service": "inventory-service",
+      "raw_target": "PostgreSQL",
+      "raw_kind": "database",
+      "evidence_url": "https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md",
+      "evidence_version": "c6ef069bd5c931988ad849dbd6620292ac21ec2567e62a648fff20388dcccfb0"
+    },
+    {
+      "from": "notification-worker",
+      "to": "email-provider",
+      "type": "external",
+      "purpose": "POST /email with Idempotency-Key header",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "notification-worker",
+      "raw_target": "email-provider",
+      "raw_kind": "external",
+      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
+    },
+    {
+      "from": "notification-worker",
+      "to": "postgresql",
+      "type": "database",
+      "purpose": "Table notification_deliveries (CRUD + advisory lock)",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "notification-worker",
+      "raw_target": "postgresql",
+      "raw_kind": "database",
+      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
+    },
+    {
+      "from": "order-service",
+      "to": "PostgreSQL",
+      "type": "database",
+      "purpose": "orders table, order_outbox table",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "order-service",
+      "raw_target": "PostgreSQL",
+      "raw_kind": "database",
+      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
+    },
+    {
+      "from": "order-service",
+      "to": "inventory-service",
+      "type": "http",
+      "purpose": "POST /api/reservations, POST /api/reservations/{id}/release, GET /api/products",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "order-service",
+      "raw_target": "Inventory Service",
+      "raw_kind": "http",
+      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
+    },
+    {
+      "from": "order-service",
+      "to": "payment-service",
+      "type": "http",
+      "purpose": "POST /api/payments, POST /api/payments/{paymentId}/refund",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "order-service",
+      "raw_target": "Payment Service",
+      "raw_kind": "http",
+      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
+    },
+    {
+      "from": "order-service",
+      "to": "queue:order.confirmed",
+      "type": "publishes",
+      "purpose": "order.confirmed queue, order.confirmed.dead DLQ",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "order-service",
+      "raw_target": "RabbitMQ",
+      "raw_kind": "publishes",
+      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
+    },
+    {
+      "from": "order-service",
+      "to": "shipping-service",
+      "type": "http",
+      "purpose": "POST /api/shipments",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "order-service",
+      "raw_target": "Shipping Service",
+      "raw_kind": "http",
+      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
+    },
+    {
+      "from": "payment-service",
+      "to": "Payment provider",
+      "type": "http",
+      "purpose": "POST /payments and POST /refunds with JSON body and Idempotency-Key header",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "payment-service",
+      "raw_target": "Payment provider",
+      "raw_kind": "http",
+      "evidence_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+      "evidence_version": "0e7fbf818b1053f219b9b1c7d5fc8aba128519073c70f78f8281748239113a56"
+    },
+    {
+      "from": "queue:order.confirmed",
+      "to": "notification-worker",
+      "type": "consumes",
+      "purpose": "Queue order.confirmed (durable, DLX to order.confirmed.dead)",
+      "evidence": "openwiki/service-context.md",
+      "evidence_service": "notification-worker",
+      "raw_target": "rabbitmq",
+      "raw_kind": "consumes",
+      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
+    },
+    {
+      "from": "shipping-service",
+      "to": "Shipping provider",
+      "type": "http",
+      "purpose": "POST /shipments",
+      "evidence": "openwiki/service/overview.md",
+      "evidence_service": "shipping-service",
+      "raw_target": "Shipping provider",
+      "raw_kind": "http",
+      "evidence_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md",
+      "evidence_version": "475db81bbc5c78a1ea8131399aa64ce87d4a9c7749bcbc3eb90e559314220c81"
+    }
+  ],
+  "warnings": [
+    "notification-worker: unregistered target email-provider",
+    "notification-worker: unregistered target postgresql",
+    "notification-worker: unregistered target rabbitmq",
+    "order-service: unregistered target PostgreSQL",
+    "order-service: unregistered target RabbitMQ",
+    "payment-service: unregistered target Payment provider",
+    "shipping-service: unregistered target Shipping provider"
+  ],
+  "version": "635c89e7e4c3a783487487ae46fbe6574e6b95506bfd97816e88946c0beb4d75"
+}

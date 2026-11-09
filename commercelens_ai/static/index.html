@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CommerceLens · Documentation assistant</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><main>
+<header><p class="eyebrow">COMMERCELENS / KNOWLEDGE</p><h1>Understand the system.<br>Plan your next change.</h1><p>Ask about documented behavior or build a high-level change plan with linked evidence.</p></header>
+<section aria-labelledby="chat-title"><h2 id="chat-title">Documentation assistant</h2>
+<div id="conversation" aria-live="polite"><p class="intro">Try “How does an order reach shipping?” or plan “Add delivery status notifications.” Each request is independent; include the context you want considered.</p></div>
+<form id="chat-form"><fieldset><legend>What would you like to do?</legend><label><input type="radio" name="mode" value="ask" checked> Ask a question</label><label><input type="radio" name="mode" value="plan"> Plan a change</label></fieldset>
+<label for="question">Question or proposed change</label><textarea id="question" name="question" rows="4" maxlength="8000" required placeholder="Describe what you want to understand or change…"></textarea>
+<div class="form-footer"><span id="status" role="status">Documentation only · No code changes</span><button id="submit" type="submit">Send question</button></div></form>
+</section><footer>Answers are generated from retrieved documentation. Citation checks verify source IDs; review the linked evidence for accuracy.</footer>
+</main></body></html>

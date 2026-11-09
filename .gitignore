@@ -19,3 +19,8 @@ openwiki/.run.json
 
 # Machine-local OpenWiki workspace roots
 catalog/workspace-roots.json
+
+# Assistant runtime, private eval outputs and isolated environment
+.ai-venv/
+.data/
+evals/results/
