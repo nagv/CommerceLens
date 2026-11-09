@@ -170,4 +170,3 @@ def main():
  save(ROOT/'catalog/workspace-roots.json',{'roots':[str((manifest.parent/s['path']).resolve()) for s in services]+[str(ROOT.resolve())]})
  print(f'Model calls: {calls}; changed master pages: {len(changed)}. Review then run node scripts/finalize-catalog.mjs')
 if __name__=='__main__':main()
-
