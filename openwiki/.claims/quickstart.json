@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:1677b9b6d5d7c0eb8d9fc5b58f28ec54f99710a9be1c091ff094a39365283880",
+  "claims": [
+    {
+      "id": "claim_ba83922c4c1c4ff6b54a3cb3a26d728a",
+      "statement": "CommerceLens links six business service repositories and owns their Compose orchestration.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T03:50:36.913Z"
+  }
+}

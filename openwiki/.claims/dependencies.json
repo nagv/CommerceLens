@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:0b22d648e3311a7fe6a58e31c2642a1daf8d5391c3c95164a6ab30ecf532b9a9",
+  "claims": [
+    {
+      "id": "claim_dfcc179380e1466e8ef82d1bc1786951",
+      "statement": "Portal proxies /api/notifications to Notification and other /api/ requests to Order.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    },
+    {
+      "id": "claim_aef9f2093384426c95ad2965479d981e",
+      "statement": "Order calls Inventory, Payment and Shipping through HTTP.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T03:50:36.913Z"
+  }
+}

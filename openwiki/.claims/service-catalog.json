@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3436d348fa8c59007b5b5102df6971d7e747df14636f6d4c9b27cb3d277baaad",
+  "claims": [
+    {
+      "id": "claim_c2c9ea139fa1499eb273210e637aebba",
+      "statement": "Inventory owns product catalog and reservation storage; Payment and Shipping adapt HTTP providers without their own application databases.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T03:50:36.913Z"
+  }
+}

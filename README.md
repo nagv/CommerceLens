@@ -2,13 +2,13 @@
 
 Runnable service MVP and roadmap for a polyglot commerce application, application-context pipeline, agentic RAG assistant, and evaluation harness.
 
-Status: six application services and the customer/operations UI are implemented. Docker Compose runs the connected checkout flow with PostgreSQL, RabbitMQ, and explicit mock external providers. Documentation generation, catalog aggregation, Pinecone, the chatbot, and RAG evaluations remain subsequent milestones. See [the runbook](docs/RUNBOOK.md) for startup and verification.
+Status: six application services and the customer/operations UI are implemented. Docker Compose runs the connected checkout flow with PostgreSQL, RabbitMQ, and explicit mock external providers. Graphify and OpenWiki service documentation and the [master catalog](openwiki/quickstart.md) are available. Pinecone, the chatbot, and RAG evaluations remain subsequent milestones. See [the runbook](docs/RUNBOOK.md) for startup and verification.
 
 ## Product UI
 
 - Customer portal: product browsing, cart, checkout, payment state, and order tracking.
 - Operations dashboard: order details, inventory availability, job outcomes, and external integration failures.
-- Application assistant: embedded chat with streaming answers, source citations, service links, documentation freshness, and feedback.
+- Planned application assistant: embedded chat with streaming answers, source citations, service links, documentation freshness, and feedback.
 
 The assistant initially answers questions about documented architecture and behavior. Live operational questions require explicit read-only operational tools; documentation retrieval alone cannot establish current system status.
 

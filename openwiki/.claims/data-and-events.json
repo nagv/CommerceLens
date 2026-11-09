@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4f87cac5763d890689359238d397eb1ea669bc2259ae82024ce844119660d39a",
+  "claims": [
+    {
+      "id": "claim_75bb55cb0e37474683c76ecbb048c301",
+      "statement": "Order persists confirmed orders and outbox rows transactionally and publishes order.confirmed events.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    },
+    {
+      "id": "claim_69ff31b63d954de4be16827034234822",
+      "statement": "Notification tracks delivery attempts in PostgreSQL and consumes order.confirmed with a dead-letter queue.",
+      "evidence": [
+        {
+          "resource": "repo://catalog/source-evidence.json",
+          "version": "repo-file-v1:sha256:3d2a1ee24e7793ce5edbbd0852ca0873e5952745df8e61282272a1004a32c496"
+        },
+        {
+          "resource": "repo://compose.yaml",
+          "version": "repo-file-v1:sha256:71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T03:50:36.913Z"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "quickstart.md": [
+    "CommerceLens links six business service repositories and owns their Compose orchestration."
+  ],
+  "application-overview.md": [
+    "Order coordinates inventory reservation, payment and shipment, and emits confirmed-order events for Notification.",
+    "Order, Inventory and Notification own separate PostgreSQL databases."
+  ],
+  "service-catalog.md": [
+    "Inventory owns product catalog and reservation storage; Payment and Shipping adapt HTTP providers without their own application databases."
+  ],
+  "dependencies.md": [
+    "Portal proxies /api/notifications to Notification and other /api/ requests to Order.",
+    "Order calls Inventory, Payment and Shipping through HTTP."
+  ],
+  "data-and-events.md": [
+    "Order persists confirmed orders and outbox rows transactionally and publishes order.confirmed events.",
+    "Notification tracks delivery attempts in PostgreSQL and consumes order.confirmed with a dead-letter queue."
+  ],
+  "checkout-flow.md": [
+    "Checkout checkpoints payment_unknown before payment and treats only payment HTTP 402 as a definite decline.",
+    "Uncertain shipping failures retain payment and stock for manual_review; definite shipping rejection attempts refund and release."
+  ]
+}
