@@ -12,3 +12,7 @@ coverage/
 *.log
 services.yaml
 .context-work/
+.graphify-venv/
+graphify-out/cache/
+graphify-out/.graphify_root
+openwiki/.run.json

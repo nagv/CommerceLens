@@ -1,0 +1,28 @@
+# CommerceLens OpenWiki documentation
+
+Completed on November 8, 2026 (America/New_York). OpenWiki 0.7.2 generated the service wikis using the configured Nebius `moonshotai/Kimi-K2.6` model, after Graphify extraction. The user authorized transmitting these demo repositories. All six user-authored instruction files were preserved byte-for-byte.
+
+| Service | Markdown pages including navigation indexes | Lifecycle status | Entry point |
+| --- | ---: | --- | --- |
+| customer-portal | 13 | complete | [Quickstart](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/quickstart.md) |
+| order-service | 17 | complete | [Quickstart](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/quickstart.md) |
+| inventory-service | 15 | complete | [Quickstart](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/quickstart.md) |
+| payment-service | 9 | complete | [Quickstart](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/quickstart.md) |
+| shipping-service | 8 | complete | [Quickstart](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/quickstart.md) |
+| notification-worker | 10 | complete | [Quickstart](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/quickstart.md) |
+
+## Verification
+
+All six wikis passed OpenWiki lifecycle submission and finalization. Each `.last-update.json` reports `complete`; no `.run.json` remains. Every local Markdown file link resolves and generated JSON metadata parses. Source and tests remained unchanged. Configured credential values were checked against generated artifacts without printing them. This is structural verification and targeted source review, not exhaustive factual certification.
+
+## Recovery and corrections
+
+Nebius generation repeatedly failed to submit the Order planning tool call. After reviewing the missing failure-handling page against Checkout.java and CheckoutTest.java, the host used OpenWiki begin/submit-plan/submit-page/finish lifecycle APIs. Existing issue-free claims were retained; the missing page received explicit source-backed claims. The same lifecycle gates reconciled all six wikis after navigation repairs. No completion status was edited by hand. Metadata identifies the finalizer as `codex-host-review`.
+
+Repairs included relative navigation/source links, an unsupported Payment PORT configuration claim, and Order failure-state labels and uncertainty wording. No LangSmith connector data was ingested because connectors were not configured.
+
+## Updating
+
+Run `openwiki --update --print` inside a service repository after source changes. Check both the exit code and `.last-update.json`; exit zero can accompany skipped pages. Preserve `openwiki/INSTRUCTIONS.md`.
+
+Source commit IDs record the application baseline used for generation. Later documentation-only commits do not imply application changes. Reports, graphs, wikis and durable claim/page metadata are versioned; execution logs, transient run state, Graphify caches and machine-specific root paths remain local. Local entry points are `<service-repository>/openwiki/quickstart.md`.

@@ -1,0 +1,296 @@
+{
+  "communities": {
+    "0": [
+      "concurrent_futures",
+      "contextlib",
+      "hashlib",
+      "http_server",
+      "json",
+      "mock_providers_server",
+      "mock_providers_server_rationale_1",
+      "os",
+      "scripts_smoke",
+      "scripts_smoke_checkout",
+      "scripts_smoke_main",
+      "scripts_smoke_rationale_1",
+      "scripts_smoke_request",
+      "scripts_smoke_wait_notification",
+      "scripts_smoke_wait_ready",
+      "sqlite3",
+      "time",
+      "urllib_error",
+      "urllib_request",
+      "uuid"
+    ],
+    "1": [
+      "compose_depends_on_inventory_service",
+      "compose_depends_on_mock_providers",
+      "compose_depends_on_notifications_db",
+      "compose_depends_on_orders_db",
+      "compose_depends_on_payment_service",
+      "compose_depends_on_rabbitmq",
+      "compose_depends_on_shipping_service",
+      "compose_inventory_service_condition",
+      "compose_mock_providers_condition",
+      "compose_notification_worker_depends_on",
+      "compose_notifications_db_condition",
+      "compose_order_service_build",
+      "compose_order_service_depends_on",
+      "compose_orders_db_condition",
+      "compose_payment_service_condition",
+      "compose_rabbitmq_condition",
+      "compose_services_order_service",
+      "compose_shipping_service_condition"
+    ],
+    "2": [
+      "compose",
+      "compose_customer_portal_build",
+      "compose_customer_portal_depends_on",
+      "compose_customer_portal_ports",
+      "compose_mock_providers_build",
+      "compose_mock_providers_volumes",
+      "compose_name",
+      "compose_services",
+      "compose_services_customer_portal",
+      "compose_services_mock_providers",
+      "compose_volumes",
+      "compose_volumes_inventory_data",
+      "compose_volumes_notifications_data",
+      "compose_volumes_orders_data",
+      "compose_volumes_provider_data",
+      "compose_volumes_rabbit_data"
+    ],
+    "3": [
+      "importlib_util",
+      "io",
+      "pathlib",
+      "tempfile",
+      "tests_test_mock_providers",
+      "tests_test_mock_providers_providertests",
+      "tests_test_mock_providers_providertests_setup",
+      "tests_test_mock_providers_providertests_teardown",
+      "tests_test_mock_providers_providertests_test_chunked_request_from_dotnet_client",
+      "tests_test_mock_providers_providertests_test_conflicting_payment_rejected",
+      "tests_test_mock_providers_providertests_test_decline_does_not_authorize",
+      "tests_test_mock_providers_providertests_test_invalid_amount_and_missing_id_rejected",
+      "tests_test_mock_providers_providertests_test_payment_replay_has_same_id_and_one_operation",
+      "tests_test_mock_providers_providertests_test_refund_is_idempotent",
+      "tests_test_mock_providers_providertests_test_shipping_failure_and_email_failure",
+      "unittest"
+    ],
+    "4": [
+      "compose_environment_postgres_db",
+      "compose_environment_postgres_password",
+      "compose_environment_postgres_user",
+      "compose_inventory_db_environment",
+      "compose_inventory_db_image",
+      "compose_inventory_db_volumes",
+      "compose_notifications_db_environment",
+      "compose_notifications_db_image",
+      "compose_notifications_db_volumes",
+      "compose_orders_db_environment",
+      "compose_orders_db_image",
+      "compose_orders_db_volumes",
+      "compose_services_inventory_db",
+      "compose_services_notifications_db",
+      "compose_services_orders_db"
+    ],
+    "5": [
+      "compose_depends_on_inventory_db",
+      "compose_environment_database_url",
+      "compose_environment_email_provider_url",
+      "compose_environment_provider_timeout_ms",
+      "compose_environment_rabbitmq_url",
+      "compose_inventory_db_condition",
+      "compose_inventory_service_build",
+      "compose_inventory_service_depends_on",
+      "compose_inventory_service_environment",
+      "compose_notification_worker_build",
+      "compose_notification_worker_environment",
+      "compose_services_inventory_service",
+      "compose_services_notification_worker"
+    ],
+    "6": [
+      "services_example",
+      "services_example_application",
+      "services_example_application_id",
+      "services_example_application_name",
+      "services_example_pipeline",
+      "services_example_pipeline_graphify_command",
+      "services_example_pipeline_openwiki_command",
+      "services_example_pipeline_per_repository_order",
+      "services_example_services",
+      "services_example_services_aliases",
+      "services_example_services_id",
+      "services_example_services_path",
+      "services_example_services_repository"
+    ],
+    "7": [
+      "compose_environment_inventory_url",
+      "compose_environment_payment_url",
+      "compose_environment_shipping_url",
+      "compose_environment_spring_datasource_password",
+      "compose_environment_spring_datasource_url",
+      "compose_environment_spring_datasource_username",
+      "compose_environment_spring_rabbitmq_host",
+      "compose_environment_spring_rabbitmq_password",
+      "compose_environment_spring_rabbitmq_port",
+      "compose_environment_spring_rabbitmq_username",
+      "compose_order_service_environment"
+    ],
+    "8": [
+      "compose_environment_payment_provider_url",
+      "compose_environment_provider_timeout_seconds",
+      "compose_environment_shipping_provider_url",
+      "compose_payment_service_build",
+      "compose_payment_service_depends_on",
+      "compose_payment_service_environment",
+      "compose_services_payment_service",
+      "compose_services_shipping_service",
+      "compose_shipping_service_build",
+      "compose_shipping_service_depends_on",
+      "compose_shipping_service_environment"
+    ],
+    "9": [
+      "compose_healthcheck_interval",
+      "compose_healthcheck_retries",
+      "compose_healthcheck_test",
+      "compose_healthcheck_timeout",
+      "compose_inventory_db_healthcheck",
+      "compose_notifications_db_healthcheck",
+      "compose_orders_db_healthcheck",
+      "compose_rabbitmq_healthcheck"
+    ],
+    "10": [
+      "compose_environment_rabbitmq_default_pass",
+      "compose_environment_rabbitmq_default_user",
+      "compose_rabbitmq_environment",
+      "compose_rabbitmq_image",
+      "compose_rabbitmq_ports",
+      "compose_rabbitmq_volumes",
+      "compose_services_rabbitmq"
+    ],
+    "11": [
+      "basehttprequesthandler",
+      "mock_providers_server_handler",
+      "mock_providers_server_handler_do_get",
+      "mock_providers_server_handler_do_post",
+      "mock_providers_server_handler_read_body",
+      "mock_providers_server_handler_send_json"
+    ],
+    "12": [
+      "mock_providers_server_store",
+      "mock_providers_server_store_count",
+      "mock_providers_server_store_init",
+      "mock_providers_server_store_process"
+    ],
+    "13": [
+      "scripts_bootstrap"
+    ],
+    "14": [
+      "scripts_graphify"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1631578947368421,
+    "1": 0.1111111111111111,
+    "2": 0.125,
+    "3": 0.125,
+    "4": 0.17142857142857143,
+    "5": 0.15384615384615385,
+    "6": 0.15384615384615385,
+    "7": 0.18181818181818182,
+    "8": 0.18181818181818182,
+    "9": 0.5714285714285714,
+    "10": 0.2857142857142857,
+    "11": 0.5333333333333333,
+    "12": 0.5,
+    "13": 1.0,
+    "14": 1.0
+  },
+  "gods": [
+    {
+      "id": "compose_services",
+      "label": "services",
+      "degree": 12
+    },
+    {
+      "id": "compose_order_service_environment",
+      "label": "environment",
+      "degree": 11
+    },
+    {
+      "id": "tests_test_mock_providers_providertests",
+      "label": "ProviderTests",
+      "degree": 10
+    },
+    {
+      "id": "mock_providers_server_handler",
+      "label": "Handler",
+      "degree": 6
+    },
+    {
+      "id": "scripts_smoke_main",
+      "label": "main()",
+      "degree": 6
+    },
+    {
+      "id": "compose_order_service_depends_on",
+      "label": "depends_on",
+      "degree": 6
+    },
+    {
+      "id": "compose_services_rabbitmq",
+      "label": "rabbitmq",
+      "degree": 6
+    },
+    {
+      "id": "compose_volumes",
+      "label": "volumes",
+      "degree": 6
+    },
+    {
+      "id": "scripts_smoke_request",
+      "label": "request()",
+      "degree": 5
+    },
+    {
+      "id": "compose_services_inventory_db",
+      "label": "inventory-db",
+      "degree": 5
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `services` connect `Community 2` to `Community 1`, `Community 4`, `Community 5`, `Community 8`, `Community 10`?",
+      "why": "High betweenness centrality (0.309) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `order-service` connect `Community 1` to `Community 2`, `Community 7`?",
+      "why": "High betweenness centrality (0.136) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.125 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `environment` connect `Community 7` to `Community 1`?",
+      "why": "High betweenness centrality (0.074) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.125 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
