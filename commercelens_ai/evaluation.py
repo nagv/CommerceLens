@@ -45,8 +45,10 @@ def deterministic_checks(case, result):
         allowed=set(ids)
         valid=sum(bool(c.get('id') in allowed and c.get('source_url') and
                        re.search(r'\['+re.escape(c['id'])+r'\]', answer)) for c in citations)
-        validity=valid/len(citations) if citations else 0.0
+        optional = case.get('citation_policy') == 'optional' and not result.get('factual_claims', False)
+        validity=valid/len(citations) if citations else (None if optional else 0.0)
     return dict(service_recall=len(expected & selected)/len(expected) if expected else None,
+                behavior_match=float(case.get('expected_behavior','answer') == result.get('behavior', 'unknown' if result.get('status')=='insufficient_evidence' else 'answer')),
                 citation_validity=validity,
                 lexical_required_fact_coverage=_coverage(case.get('required_facts', []), answer),
                 lexical_consideration_coverage=_coverage(case.get('required_considerations', []), answer),
@@ -68,9 +70,24 @@ def _judge(judge, case, result):
                 "Plan quality: high-level service impacts, sequence, validation and risks; proposals must be "
                 "labeled and are not unique correct answers. Set plan_quality null for ask mode. "
                 "Do not reward source-code/file/line implementation instructions for plans.")
+        behavioral = 'expected_behavior' in case
+        if behavioral:
+            prompt += (" Also return correctness and behavior_appropriateness, numbers from 0 to 1. "
+                       "Correctness compares MEANING against the reference and acceptance_criteria, including negation, quantities, and causal direction, not keyword overlap. "
+                       "Do not penalize correct paraphrases or reward a matching word in a contradictory claim. "
+                       "behavior_appropriateness judges actual answer text against expected_behavior, not the model's self-reported label. "
+                       "Clarify must ask a useful focused question without assuming missing details; redirect must stay in scope; "
+                       "unknown must acknowledge unavailable information without inventing facts; uncertain must qualify only what evidence cannot establish. "
+                       "Partial answers must answer supported parts and explicitly separate missing information. "
+                       "Pure clarification, scope or abstention needs no citation; factual assertions always need support. "
+                       "Grade completeness against behavior-specific acceptance criteria. Treat forbidden_assumptions semantically: a denial is not an endorsement. "
+                       "Judge correctness against the approved reference separately from groundedness against retrieved evidence. "
+                       "Only require discussion of documentation conflicts when the case criteria require it. Do not require technical details absent from the reference.")
         values=json.loads(judge.complete([{'role':'system','content':prompt},
                                          {'role':'user','content':json.dumps({'case':case,'result':result})}]))
         keys={'groundedness','completeness','plan_quality','uncertainty'}
+        if behavioral:
+            keys.update(('correctness','behavior_appropriateness'))
         if not isinstance(values, dict) or set(values)!=keys:
             raise ValueError('Invalid rubric keys')
         for key, value in values.items():
@@ -94,6 +111,8 @@ def _strip_known_citations(text, known_ids):
 def _ragas(case, result, enabled, llm, embeddings):
     if not enabled:
         return {'status':'skipped'}
+    if case.get('expected_behavior','answer') != 'answer' or result.get('behavior','answer') != 'answer':
+        return {'status':'skipped','reason':'Behavioral response: use semantic behavior rubric; factual RAGAS suite is not applicable.'}
     if case['mode']=='plan':
         return {'status':'skipped','reason':'High-level proposed plans have no unique factual reference. '
                 'Use the plan judge to assess factual premises separately from proposed future steps.',
@@ -182,7 +201,7 @@ def _reference_snapshot(cases, evidence_root):
     mismatches=[]
     for case in cases:
         evidence=case.get('reference_evidence', [])
-        if not evidence:
+        if not evidence and not (case.get('expected_behavior') in ('clarify','redirect') and case.get('reference_kind')=='behavior_rubric'):
             mismatches.append({'case_id':case['id'],'path':None,'reason':'missing_reference_evidence'})
         for item in evidence:
             relative=item.get('path')
@@ -206,7 +225,7 @@ def _reference_snapshot(cases, evidence_root):
 def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=None,
                    ragas=False, langsmith=False, *, ragas_llm=None, ragas_embeddings=None,
                    langsmith_client=None, dataset_name='commercelens-golden', experiment_name=None,
-                   evidence_root=None):
+                   evidence_root=None, case_mode=None):
     """Run every case repeatedly, retaining failures. Flags opt into external data transfer.
 
     A supplied judge sends the answer, contexts and reference rubric to that model.
@@ -220,6 +239,10 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
     content=Path(dataset_path).read_bytes()
     digest=hashlib.sha256(content).hexdigest()
     cases=[json.loads(line) for line in content.decode('utf-8-sig').splitlines() if line.strip()]
+    if case_mode not in (None,'ask','plan'):
+        raise ValueError('Invalid evaluation mode')
+    if case_mode:
+        cases=[case for case in cases if case['mode']==case_mode]
     if not cases or len({c['id'] for c in cases})!=len(cases):
         raise ValueError('Dataset must have unique cases')
     for case in cases:
@@ -227,6 +250,8 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
             raise ValueError('Invalid case mode or question')
         if case['mode']=='ask' and not case.get('reference'):
             raise ValueError('Factual cases need references')
+        if case.get('expected_behavior','answer') not in ('answer','partial_answer','uncertain','unknown','clarify','redirect'):
+            raise ValueError('Invalid expected behavior')
     output=Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     snapshot=_reference_snapshot(cases,evidence_root)
@@ -248,7 +273,7 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
                     result=assistant.run(case['question'],mode=case['mode'])
                     row['result']=result
                     row['checks']=_efficiency_metrics(result)
-                    row['status']='ok' if result.get('status') in ('ok','success','completed') else 'failed'
+                    row['status']='ok' if result.get('status') in ('ok','success','completed','insufficient_evidence') else 'failed'
                     if row['status']=='ok':
                         row['checks']=deterministic_checks(case,result)
                         row['judge']=_judge(judge,case,result)
@@ -270,7 +295,7 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
         metrics[key]={'mean':statistics.mean(values) if values else None,
                       'count':len(values),'missing_count':len(rows)-len(values),
                       'min':min(values) if values else None,'max':max(values) if values else None}
-    summary=dict(dataset_sha256=digest,case_count=len(cases),repetitions=repetitions,
+    summary=dict(dataset_sha256=digest,case_mode=case_mode,case_count=len(cases),repetitions=repetitions,
                  reference_snapshot_status=snapshot,
                  run_count=len(rows),failure_count=sum(r['status']!='ok' for r in rows),metrics=metrics,
                  judge=dict(Counter(r['judge']['status'] for r in rows)),

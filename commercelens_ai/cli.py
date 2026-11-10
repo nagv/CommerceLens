@@ -78,6 +78,7 @@ def main(argv=None):
         p=sub.add_parser(mode);p.add_argument('question');p.add_argument('--json',action='store_true');p.add_argument('--output',type=Path)
     p=sub.add_parser('serve');p.add_argument('--port',type=int,default=8090)
     p=sub.add_parser('evaluate');p.add_argument('--dataset',type=Path,default=ROOT/'evals/golden.jsonl');p.add_argument('--output',type=Path)
+    p.add_argument('--mode',choices=['ask','plan'],help='Evaluate only the selected feature')
     p.add_argument('--repetitions',type=int,default=1);p.add_argument('--judge',action='store_true');p.add_argument('--ragas',action='store_true');p.add_argument('--langsmith',action='store_true')
     args=parser.parse_args(argv)
     from .config import Settings
@@ -130,7 +131,7 @@ def main(argv=None):
             output=args.output or ROOT/'evals/results'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
             result=run_evaluation(assistant,args.dataset,output,repetitions=args.repetitions,
                 judge=OpenAICompatibleModel(settings.chat_api_key,settings.chat_base_url,settings.chat_model) if args.judge else None,
-                ragas=args.ragas,langsmith=args.langsmith,evidence_root=ROOT,**kwargs)
+                ragas=args.ragas,langsmith=args.langsmith,evidence_root=ROOT,case_mode=args.mode,**kwargs)
             print(json.dumps(result,indent=2,ensure_ascii=False));print('Results: '+str(output))
             return 0 if result.get('failure_count',0)==0 and result.get('langsmith',{}).get('status')!='error' and not any(result.get('judge',{}).get(k,0) or result.get('ragas',{}).get(k,0) for k in ['error','missing_configuration','missing_dependency']) else 2
         result=assistant.run(args.question,mode=args.command);result['retrieval_backend']=args.backend

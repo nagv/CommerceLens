@@ -72,11 +72,11 @@ Budgets default to 12 retrieval/relationship calls, 3 model calls, 6 candidate s
 .ai-venv\Scripts\python.exe -m commercelens_ai --trace evaluate --repetitions 3 --judge --ragas --langsmith
 ```
 
-The initial 14 cases cover factual Q&A, conflicting documentation and high-level planning. Treat them as an MVP seed set, not production acceptance proof. Review/extend them using real questions, adversarial cases and changes; keep held-out cases when tuning retrieval. Repetitions estimate variation. The default model judge uses the same configured model as generation; calibrate against human review and optionally use a different provider/model in the Python API.
+The dataset now contains 24 Ask cases and four existing Plan cases. Nine Ask references were reviewed with the user; 15 new Ask cases are explicitly pending review. See evals/ASK_REVIEW.md and evals/ASK_POLICY.md. Categories cover single-service, cross-service, overview, external dependencies, unknown information, uncertainty, irrelevant requests and single-turn clarification. Multi-turn follow-up flows are excluded. Treat them as an MVP seed set, not production acceptance proof. Review/extend them using real questions, adversarial cases and changes; keep held-out cases when tuning retrieval. Repetitions estimate variation. The default model judge uses the same configured model as generation; calibrate against human review and optionally use a different provider/model in the Python API.
 
 Deterministic metrics include expected-service recall, retrieved citation validity, phrase coverage, tool/model calls and latency. Phrase coverage is explicitly lexical, not factual correctness. The judge scores factual groundedness, completeness, uncertainty and plan quality. For plans, proposed changes are not hallucinations merely because they are new; factual premises must still be grounded.
 
-RAGAS runs only for factual ask cases: faithfulness, answer relevancy, reference-based context precision/recall and factual correctness. It is skipped for proposed plans, which have no unique factual reference answer. Missing configurations, parsing errors, provider failures and absent scores are reported separately; averages include only valid scores with coverage counts. Scores do not certify correctness. Review traces and individual failures before interpreting averages.
+RAGAS runs only for factual ask cases: faithfulness, answer relevancy, reference-based context precision/recall and factual correctness. It is skipped for proposed plans and behavioral responses (clarification, redirect, unknown, uncertainty, partial answer), which need behavior-specific semantic rubrics instead of the complete factual metric suite. Missing configurations, parsing errors, provider failures and absent scores are reported separately; averages include only valid scores with coverage counts. Scores do not certify correctness. Review traces and individual failures before interpreting averages.
 
 `--trace` sends request inputs/evidence/results to the configured LangSmith project. `--langsmith` uploads golden examples and run outputs to a new immutable snapshot dataset with a linked experiment and numeric feedback. These are explicit external transfers. Find traces under the project and experiments from the generated dataset/experiment name in summary.json. No emails or messages are sent.
 
@@ -89,3 +89,13 @@ An interactive entry point is evals/CommerceLens_Evals.ipynb. It invokes the iso
 ```
 
 Tests fake external APIs and exercise real local HTTP endpoints. Windows sandbox restrictions may require running the suite outside the restricted shell for loopback sockets. Unit tests are not live Pinecone or quality validation; record live ingestion, query and experiment checks separately.
+
+## Behavior-aware Ask evaluation
+
+Run only Ask: `.ai-venv/Scripts/python.exe -m commercelens_ai --trace evaluate --mode ask --judge --ragas --langsmith`.
+
+Ask responses report behavior separately from execution status. Unknown information is a successful abstention, but receives a behavior mismatch if the question was answerable. Citation-free clarification and scope responses are valid; application factual claims still require citations. Clarification/scope routing occurs before evidence retrieval when no service was identified. Invalid citations and provider failures remain failures. Pure nonfactual responses have citation validity marked not applicable rather than zero.
+
+The evaluator records reported behavior match as a diagnostic, and the semantic judge assesses the actual answer against expected_behavior and acceptance_criteria. Behavior-labeled cases add correctness and behavior_appropriateness scores, explicitly distinguishing negation, quantities, and causal direction. Keyword coverage remains diagnostic only; Ask cases no longer require implementation keyword matches. Judge correctness uses the approved reference; groundedness uses retrieved evidence. The intentionally retained payment documentation conflict is unchanged.
+
+Model response labels and factual-claim flags are not guaranteed truth. Human review remains necessary; the same-model judge can miss excessive implementation detail. This is a development dataset, not an independent held-out benchmark. No catalog regeneration, embedding changes or Pinecone ingestion is needed for these evaluator changes.
