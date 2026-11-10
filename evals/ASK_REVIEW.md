@@ -1,6 +1,6 @@
 # Ask golden dataset review
 
-24 single-turn Ask cases: 9 approved references and 15 new review candidates. Four existing Plan cases remain in golden.jsonl and have not been changed by this expansion.
+24 single-turn Ask cases: 24 approved references and no pending review candidates. Four existing Plan cases remain in golden.jsonl and have not been changed by this expansion.
 
 Primary categories: 3 single-service, 5 cross-service, 2 application overview, 2 external dependencies, 3 unknown information, 3 insufficient evidence, 2 irrelevant, 4 incomplete.
 
@@ -8,7 +8,7 @@ The two external-dependency cases also cover single-service behavior. Category c
 
 Run Ask only: `.ai-venv/Scripts/python.exe -m commercelens_ai evaluate --mode ask --judge --ragas --langsmith`
 
-New cases remain pending human approval. This development set is not a held-out production benchmark. RAGAS is skipped for behavioral cases; semantic judging evaluates the expected behavior. See ASK_POLICY.md for scoring rules.
+All 24 Ask cases have been approved by the user. This development set is not a held-out production benchmark. RAGAS is skipped for behavioral cases; semantic judging evaluates the expected behavior. See ASK_POLICY.md for scoring rules.
 
 ## 1. price-owner
 
@@ -156,7 +156,7 @@ Review: **approved** | Category: `single_service` | Expected behavior: `answer`
 
 ## 10. portal-capabilities
 
-Review: **pending** | Category: `single_service` | Expected behavior: `answer`
+Review: **approved** | Category: `single_service` | Expected behavior: `answer`
 
 **Question:** What can a user do in the Customer Portal?
 
@@ -172,7 +172,7 @@ Review: **pending** | Category: `single_service` | Expected behavior: `answer`
 
 ## 11. application-purpose
 
-Review: **pending** | Category: `application_overview` | Expected behavior: `answer`
+Review: **approved** | Category: `application_overview` | Expected behavior: `answer`
 
 **Question:** What does CommerceLens do for a customer?
 
@@ -187,11 +187,11 @@ Review: **pending** | Category: `application_overview` | Expected behavior: `ans
 
 ## 12. application-responsibilities
 
-Review: **pending** | Category: `application_overview` | Expected behavior: `answer`
+Review: **approved** | Category: `application_overview` | Expected behavior: `answer`
 
-**Question:** How are responsibilities divided across the application?
+**Question:** What are the core services in CommerceLens, and what is the purpose of each?
 
-**Expected response:** Customer Portal provides the user interface. Order Service coordinates checkout; Inventory Service owns product prices and stock; Payment Service connects to the payment provider; Shipping Service connects to the shipping provider; Notification Worker sends confirmation emails through an email provider.
+**Expected response:** Customer Portal provides the user interface. Order Service coordinates checkout. Inventory Service owns product prices and stock. Payment Service handles payment and refund requests through a payment provider. Shipping Service creates shipments through a shipping provider. Notification Worker sends confirmation emails through an email provider.
 
 **Acceptance criteria:**
 
@@ -202,11 +202,11 @@ Review: **pending** | Category: `application_overview` | Expected behavior: `ans
 
 ## 13. unknown-live-orders
 
-Review: **pending** | Category: `unknown_information` | Expected behavior: `unknown`
+Review: **approved** | Category: `unknown_information` | Expected behavior: `unknown`
 
 **Question:** How many orders were placed today?
 
-**Expected response:** I cannot determine today's order count from static application documentation; live order data is needed.
+**Expected response:** I don't have information about how many orders were placed today.
 
 **Acceptance criteria:**
 
@@ -218,11 +218,11 @@ Review: **pending** | Category: `unknown_information` | Expected behavior: `unkn
 
 ## 14. unknown-order-status
 
-Review: **pending** | Category: `unknown_information` | Expected behavior: `unknown`
+Review: **approved** | Category: `unknown_information` | Expected behavior: `unknown`
 
 **Question:** Has order CL-98765 been shipped?
 
-**Expected response:** I cannot determine the live shipping status of a specific order from the available documentation. An order or shipment lookup is needed.
+**Expected response:** I don't have information about the shipping status of order CL-98765.
 
 **Acceptance criteria:**
 
@@ -234,11 +234,11 @@ Review: **pending** | Category: `unknown_information` | Expected behavior: `unkn
 
 ## 15. unknown-live-stock
 
-Review: **pending** | Category: `unknown_information` | Expected behavior: `unknown`
+Review: **approved** | Category: `unknown_information` | Expected behavior: `unknown`
 
 **Question:** How many units of BOOK-001 are available right now?
 
-**Expected response:** I cannot determine current stock from static documentation. A live inventory lookup is needed; example or initial stock values are not current availability.
+**Expected response:** I don't have information about the current stock available for BOOK-001.
 
 **Acceptance criteria:**
 
@@ -250,11 +250,11 @@ Review: **pending** | Category: `unknown_information` | Expected behavior: `unkn
 
 ## 16. uncertain-email-guarantee
 
-Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
+Review: **approved** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
 
 **Question:** Can you guarantee that confirmation emails are never duplicated?
 
-**Expected response:** Notification Worker tracks delivery and avoids resending completed notifications. After interrupted delivery, duplicate prevention also depends on the email provider recognizing repeat requests, so an unconditional no-duplicates guarantee is not established.
+**Expected response:** Notification Worker tracks delivery to avoid duplicate emails, but prevention also depends on the email provider. I cannot guarantee that duplicates will never occur.
 
 **Acceptance criteria:**
 
@@ -266,11 +266,11 @@ Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `un
 
 ## 17. uncertain-payment-guarantee
 
-Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
+Review: **approved** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
 
 **Question:** Do safe checkout retries guarantee that a payment provider can never charge twice?
 
-**Expected response:** The application reuses checkout attempts and sends repeat-request identifiers to the payment provider. Preventing duplicate charges also depends on the provider honoring those identifiers; the application documentation does not establish an unconditional guarantee.
+**Expected response:** The application recognizes repeat checkout attempts to help prevent duplicate charges, but prevention also depends on the payment provider. I cannot guarantee that duplicate charges will never occur.
 
 **Acceptance criteria:**
 
@@ -282,11 +282,11 @@ Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `un
 
 ## 18. uncertain-email-arrival
 
-Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
+Review: **approved** | Category: `insufficient_evidence` | Expected behavior: `uncertain`
 
 **Question:** If notification delivery is marked successful, can we be certain the customer received and read the email?
 
-**Expected response:** The worker records success when the email provider confirms sending. That does not establish that the customer received or read the email; the available evidence does not provide that confirmation.
+**Expected response:** A successful status means the email provider confirmed sending the email. It does not confirm that the customer received or read it.
 
 **Acceptance criteria:**
 
@@ -298,11 +298,11 @@ Review: **pending** | Category: `insufficient_evidence` | Expected behavior: `un
 
 ## 19. irrelevant-travel
 
-Review: **pending** | Category: `irrelevant` | Expected behavior: `redirect`
+Review: **approved** | Category: `irrelevant` | Expected behavior: `redirect`
 
 **Question:** Recommend a holiday destination.
 
-**Expected response:** I can help with CommerceLens application questions and high-level change plans. Please ask about the application.
+**Expected response:** I can help with questions about CommerceLens. Please ask something related to the application.
 
 **Acceptance criteria:**
 
@@ -314,11 +314,11 @@ Review: **pending** | Category: `irrelevant` | Expected behavior: `redirect`
 
 ## 20. irrelevant-poem
 
-Review: **pending** | Category: `irrelevant` | Expected behavior: `redirect`
+Review: **approved** | Category: `irrelevant` | Expected behavior: `redirect`
 
 **Question:** Write a poem about the moon.
 
-**Expected response:** I can help with CommerceLens application questions and high-level change plans. Please ask about the application.
+**Expected response:** I can help with questions about CommerceLens. Please ask something related to the application.
 
 **Acceptance criteria:**
 
@@ -330,69 +330,69 @@ Review: **pending** | Category: `irrelevant` | Expected behavior: `redirect`
 
 ## 21. clarify-failure
 
-Review: **pending** | Category: `incomplete` | Expected behavior: `clarify`
+Review: **approved** | Category: `incomplete` | Expected behavior: `clarify`
 
 **Question:** What happens if it fails?
 
-**Expected response:** Which operation do you mean: payment, shipping, or notification delivery?
+**Expected response:** Which operation are you referring to—for example, checkout, payment, shipping, or notification delivery? Please re-ask your question with more details.
 
 **Acceptance criteria:**
 
-- Ask a focused clarification question identifying the missing subject or operation.
+- Ask which operation the user means and offer relevant examples.
+- Ask the user to re-ask the question with more details.
 - Do not assume a service or give a definitive application answer.
 - Evaluate only this response, without a follow-up conversation.
-- Use high-level language and do not invent unsupported facts.
 
 **Sources:** `evals/ASK_POLICY.md` (behavior policy; no application factual claims required).
 
 ## 22. clarify-provider
 
-Review: **pending** | Category: `incomplete` | Expected behavior: `clarify`
+Review: **approved** | Category: `incomplete` | Expected behavior: `clarify`
 
 **Question:** Which provider does it use?
 
-**Expected response:** Which integration do you mean: payment, shipping, or email?
+**Expected response:** Which service are you referring to—for example, payment, shipping, or email notifications? Please re-ask your question with more details.
 
 **Acceptance criteria:**
 
-- Ask a focused clarification question identifying the missing subject or operation.
+- Ask which service the user means and offer relevant examples.
+- Ask the user to re-ask the question with more details.
 - Do not assume a service or give a definitive application answer.
 - Evaluate only this response, without a follow-up conversation.
-- Use high-level language and do not invent unsupported facts.
 
 **Sources:** `evals/ASK_POLICY.md` (behavior policy; no application factual claims required).
 
 ## 23. clarify-retry
 
-Review: **pending** | Category: `incomplete` | Expected behavior: `clarify`
+Review: **approved** | Category: `incomplete` | Expected behavior: `clarify`
 
 **Question:** Is retrying safe?
 
-**Expected response:** Which operation are you retrying, and what happened on the previous attempt?
+**Expected response:** Which operation are you retrying—for example, checkout, payment, or notification delivery? Please re-ask your question with more details, including what happened on the previous attempt.
 
 **Acceptance criteria:**
 
-- Ask a focused clarification question identifying the missing subject or operation.
-- Do not assume a service or give a definitive application answer.
+- Ask which operation the user is retrying and offer relevant examples.
+- Ask the user to re-ask with more details, including the outcome of the previous attempt.
+- Do not assume a service or assert that retrying is safe.
 - Evaluate only this response, without a follow-up conversation.
-- Use high-level language and do not invent unsupported facts.
 
 **Sources:** `evals/ASK_POLICY.md` (behavior policy; no application factual claims required).
 
 ## 24. clarify-data
 
-Review: **pending** | Category: `incomplete` | Expected behavior: `clarify`
+Review: **approved** | Category: `incomplete` | Expected behavior: `clarify`
 
 **Question:** Where is it stored?
 
-**Expected response:** Which information do you mean, such as product information, orders, or notification status?
+**Expected response:** Which information are you referring to—for example, product information, orders, or notification status? Please re-ask your question with more details.
 
 **Acceptance criteria:**
 
-- Ask a focused clarification question identifying the missing subject or operation.
-- Do not assume a service or give a definitive application answer.
+- Ask which information the user means and offer relevant examples.
+- Ask the user to re-ask the question with more details.
+- Do not assume a data type or give a definitive application answer.
 - Evaluate only this response, without a follow-up conversation.
-- Use high-level language and do not invent unsupported facts.
 
 **Sources:** `evals/ASK_POLICY.md` (behavior policy; no application factual claims required).
 
