@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+  "claims": [
+    {
+      "id": "claim_5168e639f0e7489080ad1d4bd13bb83b",
+      "statement": "Package name is `commercelens-notification-worker` with version `0.1.0`; technology stack is Node.js 22, TypeScript (`\"type\":\"module\"`), `amqplib`, and `pg`; entry point is `src/main.ts` compiled to `dist/main.js`; Docker container starts with `node dist/main.js` and exposes port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:be4822e194ffd92f152c6de6e9fe161a882d08c5c59e31831b3fd77ca89b13f1"
+        },
+        {
+          "resource": "repo://package.json",
+          "version": "repo-file-v1:sha256:2adb6b32403bf020f98b7912e79d816f64356c738253798b543619ed44ccdf49"
+        }
+      ]
+    },
+    {
+      "id": "claim_f76e944192f144dbba96462473da9a4b",
+      "statement": "HTTP endpoint `GET /health` returns `200` with `{status:\"ok\"}` when the worker has initialized the database schema and established a RabbitMQ connection, or `503` with `{status:\"starting\"}` during startup or after disconnection.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L10-L14",
+          "version": "repo-lines-v1:sha256:b1af8d623d631b64fbfc94c5dcc86860764102d756c75ea86cea9e2a56a94bf2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRmYzdhNzhhYjM0ZTY2MGQzMTg1NTg4OTIyYTU1MTg5Mzc4MzM0YWVjYzdkOWE1NDk5ZDFkYWI5NDYwMGNlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTFkNTlhMGY0NmI0NzI0ODMwZGI3ZWFjZGYzMjIyZjgxYmM4ZWUxMzI3ZWE5MzJhZTYzNGU5NzE3NTc1MTk1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTA4OGRiY2Y3MjUxYjg0Y2QwNmU2MzM2NzZmOGVmMTQ5MTA5YTM2Nzk1ZjFlZDIzNjgyNDliYWIwZGI3YTE5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWM5ZTFkMzQ1NDNmMThjMmFhOWE2ODA5OTNiNzkwMzQwNGYxZmI2MmY5YTNiYTRiNWI4MGEyZGQ1MjM5NTZhZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_27a153a42d214a90a50d430fe876f2dc",
+      "statement": "HTTP endpoint `GET /api/notifications` returns the latest 100 persisted delivery rows as a JSON array of `{eventId, orderId, status, attempts, lastError}` ordered by `updated_at DESC`. The endpoint is unauthenticated and intended only for local or private demonstration.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L14-L17",
+          "version": "repo-lines-v1:sha256:a86829a060a34d4613affaa76b615590ad6734972956999f2977509ef87b48da:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTFkNTlhMGY0NmI0NzI0ODMwZGI3ZWFjZGYzMjIyZjgxYmM4ZWUxMzI3ZWE5MzJhZTYzNGU5NzE3NTc1MTk1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ3YjE0ZjA4ZGM4MTNiNGUwYzkyYTc1Zjk2OGU4ZGYwNTA1Y2U3OWMwZmRhZGE5ZjIzM2I0MDE4ZmQxMDNlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTE5MDFkNmM3ZmM4MmNkYjdlZWUxMjcxMWMxZDBkMDY5Y2NhNDE1MWE3YzNmMzJjOGI0MGM4M2U4NjRiNzM4ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2I3ZGYyZTc2YmYwMTUwMTNjOGZhOGQyZDQwNzM0ZGU4ZTcwYWVlNTkzODNhYTg1YTFlYWQ1OTE1ZDFlZmIxNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_14d4c09f6f9b45a79da6918864c37691",
+      "statement": "The HTTP server listens on `0.0.0.0` at the port specified by the `PORT` environment variable, defaulting to `8080`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L19-L19",
+          "version": "repo-lines-v1:sha256:0a6a7ca70f3c3cfe97b1814afcffd75a44991c20c5e891a2361c98aee1d79a26:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE2YTdjYTcwZjNjM2NmZTk3YjE4MTRhZmNmZmQ3NWE0NDk5MWMyMGM1ZTg5MWEyMzYxYzk4YWVlMWQ3OWEyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE2YTdjYTcwZjNjM2NmZTk3YjE4MTRhZmNmZmQ3NWE0NDk5MWMyMGM1ZTg5MWEyMzYxYzk4YWVlMWQ3OWEyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGJmZTUxMDk0OTg1YWNlMDQ2MjMzYjU2NDczZjgwNDRlMjdmZjVmYmE5YzRlNzEyZDA1ZmI2MTQzZTgwNzE0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzk0NTg5MjYwYjAxN2E3MDAxYmQ4N2U0N2M2NjQ2ZWZlZmYzYzAzNTVkMjkwMmMwNjQ1NWYzNjYyN2Y2YWZiZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3c95608c2b1646598f92a12541809d7f",
+      "statement": "RabbitMQ queue `order.confirmed` is declared durable with `prefetch(1)` and dead-letter routing to `order.confirmed.dead` via `x-dead-letter-exchange: ''` and `x-dead-letter-routing-key: 'order.confirmed.dead'`. Queue `order.confirmed.dead` is also declared durable during startup. Producers must declare matching arguments.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L28-L29",
+          "version": "repo-lines-v1:sha256:bb3641c3c7544e50fe99b25672f2ad3a79711c5c99ca9c4a906936f36c89c59c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmY5NjVlMjk4OWRiNTY3NjU2NGJhNzcwZmI2MDg2OTdiZmU3MTk4N2FmMzg1ZWU1MmQzNmM0MWQzZmI1ZWFkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNjYTJkMmY2NTllZGJlNzJkZDIyOTUzY2FlZTFiNzNhNzBmY2MyZmVjYTE5MjMzMmQ3Y2NiYWViODg1NDg4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjEzN2RkZGMwOGU1M2M0ZmZjNGI5MjMzZjYwZDczYzc0OTZmODI5OTIzMTJkYWVmOThmNTQzOWYzODgxNjMxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFmN2QxZGY4MzQ5OGM3NTIwZGQ4YWY5YTA1MzRlOGYzZGUyNzRiNzgxMjM4MGZhODc2OGUzOThhMmNjMDBlNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8cc7f66d26a04d43898dfc706a96c3e6",
+      "statement": "The worker auto-creates the `notification_deliveries` table with columns `event_id TEXT PRIMARY KEY`, `order_id TEXT NOT NULL`, `payload JSONB NOT NULL`, `status TEXT NOT NULL DEFAULT 'pending'`, `attempts INTEGER NOT NULL DEFAULT 0`, `last_error TEXT`, and `updated_at TIMESTAMPTZ NOT NULL DEFAULT now()` if it does not exist.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L21-L21",
+          "version": "repo-lines-v1:sha256:a7d9329db985e5ca3626cc78e984aa24b8c2eb6a83ebec07801d527ccc211e55:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdkOTMyOWRiOTg1ZTVjYTM2MjZjYzc4ZTk4NGFhMjRiOGMyZWI2YTgzZWJlYzA3ODAxZDUyN2NjYzIxMWU1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdkOTMyOWRiOTg1ZTVjYTM2MjZjYzc4ZTk4NGFhMjRiOGMyZWI2YTgzZWJlYzA3ODAxZDUyN2NjYzIxMWU1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I3ZGYyZTc2YmYwMTUwMTNjOGZhOGQyZDQwNzM0ZGU4ZTcwYWVlNTkzODNhYTg1YTFlYWQ1OTE1ZDFlZmIxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDBlZTJlZWI2Yzk0MTAzNDFkZGUxZDdhNzlkODVhOTU1NGRkOTZmZjFjODU4ZWY4ZTFiZTc4ZDI3MmFkMmExZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3fbb51b105724af780dc1f1c17dcebb4",
+      "statement": "The worker does not publish any events or topics; it only consumes from RabbitMQ and calls an external HTTP service.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts",
+          "version": "repo-file-v1:sha256:397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+        }
+      ]
+    },
+    {
+      "id": "claim_20f8cf97feb841dab0cc6d39f50d73d1",
+      "statement": "The worker POSTs to `{EMAIL_PROVIDER_URL}/email` with `Content-Type: application/json` and `Idempotency-Key: <eventId>` headers, sending the full `Event` JSON body and an abort signal whose timeout defaults to `3000` ms. The provider must return `{status:\"sent\"}`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L48-L51",
+          "version": "repo-lines-v1:sha256:850d16e85f31e1d95fb8ca8fd8714d5682831d5ba5851cd929f17a16037879b5:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmVmODM1M2EwMzZmYzM5OWNkZWNlZmM5MTllOGVkOGVjMzY1MTNlZWE1Njk1YmQxZWQzYzQ4OTM3MDc0NmYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGUwODU1N2Y0NzQ1Y2ZiYmEzNjNjNTAyNzE3OWE4ZTRjNjhkYTM4MzI4NmEyZTExN2U3MWYxZDRiZDliZTM0YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f5e3eb3c11240d19280f4485dc1858e",
+      "statement": "The worker consumes messages from the durable `order.confirmed` queue via `amqp.connect(RABBITMQ_URL)`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L22-L31",
+          "version": "repo-lines-v1:sha256:b9b1248909d779fd332f1fdd488e15254c0d110991926054cfdeadb33a216398:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZmE5NGIxNGE5MDJjYTY1MzU0YWQ3ZjRkMTc3YjE1NmU1NGU1NmI0ZWI2Zjg0MjFkYmI5MWRhNTMzNTJlYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzZmJjMGFmZjYwMmExZmE1NDI5NmVhNzAzYWFjZDEyNzMwYzU5N2QwMTQ3MzEyODQ3ZjA2MzZkNjhjZmNhYzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0MDM1YjNjNTM1MDk1YTVkYTk2YWNhZDQxOWFmZWEwMTAxM2JiZDY1YmJhMTdlOWMyZTllZWY1Y2UwMWRiZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI2OTdkNzMzZWRjNWMxMDcyNzc1YTUyMTdlMjFiNTIxZTI5ODZhNjU2MzVjODE5NjNjMDQzZDM4NjdiYWMzOWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e1128db9fb142cf9dbe0b7307b449d1",
+      "statement": "The worker uses a `pg.Pool` connected with `DATABASE_URL` for CRUD on `notification_deliveries` and for PostgreSQL advisory locks.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L21-L21",
+          "version": "repo-lines-v1:sha256:a7d9329db985e5ca3626cc78e984aa24b8c2eb6a83ebec07801d527ccc211e55:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdkOTMyOWRiOTg1ZTVjYTM2MjZjYzc4ZTk4NGFhMjRiOGMyZWI2YTgzZWJlYzA3ODAxZDUyN2NjYzIxMWU1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdkOTMyOWRiOTg1ZTVjYTM2MjZjYzc4ZTk4NGFhMjRiOGMyZWI2YTgzZWJlYzA3ODAxZDUyN2NjYzIxMWU1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I3ZGYyZTc2YmYwMTUwMTNjOGZhOGQyZDQwNzM0ZGU4ZTcwYWVlNTkzODNhYTg1YTFlYWQ1OTE1ZDFlZmIxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDBlZTJlZWI2Yzk0MTAzNDFkZGUxZDdhNzlkODVhOTU1NGRkOTZmZjFjODU4ZWY4ZTFiZTc4ZDI3MmFkMmExZSJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L7-L7",
+          "version": "repo-lines-v1:sha256:f5dbcc7bf82a4d38d508f33985fdd80903dbfd8c889ab7f609ff36ec46d28cd3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkYmNjN2JmODJhNGQzOGQ1MDhmMzM5ODVmZGQ4MDkwM2RiZmQ4Yzg4OWFiN2Y2MDlmZjM2ZWM0NmQyOGNkMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkYmNjN2JmODJhNGQzOGQ1MDhmMzM5ODVmZGQ4MDkwM2RiZmQ4Yzg4OWFiN2Y2MDlmZjM2ZWM0NmQyOGNkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNjYjQ1ZDRkZjE2YWI1NWQxZGNiODgzMjQ2OGRhYTY2NmFhMGM1ZDMzNTE3NTc4NmU0ZGVkNTdiMGRiZTFiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTYwMjA0MjRjNjU1ZDhmMGQzNmMzN2ZhYjhlZTE1MDE3YjczOGIzMDM0ZDI1YjA1N2ZiYjVlMjNlMzYzYzgzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f3546df31eec4be89c136bd70c97139f",
+      "statement": "Production runtime dependencies are `amqplib` ^0.10.5 and `pg` ^8.13.3. Dev dependencies include `@types/amqplib`, `@types/node`, `@types/pg`, `tsx`, and `typescript`.",
+      "evidence": [
+        {
+          "resource": "repo://package.json",
+          "version": "repo-file-v1:sha256:2adb6b32403bf020f98b7912e79d816f64356c738253798b543619ed44ccdf49"
+        }
+      ]
+    },
+    {
+      "id": "claim_00ff4f4c96b443debf45dcf597ed1d6d",
+      "statement": "Input messages on the `order.confirmed` queue must carry a JSON payload with fields `eventId` (string), `orderId` (string), `customerEmail` (string), `totalCents` (number), and `trackingNumber` (string).",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L1-L1",
+          "version": "repo-lines-v1:sha256:624c1748e04bebeba7168e98d01aff4b2cd39072537a94290979c84dcbcb0498:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQ5NmZkYjJiYmI2MTMxZTNmMWY3MGQ5NmU4YTVmYmQwMWZjYjE3NDg1NzMxNmQ0ZjFmZDQ1MWMwZWZjN2FjYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a0a58bc96cbf46d8a13b62f966f82168",
+      "statement": "`parseEvent(raw)` validates that JSON parsing succeeds, required string fields are non-empty and at most 320 characters, `totalCents` is a non-negative safe integer, and `customerEmail` contains `@`. Validation failures throw `'Invalid order.confirmed event'`.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L2-L6",
+          "version": "repo-lines-v1:sha256:bb27dcda9e1e2a375b1732db0ecde26cac9e9cc8820713bba57b0bb7ba685efc:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdmZmEyZDdhNjQ4YjgwNmZmOThjMDFmZDlmYWE1YjQ2MzMxNzBhMjYzMjU4ZWVjMGNhYjdmMDQ4NGViNDc1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDBlZTU2ZGY1YTQ3YWJhYjQ2ZTFjODYwNTU1YjFlYTQ4MjBlM2IwOTFjNWVmMjBmOWViY2YwODg3NmQxMTIwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_aa7a2482174e4874a847ee2a74b0e7eb",
+      "statement": "Malformed events and parse failures are negatively acknowledged without requeue, routing them directly to the dead-letter queue `order.confirmed.dead`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L34-L34",
+          "version": "repo-lines-v1:sha256:5b8e9e4749b121bc77452ab7dce55642ed406a1be8b630921e718dcd96dbf834:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4ZTllNDc0OWIxMjFiYzc3NDUyYWI3ZGNlNTU2NDJlZDQwNmExYmU4YjYzMDkyMWU3MThkY2Q5NmRiZjgzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4ZTllNDc0OWIxMjFiYzc3NDUyYWI3ZGNlNTU2NDJlZDQwNmExYmU4YjYzMDkyMWU3MThkY2Q5NmRiZjgzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODg5OGExNzgwOWEzMmQ4YmQ3Y2M2YWIxYWE0YjA5NWI1ZDdmOTA0YjFlODc0YjVhZThlZmIyZmQ4YTFiN2IzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQ1NDdlMWE4ODc0NWNmNzlhZDM4ZjllMjVkYTljZDExN2ViZmVlYWVjNGNkZDkxZTdkNDBhMmM1ODQwYWE5MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2a4a7276101b4fe6a91377644773fa37",
+      "statement": "PostgreSQL advisory lock on `hashtext(eventId)` serializes concurrent duplicate events across worker instances.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L40-L40",
+          "version": "repo-lines-v1:sha256:20535ee921c245faf1b173d6a95240774df6ffd2f13031528dea841e1c5133cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA1MzVlZTkyMWMyNDVmYWYxYjE3M2Q2YTk1MjQwNzc0ZGY2ZmZkMmYxMzAzMTUyOGRlYTg0MWUxYzUxMzNjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA1MzVlZTkyMWMyNDVmYWYxYjE3M2Q2YTk1MjQwNzc0ZGY2ZmZkMmYxMzAzMTUyOGRlYTg0MWUxYzUxMzNjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE0Zjk5MmFlN2YzMTUzN2IzM2Q2ZDYwZDFkZWY4YWYxZDc1NTE3ZWI5ZjUxMzgwZWU5MjA1YTc2ZTNlNDYwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQzYTYxZmNlZjAwNmE5MWM3NmFmZDdiMTBmYWE2NWM5Y2VmZmQ4YTAxYWYyZjQxYTE4NmY1ZjkxM2MwMWRjZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e1363d4204e4b48a031f9a71105d1ef",
+      "statement": "If the stored JSONB payload for an `eventId` does not match the current message payload exactly, the message is negatively acknowledged without requeue, preventing idempotency-key collision across semantically different events.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L43-L44",
+          "version": "repo-lines-v1:sha256:3afcdf28fbaafb18a4a794efb0e4c84c38caca39bf5c39c934b70f75eef2f1ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiOWJmZDZhZWMzOGEzNzE0ZDk4NzAyMzUxNTk4ZjdlYzIwZWRiN2I5N2JhN2UwYzUxM2Q1YTAzMTczNzE1OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRlNWMyYTAxOTAyZTVjMGNlNTRmNGUzNmYwODc5ZjU1ODJhOWZhNWJkZDQyMDIyYzc1ZWIzOGQ2NmFhZjdlMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU2MjFkZWRhNmM2NTA1MmU1ZDA3ZDBhNDExMjBiNGJlYzQxODJhNTY5NDNlYzk4NzhiY2RmYWNmODg0Y2U3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a0c6529728044db3bb7f88d5de598c57",
+      "statement": "Before attempting delivery, the worker checks the persisted status: `sent` causes immediate acknowledgement without provider call; `dead` causes negative acknowledgement without requeue; `pending` proceeds to delivery.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L45-L46",
+          "version": "repo-lines-v1:sha256:d7434b9a46c52c959c46947ebcd9f23bc633e10d45d0ab9cebf698ac8e5597c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE3MTZjMjdmMWQzMmUyZjc2NTQwYTQ5NzAyZDc3NWFiMjgyODMyNmZmYjdmYzk4MDI0MzE4NWMwOTY1MDIxNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThlYWZkNDU1OTcyZTQ5ZjU2MTA2Yjk1ZTRmNjVjNzQzZGFmNjhkNzQxNDE0OTNjMTQ3NzBjMDNhNDE0MjRjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTZjZmRiMzQ2ZTkyYzFlNTViYTFkZTJlN2ZkNjk2ODk1MTdmMjRkYjE3MWUxZTMxMTlkZWUyYWZiMjY2MmZjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3NzdiNThhOTVhNjU4MjkwOGFkOTNhYzdkNjliZDY2YjI2OGM1ZDVkNGQ5ZTE1ZGQxMjA2YmMzZTJkMjI1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a5b229635a7b4326ade9e4d0ebca87e8",
+      "statement": "The `deliver()` function caps total attempts at 3, accepting a `prior` count from the database. Prior=0 gets attempts 1, 2, 3; prior=1 gets 2, 3; prior=2 gets 3. Prior≥3 returns `dead` immediately with `lastError: 'Attempt limit reached'`.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L7-L15",
+          "version": "repo-lines-v1:sha256:0cc2ca79cacdcd7663ff76413c956ac2de275d5b4c552b4da4bdf9f0cc2981a7:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhiYmE0NzJmNzU0YTZmNjBlYzc2NjMzMTE5ZGQxZmE4ZjFiNGNkMjMxZGQyMDk3YzI0MjY2YjVjYWJhZTgxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JmMzU1MTMzYTg2NTZkNzA0YTI0MTcxMGI2ZDA4ODJjYmM0NGVkMzI5OWNmZmEzMTNiM2Q1YjYzMTM1NzZmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc87ca4d4c5a4173a4950fa1fd116541",
+      "statement": "After a failed attempt where `attempts < 3`, `deliver()` sleeps for `250ms × attempt` before the next retry. No jitter or exponential backoff is applied.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L12-L12",
+          "version": "repo-lines-v1:sha256:55af51f9129988ccaf2a45c2b011d66008899fdc9bf3a956a5693512df5924a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVhZjUxZjkxMjk5ODhjY2FmMmE0NWMyYjAxMWQ2NjAwODg5OWZkYzliZjNhOTU2YTU2OTM1MTJkZjU5MjRhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVhZjUxZjkxMjk5ODhjY2FmMmE0NWMyYjAxMWQ2NjAwODg5OWZkYzliZjNhOTU2YTU2OTM1MTJkZjU5MjRhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWI1NGNjZTFjMGI3N2NjNjEwZjQ1NzVkZTQzODBiNTAzZTQ2ODVjMmEwMWFmZjI1NTg5ZTA1NjA3OGQxMjFiNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzczM2FiMGRhMGEyZTAxMDUyMDAxOThlY2EzNTU1NWZmNzhjZWZlZDRlOGQwNjhjNmI0ZWI4ZDI5MWI1ZDAxMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a01cc7448b9e4656a713a5179f3f864f",
+      "statement": "After `deliver()` returns, the worker persists the final `status`, `attempts`, and `lastError` to the database, then acknowledges the message if `sent` or negatively acknowledges without requeue if `dead`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L53-L54",
+          "version": "repo-lines-v1:sha256:05fcf72300a3d08be5588ac3087ca27336b9797d65266d44e254c741f921a43a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ0MzMwNjIzY2VmNzAzMGRiMWRhNmMzOWM4MjU0OGYzNTJjZDAzY2VlM2NiNzFjMDAxOTU0ZjZiYzM0ZjA3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlYTA4NmJlNWVhNDRkYzU4ZjhjNDMwYjAzODliMDhiMDJkM2IwNjNkNmY4M2VlZmExMWU0YWNlZGFlMTUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQ1NmI5ZjUxZGM3NGIwMDRhZDdjYTA2MDc3YjIwOTJhYjc1ZTJmODY5YjMyYWM0YTVmMTZiM2MwNjkwNTBjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjE4MWMyM2RjNzg2OWViYmFlZjMwMzVmMDNiYzA3N2E5MmJkMGUzNTBiNjA1MmQ5MjgzZTE5YTM0YWJiMWRmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6e7db69917994edb85c6d3015899dac0",
+      "statement": "Provider HTTP calls use `AbortSignal.timeout(Number(process.env.PROVIDER_TIMEOUT_MS ?? 3000))`, defaulting to a 3000 ms timeout.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L48-L48",
+          "version": "repo-lines-v1:sha256:cd2cb635eed87bfe104cd5f18c30cb909ce62d528f50dfa41d928f1de3fa2138:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQxMTAyNGE0MTQzNzVjM2M1NGI0MTFiY2E1OThhMjMzOTE3ZGM1MTI4OGE4NjIzZjRmNjc1ZDcxNTFhZDkyZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e30d804a8bae4664aba2a26ab47f0fcb",
+      "statement": "If the provider returns a non-OK HTTP status or a JSON body without `status: \"sent\"`, the attempt throws an error.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L49-L51",
+          "version": "repo-lines-v1:sha256:d411024a414375c3c54b411bca598a233917dc51288a8623f4f675d7151ad92d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0NDk4ZDI4MzQ4ZGE1MzM4YWI2MzBlMGMyYTkzYTIyYzA5NmRkMjFhZTc2ZGY2YTMwZTFkMGZkM2NkZGRiMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmVmODM1M2EwMzZmYzM5OWNkZWNlZmM5MTllOGVkOGVjMzY1MTNlZWE1Njk1YmQxZWQzYzQ4OTM3MDc0NmYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY4YTQ1MzZlYWNmZTJkZTUyMWNmMTA5N2I2MjY2ZTJhZDBkMDk1NTAxYzNkMzAzZjg2ZDU5NDc1Y2ZhZDg4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGUwODU1N2Y0NzQ1Y2ZiYmEzNjNjNTAyNzE3OWE4ZTRjNjhkYTM4MzI4NmEyZTExN2U3MWYxZDRiZDliZTM0YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f59aaa1e4fd74836aea171d9b2e53dc4",
+      "statement": "Email delivery failure never rolls back confirmed orders; there is no compensation mechanism.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    },
+    {
+      "id": "claim_75ab67463804454187dd053aa9ea7bfc",
+      "statement": "After 3 failed delivery attempts, status `dead` is persisted and the RabbitMQ message is negatively acknowledged without requeue, routing to `order.confirmed.dead`.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L14-L14",
+          "version": "repo-lines-v1:sha256:8688100b6cfef9d9ef0b70a702ecb1a68f5f30f1481acf808276cb78b242a710:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY4ODEwMGI2Y2ZlZjlkOWVmMGI3MGE3MDJlY2IxYTY4ZjVmMzBmMTQ4MWFjZjgwODI3NmNiNzhiMjQyYTcxMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY4ODEwMGI2Y2ZlZjlkOWVmMGI3MGE3MDJlY2IxYTY4ZjVmMzBmMTQ4MWFjZjgwODI3NmNiNzhiMjQyYTcxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Q1ZjU3NGI3MDc5ZjI2YTlhYzQ2ZTZjYTczZDQ1MWQxNmJhY2Q2YmI5NTlkYzgyODkzNzQ5NzBlYzBjZmUzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L54-L54",
+          "version": "repo-lines-v1:sha256:c1ea086be5ea44dc58f8c430b0389b08b02d3b063d6f83eefa11e4acedae1536:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlYTA4NmJlNWVhNDRkYzU4ZjhjNDMwYjAzODliMDhiMDJkM2IwNjNkNmY4M2VlZmExMWU0YWNlZGFlMTUzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlYTA4NmJlNWVhNDRkYzU4ZjhjNDMwYjAzODliMDhiMDJkM2IwNjNkNmY4M2VlZmExMWU0YWNlZGFlMTUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTYwZmJiMmM2NDUyMTAzN2VhZjllMTgzNGFlNDEwNjIxNjZjMWQyODM5YTIwNjlmODAzYWRhZjM5MWYzMjBlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjE4MWMyM2RjNzg2OWViYmFlZjMwMzVmMDNiYzA3N2E5MmJkMGUzNTBiNjA1MmQ5MjgzZTE5YTM0YWJiMWRmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ceb35f13315946fe8251d6c1385b6baa",
+      "statement": "A crash between provider success and database persistence creates a window where the provider may have processed the request but the worker has not recorded `sent` status or acknowledged the message. Recovery relies on the provider deduplicating by the `Idempotency-Key` header.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    },
+    {
+      "id": "claim_d3c47d38e5fd4980b2736a763d72edd1",
+      "statement": "Manual replay or reprocessing of messages in the dead-letter queue `order.confirmed.dead` is not implemented.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    },
+    {
+      "id": "claim_30ac3d7e37bd4f3799b3451f784d6385",
+      "statement": "Unexpected errors after acquiring the advisory lock (e.g., network partition during provider call) are caught, the worker sleeps for `1000 ms`, negatively acknowledges the message with requeue, and releases the advisory lock and database client in a `finally` block.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L55-L60",
+          "version": "repo-lines-v1:sha256:faa1d7db059ec513dd5781989f33b135ba4b5ed787cd868ac1c6d9e67ae81625:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA1Yjg2YjNjMzgwMzRjMWQyMmQzZGI1ZDMwOWRjYjU3ZDE5MzNhZjExOTZkNGRkMmJkNmNmZjU0MTI1MTM4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGUwODU1N2Y0NzQ1Y2ZiYmEzNjNjNTAyNzE3OWE4ZTRjNjhkYTM4MzI4NmEyZTExN2U3MWYxZDRiZDliZTM0YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjI2YTYyMzhlNDRhODNhMzA1MjVmZDUxZjg1NzBhNDcyOTI5MjgxNzAwY2VhNmUzMTI4ZGUxMmEzNjhiOWI1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_546f628177c840e59d13141ec5ccc6f2",
+      "statement": "Messages redelivered for events already recorded with `status: 'sent'` are acknowledged immediately without calling the email provider.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L45-L45",
+          "version": "repo-lines-v1:sha256:c1716c27f1d32e2f76540a49702d775ab2828326ffb7fc980243185c09650217:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE3MTZjMjdmMWQzMmUyZjc2NTQwYTQ5NzAyZDc3NWFiMjgyODMyNmZmYjdmYzk4MDI0MzE4NWMwOTY1MDIxNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE3MTZjMjdmMWQzMmUyZjc2NTQwYTQ5NzAyZDc3NWFiMjgyODMyNmZmYjdmYzk4MDI0MzE4NWMwOTY1MDIxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTZjZmRiMzQ2ZTkyYzFlNTViYTFkZTJlN2ZkNjk2ODk1MTdmMjRkYjE3MWUxZTMxMTlkZWUyYWZiMjY2MmZjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmY4YTQ1MzZlYWNmZTJkZTUyMWNmMTA5N2I2MjY2ZTJhZDBkMDk1NTAxYzNkMzAzZjg2ZDU5NDc1Y2ZhZDg4ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_abdbf1a0324a4cfea23a86c1169f22f4",
+      "statement": "`DATABASE_URL` is required. Optional variables and defaults: `RABBITMQ_URL` defaults to `amqp://guest:guest@rabbitmq:5672`; `EMAIL_PROVIDER_URL` defaults to `http://mock-provider:8080`; `PROVIDER_TIMEOUT_MS` defaults to `3000`; `PORT` defaults to `8080`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L48-L48",
+          "version": "repo-lines-v1:sha256:cd2cb635eed87bfe104cd5f18c30cb909ce62d528f50dfa41d928f1de3fa2138:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQxMTAyNGE0MTQzNzVjM2M1NGI0MTFiY2E1OThhMjMzOTE3ZGM1MTI4OGE4NjIzZjRmNjc1ZDcxNTFhZDkyZCJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L7-L22",
+          "version": "repo-lines-v1:sha256:9706253217bf035b99a2b7c75f203b12a4bd71bcb6a4f28d029d2942601b195c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1ZGJjYzdiZjgyYTRkMzhkNTA4ZjMzOTg1ZmRkODA5MDNkYmZkOGM4ODlhYjdmNjA5ZmYzNmVjNDZkMjhjZDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZmE5NGIxNGE5MDJjYTY1MzU0YWQ3ZjRkMTc3YjE1NmU1NGU1NmI0ZWI2Zjg0MjFkYmI5MWRhNTMzNTJlYTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjY2I0NWQ0ZGYxNmFiNTVkMWRjYjg4MzI0NjhkYWE2NjZhYTBjNWQzMzUxNzU3ODZlNGRlZDU3YjBkYmUxYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2OTY3MjlmYjE0YTRhM2FjNzJlYzYyYWMyYjE4ODJjYzY5OTA2YzVmYTNlMjdmZDZiNTNiM2NiNzdlNDUyM2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0adc7e4ea6064078817025f119b4506c",
+      "statement": "The worker writes plain-string error messages to `console.error` for RabbitMQ connection errors, database unavailability, delivery interruptions, and startup/reconnect failures. There is no structured JSON logging.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L24-L24",
+          "version": "repo-lines-v1:sha256:8c6705f8e3c24acedb8824b9d1e77c78b6f70fe1e2f282fe94df8e7d81be1ca0:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2NzA1ZjhlM2MyNGFjZWRiODgyNGI5ZDFlNzdjNzhiNmY3MGZlMWUyZjI4MmZlOTRkZjhlN2Q4MWJlMWNhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2NzA1ZjhlM2MyNGFjZWRiODgyNGI5ZDFlNzdjNzhiNmY3MGZlMWUyZjI4MmZlOTRkZjhlN2Q4MWJlMWNhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjM4NjgzNjRhMTEyNWI4ZGIwMGYyNTAyMGNjMjdiN2Y3ZTEzMjg5NDUzMWU2MGQ4NTEzMjViMTNjYjE3Yzk0OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjEzN2RkZGMwOGU1M2M0ZmZjNGI5MjMzZjYwZDczYzc0OTZmODI5OTIzMTJkYWVmOThmNTQzOWYzODgxNjMxMiJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L36-L36",
+          "version": "repo-lines-v1:sha256:22ef5bd5c3a392db22179cef4b71c3366cd467f136f661c0c208df6b155bc0c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJlZjViZDVjM2EzOTJkYjIyMTc5Y2VmNGI3MWMzMzY2Y2Q0NjdmMTM2ZjY2MWMwYzIwOGRmNmIxNTViYzBjMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJlZjViZDVjM2EzOTJkYjIyMTc5Y2VmNGI3MWMzMzY2Y2Q0NjdmMTM2ZjY2MWMwYzIwOGRmNmIxNTViYzBjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTFiYTA3NjQ5ODc0NTU1NGQxYTNkYzQwNDY1MGRlNjI2MmM5MTJiNzZhNTgwNzMzNGJkY2M1NGE3NWYwZWQ0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmE0Zjk5MmFlN2YzMTUzN2IzM2Q2ZDYwZDFkZWY4YWYxZDc1NTE3ZWI5ZjUxMzgwZWU5MjA1YTc2ZTNlNDYwOCJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L55-L55",
+          "version": "repo-lines-v1:sha256:105b86b3c38034c1d22d3db5d309dcb57d1933af1196d4dd2bd6cff541251386:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA1Yjg2YjNjMzgwMzRjMWQyMmQzZGI1ZDMwOWRjYjU3ZDE5MzNhZjExOTZkNGRkMmJkNmNmZjU0MTI1MTM4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA1Yjg2YjNjMzgwMzRjMWQyMmQzZGI1ZDMwOWRjYjU3ZDE5MzNhZjExOTZkNGRkMmJkNmNmZjU0MTI1MTM4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGUwODU1N2Y0NzQ1Y2ZiYmEzNjNjNTAyNzE3OWE4ZTRjNjhkYTM4MzI4NmEyZTExN2U3MWYxZDRiZDliZTM0YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTMzOGNiNGZlZjYwMDA4MDA1Mjc0ZWRhZGEwMDQ5MDg4YTFjYTdkN2Y3NmJiMGYyMDA1ZGU1NDU3NDExMWJhMSJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L71-L71",
+          "version": "repo-lines-v1:sha256:ce8af08538abf89cf35193947fe7a40cde48c32b6679e2dda5b8c3b419ae30db:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYwMzNmMmIzZTRkZGM3ZmRkZTZmZjBkMTI0ZGEwMWM2NWRjMzNkYmQ2ZjcwNWFmNzg1NTAxNThiNzVlNDk3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM5YTE4ZDFkYmU1YzcxZjQxYzllYWJhY2ExMzMxYWJjZmQwMGYxZTRkMDViZmM1ZDlkYWM1ZjQxNDk2MzZmZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_086ca57748eb48ebac4ac249f4667481",
+      "statement": "`main()` runs an infinite reconnect loop: establish DB schema, connect RabbitMQ, assert queues, start consumer, wait for session end, close connection, sleep `3000 ms`, and retry. On `SIGTERM`, `stopping` is set, the HTTP server is closed, the DB pool is drained, and the process exits.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L20-L73",
+          "version": "repo-lines-v1:sha256:d8a503c2d2a900c257ca63ac9c68edcc1808ea35fe553d9cc2f53c0c10abb6bb:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyNTA5ZWM2NDRmNzVmM2NmNzgwN2JiNzA0ZmZlODE3NGNmYzFhZjIyMzk4NTE5MWEyZjViNDg3NTlkMWZjNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmMTIxZDQ3Yjk5Yzg4ZTdmMjkzYzhiNDAwMDRkZDUyODVhNmY4ZDYzZjk1YWExMTQ3NWJmYjc0ZjExYWYxZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJlMmNmNDAxNTM0YzM3ZTUzNmU4M2FjNjlkYjRjOGM2Njc4MzhhZjYzOWVjZmViYjBjZTVjOGFiMmFmNTQ3ZGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df70509dae944d1db698efb5ad3e3ae2",
+      "statement": "`watchSession` in `src/lifecycle.ts` wraps `EventEmitter`-based connection and channel objects. Errors or closures on either surface trigger a single `stop` callback and resolve a `done` promise, ensuring coordinated teardown without duplicate callbacks.",
+      "evidence": [
+        {
+          "resource": "repo://src/lifecycle.ts#L3-L15",
+          "version": "repo-lines-v1:sha256:ff4892310bb5cf950f43c27bd31107e8c58045d4b738e9658ffe8cd2cf6c8d02:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjYzczNzM1NGY2MzBkNDA1YjU4ZDEyNTc4ZDYyNDZhMDlhYTdmY2NhNGRiYjRjNjI4NzY4N2FhODljZWUzNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4YmIyNTA5MmZkY2MyNzc5MDM4ZWUwMjdiMDg4NTdkZTgwZDZmZGRjMTNmMTQ4MjJlM2UwYzUwNWE1ZDNlYzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

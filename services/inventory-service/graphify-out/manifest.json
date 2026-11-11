@@ -1,0 +1,26 @@
+{
+  "go.mod": {
+    "mtime": 1794174122.2960002,
+    "seen": 1794176972.9910605,
+    "ast_hash": "704a841bf6debbfe5a6ec535a5d255b9",
+    "semantic_hash": "704a841bf6debbfe5a6ec535a5d255b9"
+  },
+  "integration_test.go": {
+    "mtime": 1794174486.392656,
+    "seen": 1794176972.9910605,
+    "ast_hash": "0305b2edb607e883f8180206e381bfbc",
+    "semantic_hash": "0305b2edb607e883f8180206e381bfbc"
+  },
+  "main.go": {
+    "mtime": 1794174122.3307033,
+    "seen": 1794176972.9910605,
+    "ast_hash": "d4f6bf87200b217d0d649f32a86af3c5",
+    "semantic_hash": "d4f6bf87200b217d0d649f32a86af3c5"
+  },
+  "main_test.go": {
+    "mtime": 1794174122.3296955,
+    "seen": 1794176972.9910605,
+    "ast_hash": "c98a400de193c3484845059732c62ff0",
+    "semantic_hash": "c98a400de193c3484845059732c62ff0"
+  }
+}

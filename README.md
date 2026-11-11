@@ -8,11 +8,11 @@ Status: six application services and the customer/operations UI are implemented.
 
 - Customer portal: product browsing, cart, checkout, payment state, and order tracking.
 - Operations dashboard: order details, inventory availability, job outcomes, and external integration failures.
-- Planned application assistant: embedded chat with streaming answers, source citations, service links, documentation freshness, and feedback.
+- Documentation assistant: standalone Ask/Plan chat with source citations and Replan controls. It uses the service wikis and application catalog; it does not query live order state.
 
 The assistant initially answers questions about documented architecture and behavior. Live operational questions require explicit read-only operational tools; documentation retrieval alone cannot establish current system status.
 
-## Services and planned assistant
+## Services and documentation assistant
 
 | Service | Stack | Responsibility | Dependencies |
 | --- | --- | --- | --- |
@@ -22,19 +22,21 @@ The assistant initially answers questions about documented architecture and beha
 | payment-service | Python / FastAPI | Payment authorization and refunds | External payment sandbox or explicit local mock |
 | shipping-service | C# / ASP.NET Core | Shipping rates and shipment creation | External shipping sandbox or explicit local mock |
 | notification-worker | Node.js / TypeScript | Consume order events and deliver notifications | Event broker, external email sandbox or explicit local mock |
-| assistant-api | Python / FastAPI / LangGraph | Application Q&A and evidence tools | Pinecone, catalog, dependency graph, LLM provider |
+| documentation assistant | Python bounded agent / HTTP UI | Ask, Plan, Replan and evidence tools | Pinecone, catalog, dependency graph, LLM provider |
 
 Local mocks provide reproducible failures. Real provider adapters are future work. Credentials are supplied through environment variables and are never committed.
 
 ## Repository strategy
 
-This repository owns orchestration, UI/API contracts, application-context tooling, and evaluations. The six business-service repositories have been created privately under the GitHub account `nagv`, each containing service code, tests, and Dockerfiles. Their Git URLs are registered in `services.example.yaml`. Clone them beside this checkout and copy the example to `services.yaml` to configure local paths.
+This single repository contains orchestration, the documentation assistant, application catalog, evaluations, and all six business services under `services/<service-id>`. Each service retains its own stack, tests and Dockerfile. `services.example.yaml` registers their local folders and repository-relative documentation paths. No sibling clones or Git submodules are required.
+
+The migration branch is `codex/commercelens-monorepo`; source links use that branch until merged. Original service repositories remain preserved as historical sources. `catalog/monorepo-migration.json` records their source commits and file hashes.
 
 Begin with a small connected workflow, then expand toward 30 services. Different technology stacks are intentional, but are not required for every later service.
 
 ## Documentation and catalog order
 
-For each registered repository, execute sequentially:
+For each registered service folder, execute sequentially:
 
 1. Record source commit and validate extraction exclusions.
 2. Run `graphify extract . --code-only --force` without LLM credentials.
@@ -51,7 +53,7 @@ Master catalog refresh (from compact service wiki summaries):
 ```text
 python scripts/refresh-catalog.py refresh --manifest services.example.yaml
 node scripts/finalize-catalog.mjs
-node scripts/link-wikis.mjs
+# For this monorepo, navigate through openwiki/quickstart.md or use CommerceLens retrieval.
 ```
 
 See [OpenWiki workflow](docs/OPENWIKI.md) for change detection, evidence review and adding services.

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:650788d9aaa15378c145f7604ae515d12df0f27b61254a35502a33a4fe86d739",
+  "claims": [
+    {
+      "id": "claim_30097b28f25346bb853fa4b6d71c5779",
+      "statement": "The HTTP handler registers POST /api/reservations/{id}/release at the mux level and delegates to Store.release with the path {id} parameter.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L243-L251",
+          "version": "repo-lines-v1:sha256:1d1f51deb6f4b3552b1383237abb0f52b3647bcb8f01864758a80d3165baced1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjNhZmQyOTg3ZTI4ZTUyNjUzMGM0YzM3MDhhMWNjM2I5MjMwMWRkZTUyMzVjYjI4ZWZhMDU2ZmU5ZGI4OGIwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhOWI1ZTkwMTljOGRiODc4M2VjOWMzZmViYjBhMmM5ODYyZjYxYTA1YzMwOGZlODk1ZTRhOWJlZDAzZWRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJjNGNmZjhmYTRlOWZkNGJhM2IxNDI0ZDY3OWY1ZGZiYzc4M2Q3MzIxNWMwYzRhNTk0Yjk1ODcyNDJhYTJhMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_56eb6abf7a0b45e5a399abf6be297d85",
+      "statement": "Store.release acquires a pg_advisory_xact_lock on the hashed order_id before reading the reservation row.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L137-L144",
+          "version": "repo-lines-v1:sha256:11209c95fc0c2e9d16878e24baf022390e24b20375241e6975399de0477132a8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRmODRkYTQ1MGRmOWE2N2I2MDVhYTI0ZGU3NWYwYWVlOGQ4YWE0YWJkNjEwNDI3ZGMxOGVjNGRhZjdmZDY1OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzU1YmE4MTg1ZGNlYmYzODViNjM3M2Q3MmFhODVhZDA4ODM2Nzk4OGJlZmIwNTllNGM0ZGQzMTc3YWZlNTVjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE4ZDVjOGEyZDQ5ZjgxNmViYzg1MDhiMmRhODdiNWYxM2I5OTM0ZDJmNjdlZDhlYjVlYTQzNmE2NTgwMTc1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzY1M2EwNjczNWVjZWJkYjhkZDE2YzA0MTVmMjJjNTIxZjMzZTE1MzMxNGQ5YTQyZTRkMzE4NzE5YzNhYTVmOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_697d7f02e30a4884994622cdb222a3eb",
+      "statement": "Store.release selects body and status from inventory_reservations with FOR UPDATE to ensure the row is locked for the remainder of the transaction.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L146-L148",
+          "version": "repo-lines-v1:sha256:fc4487adbb3e29d7cc59732cd47c07afcd259f3c5981cdfe5d9f0f8b606bcb4d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGI0NDRjNTk4MjAwNWI3NTZjNjBkMzgyN2U5MjVjMjAwNDdkMmNiNzI1NmZlODQ3MTAzY2YwMGE2NWM0YjRlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNjY2Q3ZGVjYzZjNGYzNzhmNzVjNGJjNGM0ZTk1MzYxMDM2NDRkNjU5NjYzYTVmZGFjZGIzMDNjYzcxZDFjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDMwMGU5MWY4OGY0YTdjYzIxNTc0YzNkMzAxZjgwNTQyZWM2Y2NjM2JlM2QzYWYwYjAwYjQyYzNlMzE2OWFkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTZkNTc2YTQ2ZjliMTE3NGExNjM4Y2Q3MTU2MzUzNTQxY2I4MjdmNzY0MDAyNThkZDkxOTU2YWQzOTU4MzE4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b15b0a1e4dd24509bc63624e6a99b771",
+      "statement": "Store.release returns 404 when the reservation row is not found (pgx.ErrNoRows).",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L149-L151",
+          "version": "repo-lines-v1:sha256:16d576a46f9b1174a1638cd7156353541cb827f76400258dd91956ad39583188:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIwY2FiOGU0YjhhMTNhNzkxMGI3MWY2NTkxZTVjYmQzNWVjZTJiMjAyZDllODUwZjYwNzY0OTIzNjE0ZWM5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmM0NDg3YWRiYjNlMjlkN2NjNTk3MzJjZDQ3YzA3YWZjZDI1OWYzYzU5ODFjZGZlNWQ5ZjBmOGI2MDZiY2I0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGM2M2U1MTU2MjU0OTdmZDA5MmVjYzY3MjczNTE3NGI2MTQ0OTE1MTMwZDE3YTlhOTA5NjUzMWIyNDkwZGJkOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5500e39a50124bee848d741bd4c442aa",
+      "statement": "Store.release is idempotent: if the status is already released, it commits the empty transaction and returns success without modifying inventory_products.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L155-L157",
+          "version": "repo-lines-v1:sha256:0cbcd38625b188a5c23dd6858ae74e3c259a4a81ec17e47e26c4ec09fd3b1dca:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM4MWM0ZGY2ZDk1MTM3YmZhMDM1NmY0MGM2NWM3MTVlMzczNWEzNTg3NmU2NGIzYjEzOWY4MWU1MjJlOWI1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGM2M2U1MTU2MjU0OTdmZDA5MmVjYzY3MjczNTE3NGI2MTQ0OTE1MTMwZDE3YTlhOTA5NjUzMWIyNDkwZGJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTk4ZWZiZDE5MjYzYzU1ZDkzNzlkNGZlYmJkZDg1ZWRhNjkxNjFlZjMxNGIwZmExNzdkOTFkZGE0M2EwMDk4MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_481526f766d2449d842bbb28de16491d",
+      "statement": "On a non-released reservation, Store.release unmarshals the body JSON to recover items and SKUs, then increments inventory_products.available by each item's quantity.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L158-L166",
+          "version": "repo-lines-v1:sha256:12dd71e3adf98b4be3915e772dff94b5fb662f2edca688b9bcf4151fc4e2a064:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ2YjgyYzY5MzVlNDgwZDIzMDYyMzk1YTg2YTk0OGFkOTAzYWUyY2FlYzY5NjJkMDA0Mjk3NDA5OGIxMWNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNiY2QzODYyNWIxODhhNWMyM2RkNjg1OGFlNzRlM2MyNTlhNGE4MWVjMTdlNDdlMjZjNGVjMDlmZDNiMWRjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVhYTYzMDcyNTY5Y2ZjN2ZiYjQ1OWQyZDJhN2ZhZDc0MmQ3ZmMwYzRjMjIzY2M5NzA3MzJiMWEzYzg1ZTI1ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_940dd8c062d546ce80e28d6e2c78708a",
+      "statement": "After restoring stock, Store.release updates the reservation status to released.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L167-L168",
+          "version": "repo-lines-v1:sha256:253c9594bd4913d72bff39b35c7bdc563a01105ee648433b2277437325207a6f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI4OTM5MmMwYTA5MmU2NmVmZTU0ODdiY2VkMTk4NmE1MzBlNWRkODJmN2JmM2M5NGM3NDU5YjkzMmM2NTIxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzU1YmE4MTg1ZGNlYmYzODViNjM3M2Q3MmFhODVhZDA4ODM2Nzk4OGJlZmIwNTllNGM0ZGQzMTc3YWZlNTVjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTYxZDJjYzBkMDRmOTE4NWY2YzYyMTgxNmZlN2ZiYmVmNWRlMjc3MmE0Zjk3MGI3OTk0YjIyNWM2MzNhOTEzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWJlYWIwMTMxMThjNzY4MjBjN2I0MDc3YjAxZjAwMzZmODc4MzFmN2RjZjEzMTFhNWMzN2Y5ZWQ0MjE0MzBkNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5e9ad7f76bae402a91a320f5c4c55639",
+      "statement": "There is no compensation, retry queue, or undo mechanism beyond the single database transaction in Store.release.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L137-L170",
+          "version": "repo-lines-v1:sha256:3dc5b4411265b55edfedbff4f96c9e171cf53bd224dcca9f7f15a8e4fead8044:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0Zjg0ZGE0NTBkZjlhNjdiNjA1YWEyNGRlNzVmMGFlZThkOGFhNGFiZDYxMDQyN2RjMThlYzRkYWY3ZmQ2NTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzYjk1OGMwODM2OTRkNzhmNDE3MmJhZGJmYmY1ZDEzNDRmMzA2MGJlMTUxNDZlYzg5NTdmMmMyMGM0YzBjNGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhOGQ1YzhhMmQ0OWY4MTZlYmM4NTA4YjJkYTg3YjVmMTNiOTkzNGQyZjY3ZWQ4ZWI1ZWE0MzZhNjU4MDE3NWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZmODM2ZjhkMWY2NzMyMTAwZWUyZmMyYTZkMWUxMTk1ZTBhYzQ0MTMyYWFlMDFiOTIyZDhiZDkwMzA1M2E3YWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d65a12b40644578903908819f929dba",
+      "statement": "The integration test verifies that releasing the same reservation twice does not double-increment stock.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L70-L81",
+          "version": "repo-lines-v1:sha256:2660b3510fc155fb6406538acfbc2decde6e64ba3ed0d063944f2d737f3124f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiNDQ5NTJmNGY4MzY0YTQ5NjQwNDJkOGMxZDA4M2NkODg4MTJjM2RhZGZmZDcxMDE1M2JiODNkNDI5MzNlYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmMDgyYzM4ZjMwMGJiMzNkMzMzM2U4OTkzYzMwOTFjY2FmOTA1NmE0ODY4ZTUwOTVjNTMxY2Y3NTQ3N2RkNzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

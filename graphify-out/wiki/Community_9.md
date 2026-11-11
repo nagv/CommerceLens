@@ -1,30 +1,39 @@
 # Community 9
 
-> 8 nodes · cohesion 0.57
+> 18 nodes · cohesion 0.11
 
 ## Key Concepts
 
-- **healthcheck** (5 connections) — `compose.yaml`
-- **healthcheck** (5 connections) — `compose.yaml`
-- **healthcheck** (5 connections) — `compose.yaml`
-- **healthcheck** (5 connections) — `compose.yaml`
-- **interval** (4 connections) — `compose.yaml`
-- **retries** (4 connections) — `compose.yaml`
-- **test** (4 connections) — `compose.yaml`
-- **timeout** (4 connections) — `compose.yaml`
+- **services** (8 connections) — `services.example.yaml`
+- **application** (5 connections) — `services.example.yaml`
+- **pipeline** (4 connections) — `services.example.yaml`
+- **services.example.yaml** (3 connections) — `services.example.yaml`
+- **id** (1 connections) — `services.example.yaml`
+- **name** (1 connections) — `services.example.yaml`
+- **repository** (1 connections) — `services.example.yaml`
+- **repository_ref** (1 connections) — `services.example.yaml`
+- **graphify_command** (1 connections) — `services.example.yaml`
+- **openwiki_command** (1 connections) — `services.example.yaml`
+- **per_repository_order** (1 connections) — `services.example.yaml`
+- **aliases** (1 connections) — `services.example.yaml`
+- **catalog_pages** (1 connections) — `services.example.yaml`
+- **id** (1 connections) — `services.example.yaml`
+- **path** (1 connections) — `services.example.yaml`
+- **repository** (1 connections) — `services.example.yaml`
+- **repository_path** (1 connections) — `services.example.yaml`
+- **repository_ref** (1 connections) — `services.example.yaml`
 
 ## Relationships
 
-- [Community 4](Community_4.md) (3 shared connections)
-- [Community 10](Community_10.md) (1 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- `compose.yaml`
+- `services.example.yaml`
 
 ## Audit Trail
 
-- EXTRACTED: 20 (100%)
+- EXTRACTED: 17 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

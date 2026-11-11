@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:18b7df60483370920af2af014941518c26853a2c93ba4e79745f20c591537a84",
+  "claims": [
+    {
+      "id": "claim_8baf24014ae643308856db589a184d32",
+      "statement": "The Idempotency-Key header is required for POST /api/orders and must match the regex ^[A-Za-z0-9_-]{1,100}$. A missing or malformed header raises IllegalArgumentException, which OrderController maps to 400 Bad Request.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L19",
+          "version": "repo-lines-v1:sha256:b7e45eb7eb03d91e6f56a023d50251c4e8d5b30c22c2475e5a0f80e529953226:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU0ODI4M2QzNGFiMTkzZDkyOTQ4NWM5OTc0NjBjMWRhYzA2MTEzNjI4Y2FkNDk3NTY1NTNlMTZlMTU3N2ZmYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZiNTExYzA4NWI3YzM5ZGIxNTI1ZDEyOWU4MTllNWFmZTdhYTQ0MjRiMjk1Zjk2NWQyMDg0Y2QxOTAwOTMyNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_180cbe77a4f54c9d8615e1a76ef477e1",
+      "statement": "Before saga execution, OrderController canonicalizes the request by sorting items by sku ascending, defaulting paymentScenario and shippingScenario to \"success\", serializing the result to JSON bytes, and computing a SHA-256 digest. The hash is stored alongside the idempotency key to detect identical versus differing replays.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L25-L25",
+          "version": "repo-lines-v1:sha256:d3d16bf3375fb55bc701fbc65154a5814119f5eefcb977e0a66ff768f9d539a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNkMTZiZjMzNzVmYjU1YmM3MDFmYmM2NTE1NGE1ODE0MTE5ZjVlZWZjYjk3N2UwYTY2ZmY3NjhmOWQ1MzlhMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNkMTZiZjMzNzVmYjU1YmM3MDFmYmM2NTE1NGE1ODE0MTE5ZjVlZWZjYjk3N2UwYTY2ZmY3NjhmOWQ1MzlhMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTI1ZjQ4Y2IyODZiYjQ0NmMwMzVmYTlmNzkwYzZhNmQ2OTMzNDVjMGQ5ZmE2YmFjOWI2NDg1NjBjN2JmMzE4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_48f9198ed1f74a99a12726402009fdf5",
+      "statement": "OrderStore.create atomically inserts an orders row with ON CONFLICT(idempotency_key) DO NOTHING. It returns true when exactly one row is inserted and false when the key already exists, making the database the single source of truth for duplicate detection without application-level locking.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L15-L15",
+          "version": "repo-lines-v1:sha256:ca99475c065f4c4c3ee48d3b71cd9c58497cc242ead912cd62a1dba8cc7f9809:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmZGYyMzAzZmVmYWQyNzI5OGQxMjZiMGI2MjdkNTBhOTZlZDVhMDhiNjcyMmVjYzQyZjhiZWI1ZTc3MWNlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ5YTNlY2ZmMmRmMmI3YmZiMmNiOWM5NTA2ODZiMmI5NzIwYjE5MDY4OGEzOGNjZjI4YmI3ZDgzY2U0MGNjYSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/schema.sql#L3-L3",
+          "version": "repo-lines-v1:sha256:5bd3f367ab4c62287fc05b9e997f81bbf25c1b7f2f81dab53ddda1ed406c37cb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkM2YzNjdhYjRjNjIyODdmYzA1YjllOTk3ZjgxYmJmMjVjMWI3ZjJmODFkYWI1M2RkZGExZWQ0MDZjMzdjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkM2YzNjdhYjRjNjIyODdmYzA1YjllOTk3ZjgxYmJmMjVjMWI3ZjJmODFkYWI1M2RkZGExZWQ0MDZjMzdjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg5YzBlZmI4ZTFkNjI1MjMwMWQ4MTczYjMyNzA3NjRjNWI5MDE4ZjRjMGQ0OGNlY2Q5Y2RiMTUyNWM4NjIwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFjZDQ0ZTFkNWVkMDQyMDkwYzljZDIyOWNkNzZjNjhiNDUwYzMwZjJkYmY3M2RhZDU3YjVhNzMwOTZkMDM5MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_34e17665d2484dfa9b88e9c0246d4991",
+      "statement": "OrderStoreTest.postgresAcceptsOnlyOneConcurrentIdempotencyKey races eight threads submitting twenty concurrent inserts with the same idempotency key against a real PostgreSQL database and asserts exactly one succeeds. The test is skipped unless TEST_JDBC_URL, TEST_DB_USER, and TEST_DB_PASSWORD are configured.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L15-L26",
+          "version": "repo-lines-v1:sha256:96b6b6504a6a6e38e4890ee3db4a7201f25be7eeacec210c70ee11ed5aeaad30:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZGVhYjQ2MjI0YjRlMWQ1MzQ4NmFhOTAyNDk3NjQ4M2E3YWFjZTllMTQyMTgwNGQ3MzJkY2I2ZWE5N2Y1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3NGYwMjE4M2IzY2MxN2JkMWRjNGYwOGJlMmNiZTQ5NTc0MWVkOWQxZGNkMWU4NTE4ZTFhOWM5N2FiOGRlZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cb6dfb50bba04297b314873efa0c6c96",
+      "statement": "When a duplicate idempotency key is submitted with an identical canonical hash, OrderController returns the existing order body with its stored httpStatus and does not re-execute the saga.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L20-L21",
+          "version": "repo-lines-v1:sha256:d656bea5be2a3b2d833dd7a838357a25a48b833c875868e11e23c7103767b705:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWZiYzI0YTBmNTljZWM0YzIzYzc3ZmI4NWQ2NjlhM2JmZmYxMTIyZTE4MTkwNzY3OGM1MTlkOTE5YzFkYTlhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJhZjQyZGI4OWMzZjA0NzJhMmU1ZmFlOWZhYzE5ZmNmZDJhMjA0OTExMThlM2MwZDQ1MzgyNDU5OGQyNjAxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_216fe5187170473ea411f03fe82105e6",
+      "statement": "When a duplicate idempotency key is submitted with a different canonical hash, OrderController returns 409 Conflict with a message indicating the key was already used for a different request and includes the existing order id.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L20-L21",
+          "version": "repo-lines-v1:sha256:d656bea5be2a3b2d833dd7a838357a25a48b833c875868e11e23c7103767b705:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWZiYzI0YTBmNTljZWM0YzIzYzc3ZmI4NWQ2NjlhM2JmZmYxMTIyZTE4MTkwNzY3OGM1MTlkOTE5YzFkYTlhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJhZjQyZGI4OWMzZjA0NzJhMmU1ZmFlOWZhYzE5ZmNmZDJhMjA0OTExMThlM2MwZDQ1MzgyNDU5OGQyNjAxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c5b972e3c1c5482194528c3d784312af",
+      "statement": "Orders in pending, reserved, or payment_unknown states block automatic replay because the existing row collides with the INSERT ON CONFLICT guard. A replay against any of these states returns the latest persisted record with httpStatus 409, requiring operator reconciliation rather than blind retry.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L43-L44",
+          "version": "repo-lines-v1:sha256:cfe0a2cd0af9351f05e1da9ee2e77ca132b7c78681e636d8f1fe71e827622a83:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUyZWM1OTgxNTg5YmNmZWVhZjZlODI2NjRlNDQxYzUzMDM3ZTFmOTdlMzI4OTFkMzA4NGJkN2Y1NGRkMDM1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGQzYWRhYTVkY2I0YjI1ODk0MmIyNDMwYzNkYWZkYTIzNjQwMGEzOWNkYzg0NDBmM2JkYzNkMDA3MTA1MGM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L21",
+          "version": "repo-lines-v1:sha256:8a255289e4d4db8cfaa9b9e347b3e3fef5db37de6345c58de33eea1cc7561ce6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/schema.sql#L6-L6",
+          "version": "repo-lines-v1:sha256:ceb600a3ce015af3718b20a3a2191eba3144887789951fef76fefb3ea3c15aa7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ViNjAwYTNjZTAxNWFmMzcxOGIyMGEzYTIxOTFlYmEzMTQ0ODg3Nzg5OTUxZmVmNzZmZWZiM2VhM2MxNWFhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ViNjAwYTNjZTAxNWFmMzcxOGIyMGEzYTIxOTFlYmEzMTQ0ODg3Nzg5OTUxZmVmNzZmZWZiM2VhM2MxNWFhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc2MmEwMjc0MzFhYzQyNmM5YjQ5ZDEyNTRlODhmMmMyMTNjNDUwMDA1OTQyMTYxNmIxMzY5ZmQ5MjMzOGRlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjI1NmM5MWQ5M2JiZDA3OTZhNjA0M2UwOTZjZWY2ZWJmMTEzNzNhOGM4ODUzMjEwYTRhOWE2ZjJiNzkwZGMxZCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

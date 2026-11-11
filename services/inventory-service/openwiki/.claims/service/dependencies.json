@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:163f27f858f3c6223e5db478146649e9db55212923db73002900283f1e62f718",
+  "claims": [
+    {
+      "id": "claim_9bc298c5c4dc4c5a9a4c2ee02c247591",
+      "statement": "PostgreSQL is the only runtime external dependency consumed by the inventory service, accessed via the jackc/pgx/v5 driver and pgxpool connection pool.",
+      "evidence": [
+        {
+          "resource": "repo://go.mod#L5-L5",
+          "version": "repo-lines-v1:sha256:8d7e687f9aad1ffee413c0a072357600eb4c064cfd7ebee20f0a0925d3b97d46:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ3ZTY4N2Y5YWFkMWZmZWU0MTNjMGEwNzIzNTc2MDBlYjRjMDY0Y2ZkN2ViZWUyMGYwYTA5MjVkM2I5N2Q0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ3ZTY4N2Y5YWFkMWZmZWU0MTNjMGEwNzIzNTc2MDBlYjRjMDY0Y2ZkN2ViZWUyMGYwYTA5MjVkM2I5N2Q0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmEwMmIxNThjN2I5YzAyZjgwYjI0MzYyYmU5ZDUwYmU5ZDY3MGQ3MzFjNTAxNjgyMDk1MzY5MDQxYTVlMDU2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q2Y2Q4ODVjZjViOGRhMTkyMDI1NGQ4ZmU0NmQxMTg1NzhhMjdkNDdlYjIwZmYxYmU4ZTliNmY4ZmQ1NmI4MiJ9"
+        },
+        {
+          "resource": "repo://main.go#L18-L19",
+          "version": "repo-lines-v1:sha256:bc8daf8845576168a427cfad72342b30b355ac43c51664011b56231e48cbba1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzU1MzE4NGVkYmYzMGE0YWQ3OWQ2MTViMWFjNGQ2OTY4ZTE0NGNhNjk0MGY1Yjk4Y2QyOTI0YWNlN2JhMTI5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFjNTMxMTkzZGNhMGJkNjUzMzExZjViM2E4MjNmOTc0ODgxYWIyYTg3NWJkZGZjNGUwM2M1YmI4NjgxMWNkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFkZDRhM2Y0YjVhNjZhMzdkYWNmZjBjMGE5ZTI4NDNjZWE5YjVkNTQ5OWFiY2MzOWRjNmMxNWMyNzBmMzg3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIxMTg2YWFlOTdiOGU3ZGQ2ZDMyZDBmODcwZGNjN2RkYTc4NGM5MzE5ZDczNjY5Njc1Mzc5OWUyZWFhMmU0ZSJ9"
+        },
+        {
+          "resource": "repo://main.go#L259-L266",
+          "version": "repo-lines-v1:sha256:7790c5388f5944992e6280785138e5348213d6c3d3b5ac79a318a3fdc6a7f6b5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY0YTFjYjkyZWQxYjJkYmM0ODM0MGZhNjlkMTYyNDJkMTExNTQ1MjNmNDgxMWE2NTgyYTkyOTAzMzg5YjBiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBmZGI5OWQ1MDI0M2VlMDU0OWM0NWY5ZjYwYTc1Njg0OWM5NmRkZjA4N2IyOWU2ZjUyMDk5MDkxZWE0MmZlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2IwMTM2NTBhMDNlMGRmODllNzk4N2QwOTRiMDBlMWIwZjk1NDhiMjU2YzNiNzBmZjdjODg5YTgxYzE5YmM4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_450ed6a624f140b8be7e2d6e3a0b6fff",
+      "statement": "The service makes no outbound HTTP calls, has no event brokers, caches, message queues, or external business provider integrations.",
+      "evidence": [
+        {
+          "resource": "repo://go.mod",
+          "version": "repo-file-v1:sha256:0d5a1d4e8990ceedd7da90ba29dfa846a5c5560896f87ad07a8398f32520e806"
+        },
+        {
+          "resource": "repo://main.go",
+          "version": "repo-file-v1:sha256:e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+        }
+      ]
+    },
+    {
+      "id": "claim_999e280d99ec4653b50923c278710efb",
+      "statement": "Runtime database connectivity requires the DATABASE_URL environment variable; integration tests require TEST_DATABASE_URL to connect to a disposable PostgreSQL instance.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L16-L22",
+          "version": "repo-lines-v1:sha256:3c55173d917432e21080aea2a0d761b3f98bc1169813e81e700b7a2d93eab36f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ4NzA3NjNiODExMjc0ZGZhMmZkZmE0YjYyOTM4MjkxYzFjODc5YjlhNmZiNGU2ZjZjNDRkNTc3MmU0MGZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEyNGM0NWRhNDhiNzgwMDlmYTQ0M2RmMzNjYTIwNTkxY2Q1ZjMxMTEyMDgzYzNkNDYwOTY4NmVmZDM0N2UyMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNkOTVhY2IzYjI2ODc3MmNkMmI4ZTEwYWM2YTdhOTUwMTkxMzA1NmZmZjUyY2U3ZmY1NGQ4NmYwNDM1ZmRhMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGUxOWUxMjdiYjY4ODEwYWM0OGYzYjczMmJkZjZhNzE2ZTY2NTRiYjM2YjA1ZmFlNGNjODI1NWNhNTc4ZjMwNiJ9"
+        },
+        {
+          "resource": "repo://integration_test.go#L15-L18",
+          "version": "repo-lines-v1:sha256:7e60d03dbe9e96539c7193f68cfd1ceef511e5aef84d8a5eb54ad7f71719e4a1:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2UyZjYyMTIyZmZlZDI4Y2ZkNmNiZWUzNjNkODUxOGI1ZTM4ZDAyOWJhY2RkZWY1N2JiMTE2ZTdjMDgwNzgwZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDEzNzJlOWQ4OGZlZjU3ZWYwMDkyZWQ3NDhiYWNkN2YxYjliNzI4YWVkMWM3Yzg3MzNmZTNhMDA0MmQ5ZjRmOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODI4M2QxMTBiMDgzMTJlMzI5NjUxZjZlZDkyZmYxMTZhNDRiN2E0MDI5MDVjNmNhZDA0ODc2YjFlYTEwMzc2OSJ9"
+        },
+        {
+          "resource": "repo://main.go#L259-L266",
+          "version": "repo-lines-v1:sha256:7790c5388f5944992e6280785138e5348213d6c3d3b5ac79a318a3fdc6a7f6b5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY0YTFjYjkyZWQxYjJkYmM0ODM0MGZhNjlkMTYyNDJkMTExNTQ1MjNmNDgxMWE2NTgyYTkyOTAzMzg5YjBiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBmZGI5OWQ1MDI0M2VlMDU0OWM0NWY5ZjYwYTc1Njg0OWM5NmRkZjA4N2IyOWU2ZjUyMDk5MDkxZWE0MmZlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2IwMTM2NTBhMDNlMGRmODllNzk4N2QwOTRiMDBlMWIwZjk1NDhiMjU2YzNiNzBmZjdjODg5YTgxYzE5YmM4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bfc4c47036e74ec9a187a8bd159bf796",
+      "statement": "The only direct non-standard Go compile-time dependency is github.com/jackc/pgx/v5 v5.7.2.",
+      "evidence": [
+        {
+          "resource": "repo://go.mod#L5-L5",
+          "version": "repo-lines-v1:sha256:8d7e687f9aad1ffee413c0a072357600eb4c064cfd7ebee20f0a0925d3b97d46:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ3ZTY4N2Y5YWFkMWZmZWU0MTNjMGEwNzIzNTc2MDBlYjRjMDY0Y2ZkN2ViZWUyMGYwYTA5MjVkM2I5N2Q0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ3ZTY4N2Y5YWFkMWZmZWU0MTNjMGEwNzIzNTc2MDBlYjRjMDY0Y2ZkN2ViZWUyMGYwYTA5MjVkM2I5N2Q0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmEwMmIxNThjN2I5YzAyZjgwYjI0MzYyYmU5ZDUwYmU5ZDY3MGQ3MzFjNTAxNjgyMDk1MzY5MDQxYTVlMDU2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q2Y2Q4ODVjZjViOGRhMTkyMDI1NGQ4ZmU0NmQxMTg1NzhhMjdkNDdlYjIwZmYxYmU4ZTliNmY4ZmQ1NmI4MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_776dd309be114642aa00b3430296e6be",
+      "statement": "Transitive compile-time dependencies introduced by pgx/v5 are: jackc/pgpassfile, jackc/pgservicefile, jackc/puddle/v2, golang.org/x/crypto, golang.org/x/sync, and golang.org/x/text.",
+      "evidence": [
+        {
+          "resource": "repo://go.mod#L8-L13",
+          "version": "repo-lines-v1:sha256:c5858f2621af4ca069ab6a3fcbb7fcb9ba5eaa8ff2a9188cad078eefc5ff9e3e:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDFlMDI3YjU2NzNmODI0ZWZmMmI1OGYwMmM4YmNlZmMzYTA2MWFiYjljZmI1MzI5MDI4NDhlZGViYjVlNjk4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEyOTJhZGRjMGUzMTcwZjk4YTA2ZjRkOGY2YTQ0ZTBkMDFhMmMwMWVjNjE0ZGY3ZjA0NDY4Yjk5YzEzZThkOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjk1YTI5NjJhZDgxMGZhMWExZjU5NmMxNjVkYzA3OWE1MTQxMWFhMTE5OGM2MDFkZTIyMjBiNmU4MjJkMWUyYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0620563225444146b36b8e04b77b90bb",
+      "statement": "Integration tests have no mocks for PostgreSQL and require a real disposable database; they verify concurrent reservations, conflicting replays, and idempotent releases.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L14-L82",
+          "version": "repo-lines-v1:sha256:4733e2ec745291fdf17df194284bd924ad4f2b6bd6cb28124cb83ef7f61a135a:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmMmNjY2UyNzg3OTBmNzA5MmZjODYwNGQxZmUxOTI5OWY1MzdkNjc3OWRkMDZmNWYxMzVmZTllNjViMjUyZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5ZWRkNzJiYTZiNDAwODNjZTk1MjY5ZmE1NmZjZjNhYzFiZDk4MjIxYWE2NjIxYTY4M2Y3ZDU2MzJiYjIxZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_429cc766592a4b48bc51b944c065202c",
+      "statement": "The service provides an HTTP API on port 8080 as a runtime interface to callers.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L11-L11",
+          "version": "repo-lines-v1:sha256:68d8f9b669398abe805c8d757bc3c610cc2f2a7684732580eca9d6d349ac481a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkOGY5YjY2OTM5OGFiZTgwNWM4ZDc1N2JjM2M2MTBjYzJmMmE3Njg0NzMyNTgwZWNhOWQ2ZDM0OWFjNDgxYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkOGY5YjY2OTM5OGFiZTgwNWM4ZDc1N2JjM2M2MTBjYzJmMmE3Njg0NzMyNTgwZWNhOWQ2ZDM0OWFjNDgxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTgwZTA2NzQyZDllYjc1Yjk4Y2JiYzcwYjk0NzQ4ZTY0YWY2ODYzMmIwMjc4ZWU5OWNiYzRmMWY2YzkxZjZjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQyMzliZmEzYzAyM2U3NTg2ZGYyYjUyNGM1ZDRhMDEyNGVkZWE0ZTE1NzA0YTRmNmY5NjljZDViMjg5ZGYzYyJ9"
+        },
+        {
+          "resource": "repo://main.go#L202-L252",
+          "version": "repo-lines-v1:sha256:46b99e8d1606c8b13f8f1566ccec6e77191c69df0276f882159e01079b9ebbf5:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MjkyMGRhZGMyZTAwOGU5M2ZjNGZmOWUzYWU1YjUyYjUxNWMwMGI4YjIwZGFlOGFhMjlhYTBlZWJlYzIyNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MzM1YjlkOTE2MGVjMGVlNWRlOGJmNTJlOTc2NzVlNDNmZWIwN2FlMzRhYTgxZDA5NjQ0MzE4ZDg0NmE0NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZhZDhiNzZjODFkMTRkNzc2MTdlMjU5YTMxOWVhYWYxYWQ2ZTk1ZTk0MzlkNDkwZTFkMGU5NWI2YzNiOTExNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxYjk5ZjYzZDM4ZmFlZDkwYzNlM2Y5MGY3YWRkN2M4ZTNhMmFkYzY4YzAxYTg2YjBhMjA5OWM4OGU2YzUzZTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

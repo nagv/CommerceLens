@@ -1,22 +1,32 @@
 # Community 13
 
-> 1 nodes · cohesion 1.00
+> 11 nodes · cohesion 0.18
 
 ## Key Concepts
 
-- **bootstrap.ps1** (0 connections) — `scripts/bootstrap.ps1`
+- **payment-service** (4 connections) — `compose.yaml`
+- **shipping-service** (4 connections) — `compose.yaml`
+- **environment** (3 connections) — `compose.yaml`
+- **environment** (3 connections) — `compose.yaml`
+- **PROVIDER_TIMEOUT_SECONDS** (2 connections) — `compose.yaml`
+- **PAYMENT_PROVIDER_URL** (1 connections) — `compose.yaml`
+- **SHIPPING_PROVIDER_URL** (1 connections) — `compose.yaml`
+- **build** (1 connections) — `compose.yaml`
+- **depends_on** (1 connections) — `compose.yaml`
+- **build** (1 connections) — `compose.yaml`
+- **depends_on** (1 connections) — `compose.yaml`
 
 ## Relationships
 
-- No strong cross-community connections detected
+- [Community 15](Community_15.md) (2 shared connections)
 
 ## Source Files
 
-- `scripts/bootstrap.ps1`
+- `compose.yaml`
 
 ## Audit Trail
 
-- EXTRACTED: 0 (0%)
+- EXTRACTED: 12 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

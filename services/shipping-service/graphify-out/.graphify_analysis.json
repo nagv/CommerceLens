@@ -1,0 +1,149 @@
+{
+  "communities": {
+    "0": [
+      "fact",
+      "httpclient",
+      "program_shipmentrequest",
+      "program_shipmentrequest_shipmentrequest",
+      "program_shippingprovider",
+      "program_shippingprovider_shippingprovider",
+      "tests_shippingtests_shippingtests_explicitrejectionissafetocompensate",
+      "tests_shippingtests_shippingtests_failuredoesnotproduceshipment",
+      "tests_shippingtests_shippingtests_passesorderkeyandreturnstracking"
+    ],
+    "1": [
+      "nuget_microsoft_net_test_sdk",
+      "nuget_xunit",
+      "nuget_xunit_runner_visualstudio",
+      "sdk_microsoft_net_sdk",
+      "sdk_microsoft_net_sdk_web",
+      "shipping",
+      "shipping_csproj_framework_net8_0",
+      "tests_shipping_tests"
+    ],
+    "2": [
+      "httpmessagehandler",
+      "httpstatuscode",
+      "system_net",
+      "tests_shippingtests",
+      "tests_shippingtests_handler",
+      "tests_shippingtests_shippingtests",
+      "xunit"
+    ],
+    "3": [
+      "exception",
+      "program_providerexception",
+      "program_providerexception_code",
+      "program_providerexception_providerexception",
+      "program_providerexception_status",
+      "program_shippingprovider_create"
+    ],
+    "4": [
+      "cancellationtoken",
+      "httprequestmessage",
+      "httpresponsemessage",
+      "task",
+      "tests_shippingtests_handler_sendasync"
+    ],
+    "5": [
+      "program",
+      "program_shipment",
+      "program_shipment_shipment",
+      "system_net_http_json",
+      "system_text_json"
+    ]
+  },
+  "cohesion": {
+    "0": 0.5,
+    "1": 0.2857142857142857,
+    "2": 0.2857142857142857,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.4
+  },
+  "gods": [
+    {
+      "id": "program_providerexception",
+      "label": "ProviderException",
+      "degree": 8
+    },
+    {
+      "id": "program_shippingprovider",
+      "label": "ShippingProvider",
+      "degree": 7
+    },
+    {
+      "id": "tests_shippingtests_handler",
+      "label": "Handler",
+      "degree": 7
+    },
+    {
+      "id": "program_shipmentrequest",
+      "label": "ShipmentRequest",
+      "degree": 6
+    },
+    {
+      "id": "tests_shippingtests_shippingtests",
+      "label": "ShippingTests",
+      "degree": 5
+    },
+    {
+      "id": "program_shipment",
+      "label": "Shipment",
+      "degree": 3
+    },
+    {
+      "id": "shipping_csproj_framework_net8_0",
+      "label": "net8.0",
+      "degree": 2
+    },
+    {
+      "id": "nuget_microsoft_net_test_sdk",
+      "label": "Microsoft.NET.Test.Sdk (17.12.0)",
+      "degree": 1
+    },
+    {
+      "id": "nuget_xunit",
+      "label": "xunit (2.9.3)",
+      "degree": 1
+    },
+    {
+      "id": "nuget_xunit_runner_visualstudio",
+      "label": "xunit.runner.visualstudio (3.0.2)",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `ProviderException` connect `Community 3` to `Community 0`, `Community 5`?",
+      "why": "High betweenness centrality (0.145) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 3 inferred relationships involving `ShippingProvider` (e.g. with `ShippingTests.ExplicitRejectionIsSafeToCompensate()` and `ShippingTests.FailureDoesNotProduceShipment()`) actually correct?",
+      "why": "`ShippingProvider` has 3 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Microsoft.NET.Test.Sdk (17.12.0)`, `xunit (2.9.3)`, `xunit.runner.visualstudio (3.0.2)` to the rest of the system?",
+      "why": "7 weakly-connected nodes found - possible missing edges."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Handler` connect `Community 2` to `Community 0`, `Community 4`?",
+      "why": "High betweenness centrality (0.124) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 3 inferred relationships involving `ShipmentRequest` (e.g. with `ShippingTests.ExplicitRejectionIsSafeToCompensate()` and `ShippingTests.FailureDoesNotProduceShipment()`) actually correct?",
+      "why": "`ShipmentRequest` has 3 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ShippingTests` connect `Community 2` to `Community 0`?",
+      "why": "High betweenness centrality (0.114) - this node is a cross-community bridge."
+    }
+  ]
+}

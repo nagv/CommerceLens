@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:71d486db05573526ec96fe6fcf47bb5cb0dae99ccad100b5ae52368a9307399f",
+  "claims": [
+    {
+      "id": "claim_01f269071f4d4a8d8fe7d9591f1ce37e",
+      "statement": "The orders table has columns: id (TEXT PRIMARY KEY), idempotency_key (TEXT UNIQUE NOT NULL), request_hash (TEXT NOT NULL), body (JSONB NOT NULL), http_status (INTEGER NOT NULL DEFAULT 409), and created_at (TIMESTAMPTZ NOT NULL DEFAULT now()).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/schema.sql#L1-L8",
+          "version": "repo-lines-v1:sha256:aedd1acdd178c1e05c680c02da5c99072a97748587e90f94233a61d614ce78e3:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY5ZTZiZmE4ZTlhM2IzOTUwYmZkNDE4NTJhZGFjNjBiOWY0ZDQ4ODY2Y2NkZDkyNmMyMGNiNjY2OTQ4ODQ5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk5NjdlYzFlZDM4MzZmOGViMTdhZmYxNzJiNWJmZWY3ZGU2MDQ4NWE0MzljNmNhMTFjNTkxZTE3NTU3MzlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjY2ZDg1MzNiODRlMzAyNjIzZTczMjc2MjFkN2Y4N2Y4Y2QzNmMwOTA3OTQzMzRjYjAxZTk3YjYxOTVkYjAxYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e747a7cf3734d388014641adf86278a",
+      "statement": "The order_outbox table has columns: event_id (TEXT PRIMARY KEY), payload (JSONB NOT NULL), created_at (TIMESTAMPTZ NOT NULL DEFAULT now()), published_at (TIMESTAMPTZ), attempts (INTEGER NOT NULL DEFAULT 0), and last_error (TEXT). It stores events until OutboxPublisher confirms delivery to RabbitMQ.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/schema.sql#L9-L16",
+          "version": "repo-lines-v1:sha256:a85a8d67540290361bf32434522e7f95ae75ff26e5362fb49fc31884da422975:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU3ZjE4YzI5NTVlYmYyMmEzZGE1OWI5NTVkNWFjNTU4NGJhMWRkNjNlNTc1MjAxODNhMjFjNTMxMjJhNWU3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk5NjdlYzFlZDM4MzZmOGViMTdhZmYxNzJiNWJmZWY3ZGU2MDQ4NWE0MzljNmNhMTFjNTkxZTE3NTU3MzlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWU5ZTRkNjhiNTI3OWUxMzY0Njc4OTE4ZjQ2ZDQ4N2ZlYzM5YTg2ZWQyNzk5M2IwNmJkMDY1MThmMTlmOTg5OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2d9b364d69a45feb55da41bb62a8689",
+      "statement": "The idempotency_key column has a database-level UNIQUE constraint in the orders table. OrderStore.create uses INSERT with ON CONFLICT(idempotency_key) DO NOTHING so that only one concurrent insert succeeds for the same key, and OrderStoreTest verifies exactly one success out of 20 concurrent attempts across 8 threads.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L15-L15",
+          "version": "repo-lines-v1:sha256:ca99475c065f4c4c3ee48d3b71cd9c58497cc242ead912cd62a1dba8cc7f9809:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmZGYyMzAzZmVmYWQyNzI5OGQxMjZiMGI2MjdkNTBhOTZlZDVhMDhiNjcyMmVjYzQyZjhiZWI1ZTc3MWNlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ5YTNlY2ZmMmRmMmI3YmZiMmNiOWM5NTA2ODZiMmI5NzIwYjE5MDY4OGEzOGNjZjI4YmI3ZDgzY2U0MGNjYSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L15-L24",
+          "version": "repo-lines-v1:sha256:06121182621c8d668e1ec11f9f80744d0d0d62bf7bbe46213ace68c1d6cb5023:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZGVhYjQ2MjI0YjRlMWQ1MzQ4NmFhOTAyNDk3NjQ4M2E3YWFjZTllMTQyMTgwNGQ3MzJkY2I2ZWE5N2Y1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjMxY2MzNmI2OTYyZGJhNDk5YWQwOTQ3NmUxM2YxYzc4ZjhiMzE1MzVmOWJmN2MxZGVmYTE0MjU1MmNlYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3NGYwMjE4M2IzY2MxN2JkMWRjNGYwOGJlMmNiZTQ5NTc0MWVkOWQxZGNkMWU4NTE4ZTFhOWM5N2FiOGRlZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3YzYzNWJhOGQ5M2ZjZmUyMTFjNzc4YzZiYjc5ZjVlNTM1MzgyY2MwZjFkYWVlMjY3MzE1NGI3M2IyMmM3NWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d5db61aa1c4e4aeca9ff6e6bb4b5304d",
+      "statement": "OrderStore uses a Jackson ObjectMapper for JSONB encoding and decoding. The httpStatus field on Checkout.Order is annotated with @JsonIgnore, so it is not serialized into the body column; instead it is stored in a separate http_status column and re-injected on read by the decode method.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L16-L16",
+          "version": "repo-lines-v1:sha256:1c3b04e1d01aff3441e3fe5088c0402acfc4cde272aae3aa5d83c403eda28fa1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMzYjA0ZTFkMDFhZmYzNDQxZTNmZTUwODhjMDQwMmFjZmM0Y2RlMjcyYWFlM2FhNWQ4M2M0MDNlZGEyOGZhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMzYjA0ZTFkMDFhZmYzNDQxZTNmZTUwODhjMDQwMmFjZmM0Y2RlMjcyYWFlM2FhNWQ4M2M0MDNlZGEyOGZhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzU5NTRkMTc1ZTZhZmMyMjA1MTc1YmNkODMwNTcxY2UzM2EwZTQ5NDUwN2NiYWRjNGQ4MTcxOGI0ZmYwMTFlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWIzN2E4YjA2ODcxOGUwNTRhOTFjNDk4N2VjYzlmODNiYTYwZjJlNGVlYmEyYTUyZTE1MGEyZWEyMGM1Nzk5OSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L13-L14",
+          "version": "repo-lines-v1:sha256:cf19ea29ad6996cbd8a4aac2630d2f2c197edfbc45a434887bf7a8a9d493d7e0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQ5YTZlYmNlNjliNjY3NzFkNDcxM2JhNWI2MWJiN2I0YmJkY2QzMjA1N2VhMDlhZWE4ODc1YjMxMTNhMjczYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNmNTNlNDYwYmI0MDlmNTZkYjI2NDE0MGU3MDZjNGUzZjEzNDQwZjRhZmU0ZTkyYjEwZWQ5ZTcyOGIwY2RiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmYzOTE4NWFmOWUxNDc1ZGViNmUwMGI2MTAyOWI3OGMxNjE1ZjI1ZGVhYmEzZmNiNWRmYzJmYjU3YjgwYjBiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ1YmY3YWIyMWI5YjZjYWQwMWUwM2E3ODE4ZjUwMDY5NTc5NTM0YjExMzcyMmIzNjg3ZmM4YTlkYmY1ZTAwZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fad1af79e7de42eb9bbb2dafb9cd783d",
+      "statement": "OrderStore.create inserts a new order row with id, idempotency_key, request_hash, and body as JSONB, returning true if a row was inserted and false if the idempotency key already existed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L15-L15",
+          "version": "repo-lines-v1:sha256:ca99475c065f4c4c3ee48d3b71cd9c58497cc242ead912cd62a1dba8cc7f9809:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmZGYyMzAzZmVmYWQyNzI5OGQxMjZiMGI2MjdkNTBhOTZlZDVhMDhiNjcyMmVjYzQyZjhiZWI1ZTc3MWNlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ5YTNlY2ZmMmRmMmI3YmZiMmNiOWM5NTA2ODZiMmI5NzIwYjE5MDY4OGEzOGNjZjI4YmI3ZDgzY2U0MGNjYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9398635fd93b4aa99cf76f08d03f80a7",
+      "statement": "OrderStore.byKey selects request_hash, body::text, and http_status from orders by idempotency_key, returning an Existing record that contains the stored request hash and a decoded Checkout.Order with its httpStatus field set from the database column.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L16-L17",
+          "version": "repo-lines-v1:sha256:667daa8939e8f56a7e71ec666ef22aab62203dda4578251e76356587cfcf5d40:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjYjk5NDBmYTYwOWYxNzkyMjQ0NDRmYzFlY2ZmMWU5NDZjNjMyNGUwNjAxNjQzNTUzYzI2OWIyYzMzZGYwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5ODY3MjE5MTdiZmMwMjNkZDA2Nzg4ZDIxMTZlZmVmOTM3OGU1OGJhZmRmM2EzMTFmZGJhZDgwYmFlM2EyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTY4NzBiOWVhNzIxYzkxZjYyMWM4Y2IxMjk2NzM2ZjcyMzUxYTYxYjBhMGUxOTE3ODZkZDdlYjYwMTllZTVhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjk2ZjhjYTQ3YThjZjk5NDNlNjczNjBjY2UyYThmMTk3OTJlMDEyMGViNTYzMTkxNGI0NTJjOGM5MjhlZDJkZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b94f0f3396db4c75883f1b168ab7923a",
+      "statement": "OrderStore.checkpoint updates only the body JSONB column for the given order id, overwriting it with the current serialized Checkout.Order state.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L20-L20",
+          "version": "repo-lines-v1:sha256:7b1546d64827f694c3fe0e6a2b15df523597dcf94bfba6fc5444a07351f60dfa:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWZjMTUwNTFjYzI2NGE2M2I1ODFkMjM1Y2JmNGJhMjU3MDc1NjI3ZDdmNzRiODY1MmNkYzFiMGViYmU4YjcyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWUxNWUwY2U2MmJlNjcxMmU4Mzc4ZmU2MjdkYWM3YzI2YzA5M2JiZWE5MDAwYWY5OGU4M2UzNGIwZWEwNDQyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cbd35e7c9fbf41f4856e4f8388d0c962",
+      "statement": "OrderStore.finish is annotated with @Transactional. It updates the order body JSONB and http_status columns, and if the order status is confirmed, it inserts an event into order_outbox with a deterministic event_id and JSONB payload, using ON CONFLICT DO NOTHING for idempotency.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L21-L28",
+          "version": "repo-lines-v1:sha256:77fca1d885d72c161e838a3daa7a966acf767ed05f5a3bc1acbac7b7a4fe3935:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU5MzNiYTdhNjZmNjdkZGE0MDM3YTU1OTYxY2ExNWNjNTFlMDllNWVlMmYzNzQyMGQ2ZjdjZjE0YjU1Mjk4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjk2ZjhjYTQ3YThjZjk5NDNlNjczNjBjY2UyYThmMTk3OTJlMDEyMGViNTYzMTkxNGI0NTJjOGM5MjhlZDJkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjE0NTJiNzhlOTA2NDgxMmNkNjkxZWJiN2JhMzQ3NjY3OWQ1ZDAyMGYzODNhN2ZjZDZhMjE1ZjVkZDhjMDU4ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1dec410e529b46529a649bc7f9700754",
+      "statement": "OrderStore.get fetches a single order by id and OrderStore.list returns the most recent 200 orders ordered by created_at DESC; both decode the JSONB body and inject the stored http_status.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L18-L19",
+          "version": "repo-lines-v1:sha256:fc8fc0443b91923c6eb5cd757fe14478ab58cf571e8ef091ed0383381aeb5ad8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhhYzkyZDU0N2I1MDI3NzE3ZjdkNjUxN2IzN2VhYzFlYmQzOTRiNTY0N2UyZTU1NTM1MjczOWI3N2UyZTk2MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUwOTE4NzlmYjNjODYyOGQ3NjFlMjBiODBiZGZhNTRlYjU4MzE5ZmYzNzU0MmQ5ODVmZTE0MzhjOTlmMzBlMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGQ1YmY3YWIyMWI5YjZjYWQwMWUwM2E3ODE4ZjUwMDY5NTc5NTM0YjExMzcyMmIzNjg3ZmM4YTlkYmY1ZTAwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmE5Yzg3OTA1ZWM3MjUzODkwYzE4ZDA0YjNhYmY1ZDhjY2NjM2RiODBmYWRlODJjNTQ5ZjcxNjU2NzQ4YmM3MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e8656bce71684ff0b5c87a6b7949d68a",
+      "statement": "OrderStore.healthy performs a SELECT 1 query and returns true if the database is reachable, which powers the /health endpoint.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L29-L29",
+          "version": "repo-lines-v1:sha256:d29dce38df5e44647c7f9286396e0e584af7492e5e63fa119097df61e896eb0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmJmZTZkZTI3MjVlNDU1ZjNmMmVjYzNlZDEzYTQyZmFhNDEzZThjMjRmNTU1YjhjNTk4N2NkNzhkMjhlNWRiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9372c46851384f809aa6e48b0ea0e5f2",
+      "statement": "OutboxPublisher polls order_outbox every 2 seconds, selects up to 10 unpublished rows with FOR UPDATE SKIP LOCKED, sends each to the RabbitMQ order.confirmed queue, and updates published_at only after receiving a broker ACK, enabling at-least-once delivery where consumers deduplicate by eventId.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L21-L33",
+          "version": "repo-lines-v1:sha256:dbdc3b1e06ee0ac7dc1ca52b8efedce17e61087439d88a8e2f1ee5189ca632a0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZjBjOGFiNzNhNjc4NGI3OWZjYTYwOWYyYTNhZDIzNDAxNzZmYmZhOTY1OTRmOTI4NTc0MGE4YTY3ZmZkM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4NjM0ODJlNzc5MWU1ZDIyZDk3ZGRkNzAzNmVlMDc2ODYxZWUyZTViODcxNzFhMDcwNDRhOTMxZDkwZTQxNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjM2JkODQwZmI0MmI4MzVjZDkyZDZhYWRkOTgxNTE4ZjIzZDQwZjc1MGFmYTVlYzNiNWFmZWY3OTRiOTBhMWMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

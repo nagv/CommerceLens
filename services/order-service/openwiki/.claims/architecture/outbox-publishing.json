@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:65650be0c46d3d0765396e11c248aad8a2efd06437ae2eafcde44a14c0fb0528",
+  "claims": [
+    {
+      "id": "claim_9057286d9bef4949a28048206cd992cb",
+      "statement": "Spring AMQP is configured with publisher-confirm-type=correlated, publisher-returns=true, template.mandatory=true, and connection-timeout=3000 in application.properties.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L10-L13",
+          "version": "repo-lines-v1:sha256:c80ca7bf538a3809e0174a624bebbd80aa6bbc0863041ec057328b9a9a718296:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE0YmVkNmZlNTFlY2Q4NmU4ZmUzNjk4YzU5OTRlZDBiNzQ1ZGQzNGU1MWU4Y2Q0MjU4ODgzYjYwMGViYjk1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgxMTM2MjVhZWI0MDIzZmYxMjgyZjUxZDM2YzQyMmZjOTRiNGU3N2U0YmRlYmIzODVlZDg0MjYwYjU1MzdmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2ExZmFkZTgzYjUwZDUwZDM1YjNjOGQxMTA3NzJmM2YwM2RmZGIyOTdmOGEzZjNkMGE2NTljNDk3NWZmNTk2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGY3ODMyM2U1MWZkZDZlOWZiYzk3Yjc0ODUxOTAxZDZlNjAwZDk3Nzg2NzE5MjI1YmM3MGI0MTBiNDI2MWViYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7524dc317baa439f8c72961f3a7a75aa",
+      "statement": "OutboxPublisher declares two durable RabbitMQ queues as Spring beans: order.confirmed (with x-dead-letter-exchange set to the empty string and x-dead-letter-routing-key set to order.confirmed.dead) and order.confirmed.dead (with no extra arguments).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L19-L20",
+          "version": "repo-lines-v1:sha256:12520fd45ab37a54451a353a55e35e4f80e5e9529d554f280c252bb8f7585de7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdkNTRkNWU0NTIxZGViZmMxM2VkNTNjNzgzY2QyYTZmYWM3MmE3ZTY0NTNiMGRiZWM5Y2U4Y2M1NzQ5ZWU0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4NzA4NzIxOWQ1OGQyNTUyZjc2YWIyNWE3ZjM5ODliY2E1MTljNWVmZjliNTBjYjI3ZjBkZDI0ZDA0YjRiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2VmZDY0NjUwZjFmYmNmMTY2YTNkNWYwMTRkMmI3ZmIzZGI3NjhjNDBmZWI0ZjcyZjA2NGU0ODlhNDI0MjE1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTIwNDg3N2ZjYzNhZTUzNGM5ODZmM2M1ZTE3YmVhOWQwMjYyZTM1MDI4NzI0ZDExYzA0NjIxMzlkYjc5YjNhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_93fb2ae58f314dee8535b741058a1823",
+      "statement": "OrderStore.finish inserts an outbox event with a deterministic eventId, orderId, customerEmail, totalCents, and trackingNumber into order_outbox only when the order status is confirmed, using the same local transaction as the order update.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L21-L27",
+          "version": "repo-lines-v1:sha256:5a403da1bc6ad5c0abe907d6e564547096912d06af405d32f546e8a6f6d34f5f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU5MzNiYTdhNjZmNjdkZGE0MDM3YTU1OTYxY2ExNWNjNTFlMDllNWVlMmYzNzQyMGQ2ZjdjZjE0YjU1Mjk4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjk2ZjhjYTQ3YThjZjk5NDNlNjczNjBjY2UyYThmMTk3OTJlMDEyMGViNTYzMTkxNGI0NTJjOGM5MjhlZDJkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGE4NWQ2ZGI3MmVkNmNhOWIyOWExNGRhZGRhMDllZjQxNGY4ODJkNDc0OWFlNjU0MjljMWI0MjFmNDcyNDU0MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6fd2b7519e94874bb300a8a821ca000",
+      "statement": "OutboxPublisher.publish is triggered every 2000 milliseconds by @Scheduled(fixedDelay=2000). It selects up to ten unpublished order_outbox rows ordered by created_at with FOR UPDATE SKIP LOCKED, sends each as a persistent RabbitMQ message via RabbitTemplate with CorrelationData, waits up to 5 seconds for a publisher confirm, updates published_at on success, and on failure increments attempts and stores the exception class name in last_error before breaking the loop.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L21-L33",
+          "version": "repo-lines-v1:sha256:dbdc3b1e06ee0ac7dc1ca52b8efedce17e61087439d88a8e2f1ee5189ca632a0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZjBjOGFiNzNhNjc4NGI3OWZjYTYwOWYyYTNhZDIzNDAxNzZmYmZhOTY1OTRmOTI4NTc0MGE4YTY3ZmZkM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4NjM0ODJlNzc5MWU1ZDIyZDk3ZGRkNzAzNmVlMDc2ODYxZWUyZTViODcxNzFhMDcwNDRhOTMxZDkwZTQxNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjM2JkODQwZmI0MmI4MzVjZDkyZDZhYWRkOTgxNTE4ZjIzZDQwZjc1MGFmYTVlYzNiNWFmZWY3OTRiOTBhMWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9f4a3a8406942e188fcf6fbff01f562",
+      "statement": "The outbox pattern provides at-least-once delivery semantics for order.confirmed events: consumers must deduplicate by eventId because the publisher may retry after a crash between the broker ACK and the local transaction commit, after a broker NACK, or after a confirm timeout.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L26-L27",
+          "version": "repo-lines-v1:sha256:c7371c3cf2053ad9c633790fe76c3b01f3e02616185776121314c7aa8a358b4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU5ODY0YzZjYzUyM2ViY2Q3MjY1NTEyZjgwMGFkNTY2YmM1OWJmYzU4MjM3YTY2Y2U2MmI5NTY2ZWFhZTNjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGRlMTMyY2E1ODdlMzM5MjJhNjlhYmUxZjY2ZGY1MWY3N2Q5MmNlYjk4YmNlODE5NDg5ZDA0MWYyMzQwMDAyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGE4NWQ2ZGI3MmVkNmNhOWIyOWExNGRhZGRhMDllZjQxNGY4ODJkNDc0OWFlNjU0MjljMWI0MjFmNDcyNDU0MCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L22-L22",
+          "version": "repo-lines-v1:sha256:a03aaad8ad176f594cd97ecf97209f76252ec028b312fc3e47aa2c33cbd57619:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAzYWFhZDhhZDE3NmY1OTRjZDk3ZWNmOTcyMDlmNzYyNTJlYzAyOGIzMTJmYzNlNDdhYTJjMzNjYmQ1NzYxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAzYWFhZDhhZDE3NmY1OTRjZDk3ZWNmOTcyMDlmNzYyNTJlYzAyOGIzMTJmYzNlNDdhYTJjMzNjYmQ1NzYxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmQ1MGJjYjQzYjFjYjYwZjZjZDNjZGI3ZTE0ZWY0NDVlZGNlNWQ3OWVhODM2ZmVmZDJkNjVlMzYyYjM2MTVmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjI4YzkxMzRhZjU0ODZjZmJjNzM3NjJjYmQxMjk5NzUwOTM1N2EyNjVmZWJmNGE5NWQzYmViN2E0OWQ5NjBlMCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L29-L31",
+          "version": "repo-lines-v1:sha256:0e87c41b5996afa7cafd293a149e9fe965216f0e04fa73b034662569219b17f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTdjY2YzZGZlNjA3N2I4ODVkYzEyMTIxN2EzMDI3NTcwYTBhMjkxMzU1OWY4MDE0YmI4OTE0MWM3NjA4MmZlNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjQxYWUyNDhlZjA3Zjk2ZWExYTY3MmJmNzFhODQ3ZmFmZmI1YjY3OGU0MjkwYmQ1YzJlZGMwYzYyNzczMDQ1OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmRiZWYzNGEzZWE3Zjk2NGUwMjVlNDRiZWMwMjhlYzhkMjQwNzk2MWNlNzdkZTAyMjI1NTcxNmRlNTU1MWNiNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTA4ZjQ2NDI4ODFiMzBlYmQ2NTZmODIwMjVjZjcwNWE5NDA2NmM2YjViYTk0YzhhZWI4ZDAzNzRkYTkwMTBmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_94577c984dc64fca8ab68976fd6a59d7",
+      "statement": "Each outbound RabbitMQ message is sent with PERSISTENT delivery mode, application/json content type, and messageId set to the event_id, using the default exchange with routing key order.confirmed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L26-L28",
+          "version": "repo-lines-v1:sha256:bdbef34a3ea7f964e025e44bec028ec8d2407961ce77de022255716de5551cb4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI0NmVmNjIzZDQ1NjA2NTFhOGNkNjUxOWY0MGQyYTQ0NjY2OTY5MTE0MTgzNzFlZTRlYTg5YjkxMjZkODczYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmNkMjk4NzhiOGYxOGJhYTQwMmNhODU4ZGFhMzExMTNhNjVmNjI4ODc2YmU4MmJmMDA1ZWIzMGEwNjNlNTUwNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjI4YzkxMzRhZjU0ODZjZmJjNzM3NjJjYmQxMjk5NzUwOTM1N2EyNjVmZWJmNGE5NWQzYmViN2E0OWQ5NjBlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGU4N2M0MWI1OTk2YWZhN2NhZmQyOTNhMTQ5ZTlmZTk2NTIxNmYwZTA0ZmE3M2IwMzQ2NjI1NjkyMTliMTdmNyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

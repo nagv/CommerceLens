@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6c3a8c84b4950310aaf3b217b294e2628d4a0376be38e855a5e66528690269c5",
+  "claims": [
+    {
+      "id": "claim_ea1a114499634db99a467be57e72b147",
+      "statement": "The refresh function calls GET /api/products, GET /api/orders, and GET /api/notifications in parallel via Promise.allSettled.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L17-L25",
+          "version": "repo-lines-v1:sha256:0f5cc864b2e09691e0d74cdf85682be7949803adecc890cd0649c638c7b25361:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRmZmYwNGNjMWVhOTlmM2MzMzc3ZmQwNzMxNGJlN2QzNWI5ZTI2ZGU2ZTk0MjhiMGFmNzA3MTZjNTAxYmIxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc3NTg0MjkzMmYzNGI1YTgxMGJjYzQwNDkyYTYxNjQyOGMzOTMyNjhlZGNhNzg3NDc5YTRiN2YwN2UzNjI4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGZlOTU0NTYxNTRiYTc5NzkyZmZmNzFhNmEzNDE0NmUyYWNmZDlhMTAxMGIwOTk5ZDZhYjU2ZjE0N2Q0ZDI5NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b97caf2acefd484bbd0a668ee012362e",
+      "statement": "Load errors from refresh are collected into a loadErrors array and rendered as non-fatal warning banners.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L20-L24",
+          "version": "repo-lines-v1:sha256:eaa42a67bd6fe2d19b39c1eb9d6527b551d9b5e951ee264020ddfbaf17d6f749:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQzZjYxOTc5NWRjMzM0YTBkY2M1ZGJhMTEyMjYyN2ZhYmJmODE1ZjVjYjczNTA2ZmM3NmRmYjM4MGRiNWFkOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQxYzlkN2Y2MDUyZDY5NjU4OGJiM2IwZTFkMTFhOGI1NDI1OTRjZmUzMmI2YWFiMGQxMWI3MWY2NzVmM2RkZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmVkNTI3ODQ4YWIxZTVlMTkwODQzMGI3ODg3MDA5N2M3M2QxOTI1ZWQyZjc1ZmM2YjI4ODQ5ZDI3ZDFjMTRjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmUwNWY2ZTg3NmZkNDZlNDNjZTM1N2EwMTQ0ODcwYWY5OTAzMjZjMzhhYTVkZjhmMGRiOWYwYmVlZDkxYTk1ZCJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L57-L57",
+          "version": "repo-lines-v1:sha256:0a8a7499019294020bd489406500c11d70998938a7e731cfe9541d06a6a57d9e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE4YTc0OTkwMTkyOTQwMjBiZDQ4OTQwNjUwMGMxMWQ3MDk5ODkzOGE3ZTczMWNmZTk1NDFkMDZhNmE1N2Q5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE4YTc0OTkwMTkyOTQwMjBiZDQ4OTQwNjUwMGMxMWQ3MDk5ODkzOGE3ZTczMWNmZTk1NDFkMDZhNmE1N2Q5ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTk5MGM1NTUyMTdkNTk5OGQ1OGRjYWUwY2ZhZDFiMmMyMmI4NDJhZDM4Yjg1NDA3MWJiYWY1ODdmODQ5N2YzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTViYjRlODU5MmUyYzg4ZWU2MTE3NTgzMjIzOWM4ZGZhMzc5MGI3ZTU0MjFmM2UzZDU4Y2U3N2E5MTU0OWM1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_85e2bc28b19b44f3a8ff943971b481b7",
+      "statement": "Notification service unavailability is explicitly tolerated with the message \"Notification worker unavailable. Orders can still be placed.\" and does not prevent checkout or other operations.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L23-L23",
+          "version": "repo-lines-v1:sha256:8ecd7e02fd66ed0313398fa7bb3583cb9cf817739327eb7ba103be0139e0c732:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGVjZDdlMDJmZDY2ZWQwMzEzMzk4ZmE3YmIzNTgzY2I5Y2Y4MTc3MzkzMjdlYjdiYTEwM2JlMDEzOWUwYzczMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGVjZDdlMDJmZDY2ZWQwMzEzMzk4ZmE3YmIzNTgzY2I5Y2Y4MTc3MzkzMjdlYjdiYTEwM2JlMDEzOWUwYzczMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTI4ZGIxZDA3ZWI3ZTJlYjE5Y2UwMDBkZmZiMzkwZTg5ZTk5NzFmODhlZTgyZTE3NjQ1ZmZhYzMwOGQ4YmY4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTRiNGY3NTgzMmJmYzMwYjQ0MTQwM2YxZDkxMTY2MGZmNjk2OWY3NjdiODRlZDkyMjNhOTk3Y2ZmMDgwZWE1NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6da50bb705114e06903e38eafe536a51",
+      "statement": "The Operations tab displays four summary metrics: total orders recorded, confirmed count, needs-attention count, and notification record count.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L67-L67",
+          "version": "repo-lines-v1:sha256:35e9c451dad7fa24d7ea96409ecfc24cb4376c782aeb80d4d7e7b5b26f77889b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTJmMjNjODlmNTkwNTMxNTA5OWE1NWM4N2RiOTY1NWRlMjFiMzk1ZDEwOTZhMDNiMjhkZjAwZWY5YzNjMzQwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTk4MTJlODRkNjFiYzQyYTFhOTY5MjM1ZWVlNmQ2MmU4YzhjMmY5ZTI2OWYyZjYyMTk0ZTg5MGE4YzQ5N2Q0MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b2ced403f854ef7a0f3cbb07754dcbb",
+      "statement": "The order activity table lists columns Order ID (shortened), Customer, Status (rendered via Status component), Total, Created, and a Details button per row.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L67-L67",
+          "version": "repo-lines-v1:sha256:35e9c451dad7fa24d7ea96409ecfc24cb4376c782aeb80d4d7e7b5b26f77889b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTJmMjNjODlmNTkwNTMxNTA5OWE1NWM4N2RiOTY1NWRlMjFiMzk1ZDEwOTZhMDNiMjhkZjAwZWY5YzNjMzQwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTk4MTJlODRkNjFiYzQyYTFhOTY5MjM1ZWVlNmQ2MmU4YzhjMmY5ZTI2OWYyZjYyMTk0ZTg5MGE4YzQ5N2Q0MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_167374caeefc47eca51383096dfd918c",
+      "statement": "The Status component renders a span with a class derived from the lowercase status value and replaces underscores with spaces for display.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L9-L9",
+          "version": "repo-lines-v1:sha256:59c5723190e4a0a094bef7bbbc70a12846b6347e1638b8b4dbb36f57395344db:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTljNTcyMzE5MGU0YTBhMDk0YmVmN2JiYmM3MGExMjg0NmI2MzQ3ZTE2MzhiOGI0ZGJiMzZmNTczOTUzNDRkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTljNTcyMzE5MGU0YTBhMDk0YmVmN2JiYmM3MGExMjg0NmI2MzQ3ZTE2MzhiOGI0ZGJiMzZmNTczOTUzNDRkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzE5MWI2MmI0MzNmMzJiYjljOTM4YmUxNzNiYjQ5NWNhNzdkZDkyNDU5OTYwZTNiMDZjNDhjM2NhNmU1YWNhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ3MGY4YjI0ZmU3M2M4YjU3MjFhMTI4OWZmNWRjMDdkMzNhM2RjMWUyODNjODQxZjY5OGExNWJmNGE0ZTY4ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_29bc3952095d44199028595d4b0475f0",
+      "statement": "Clicking Details on an order row triggers a GET /api/orders/{id} request and sets the returned Order into selected state, opening a detail section that shows status, customer, total, paymentId, trackingNumber, failureReason, and line items.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L50-L50",
+          "version": "repo-lines-v1:sha256:5a57e067cbef2673badd59f4f8867845408e7ffd5343f89b9dc2d4031e9affed:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1N2UwNjdjYmVmMjY3M2JhZGQ1OWY0Zjg4Njc4NDU0MDhlN2ZmZDUzNDNmODliOWRjMmQ0MDMxZTlhZmZlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1N2UwNjdjYmVmMjY3M2JhZGQ1OWY0Zjg4Njc4NDU0MDhlN2ZmZDUzNDNmODliOWRjMmQ0MDMxZTlhZmZlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMwYjM0YjY5MWI2MGQzYjM3MjY5OTRkMzU4YTBhMTY2MjJjYzM1ZGUwMjQyMjAxYzliZWEzZGViMDhlZjZiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE3M2FkZDljNTYxOTI0Y2U0ZGY2MTM2ZGI2OTc0N2RjYTZlY2FkYzZlZDg1YjY1YzViMWJhYzMwYTk1YzAwNyJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L68-L68",
+          "version": "repo-lines-v1:sha256:f9be56eb8863f8541dbf5546b1ba01d49bdda6881cecec35e7d498aac8091671:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjliZTU2ZWI4ODYzZjg1NDFkYmY1NTQ2YjFiYTAxZDQ5YmRkYTY4ODFjZWNlYzM1ZTdkNDk4YWFjODA5MTY3MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjliZTU2ZWI4ODYzZjg1NDFkYmY1NTQ2YjFiYTAxZDQ5YmRkYTY4ODFjZWNlYzM1ZTdkNDk4YWFjODA5MTY3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODA5MjI4YWY4YjQ4YzJjYWY1MDIyMTc0ODJkYjhjNWY1MDk0OTgzZDFkNDE2NGNhZmJlODY2YjI1OThiMTZlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTJlYjYzNWZiODFiOThjOWEzNTFhNGVmMDU4ZTYzMzc5YzIwNTU1N2FkNTBlODY5ZjdmMjJmZTcyZmQ4ZTdjYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a13e0571cb154524bf929a5d60c2cd9e",
+      "statement": "The notification delivery list shows each record with a shortened orderId, status via Status, attempt count with pluralization, and lastError when present.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L67-L67",
+          "version": "repo-lines-v1:sha256:35e9c451dad7fa24d7ea96409ecfc24cb4376c782aeb80d4d7e7b5b26f77889b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVlOWM0NTFkYWQ3ZmEyNGQ3ZWE5NjQwOWVjZmMyNGNiNDM3NmM3ODJhZWI4MGQ0ZDdlN2I1YjI2Zjc3ODg5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTJmMjNjODlmNTkwNTMxNTA5OWE1NWM4N2RiOTY1NWRlMjFiMzk1ZDEwOTZhMDNiMjhkZjAwZWY5YzNjMzQwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTk4MTJlODRkNjFiYzQyYTFhOTY5MjM1ZWVlNmQ2MmU4YzhjMmY5ZTI2OWYyZjYyMTk0ZTg5MGE4YzQ5N2Q0MCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

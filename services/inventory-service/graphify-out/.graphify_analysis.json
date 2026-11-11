@@ -1,0 +1,178 @@
+{
+  "communities": {
+    "0": [
+      "go_pkg_crypto_sha256",
+      "go_pkg_encoding_hex",
+      "go_pkg_encoding_json",
+      "go_pkg_errors",
+      "go_pkg_github_com_jackc_pgx_v5",
+      "go_pkg_io",
+      "go_pkg_log",
+      "go_pkg_net_http",
+      "go_pkg_sort",
+      "go_pkg_strings",
+      "main",
+      "main_main"
+    ],
+    "1": [
+      "go_pkg_testing",
+      "go_type_testing_t",
+      "inventory_service_item",
+      "inventory_service_reserverequest",
+      "main_fingerprint",
+      "main_test",
+      "main_test_testfingerprintindependentofitemorder",
+      "main_test_testvalidaterejectsinvalidandduplicateitems",
+      "main_validate"
+    ],
+    "2": [
+      "go_pkg_context",
+      "go_pkg_fmt",
+      "go_pkg_github_com_jackc_pgx_v5_pgxpool",
+      "go_pkg_os",
+      "go_pkg_sync",
+      "go_pkg_sync_atomic",
+      "go_pkg_time",
+      "integration_test"
+    ],
+    "3": [
+      "go_type_net_http_handler",
+      "go_type_net_http_responsewriter",
+      "inventory_service_store_handler",
+      "main_fail",
+      "main_write"
+    ],
+    "4": [
+      "go_type_context_context",
+      "integration_test_testpostgresreservationsneveroversellandreleaseisidempotent",
+      "inventory_service_store_release",
+      "inventory_service_store_reserve"
+    ],
+    "5": [
+      "go_type_github_com_jackc_pgx_v5_pgxpool_pool",
+      "inventory_service_product",
+      "inventory_service_store",
+      "inventory_service_store_products"
+    ],
+    "6": [
+      "inventory_service_apierror",
+      "inventory_service_apierror_error"
+    ],
+    "7": [
+      "inventory_service_reservation",
+      "inventory_service_reserveditem"
+    ],
+    "8": [
+      "pkg_github_com_nagv_commercelens_inventory_service"
+    ]
+  },
+  "cohesion": {
+    "0": 0.16666666666666666,
+    "1": 0.2777777777777778,
+    "2": 0.25,
+    "3": 0.6,
+    "4": 0.6666666666666666,
+    "5": 0.5,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0
+  },
+  "gods": [
+    {
+      "id": "inventory_service_store",
+      "label": "Store",
+      "degree": 6
+    },
+    {
+      "id": "inventory_service_reserverequest",
+      "label": "ReserveRequest",
+      "degree": 5
+    },
+    {
+      "id": "main_fingerprint",
+      "label": "fingerprint()",
+      "degree": 4
+    },
+    {
+      "id": "main_validate",
+      "label": "validate()",
+      "degree": 4
+    },
+    {
+      "id": "main_fail",
+      "label": "fail()",
+      "degree": 4
+    },
+    {
+      "id": "main_write",
+      "label": "write()",
+      "degree": 4
+    },
+    {
+      "id": "integration_test_testpostgresreservationsneveroversellandreleaseisidempotent",
+      "label": "TestPostgresReservationsNeverOversellAndReleaseIsIdempotent()",
+      "degree": 4
+    },
+    {
+      "id": "inventory_service_reservation",
+      "label": "Reservation",
+      "degree": 3
+    },
+    {
+      "id": "main_test_testfingerprintindependentofitemorder",
+      "label": "TestFingerprintIndependentOfItemOrder()",
+      "degree": 3
+    },
+    {
+      "id": "main_test_testvalidaterejectsinvalidandduplicateitems",
+      "label": "TestValidateRejectsInvalidAndDuplicateItems()",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "TestFingerprintIndependentOfItemOrder()",
+      "target": "fingerprint()",
+      "source_files": [
+        "main_test.go",
+        "main.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "TestValidateRejectsInvalidAndDuplicateItems()",
+      "target": "validate()",
+      "source_files": [
+        "main_test.go",
+        "main.go"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `Store` connect `Community 5` to `Community 0`, `Community 3`, `Community 4`?",
+      "why": "High betweenness centrality (0.105) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `github.com/nagv/commercelens-inventory-service` to the rest of the system?",
+      "why": "1 weakly-connected nodes found - possible missing edges."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `fingerprint()` connect `Community 1` to `Community 0`, `Community 4`?",
+      "why": "High betweenness centrality (0.064) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `validate()` connect `Community 1` to `Community 0`, `Community 4`?",
+      "why": "High betweenness centrality (0.064) - this node is a cross-community bridge."
+    }
+  ]
+}

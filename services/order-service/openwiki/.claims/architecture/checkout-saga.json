@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:dfb23a702760c12d2808dd74ec2d53ab8ce7757418fc637e83d51e23fa9c4bab",
+  "claims": [
+    {
+      "id": "claim_bb64cb30d2bc44bd95672cc0f61f102a",
+      "statement": "Checkout.run implements a saga coordinator that drives state transitions through a single-threaded state machine and explicitly never retries external effects after uncertain outcomes.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L39-L58",
+          "version": "repo-lines-v1:sha256:e130dcbbd441f475a7012fca1574dbea0f3dcbf4b2f984103fb9f7d196c23ae0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYjY5YjQ5NTcwZjJhY2U4M2VkOWI0Y2RiZmZiZWMwMTNjYzNlMTVhNGIyNjIwOGU5NTg1NzdlOTNmODNmMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MDUzZDJmOGJjYTVjYjM3ZWY3ZDFmMzM4OTRjMzFhNmRhZTViZDQzNzdiN2JkODE0ZWU1OTliNGI5YzViMTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMWIxNjJlODExMmMxNjQ0ZmQ5NTg0MWRkNzJjOGIzMzg0MzkxYjEwNzFlZjQwMmVmMDI5MGE3ZWMyOThkNWMifQ"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L7-L7",
+          "version": "repo-lines-v1:sha256:b7823476271df26a0c8d7f6eed233e6b1e1ddfe9845b230ead683ffd5488f167:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc4MjM0NzYyNzFkZjI2YTBjOGQ3ZjZlZWQyMzNlNmIxZTFkZGZlOTg0NWIyMzBlYWQ2ODNmZmQ1NDg4ZjE2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc4MjM0NzYyNzFkZjI2YTBjOGQ3ZjZlZWQyMzNlNmIxZTFkZGZlOTg0NWIyMzBlYWQ2ODNmZmQ1NDg4ZjE2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNjODJhYTJjMjcxZmYyY2FkNjI5MDY2ZTFhYTUwNzBjMzA1YzkwNGE5NGMwYzk5MDhiZTljMWUwMGY0MTBkZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmRhYmE2Y2U1ODg0OGYyYzMxMDNiZjU2M2Y1MjRjMmU2NzY3NTQ4NTViM2QxZWFiNTc5MTU5MzU0MjQxODRjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7d02480c92124c3d86fd34b5cbafd43f",
+      "statement": "Checkout.validate enforces structured input rules: customerEmail length ≤254 matching an email regex; postalCode matching ^[A-Za-z0-9 -]{3,16}$; 1–100 distinct SKUs with quantities 1–1000 matching ^[A-Za-z0-9_-]{1,100}$; paymentScenario values success, decline, or timeout; shippingScenario values success or failure.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L31-L37",
+          "version": "repo-lines-v1:sha256:8d66fa21acfaedd9063536607e9c8da67e296ea2e3bd4c2a6ed3b329ca0d8b46:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzZTBjZjdjYWUxNjI1ZmNiYjhjZmQ3ZDhlYjM3YTYzMDNkODYzZDRlMmJlN2JlNDMzYWRhZmE0MmNhYmM5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhZDE0ZGRlM2IzNTc1NDkyN2FhM2Q5N2EwY2M3Y2MwZGZhYzRjMTcxOTlhMGZiZGFhYjg1NWI4Zjk1MjMyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQ2ZTg4MGU4Y2UxYWFiMTU3NjFhNDJmYzZjZDBiYzA5Y2RhZTgyMDk0OTVkZWFiYmI0ZDgwNzAzODZmYTIyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_596d9abcf9c440778c54f921d5e6df94",
+      "statement": "After a successful reservation, the saga transitions to reserved and persists the state via checkpoint before entering payment_unknown.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L41-L44",
+          "version": "repo-lines-v1:sha256:a14e6d8b7f3a961fe5557918d5d69845ad5b346eda6d4b91e982daf0d076000c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDE3MmNmYzM2NzlhZjJiNjM4YWNlZGU2NTlhZTYzZjQ4YjFhMjllZmYxNGM4YWJjZDU2OGY4MWY2MzdkZDBlYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQ2ZTg4MGU4Y2UxYWFiMTU3NjFhNDJmYzZjZDBiYzA5Y2RhZTgyMDk0OTVkZWFiYmI0ZDgwNzAzODZmYTIyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7fce4712f764fad8ca8de92d626767e",
+      "statement": "The saga enters payment_unknown before attempting payment so that a crash after payment initiation is never interpreted as no charge attempted. Replays of the same request are blocked by the idempotency guard in OrderController, which returns the previously stored order state instead of re-executing the saga.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L43-L44",
+          "version": "repo-lines-v1:sha256:cfe0a2cd0af9351f05e1da9ee2e77ca132b7c78681e636d8f1fe71e827622a83:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUyZWM1OTgxNTg5YmNmZWVhZjZlODI2NjRlNDQxYzUzMDM3ZTFmOTdlMzI4OTFkMzA4NGJkN2Y1NGRkMDM1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGQzYWRhYTVkY2I0YjI1ODk0MmIyNDMwYzNkYWZkYTIzNjQwMGEzOWNkYzg0NDBmM2JkYzNkMDA3MTA1MGM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L21",
+          "version": "repo-lines-v1:sha256:8a255289e4d4db8cfaa9b9e347b3e3fef5db37de6345c58de33eea1cc7561ce6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c3711a33478741bca6499915271c2ba1",
+      "statement": "When payment returns HTTP 402, the saga transitions to failed and releases the inventory reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L46-L46",
+          "version": "repo-lines-v1:sha256:f20e17c13eb5833456bf12cba51d9d5dde10af98376bd38d54161029761391c1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmYzYzc0ZDg1ODdiMjI2OTEzMjQ5NTQyOGM5NjZkMTVkMjAwMTM3ZjUyMjcyYmUxOGYwMjg5ZjdiNGFjN2VlZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc4YzlkNTAzMmJiOGJmYTRiMzdhODU3N2QxZDZlYmRhNmY3NWNiYjdmMzhjODkxNjdlNWNjM2U2ZWM0MjZjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2dc41fff444149b0836da1eb16a35ae1",
+      "statement": "Payment failures other than 402, including timeouts and 5xx responses, leave the order in payment_unknown without compensating or releasing the reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L45-L46",
+          "version": "repo-lines-v1:sha256:50e906051242961d52e369bc488502ad2d76d9be574b483abd2e96eeb66b2a48:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNhMDE3ZjM2OGFkYWYyNDg0YjYwMmVjYWQ0Yjk5YThlNmRjZGZlYjA1OTkwZGY2NzUyMTU2Yzc1YmFkNjBjOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTY5NDlkMmEzMGMzMDg5ZTM0YTBjMTFlMDA2NGZmYTRmOTE4ZWRhMTliY2Y4YWMzNDZlNmM3Mjg5YmM0OTAxOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc4YzlkNTAzMmJiOGJmYTRiMzdhODU3N2QxZDZlYmRhNmY3NWNiYjdmMzhjODkxNjdlNWNjM2U2ZWM0MjZjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f53476f039ac4f75bac3c11bb839ae99",
+      "statement": "When shipping returns a 4xx error, the saga refunds the payment and releases the inventory. If the refund throws, the order enters manual_review.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L53-L55",
+          "version": "repo-lines-v1:sha256:83ceeb824e300275b488f0b3aa2529a54f90c4f9df070e16ee515ebec3ad3cb5:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ1YWU4MjYxYWJhMWQyZGI5MGRmZjJlMzE3ZGI5MzUzMWU0ODY2YzJhODM0NzFhMmU4MDM2YzkyNmVlMTliYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAxNWUyZTU5Y2MyY2FiYmJjYmQ0MTFhNDY4OTgyYWFmN2Q0MjJiMWE2MTdiYmMxMDIxNWQyMzNhMzkxZmM5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjBhZjcwMjk5Mjg3ODc3YjlmNWE0ZWMzMTc2YjhlNTVkMWIzNTgxMWRjMmY5MTA2YTY2NTJlOTkxOGZiMTkxZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzVjNzJiNDUxNGU5NGJkY2NjOTFlYzE0YzEzZWVmZWNmNGQwNzg0NzhlZDZlMTIzOTIyNjgwYTA4MjY4ZTRiZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7272f5ab5d304286ab15d4bfe72a127d",
+      "statement": "When shipping returns a 5xx error, the saga transitions to manual_review without refunding or releasing, retaining both payment and reservation because the carrier may have accepted the shipment before the error.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L49-L52",
+          "version": "repo-lines-v1:sha256:a95d0abe96285299d081c16654a3a231e1a30622d25d7997bf479596ea7df514:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGVkZWI1NjI3MTcwODJkYTI5YmM3OWRhMmExMTQ0OWM1YzliM2UwZTE4ZTE3Yjc5YzY2M2ZmMjNjYTg2YWU2MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2MyMzg3MzMyNzFmNDFmMThlYTRlZjI0MDE1YjMwZTY5NWMxMjhlMzkxMmYxNDZiMDIxZjU0ZTliODRiODFlOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGVkNWUwZTA4ZWE1YzYwOGRkZjY0ODhkNWU5NDFhODYzZTBkZDNhMDI2OWE1NDVlODkwMGNjY2U5NjA2MWE2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODNjZWViODI0ZTMwMDI3NWI0ODhmMGIzYWEyNTI5YTU0ZjkwYzRmOWRmMDcwZTE2ZWU1MTVlYmVjM2FkM2NiNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6e70d1b421cc4e18a2adc977d45f7ed6",
+      "statement": "RemoteServices implements Ports using HTTP POST against configured inventory, payment, and shipping URLs, wrapping java.net.http.HttpClient with a 2-second connect timeout and 8-second request timeout, and maps any non-2xx upstream response into RemoteFailure carrying the upstream HTTP status code.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L16-L26",
+          "version": "repo-lines-v1:sha256:302dc10fffab4573a54fa93b6c6b890da6d456e68de1a23644fca5aab4556acf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjNWI0YzM4ZmFkNDg3MmZkYjlmN2JhOGJlMmYyNTEwZjlkYjgwYTU1ZGNiNGY5ZjlkMmRjMTM5ZmE4YWM4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk0N2QxYWJkNTc4ZTg2NmExYTI5MjcwZTFhZmFhNGE3MDk4OWRhYmVmOTJiZDM2ZTYyNzYwOWRkYzhkMTBjMDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU4ODgyNzE2NGQ4ZGQzMDQxMmMzNmRlM2Y0YjA0MjhjZTY3MWQ0ZDQ3MTYyODYxNjI2YWFjZDAwMjc4MjEzNDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6989e35c5bcd42449e7ac810fe816324",
+      "statement": "RemoteServices.reserve, pay, and ship validate that required keys exist in the JSON response and throw RemoteFailure with status 502 or 504 if the response is malformed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L28-L31",
+          "version": "repo-lines-v1:sha256:ebb28ed3c5b71ac4e97137e39745fc9e469b7de0bb7bbfef38ed2c07983b9183:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc3ZjZkYzgzMmM0NGY4MzAzYTJkOTU3NGUzM2M0YmU3YTQ0MTEyNjM4NWYxYWFhMmQ1ZWFhYjNmYjg2ZjVlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhNGU0NzhhOTEzMmMwMWRkNjliMzVkZTFiZmYxMDE0OTQ5NjQ1OTRhZjgzNTRhNWNkMTgyY2NlNDAyMTMyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjI5NWFiYWE5YTIxNDhjMjcxYTkzODdkNDU4M2I1YThmMjg4NDQzMjEwYTk3NTg0NGIxM2FlY2RhZTE0ZGE0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2RhNDQyYTMwNjFjMGY2NGVkNjY4NzIzMDYyY2QyMDBiMzQ4MjZmYjA5NzY0YjAwYTU2YThiMmFiMTg5M2I3NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_31fe540edea14952ac753b82dc25402d",
+      "statement": "RemoteServices.checkpoint delegates to OrderStore.checkpoint.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L34-L34",
+          "version": "repo-lines-v1:sha256:314df04842969e714612e5c188f7e0d75df367814bfb75c3f4864363cab1b490:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE0ZGYwNDg0Mjk2OWU3MTQ2MTJlNWMxODhmN2UwZDc1ZGYzNjc4MTRiZmI3NWMzZjQ4NjQzNjNjYWIxYjQ5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE0ZGYwNDg0Mjk2OWU3MTQ2MTJlNWMxODhmN2UwZDc1ZGYzNjc4MTRiZmI3NWMzZjQ4NjQzNjNjYWIxYjQ5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Q4YzdhOWRmMmNmNGJhZTY4ZTRmZTc2MTRlODQ0NDBmYTA1NjdmYzcyMzhhZGYyOGIwYzI3NDUxYmI0MWVlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e3bca07d06d54460bc612fbf2bdfbb0c",
+      "statement": "OrderStore.checkpoint persists the order body as JSONB in the orders table, making intermediate states durable and crash-safe.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L20-L20",
+          "version": "repo-lines-v1:sha256:7b1546d64827f694c3fe0e6a2b15df523597dcf94bfba6fc5444a07351f60dfa:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWZjMTUwNTFjYzI2NGE2M2I1ODFkMjM1Y2JmNGJhMjU3MDc1NjI3ZDdmNzRiODY1MmNkYzFiMGViYmU4YjcyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWUxNWUwY2U2MmJlNjcxMmU4Mzc4ZmU2MjdkYWM3YzI2YzA5M2JiZWE5MDAwYWY5OGU4M2UzNGIwZWEwNDQyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c51b553a4ab3481091edc5a9f4717515",
+      "statement": "OrderStore.finish writes the finalized order body and HTTP status and inserts an order-confirmed event into order_outbox only when the order status is confirmed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L21-L27",
+          "version": "repo-lines-v1:sha256:5a403da1bc6ad5c0abe907d6e564547096912d06af405d32f546e8a6f6d34f5f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU5MzNiYTdhNjZmNjdkZGE0MDM3YTU1OTYxY2ExNWNjNTFlMDllNWVlMmYzNzQyMGQ2ZjdjZjE0YjU1Mjk4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjk2ZjhjYTQ3YThjZjk5NDNlNjczNjBjY2UyYThmMTk3OTJlMDEyMGViNTYzMTkxNGI0NTJjOGM5MjhlZDJkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGE4NWQ2ZGI3MmVkNmNhOWIyOWExNGRhZGRhMDllZjQxNGY4ODJkNDc0OWFlNjU0MjljMWI0MjFmNDcyNDU0MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e6397da5433d4fa4af84ed68861acfaa",
+      "statement": "CheckoutTest covers each failure branch using a FakePorts test double, verifying that payment timeouts and conflicts retain the reservation in payment_unknown, payment 402 triggers release into failed, shipping 4xx triggers refund and release into failed, shipping 5xx enters manual_review, and refund failure during compensation enters manual_review.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L14-L48",
+          "version": "repo-lines-v1:sha256:e13dea863e734df95011a593d81e8f3fc99081309dfe66e469f644076f79c7f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkMDVhZDIwYjYxNmYwMjcxYWVjNjk3MWVlNTlmODMwZGM4NmIwZTJmMDQxYjFkMjE1M2EyNWM2ODA4MjRlYWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzZjAwNTBkYmI0NDgzMjYxZWNhNDE5ZmFmYTNmNGYwYmY1YjE0ZDg5NjA2Y2FiN2NjZWJmNmNkYTYzZDU1ZjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4ZDg0MWQwOWNlMGI0Y2JjMzZlOGQ0YThlZWI2NGUyMzU4OWIwNTE4MDdiNDkwYmU2ZDA5OTkyOTBkZDYxOTkifQ"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L50-L57",
+          "version": "repo-lines-v1:sha256:f9d9b545ab3ea21c233e15ab8e566b50b7b61a04a2c5c7932964192c4038b527:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkyOGNhMWQxYjBkMTkwYzIzZDdlY2EwZWZiNGM4ZTRlMTRlMjFkZGY1NDViODYwYjJmNDVkODM2YjE4ZjlkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJhYmQ2MTFmMjViZWQxM2EyMDdhNTFlNzU5OWNkNWRjMGQ5NjcwNjQxY2UyZDBjN2VmZTljODgzZmYyNTcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

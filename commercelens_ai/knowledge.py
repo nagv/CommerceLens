@@ -67,10 +67,10 @@ def _sections(text, limit=5000):
 
 def build_corpus(root: Path, manifest_path: Path | None = None) -> list[dict]:
     root=Path(root).resolve(); manifest,base=_manifest(root,manifest_path)
-    app=manifest['application']['id']; sources=[(root,'','master',_repository_url(root,manifest['application'].get('repository','')))]
-    sources += [((base/s['path']).resolve(),s['id'],'service',_repository_url((base/s['path']).resolve(),s.get('repository',''))) for s in manifest['services']]
+    app=manifest['application']['id']; sources=[(root,'','master',_repository_url(root,manifest['application'].get('repository','')),'',manifest['application'].get('repository_ref','main'))]
+    sources += [((base/s['path']).resolve(),s['id'],'service',_repository_url((base/s['path']).resolve(),s.get('repository','')),s.get('repository_path','').strip('/'),s.get('repository_ref','main')) for s in manifest['services']]
     chunks=[]; seen=set()
-    for repo,sid,level,url in sources:
+    for repo,sid,level,url,prefix,revision in sources:
         wiki=repo/'openwiki'
         label=sid or 'master'
         if not wiki.is_dir(): raise ValueError(f'{label}: configured wiki missing: {wiki}')
@@ -80,13 +80,13 @@ def build_corpus(root: Path, manifest_path: Path | None = None) -> list[dict]:
             # Never follow links or symlinks out of the documentation directory.
             if not path.resolve().is_relative_to(wiki.resolve()): continue
             body=_body(path.read_text(encoding='utf-8')); version=_hash(body)
-            rel=path.relative_to(repo).as_posix()
+            rel='/'.join(x for x in (prefix,path.relative_to(repo).as_posix()) if x)
             for number,(topic,text) in enumerate(_sections(body)):
                 digest=_hash(text)
                 if (sid,digest) in seen: continue
                 seen.add((sid,digest))
                 metadata={'application_id':app,'service_id':sid,'level':level,'topic':topic,
-                          'source_path':rel,'source_url':url+'/blob/main/'+rel if url else '',
+                          'source_path':rel,'source_url':url+'/blob/'+revision+'/'+rel if url else '',
                           'source_version':version,'content_hash':digest,'chunk_index':number}
                 identifier=_hash('|'.join([app,sid,rel,version,str(number)]))
                 chunks.append({'id':identifier,'text':text,'metadata':metadata})
@@ -136,7 +136,7 @@ def build_relationships(root: Path, manifest_path: Path | None = None) -> dict:
             source,dest=(target,sid) if kind=='consumes' else (sid,target)
             edges.append({'from':source,'to':dest,'type':kind,'purpose':purpose,
                           'evidence':evidence,'evidence_service':sid,'raw_target':raw,'raw_kind':raw_kind,
-                          'evidence_url':repository+'/blob/main/'+evidence if repository else '',
+                          'evidence_url':repository+'/blob/'+service.get('repository_ref','main')+'/'+'/'.join(x for x in (service.get('repository_path','').strip('/'),evidence) if x) if repository else '',
                           'evidence_version':card.get('page_hashes',{}).get(evidence,'')})
     edges.sort(key=lambda e:(e['from'],e['to'],e['type'],e['purpose']))
     result={'schema_version':1,'application_id':manifest['application']['id'],

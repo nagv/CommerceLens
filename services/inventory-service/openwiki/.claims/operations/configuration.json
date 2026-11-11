@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:bade2f1900e8d24c4c9d4b0a2a23db3efdb3377cc8768871452483ceb8666cdb",
+  "claims": [
+    {
+      "id": "claim_5f58cc9c77224aeba93fd087beb634e5",
+      "statement": "The service requires the DATABASE_URL environment variable at runtime; if it is unset, the service exits immediately on startup.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L260-L263",
+          "version": "repo-lines-v1:sha256:ef650d29a43811db41af03801716bbd37f0553345437c52f603715d51dfd8b92:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQxZTJhMDUzZDNlNjdhNzU3NDUxM2VlM2U0ZWVhMDI5YWI3ZjU3NzA5YTlhOWQ1YzVmNDgzNmZiOGZjMzk5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDQ4NTU4NGNkMjJhY2JmNjNkYzU4ODg2ZDc3NWJiZWM2ZWY4NzA5YWVjNzU3Mzk4NTMxYjAzN2U3ODgwOGEzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWZjMWZjZGYwNjI1MmVlMmJiNTgyNmUxN2JiNmFiZDdhYzM5MmUyODNlYjdlMWU4Y2Q3YmI0YWZjZWM5MGQ0YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6529fb6fe9f49fcbd10a4b871c7adf9",
+      "statement": "TEST_DATABASE_URL is an optional environment variable pointing to a disposable PostgreSQL instance used during integration tests.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L23-L23",
+          "version": "repo-lines-v1:sha256:7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDAxYzU2OGFjNmVkYWZiZDlkYzMyZDVmZTZiYWUxY2FhZjI1YzQ2ZjU1ZWJiZGQ4OGNkNTY1MmVmMGJjYmYwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODNmNTUyYzUxYjM2ZGI3MTQxZjIzYmM5OTVlMGFhOTJiYTI3YzVhYjYwMzE1YWFiZDUyZDVkMTQzYWE4Nzc4NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e1c7498318e04842b10f72b37b62edb3",
+      "statement": "Deployment uses a multi-stage Dockerfile: the build stage uses golang:1.23-alpine to compile a statically linked binary after running go test ./..., and the runtime stage uses alpine:3.21, creates an unprivileged app user, exposes port 8080, and sets ENTRYPOINT [\"/inventory\"].",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L12",
+          "version": "repo-lines-v1:sha256:447fe39356c9ac0e1f353c4a2ab1d6c43152bb68b9d8ad65f3c71a6681c5777a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5YjBjOTgwNTczOWE3MjQzY2U0MmZhN2ZmMTgxNzQ5MGM1MGRlZDcyNGEwMjFjNTMxZDdjMThmNTQxMWU2OGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkMjM5YmZhM2MwMjNlNzU4NmRmMmI1MjRjNWQ0YTAxMjRlZGVhNGUxNTcwNGE0ZjZmOTY5Y2Q1YjI4OWRmM2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4611e0df053242bd8573f53b654ba404",
+      "statement": "The GET /health endpoint checks database readiness by calling Ping on the connection pool with a 2-second context timeout, returning HTTP 200 on success and HTTP 503 on failure.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L204-L211",
+          "version": "repo-lines-v1:sha256:87adc3fc8dfd808d46972db5cbdb1628139a845d15450c264afd87e9c7d9c5f7:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjllODAxMDhjYzQ4ZjhlMDc1NzUzNWZlN2U1OWUwNzExNDcxMjA5ZjMzNWViZmY3ODdjMzJiMWEzN2ExNzI5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBiMGJmYTkxYTk3ZDdhMmVhODA0NmRiN2JhNmJiNWY4OWY2NzdjZjdkMzMxOGUwOThkOWU3ZThiMWNiZTM4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMThkYTNmOWEyOWFmZDUxOGM2YjdiMTI3MzI0YWQwYzgxMjU3MWViYjdmNmQ3ODBjOGZlYWU1MjkyZTkzNWI4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDI1YjFiY2VlOWJlYWFkNmExODJiOThlYzUzMjM4ZmQ5NmE1YzYzZDVhNjAzNWQyYzg3NDk3Y2M2NTc5ZjY4OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b155b104b8f4dc68c2c2d9d6ef1c2b3",
+      "statement": "Unexpected non-APIError failures are logged with log.Printf and returned to the client as HTTP 503 with the message \"inventory temporarily unavailable\".",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L193-L201",
+          "version": "repo-lines-v1:sha256:01a581438993abb6ce28d5434ab68cdf7f8c334f000bfda4b23dc8320c82f132:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWU2NGU2ZWJmZTIzNDk5NjViOTFkNmJkZjNmZmU1MGMyOTU2NDlhODM1MDk4MDc1ODAxMGZhYTlmODdlNTBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTVhOGNmYjJlNTcxYTEyMzUyNmRiZGY3N2FlOTMwZGJmYTk0MDg0Yjc4Y2U2MTBhZmIxZDllYTFlZWUxNzJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc0YWE5ZTI1ZGViMTE0YTRjNDZkNTY3Zjc1YTA1NzI2ZTI3MDYzYzE0NDA1YzZjZmM5NDhkZTA2NjA3ZjFkMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c5733e9b44c7451581369df93ac8d8e7",
+      "statement": "No metrics, tracing, or structured logging are configured; only standard-library log.Printf is used for error logging.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L11-L11",
+          "version": "repo-lines-v1:sha256:ef3d4b7ab0e1ae37521dbcbc0e8c6dabc8a0b0dc577296d787d80824000e4823:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWYzZDRiN2FiMGUxYWUzNzUyMWRiY2JjMGU4YzZkYWJjOGEwYjBkYzU3NzI5NmQ3ODdkODA4MjQwMDBlNDgyMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWYzZDRiN2FiMGUxYWUzNzUyMWRiY2JjMGU4YzZkYWJjOGEwYjBkYzU3NzI5NmQ3ODdkODA4MjQwMDBlNDgyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGNkMWE4ZjEzYmIxNzlmMDIxNDkzMmQ3OWJkOThiZjgxZGM0MGU1YjNmN2M5NWQxNzRhYTc1Y2Q1Mjg2ODQxMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWJjYjgzNjMxZjgzOWJjZjIwM2RiNjQ3NzkxMjczNmM4Nzc5MWNkZDY4OWU2MmJiMTZjMjM1NDU1MmI1OGQwNiJ9"
+        },
+        {
+          "resource": "repo://main.go#L199-L199",
+          "version": "repo-lines-v1:sha256:3c7e7ce609fbce1118304755d849c889eaaca611d13c1e583e1dacfa597dd57c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M3ZTdjZTYwOWZiY2UxMTE4MzA0NzU1ZDg0OWM4ODllYWFjYTYxMWQxM2MxZTU4M2UxZGFjZmE1OTdkZDU3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M3ZTdjZTYwOWZiY2UxMTE4MzA0NzU1ZDg0OWM4ODllYWFjYTYxMWQxM2MxZTU4M2UxZGFjZmE1OTdkZDU3YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmU4MTllYjZiNTc4ODk3ZWE2MzNjNjJlYzMxMzYwOGVhMjc4MDM5OTMwMGRjMmI5ZTY2MmYwNjM2NjJhOTA1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2UxNjMwYjAxYzc3N2Q1ZmQ0YWRjNDg4Mzc3YWU5NDNhNTc4ODJhYmNhOWFlMDg0ODRhMWQ0MGZkYjcwNzlkZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2707c1143e040279480a5a5716ce809",
+      "statement": "The HTTP server is configured with ReadHeaderTimeout 5s, ReadTimeout 10s, WriteTimeout 10s, and IdleTimeout 30s.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L274-L274",
+          "version": "repo-lines-v1:sha256:23fa3f626531d2d9fd7d597de5fc59a838be9c65de290f85dae68346025c24c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNmYTNmNjI2NTMxZDJkOWZkN2Q1OTdkZTVmYzU5YTgzOGJlOWM2NWRlMjkwZjg1ZGFlNjgzNDYwMjVjMjRjMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNmYTNmNjI2NTMxZDJkOWZkN2Q1OTdkZTVmYzU5YTgzOGJlOWM2NWRlMjkwZjg1ZGFlNjgzNDYwMjVjMjRjMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYThiZjQzNmIxNmM5YjVkZDZkMjUxYWQ0ZTZhZTM0ZTQ4YzRkZjhkMjMyNzI2YmU5ZGJlMGYxYmU4YTNmMDdjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTZjNGI0YzRkNjA4OGUyMDFmYmJjM2M0ZTQ1YjQ5NzQzYmViMjFiMGM1NWM3NWU2OTA1NmMzYzdiYTM3MTQ1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_011d40e919a14daa9965f6cc77334ec1",
+      "statement": "The reservation and release handlers enforce a 5-second context timeout on their underlying store operations.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L234-L235",
+          "version": "repo-lines-v1:sha256:94d7a1cef08de1a545eaa34348f20139b671e18d4c4c940c22c0583509c8090d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTc1NTVmM2IwZWUxYWU5ZmZjZWQ4MGRiZjZmMzIyZmYyN2YyOWQxYzAxYmE1YmE2ZGM0NGQ5ODdjNTU0Y2Q2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTY1MjQwZGRiMmY5YzIyNGUyOThlOTExZGIzNDI0MDNiZjA3MTA4YzhkODZhNGQ4ODdkNWViZTU5YmUwYmNmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjZiMzg5ZmNhMjdlNTllY2RiZTJiZDJlZDFjOTA2YzY2MjVjMGM0MmJiOGI1NTEyYWJmYTI4M2Q2Njc1ZjA0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmU0OTNlMzRiYjRlNDA1NGE4ODE3ZDQ1YjgwNTZjOTBkZjRhOGNkODZjZWEyZWRjNGI1MTExZmI3NzdhYTRkNSJ9"
+        },
+        {
+          "resource": "repo://main.go#L244-L245",
+          "version": "repo-lines-v1:sha256:94d7a1cef08de1a545eaa34348f20139b671e18d4c4c940c22c0583509c8090d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTc1NTVmM2IwZWUxYWU5ZmZjZWQ4MGRiZjZmMzIyZmYyN2YyOWQxYzAxYmE1YmE2ZGM0NGQ5ODdjNTU0Y2Q2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTY1MjQwZGRiMmY5YzIyNGUyOThlOTExZGIzNDI0MDNiZjA3MTA4YzhkODZhNGQ4ODdkNWViZTU5YmUwYmNmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRiOWE0ZGU4MjUxN2QxNTRmZTJhOGMxOGVhZmE2ODYxNDY2OGE3ZjNlMzQ4NTk4ZTdhMDc3NDVhYzZkNWU3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTRhZjk4YjRkNTNkZjVmMjBmMmFkN2ZmZjg4Zjc2MWRiOGNhYmFhMDUxODBiNWZmYThhYjYzODMyY2MzNmM3NyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

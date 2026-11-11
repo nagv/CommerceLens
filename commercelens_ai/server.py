@@ -53,28 +53,33 @@ def create_server(assistant, host='127.0.0.1', port=8090):
             origin = self.headers.get('Origin')
             if origin and origin != 'http://' + self.headers.get('Host', ''):
                 return self.send(403, {'error': 'Cross-origin requests are not accepted.'})
-            if self.path != '/api/chat':
+            if self.path not in ('/api/chat','/api/replan'):
                 return self.send(404, {'error': 'Not found.'})
             try:
                 size = int(self.headers.get('Content-Length', '0'))
             except ValueError:
                 return self.send(400, {'error': 'Invalid request length.'})
-            if size < 1 or size > 32768:
-                return self.send(413, {'error': 'Request must be 1 to 32768 bytes.'})
+            limit=262144 if self.path=='/api/replan' else 32768
+            if size < 1 or size > limit:
+                return self.send(413, {'error': 'Request exceeds the allowed size.'})
             self.connection.settimeout(15)
             try:
                 payload = json.loads(self.rfile.read(size))
                 if not isinstance(payload, dict):
                     raise ValueError()
-                question, mode = payload.get('question'), payload.get('mode', 'ask')
-                if not isinstance(question, str) or not question.strip() or len(question) > 8000 or mode not in ('ask', 'plan'):
-                    raise ValueError()
+                if self.path=='/api/replan':
+                    from .engine import Assistant
+                    context=Assistant.validate_replan(payload.get('original_request'),payload.get('previous_plan'),payload.get('selected_alternative'),payload.get('instruction',''))
+                else:
+                    question, mode = payload.get('question'), payload.get('mode', 'ask')
+                    if not isinstance(question, str) or not question.strip() or len(question) > 8000 or mode not in ('ask', 'plan'):
+                        raise ValueError()
             except (ValueError, OSError):
                 return self.send(400, {'error': 'Provide a question of 1 to 8000 characters and mode ask or plan.'})
             if not gate.acquire(blocking=False):
                 return self.send(429, {'error': 'Assistant is busy. Try again shortly.'})
             try:
-                result = assistant.run(question, mode=mode)
+                result = assistant.replan(**context) if self.path=='/api/replan' else assistant.run(question, mode=mode)
                 self.send(200, result)
             except Exception:
                 self.send(500, {'error': 'The assistant could not complete the request.'})

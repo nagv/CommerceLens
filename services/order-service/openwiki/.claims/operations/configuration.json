@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8e65c07596ddf1bc44be95b86a9ea114ec7f5ea4ad8ea59a50cd40469ef8ceca",
+  "claims": [
+    {
+      "id": "claim_a00d9c1bf3b349deba5aca7452cccb73",
+      "statement": "The service listens on port 8080 and includes full error messages in HTTP responses, configured in application.properties.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L1-L1",
+          "version": "repo-lines-v1:sha256:31efeb783903a3a459a07f0fc59c900bc2f77a49297e5f4cadf89d7e1fc7fc16:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFlZmViNzgzOTAzYTNhNDU5YTA3ZjBmYzU5YzkwMGJjMmY3N2E0OTI5N2U1ZjRjYWRmODlkN2UxZmM3ZmMxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFlZmViNzgzOTAzYTNhNDU5YTA3ZjBmYzU5YzkwMGJjMmY3N2E0OTI5N2U1ZjRjYWRmODlkN2UxZmM3ZmMxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDQxNmRiMDJhMTMwNDY2ZmViMTMzYTZlOTZkMDc2ZmQ5NTRlZmQ5Y2RhYjhkZmFkMDAzMTM3ZmEzOTU2YTY1NiJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L17-L17",
+          "version": "repo-lines-v1:sha256:d75d9ae8d446175eb970e7efc2249e9a98843b942e4ca1382559ce0d3d23d4ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDc1ZDlhZThkNDQ2MTc1ZWI5NzBlN2VmYzIyNDllOWE5ODg0M2I5NDJlNGNhMTM4MjU1OWNlMGQzZDIzZDRiYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDc1ZDlhZThkNDQ2MTc1ZWI5NzBlN2VmYzIyNDllOWE5ODg0M2I5NDJlNGNhMTM4MjU1OWNlMGQzZDIzZDRiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY3ODMyM2U1MWZkZDZlOWZiYzk3Yjc0ODUxOTAxZDZlNjAwZDk3Nzg2NzE5MjI1YmM3MGI0MTBiNDI2MWViYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d40e6d38c9564a69a7230905b161343c",
+      "statement": "Database connection is configured via SPRING_DATASOURCE_URL, SPRING_DATASOURCE_USERNAME, and SPRING_DATASOURCE_PASSWORD, with aliases ORDER_DATABASE_URL, ORDER_DATABASE_USER, and ORDER_DATABASE_PASSWORD; Spring standard names take precedence, and defaults are local demonstration values only.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L2-L4",
+          "version": "repo-lines-v1:sha256:0416db02a130466feb133a6e96d076fd954efd9cdab8dfad003137fa3956a656:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDI4YmYxZTQ1YmM2M2M4NjUxOWYxZTk1NGVlNTM0YmY4MDQwZmI1NzcwNDc5OGU1NDY4MjRkODJhN2FmMTBhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGFjYWE2ZDA4MDMxYzUzZGJlNTU4YjQ4YmVjNTk1M2QxMjM2ZTNlMGI0Njc4MWQ0MGEwOTYzZWIyNDkzMmU2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzFlZmViNzgzOTAzYTNhNDU5YTA3ZjBmYzU5YzkwMGJjMmY3N2E0OTI5N2U1ZjRjYWRmODlkN2UxZmM3ZmMxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDljNDQxNjYzOWQ4ZWYwYzFjNWY3ODNjZjQ0YzQyZDY1N2FmYTlkYzkwNGNkYWNkYzE2ZmIxNjRhNmQ3NTQ3OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b58b41dbbe864dddad19824b009532e5",
+      "statement": "RabbitMQ connection is configured via SPRING_RABBITMQ_HOST, SPRING_RABBITMQ_PORT, SPRING_RABBITMQ_USERNAME, and SPRING_RABBITMQ_PASSWORD, with aliases RABBITMQ_HOST, RABBITMQ_PORT, RABBITMQ_USER, and RABBITMQ_PASSWORD; Spring standard names take precedence, and defaults are local demonstration values only.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L6-L9",
+          "version": "repo-lines-v1:sha256:e16ad629a6d832af084b1d218fa395e81cdb07b5a64f507940ce868f986e06ee:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJkYzk3YTk3MGIzYzQ4ZTFjMzE0NDFmYTliZjk5N2UzZGY0NTMzZDEwNTVmZDI4YmQwYTkwY2U2MjA0YTVkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2UzNDgwYzQzZjcwYWJhNGNmNzVmZThiYThmNTZlMzc1ZGNkMzllYjcwZDE2YWM0MDBlN2M5NDJlMjIzOWFkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTgyNGEyMWYxYTg0ZWVhYmU5Yjg0ODQ4ZDNiNTJkNTBmYzY5NGI5ZjRkMjI3ODUxZGU5NWZkNDZlOTZiNGM5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjMxZWM0ODVkZGNkNjI1MjI2Njk0MDYwYTdiMTYwMDU4YzA5YTE5NGY4ODc4ODcxOGY4NzVmN2RjMmIwOWJkZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7e93609960b24ab6936a92d4fc841d33",
+      "statement": "External service base URLs for inventory, payment, and shipping are configured via INVENTORY_URL, PAYMENT_URL, and SHIPPING_URL with local demonstration defaults.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L14-L16",
+          "version": "repo-lines-v1:sha256:4f78323e51fdd6e9fbc97b74851901d6e600d97786719225bc70b410b4261ebc:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI2ODQ4YTQ2MjhmOTg4ZjlkNmE1MzExNWE3NmRmODc2NTA0ZDVlYjMyYTNjNjkwMTJkNDQwMjEzOGYwYmJjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNiMmE0YTk1ZTY2NWQyNTJiM2UwYjUxYjU0MjAxY2RjYjJlYmQxMDU2ZjA1NTIyNmEyZGZhZWUwYmI5ZjMzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODQ4ODhkNmEyM2QzNWMwNzcxNzg0ODZhMDgzNDZhOGMxYWQyZGE2NDUxMWJiNzQzNzdmYjZlNTAzNGY0NGUyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc1ZDlhZThkNDQ2MTc1ZWI5NzBlN2VmYzIyNDllOWE5ODg0M2I5NDJlNGNhMTM4MjU1OWNlMGQzZDIzZDRiYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a2ef9aaa48ec4763882bf077f4d8e480",
+      "statement": "Spring AMQP publisher guarantees include correlated publisher confirms, publisher returns, mandatory templates, and a 3000 ms connection timeout.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L10-L13",
+          "version": "repo-lines-v1:sha256:c80ca7bf538a3809e0174a624bebbd80aa6bbc0863041ec057328b9a9a718296:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE0YmVkNmZlNTFlY2Q4NmU4ZmUzNjk4YzU5OTRlZDBiNzQ1ZGQzNGU1MWU4Y2Q0MjU4ODgzYjYwMGViYjk1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgxMTM2MjVhZWI0MDIzZmYxMjgyZjUxZDM2YzQyMmZjOTRiNGU3N2U0YmRlYmIzODVlZDg0MjYwYjU1MzdmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2ExZmFkZTgzYjUwZDUwZDM1YjNjOGQxMTA3NzJmM2YwM2RmZGIyOTdmOGEzZjNkMGE2NTljNDk3NWZmNTk2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGY3ODMyM2U1MWZkZDZlOWZiYzk3Yjc0ODUxOTAxZDZlNjAwZDk3Nzg2NzE5MjI1YmM3MGI0MTBiNDI2MWViYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_814ad98569094fafbe3b4801b99583e6",
+      "statement": "The GET /health endpoint executes SELECT 1 via OrderStore.healthy() and returns HTTP 200 if the database is reachable or HTTP 503 if it is unreachable.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L14-L14",
+          "version": "repo-lines-v1:sha256:a5d3c21916b80b821c4a29e77d0a72bc381af03eff709a85b4fa8be2a994d6e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVkM2MyMTkxNmI4MGI4MjFjNGEyOWU3N2QwYTcyYmMzODFhZjAzZWZmNzA5YTg1YjRmYThiZTJhOTk0ZDZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVkM2MyMTkxNmI4MGI4MjFjNGEyOWU3N2QwYTcyYmMzODFhZjAzZWZmNzA5YTg1YjRmYThiZTJhOTk0ZDZlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTlmZjJlYzQwMTFkNmMzZGQyMWQ5M2U2ZDg4NmVjM2FjNDhhNGJhNTBiMGJlMmE5MmM1ZWQ0NTUxNjM3MmEzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L29-L29",
+          "version": "repo-lines-v1:sha256:d29dce38df5e44647c7f9286396e0e584af7492e5e63fa119097df61e896eb0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmJmZTZkZTI3MjVlNDU1ZjNmMmVjYzNlZDEzYTQyZmFhNDEzZThjMjRmNTU1YjhjNTk4N2NkNzhkMjhlNWRiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_42b90225d60a4f0caf083fa7d64ccfd0",
+      "statement": "The Dockerfile uses a multi-stage build with Maven 3.9 and Eclipse Temurin 21 for compilation, and Eclipse Temurin 21 JRE Alpine for runtime, running as unprivileged user app and exposing port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L13",
+          "version": "repo-lines-v1:sha256:fa4574bfc538836d7e19ef7bfb40ddface0557af8c9053f63c56b5b521cc7d2f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1ZmI2ZDQ2OTNjOGUxYjA4NTcwZTBjYzc1MTMxNzBlYmI4NWFkZDg0ZDZkYTlmZTU5ODA2NjAzZmEzZWRkOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkNzBmZmI2YTE1MDViYmJkMTM3OGM3NjcyNDNiMDVlZDdjODFiMDViNGFmYTE3NjJlZTJkODkzZTE1Mjk4MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3df3a4e585954acc9eb84f4cbe4388a6",
+      "statement": "Local build uses docker build -t commercelens-orders . and requires the central CommerceLens Compose project for runtime dependencies.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L43-L46",
+          "version": "repo-lines-v1:sha256:74c6190d97821500f0caa608827aa1def78c07fe66e93a3d207a14f6ef02691b:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDU0NGU0MWIzYmUwYjc4OTdlNjg3MmEyNDNmZTVlNGY3Y2Q3NjNhM2M5OWY1MzI0ZjQ4ZjljNmU1NmJhMmZkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGNmZjJmMzljNDQ0NGRlYjI0ZjdjODFhMmFjZWJmN2M4NTVmYTM5YWFiMDU0YTFjY2M5NTg1ZTc2Zjk5YTZlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmJkOTE2MWEzZGM4OTM2N2QyN2I3YjY2NDAxZmI3ZjQxZWFjYjIwZTU4M2EwOTJmNmJiMDRhMmJmNTZjZThmZCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

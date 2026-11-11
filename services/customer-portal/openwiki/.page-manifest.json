@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/architecture/api-client.md": {
+      "pageVersion": "sha256:e9aa5419c4afde8ac4f2980f9a30d10a4ed84dd0046f1ddf57978c709170964b",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/architecture/domain-models.md": {
+      "pageVersion": "sha256:83d097a4eb2384d0c171878cf626a136be969a165c9961a9a8933e9b34b6348f",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/operations/deployment.md": {
+      "pageVersion": "sha256:ec405c8563580e40f6779d4441b260233010558cad8c5039fbc88565cd6888b3",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:4c0b2c2d6b3bd2ed93ebf13131f3bfcec11a96b9e4a5f7efc3060d41f3ad6dd6",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/service-context.md": {
+      "pageVersion": "sha256:eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/testing/verification.md": {
+      "pageVersion": "sha256:00f19b19b49baee90fc4f0327aa8a77af8a5337556cf860dd3a7012ad612b1a8",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/workflows/operations-monitoring.md": {
+      "pageVersion": "sha256:6c3a8c84b4950310aaf3b217b294e2628d4a0376be38e855a5e66528690269c5",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    },
+    "/openwiki/workflows/user-checkout.md": {
+      "pageVersion": "sha256:96a568171149a45f2ff1b5b80b5504be390fadeac9dfb205abda83593742c7e7",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "f0863528-5297-4a40-81dd-2afcde6c4ec3",
+      "gitHead": "7852785613774ea3765768c0cd15181faa54f4a3",
+      "sourceFingerprint": "sha256:ca04c370b62cfb7d3285fe3107c89a4127ed228c29551a648d5caf2f41b03d08"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "Program.cs": {
+    "mtime": 1794173920.9333193,
+    "seen": 1794176978.62058,
+    "ast_hash": "c61b0d23ecdda4512aae65904c64fad1",
+    "semantic_hash": "c61b0d23ecdda4512aae65904c64fad1"
+  },
+  "Shipping.csproj": {
+    "mtime": 1794173919.7892718,
+    "seen": 1794176978.62058,
+    "ast_hash": "8eac7c2f4fd5a826c93cf4611c6ab323",
+    "semantic_hash": "8eac7c2f4fd5a826c93cf4611c6ab323"
+  },
+  "tests/Shipping.Tests.csproj": {
+    "mtime": 1794173667.6412075,
+    "seen": 1794176978.62058,
+    "ast_hash": "9fe6390d30905c86d4604f48691e46c0",
+    "semantic_hash": "9fe6390d30905c86d4604f48691e46c0"
+  },
+  "tests/ShippingTests.cs": {
+    "mtime": 1794174218.3636904,
+    "seen": 1794176978.62058,
+    "ast_hash": "fe84f9427304b01acc7f8460ea545fb2",
+    "semantic_hash": "fe84f9427304b01acc7f8460ea545fb2"
+  }
+}

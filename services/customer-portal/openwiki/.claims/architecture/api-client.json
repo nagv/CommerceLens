@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e9aa5419c4afde8ac4f2980f9a30d10a4ed84dd0046f1ddf57978c709170964b",
+  "claims": [
+    {
+      "id": "claim_b7659db691464402aa20f940befaaedc",
+      "statement": "request<T>(path, options) in src/api.ts is the single entry point for all outbound HTTP calls in the repository; it merges Content-Type: application/json into headers, attaches an AbortSignal.timeout of 30000 ms, parses the response body as JSON, and throws ApiError on any non-2xx status.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L4-L14",
+          "version": "repo-lines-v1:sha256:ed53a1df2177d6203c61a93bb35399e6773731659d68d0c44b815f836323e68d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MzBjOWNlY2NhNDMwN2E5NWQ1NTA2NzdhNzdkZDdlYWE5MTQwNzJhYmZmYTRhYjZmYjMzMmI5OGMxYjk0OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlOGRlZTc0MjZkOGJlYmRmODBmMTRjZDMyYmE1MTY3MTEzMGJiMGI0YWQyYzI0OWU4ZWRjOTkyYmI2ZDgyNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9c50ce85624640e0882cb5c1f8af9efa",
+      "statement": "ApiError extends Error and exposes status:number and body:unknown so callers can inspect HTTP status codes and parsed response payloads.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L1-L3",
+          "version": "repo-lines-v1:sha256:ae8dee7426d8bebdf80f14cd32ba51671130bb0b4ad2c249e8edc992bb6d824e:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2NjZiMzFkODljMGYwMmMxZGVkNGJiNTM5NGJkZTI4NDEwZDdlZjEyZGEzMTY2ZGQyNDU4Zjg4MzQ5MWYwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzBhYTEzNTc5Yjc4ZjI0ZGUxY2ViNTA2MWE5YjAxMTQzMTBhYzRkNTgxNDQ4ZDMwNDIyODgzZDJiZDFmOTJiNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_33fb13a45d504cb9883ccb13ce7d017d",
+      "statement": "When a non-2xx response occurs, request extracts the error message from the parsed body in the order: message, failureReason, detail (if string), falling back to a generic Request failed (${status}) message.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L9-L12",
+          "version": "repo-lines-v1:sha256:3973e2d6a2a658eee23163e01c597e7a648f07ed12c06b5a45f3ac8a38b194ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1NTRhYjU2ZDFlMDkxNmI2M2JkZjFjYjI2MTEwMjNjYTY5ZjYyMzRiNzZkYTJiMTgxZDFmNjVlMjRiNDA1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODU4OTUyNmU0OGZjZWRjMWNlNzg5N2JkMGUxZjI2ZjkzMzVkMWY0Njk3ZGEyOTE5OGQ4OWMxZmUyNTkzODkwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY0ZTk0MzEwOWJkMzUwZWRiOTMzZjExYTY1MmZkZmM3Njg4YmVjODMyYThjMWFlYmMyZjUzNDczY2FjNGRmMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f7c336cd42544befb93bc29c04340448",
+      "statement": "main.tsx sends POST /api/orders with an Idempotency-Key header set to a stable key from checkoutAttempt that is persisted in sessionStorage, making the checkout retry-safe across page refreshes and network interruptions.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L34-L38",
+          "version": "repo-lines-v1:sha256:d5db4c26f4a722771a7e4f1a388dc7381ee211c7e289625284227175ba916e3e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjJjYmUyNTExOWNmMzFjNWM5ODFjZDI1MzgyMjlkZWQwMGNlMmU4ZDNjMWZlOGQ1NjdiMzk5N2Q2M2VlYTFkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMxY2E4MDFhZWQ0MmExY2NmMTFkZTQzM2Q3YWI2MDUyYjlhYzYwMzFjZGNkYjVkYTdjMDk0MmZmNWE1MjM4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmIzYmU0YTRlODRjMDBiN2RhOGVkM2JjYTUwOTY2ZDA5ZTFiZTM4ZDIyMmI2YjZjYTVjNjE0Yzk0YmE2ZmI3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0NjAxNDU5YzBiZTI1MjkxZWIzYTc1YzM2YjcyMmEwZjJjNmMyYmM3NzY5ZGFkZWRjNjU2NDFhMGQxYmIyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7ea24ec92aa4d6fb0dda65c0437f32d",
+      "statement": "request is used for GET /api/products, GET /api/orders, GET /api/notifications, POST /api/orders, and GET /api/orders/{id} throughout main.tsx.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L19-L19",
+          "version": "repo-lines-v1:sha256:30e94b38c44261a7ff076c86af949070940aef9451912280e9702cc041626a8f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBlOTRiMzhjNDQyNjFhN2ZmMDc2Yzg2YWY5NDkwNzA5NDBhZWY5NDUxOTEyMjgwZTk3MDJjYzA0MTYyNmE4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBlOTRiMzhjNDQyNjFhN2ZmMDc2Yzg2YWY5NDkwNzA5NDBhZWY5NDUxOTEyMjgwZTk3MDJjYzA0MTYyNmE4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTM4YzlkNjVmNTQ2N2FjNzdhYmQ2YWRiN2IyYTIzMmRhZTRlMGYxZDZlMTkzMjk4YTJlNjEzM2JjMWU4MjAxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTI4ZGIxZDA3ZWI3ZTJlYjE5Y2UwMDBkZmZiMzkwZTg5ZTk5NzFmODhlZTgyZTE3NjQ1ZmZhYzMwOGQ4YmY4NCJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L38-L38",
+          "version": "repo-lines-v1:sha256:731ca801aed42a1ccf11de433d7ab6052b9ac6031cdcdb5da7c0942ff5a5238f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMxY2E4MDFhZWQ0MmExY2NmMTFkZTQzM2Q3YWI2MDUyYjlhYzYwMzFjZGNkYjVkYTdjMDk0MmZmNWE1MjM4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMxY2E4MDFhZWQ0MmExY2NmMTFkZTQzM2Q3YWI2MDUyYjlhYzYwMzFjZGNkYjVkYTdjMDk0MmZmNWE1MjM4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTkyNzQ5NjJhZWEwYjkwMDE0ZmJiM2U1ZGMyZGY1OWE5Y2M3OTI4YWQzOTcyODg2ZjYxMjZhNzRlZmY3OTA5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0NjAxNDU5YzBiZTI1MjkxZWIzYTc1YzM2YjcyMmEwZjJjNmMyYmM3NzY5ZGFkZWRjNjU2NDFhMGQxYmIyMiJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L50-L50",
+          "version": "repo-lines-v1:sha256:5a57e067cbef2673badd59f4f8867845408e7ffd5343f89b9dc2d4031e9affed:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1N2UwNjdjYmVmMjY3M2JhZGQ1OWY0Zjg4Njc4NDU0MDhlN2ZmZDUzNDNmODliOWRjMmQ0MDMxZTlhZmZlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1N2UwNjdjYmVmMjY3M2JhZGQ1OWY0Zjg4Njc4NDU0MDhlN2ZmZDUzNDNmODliOWRjMmQ0MDMxZTlhZmZlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMwYjM0YjY5MWI2MGQzYjM3MjY5OTRkMzU4YTBhMTY2MjJjYzM1ZGUwMjQyMjAxYzliZWEzZGViMDhlZjZiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE3M2FkZDljNTYxOTI0Y2U0ZGY2MTM2ZGI2OTc0N2RjYTZlY2FkYzZlZDg1YjY1YzViMWJhYzMwYTk1YzAwNyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

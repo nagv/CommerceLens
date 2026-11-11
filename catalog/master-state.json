@@ -1,10 +1,10 @@
 {
   "cards": {
-    "customer-portal": "07e5c75d7b579cbc3db8139d168fd3e5b5e918274a4a964c10a1d0ffb8f335cc",
-    "order-service": "c53d3ecbd47e92686083e22a6377af8a81eca76bc7662299523e4d5f9948cc6f",
-    "inventory-service": "7a0e5ac2b923a785113dec60656c3ad7423de7bd5774703ed7e06464f9309c1d",
-    "payment-service": "82d50801620cdce8d99bca41632c14adf0de04d30d8de689d9e461306adcaec6",
-    "shipping-service": "77faefb87943ad7aa2e3f03a4b77c1cdae5892cd5d76e9d848a493cfdecd64cd",
-    "notification-worker": "18381f739ed185dcd70b6573907c728c3b94854b6e3b2ef2f2c0c35cbe9f075c"
+    "customer-portal": "c84231cc6cd02c5f91d40abc07745512732decf5db03cda491d90f9e801fdd29",
+    "order-service": "0b2292fd0c93feb02910b09d931ded4ab97165f483764d5cae20bc8e97fc2e5e",
+    "inventory-service": "b9077c47e52c9a027471d2315ad003a803cefe8c57777c8b3ae728c7608e08e6",
+    "payment-service": "c980a610274b945888f6e7af0105bbcf5527e1e08e08a498258ea86e988caf65",
+    "shipping-service": "83f71d79531523319c9a238e24db9968721a4dff81547cbcd6ffd1590e8532aa",
+    "notification-worker": "9679597917cffe46ccafdeb16407142517def33b790924d80eed2d2204780d4b"
   }
 }

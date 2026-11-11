@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:873c0195c6681b80778553906c1dbbe82910a88cfdb87f007565c37dba30bbce",
+  "claims": [
+    {
+      "id": "claim_c8da97fb19f74b80ab19a05a07ddf631",
+      "statement": "The Quickstart page is the recommended starting point for understanding, operating, or changing the CommerceLens Shipping Service, routing readers to the Service Context and Operations, Shipping Provider Integration, and Contract and Failure Tests pages.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L1-L3",
+          "version": "repo-lines-v1:sha256:611de30cf2de5d84b892d086364781deea69f7811a01d29730dca5b4f27d25cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFlZjE4ZWQ1ZTU1YzIxNzViODEzNzJjYTRkMDE3Y2Y1MDM2NTAwYjUxMDMwNTg2NzQzZDI3MGM1YjAzODBiZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmEwYjY5M2UzODgzZWUwNzM2ZjdjZDIwNjM3MjJkN2E1NzA3YTlhYjNiODQ0ZDBkNGRiZjdlY2Q2NDIzYzNjYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c7785c088bd43778e1d0abdcb1eb7d8",
+      "statement": "The CommerceLens Shipping Service is an ASP.NET Core minimal API running on .NET 8 that exposes three HTTP endpoints: GET /health, GET /api/shipping/rate, and POST /api/shipments.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L11-L21",
+          "version": "repo-lines-v1:sha256:5029ebd11b7953bcfb7a7f2dd64396b7d5831cf0b94e6b2c5ee98ae373477e7b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3ZmU5OWZkMzYwZTQ4ZTc3NzMzZGM0YzMzNTc3NzNlMjMyZmE3NWU2ZWQyZmZlMDFkZDBlNzJhY2I4OWM2MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxYzgwYTVhN2MzMGNlZjExODQwZDhkOTgxYzRiMjA1OGU1YThmODk5NmM2ODRjMDVkNmY3YWM2Y2FiZTFiODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmMWIyYTg1MmFjODQzZWQwODg0ZTlhOGFmZTk3MmNiZDBhMmFiYTAyYjYzN2VkMDlmMTYwNjBhZjIxODQ3YjgifQ"
+        },
+        {
+          "resource": "repo://README.md#L5-L8",
+          "version": "repo-lines-v1:sha256:4013c803aa2fa314664bb9d39fd669c663f05f63dd469e500fbde07e5dad8301:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2VkMDgwZWMwZDg1ZjdlZDA0NTJlYWZmOTc3ZWIzNTk3NGJlNDdhNjEyZGY0ZjkxZmM2MGU4YzMzZjNjYmJiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGYwYmFkOWY3MjE3ZDdjOTBlMjg0MTllODUwYzUwYjViNTJiZjYxZDgwMmQ4M2RmZDFkNzM0MDdkZDFiYTRmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGUyZjk0MDNiOTJkYTkxM2Q4MGY4NzUwMzc2ZWQzYTU5ZGY1ZjQ5YzkyZTFjYmM1MTBjNjdkYmY0MTk3MTIzZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8828f45936f4476c84abb180a136bbbe",
+      "statement": "The default shipping provider is the local CommerceLens mock, not a live carrier, and production carrier authentication belongs in a provider-specific adapter.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L12-L12",
+          "version": "repo-lines-v1:sha256:5f20101cbe455c54e8677fa797ed1a950554418d3f4d1fb64e355aad5910ca82:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYyMDEwMWNiZTQ1NWM1NGU4Njc3ZmE3OTdlZDFhOTUwNTU0NDE4ZDNmNGQxZmI2NGUzNTVhYWQ1OTEwY2E4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYyMDEwMWNiZTQ1NWM1NGU4Njc3ZmE3OTdlZDFhOTUwNTU0NDE4ZDNmNGQxZmI2NGUzNTVhYWQ1OTEwY2E4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUyZjk0MDNiOTJkYTkxM2Q4MGY4NzUwMzc2ZWQzYTU5ZGY1ZjQ5YzkyZTFjYmM1MTBjNjdkYmY0MTk3MTIzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAxOTViYzFlOTZiNGZjZTZkZWJkYzRhNjEzMTkyMTFlN2YyNWI5MDExOWFkYWYzNGZhZWNkYzBhYWZiNmIzNyJ9"
+        },
+        {
+          "resource": "repo://README.md#L2-L2",
+          "version": "repo-lines-v1:sha256:8886e0af5633d8c68bb709d73bfa248e241d3db9e4ca5932b25a6eb0a7421e5c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODg4NmUwYWY1NjMzZDhjNjhiYjcwOWQ3M2JmYTI0OGUyNDFkM2RiOWU0Y2E1OTMyYjI1YTZlYjBhNzQyMWU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg4NmUwYWY1NjMzZDhjNjhiYjcwOWQ3M2JmYTI0OGUyNDFkM2RiOWU0Y2E1OTMyYjI1YTZlYjBhNzQyMWU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjFlZjE4ZWQ1ZTU1YzIxNzViODEzNzJjYTRkMDE3Y2Y1MDM2NTAwYjUxMDMwNTg2NzQzZDI3MGM1YjAzODBiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWM2ZGE5MDFiMGEyMzM4YjNhMzJiMzdkZmZlZGQwODlkMTNlMWIzZTMwZWI0MzQ0N2E1MjBkY2Q1ZjZmYjYyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2867076fd5047db885887822282ddaa",
+      "statement": "The Quickstart page provides a guiding-questions table that maps common reader needs (service interfaces, outbound provider behavior, test coverage) to the corresponding related wiki pages.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L1-L3",
+          "version": "repo-lines-v1:sha256:611de30cf2de5d84b892d086364781deea69f7811a01d29730dca5b4f27d25cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFlZjE4ZWQ1ZTU1YzIxNzViODEzNzJjYTRkMDE3Y2Y1MDM2NTAwYjUxMDMwNTg2NzQzZDI3MGM1YjAzODBiZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmEwYjY5M2UzODgzZWUwNzM2ZjdjZDIwNjM3MjJkN2E1NzA3YTlhYjNiODQ0ZDBkNGRiZjdlY2Q2NDIzYzNjYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_796900ce20f2460e8455dcb94151006a",
+      "statement": "The service listens on port 8080 and is configured via the SHIPPING_PROVIDER_URL and PROVIDER_TIMEOUT_SECONDS environment variables; the demo is unauthenticated and should only be exposed on loopback or private networks.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L5-L5",
+          "version": "repo-lines-v1:sha256:226ea0b148ca5d9027ebcb2eca983878213c310f510f1696e02ae2670fbd11ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI2ZWEwYjE0OGNhNWQ5MDI3ZWJjYjJlY2E5ODM4NzgyMTNjMzEwZjUxMGYxNjk2ZTAyYWUyNjcwZmJkMTFlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI2ZWEwYjE0OGNhNWQ5MDI3ZWJjYjJlY2E5ODM4NzgyMTNjMzEwZjUxMGYxNjk2ZTAyYWUyNjcwZmJkMTFlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjk5YjUzZTU2ZDc1YWM1OGUzMDhhYWM2Yzk5ZDY3NzMxNjg5ZDJiNzVjOGNiZTg0ZjI1NDdhNzVjMzc0ZGEwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmRmYmU0Y2Y2MDExOGRiY2JlNTIyZTdjOGQ4YzQ5NmI1MTI0YjQ1NTQwZjkzNTkwMDVhM2I1NjgyZTM2YmI5OSJ9"
+        },
+        {
+          "resource": "repo://Program.cs#L7-L8",
+          "version": "repo-lines-v1:sha256:78231a27b23cc5d9341e8f3a99437809cabc4ecc34fc7d17dd5a61c35f729a2d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjczMmFkYmE3NTEzYTExNTBjZjg4NTJhNjZhZmQ5YzU0ZjEyODQxNTVkMGI5MWM2NTM0NWJmZWJiNTRmODJiMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2RiNjg0YjJmNmI2OGY4MGI0ZDk0YjQ4MGJhN2ZlZGE0YzQ3Y2M4YjdkMjc1MTM5ZGE5NDBkMjk2NWZiNDE2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjY0MDE3NDdhYzc4N2IwZDJlM2VlNGQyOGYwOWFkYzQwY2NjMjNlNjAyYzQwNWNhZGY3OTk0ZDA5NmExMjNhOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQxNjI5N2I0NDhiM2E3MGU4NjlhZThkNzZhMWU3YmI4YzM2ZDJkYTEwZWE3YTc4OTEyYTk1YTA4MmQyZGQwOCJ9"
+        },
+        {
+          "resource": "repo://README.md#L12-L12",
+          "version": "repo-lines-v1:sha256:5f20101cbe455c54e8677fa797ed1a950554418d3f4d1fb64e355aad5910ca82:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYyMDEwMWNiZTQ1NWM1NGU4Njc3ZmE3OTdlZDFhOTUwNTU0NDE4ZDNmNGQxZmI2NGUzNTVhYWQ1OTEwY2E4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYyMDEwMWNiZTQ1NWM1NGU4Njc3ZmE3OTdlZDFhOTUwNTU0NDE4ZDNmNGQxZmI2NGUzNTVhYWQ1OTEwY2E4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUyZjk0MDNiOTJkYTkxM2Q4MGY4NzUwMzc2ZWQzYTU5ZGY1ZjQ5YzkyZTFjYmM1MTBjNjdkYmY0MTk3MTIzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAxOTViYzFlOTZiNGZjZTZkZWJkYzRhNjEzMTkyMTFlN2YyNWI5MDExOWFkYWYzNGZhZWNkYzBhYWZiNmIzNyJ9"
+        },
+        {
+          "resource": "repo://README.md#L16-L16",
+          "version": "repo-lines-v1:sha256:7488111485e979f54da2534cb96033bbfa28809d8f8d7760cdb46002ce2d8f6f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQ4ODExMTQ4NWU5NzlmNTRkYTI1MzRjYjk2MDMzYmJmYTI4ODA5ZDhmOGQ3NzYwY2RiNDYwMDJjZTJkOGY2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQ4ODExMTQ4NWU5NzlmNTRkYTI1MzRjYjk2MDMzYmJmYTI4ODA5ZDhmOGQ3NzYwY2RiNDYwMDJjZTJkOGY2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjAxOTViYzFlOTZiNGZjZTZkZWJkYzRhNjEzMTkyMTFlN2YyNWI5MDExOWFkYWYzNGZhZWNkYzBhYWZiNmIzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bd878971492b46ab8b954a9b7222c0b9",
+      "statement": "The service can be built locally with docker build, and xUnit provider contract tests are run via docker build --target test.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L14",
+          "version": "repo-lines-v1:sha256:009e1ba40a21d8a183abd93f33d66e6e5ce6231fc746ab1bd6f1ac73537e4b41:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYThhZTlhYzdmZjg5OTg2MjdlYzRiNTEzZmI4M2Y3OWFjYmJlNTAxNDMzZWMwYWQ3YjhiOGE2NTg5MzRmYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwOWJiNWNhY2I1ZjdiOGQwMGNiNDc5NzQ0ZGY4NjQ4ZDU3ZGJmODg0ODIwZjg2NjhiNzU3ZTU1MDM4M2VlYmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://README.md#L14-L16",
+          "version": "repo-lines-v1:sha256:505fc8bbc5a6124ab9642fced490968c84b6576ee16f5fac321a3b80d16cf8df:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGVlY2RhNTc2M2M5ZmRjMTQ3NTVhMmJiMGE3N2NhYzk4M2E1ZTBkMzA2OGE5ZmI2OTgwY2NhZmFlMjFmZmJkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQ4ODExMTQ4NWU5NzlmNTRkYTI1MzRjYjk2MDMzYmJmYTI4ODA5ZDhmOGQ3NzYwY2RiNDYwMDJjZTJkOGY2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODIxN2I1YTliNGExMzMyNjI3YmMzNDg1MGI2MTZkNjBlY2Y3YTQwODc2OWRjNmIyMmMyNTc5ZmJlMjAzMzE2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:46.596Z"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f54da2cab1db62025451b8e2f623e0d6fc8dc35ab58adde08f2dc1e7f38086c6",
+  "claims": [
+    {
+      "id": "claim_57f1623399ae4a05b7a1c9090d82ce7c",
+      "statement": "The order.confirmed event schema requires eventId, orderId, customerEmail, trackingNumber as non-empty strings up to 320 characters, totalCents as a non-negative safe integer, and customerEmail must contain '@'. parseEvent rejects payloads failing these rules.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L1-L5",
+          "version": "repo-lines-v1:sha256:f09d973b52613cbc079f1f2aebb9b2de470e4677785e29886ddbbd092b3fbe6a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI3ZTVlMzVkMWM0ZDE3OWM0MzNjNTdmMzYwNzc1ZTE3OTJjZjM4YTY1ZDI2ZjEwNjU4NWE5NGQ1MGJhOGYzYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGUwMzJjNTAzNTg2NzQ3NWZiYzdiNmEyYTA1ZGE5OGE3OTMzY2I5ZDA3ZjRiNWY0ZGQ0YzM1ODk0NTNlNTRmMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c84050c44d6d4000bfdcb89dd85364ab",
+      "statement": "The worker declares order.confirmed as durable with a dead-letter exchange routing to order.confirmed.dead, and sets channel prefetch to 1.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L28-L30",
+          "version": "repo-lines-v1:sha256:e790f0cbab7a4ac09d12e9874b5c822aabafc1e00b68f077e1b7bbcd7d3e141d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmY5NjVlMjk4OWRiNTY3NjU2NGJhNzcwZmI2MDg2OTdiZmU3MTk4N2FmMzg1ZWU1MmQzNmM0MWQzZmI1ZWFkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJhOGJhMDMwNGQzZjhmNzkyNmU1NjFlYWQ2MDJhZDkyMmU3NWM3NDNjNWEyOWEwMWJjYWE5MzQxZjM2MDc4ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjEzN2RkZGMwOGU1M2M0ZmZjNGI5MjMzZjYwZDczYzc0OTZmODI5OTIzMTJkYWVmOThmNTQzOWYzODgxNjMxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODg5OGExNzgwOWEzMmQ4YmQ3Y2M2YWIxYWE0YjA5NWI1ZDdmOTA0YjFlODc0YjVhZThlZmIyZmQ4YTFiN2IzZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ddf1d498672847f08c7fed4b8203929f",
+      "statement": "If parseEvent fails, or the payload does not match the stored JSONB record, the message is negatively acknowledged without requeue and routed to the dead-letter queue.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L34-L34",
+          "version": "repo-lines-v1:sha256:5b8e9e4749b121bc77452ab7dce55642ed406a1be8b630921e718dcd96dbf834:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4ZTllNDc0OWIxMjFiYzc3NDUyYWI3ZGNlNTU2NDJlZDQwNmExYmU4YjYzMDkyMWU3MThkY2Q5NmRiZjgzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4ZTllNDc0OWIxMjFiYzc3NDUyYWI3ZGNlNTU2NDJlZDQwNmExYmU4YjYzMDkyMWU3MThkY2Q5NmRiZjgzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODg5OGExNzgwOWEzMmQ4YmQ3Y2M2YWIxYWE0YjA5NWI1ZDdmOTA0YjFlODc0YjVhZThlZmIyZmQ4YTFiN2IzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQ1NDdlMWE4ODc0NWNmNzlhZDM4ZjllMjVkYTljZDExN2ViZmVlYWVjNGNkZDkxZTdkNDBhMmM1ODQwYWE5MyJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L44-L44",
+          "version": "repo-lines-v1:sha256:9de5c2a01902e5c0ce54f4e36f0879f5582a9fa5bdd42022c75eb38d66aaf7e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRlNWMyYTAxOTAyZTVjMGNlNTRmNGUzNmYwODc5ZjU1ODJhOWZhNWJkZDQyMDIyYzc1ZWIzOGQ2NmFhZjdlMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRlNWMyYTAxOTAyZTVjMGNlNTRmNGUzNmYwODc5ZjU1ODJhOWZhNWJkZDQyMDIyYzc1ZWIzOGQ2NmFhZjdlMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTQzYTYxZmNlZjAwNmE5MWM3NmFmZDdiMTBmYWE2NWM5Y2VmZmQ4YTAxYWYyZjQxYTE4NmY1ZjkxM2MwMWRjZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b8ae4643463143bd81584b7dafccded3",
+      "statement": "If the database connection pool cannot provide a client, the worker sleeps for 1000 ms and negatively acknowledges the message with requeue for redelivery.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L36-L36",
+          "version": "repo-lines-v1:sha256:22ef5bd5c3a392db22179cef4b71c3366cd467f136f661c0c208df6b155bc0c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJlZjViZDVjM2EzOTJkYjIyMTc5Y2VmNGI3MWMzMzY2Y2Q0NjdmMTM2ZjY2MWMwYzIwOGRmNmIxNTViYzBjMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJlZjViZDVjM2EzOTJkYjIyMTc5Y2VmNGI3MWMzMzY2Y2Q0NjdmMTM2ZjY2MWMwYzIwOGRmNmIxNTViYzBjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTFiYTA3NjQ5ODc0NTU1NGQxYTNkYzQwNDY1MGRlNjI2MmM5MTJiNzZhNTgwNzMzNGJkY2M1NGE3NWYwZWQ0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmE0Zjk5MmFlN2YzMTUzN2IzM2Q2ZDYwZDFkZWY4YWYxZDc1NTE3ZWI5ZjUxMzgwZWU5MjA1YTc2ZTNlNDYwOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a84b8084ebc43b29419f7572364c4af",
+      "statement": "A PostgreSQL advisory lock on hashtext(event.eventId) serializes processing of the same event across concurrent workers, independent of transaction rollback behavior.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L40-L40",
+          "version": "repo-lines-v1:sha256:20535ee921c245faf1b173d6a95240774df6ffd2f13031528dea841e1c5133cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA1MzVlZTkyMWMyNDVmYWYxYjE3M2Q2YTk1MjQwNzc0ZGY2ZmZkMmYxMzAzMTUyOGRlYTg0MWUxYzUxMzNjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA1MzVlZTkyMWMyNDVmYWYxYjE3M2Q2YTk1MjQwNzc0ZGY2ZmZkMmYxMzAzMTUyOGRlYTg0MWUxYzUxMzNjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE0Zjk5MmFlN2YzMTUzN2IzM2Q2ZDYwZDFkZWY4YWYxZDc1NTE3ZWI5ZjUxMzgwZWU5MjA1YTc2ZTNlNDYwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQzYTYxZmNlZjAwNmE5MWM3NmFmZDdiMTBmYWE2NWM5Y2VmZmQ4YTAxYWYyZjQxYTE4NmY1ZjkxM2MwMWRjZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ef2758b3ed904e3cbafb6d672d4d08e4",
+      "statement": "The worker inserts the event with ON CONFLICT DO NOTHING, then verifies exact JSONB payload equality before proceeding. This prevents idempotency-key collision across semantically different events.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L41-L44",
+          "version": "repo-lines-v1:sha256:d57db22010a1e25e6eece65548ffe3e344111f8075a0206635ea84390b569976:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBjNjBkYzZiYWQ3ZmIwNjA0ZGE5MWY2MGMwN2YzNGIzMDhlNmExZTA5NjQ5OTk1ZmUyNjA0YjVmYmQ2NDE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRlNWMyYTAxOTAyZTVjMGNlNTRmNGUzNmYwODc5ZjU1ODJhOWZhNWJkZDQyMDIyYzc1ZWIzOGQ2NmFhZjdlMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTg2MzcxMTgxNDM3NTBmMWM3MTdjNDYyMmQ1ZTE0OWJlNmJjOGU1ZjY0OTc2OWExYmY4OTU3OWQzNzMzMmJmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d80f1a6b1cf54d1893e06846b7819258",
+      "statement": "Before attempting delivery, the worker checks the persisted status: 'sent' causes an immediate ack, 'dead' causes nack without requeue, and 'pending' allows delivery to proceed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L45-L46",
+          "version": "repo-lines-v1:sha256:d7434b9a46c52c959c46947ebcd9f23bc633e10d45d0ab9cebf698ac8e5597c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE3MTZjMjdmMWQzMmUyZjc2NTQwYTQ5NzAyZDc3NWFiMjgyODMyNmZmYjdmYzk4MDI0MzE4NWMwOTY1MDIxNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThlYWZkNDU1OTcyZTQ5ZjU2MTA2Yjk1ZTRmNjVjNzQzZGFmNjhkNzQxNDE0OTNjMTQ3NzBjMDNhNDE0MjRjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTZjZmRiMzQ2ZTkyYzFlNTViYTFkZTJlN2ZkNjk2ODk1MTdmMjRkYjE3MWUxZTMxMTlkZWUyYWZiMjY2MmZjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3NzdiNThhOTVhNjU4MjkwOGFkOTNhYzdkNjliZDY2YjI2OGM1ZDVkNGQ5ZTE1ZGQxMjA2YmMzZTJkMjI1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ac36aeb5bec45be832660eb321e6bd6",
+      "statement": "The deliver function performs up to three total attempts (accounting for prior attempts), calling beforeAttempt before each try, and sleeps 250 * attempt milliseconds between retries on failure.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L7-L14",
+          "version": "repo-lines-v1:sha256:a386ddecaaa6c456523cd1a91fe6647f5d6f1163518faf9b1117ab55ae952dae:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhiYmE0NzJmNzU0YTZmNjBlYzc2NjMzMTE5ZGQxZmE4ZjFiNGNkMjMxZGQyMDk3YzI0MjY2YjVjYWJhZTgxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY4ODEwMGI2Y2ZlZjlkOWVmMGI3MGE3MDJlY2IxYTY4ZjVmMzBmMTQ4MWFjZjgwODI3NmNiNzhiMjQyYTcxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JmMzU1MTMzYTg2NTZkNzA0YTI0MTcxMGI2ZDA4ODJjYmM0NGVkMzI5OWNmZmEzMTNiM2Q1YjYzMTM1NzZmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_afec439fc3d84eae85df45fa96a940d1",
+      "statement": "The email provider request includes an Idempotency-Key header set to event.eventId and uses an AbortSignal.timeout defaulting to 3000 ms.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L48-L48",
+          "version": "repo-lines-v1:sha256:cd2cb635eed87bfe104cd5f18c30cb909ce62d528f50dfa41d928f1de3fa2138:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQxMTAyNGE0MTQzNzVjM2M1NGI0MTFiY2E1OThhMjMzOTE3ZGM1MTI4OGE4NjIzZjRmNjc1ZDcxNTFhZDkyZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d70db07f1ae74ca6b63fb9b3cb8e22ce",
+      "statement": "After delivery, the worker updates the notification_deliveries record with final status, attempts, last_error, and updated_at, then acknowledges if status is 'sent' or dead-letters if status is 'dead'.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L53-L54",
+          "version": "repo-lines-v1:sha256:05fcf72300a3d08be5588ac3087ca27336b9797d65266d44e254c741f921a43a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ0MzMwNjIzY2VmNzAzMGRiMWRhNmMzOWM4MjU0OGYzNTJjZDAzY2VlM2NiNzFjMDAxOTU0ZjZiYzM0ZjA3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlYTA4NmJlNWVhNDRkYzU4ZjhjNDMwYjAzODliMDhiMDJkM2IwNjNkNmY4M2VlZmExMWU0YWNlZGFlMTUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQ1NmI5ZjUxZGM3NGIwMDRhZDdjYTA2MDc3YjIwOTJhYjc1ZTJmODY5YjMyYWM0YTVmMTZiM2MwNjkwNTBjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjE4MWMyM2RjNzg2OWViYmFlZjMwMzVmMDNiYzA3N2E5MmJkMGUzNTBiNjA1MmQ5MjgzZTE5YTM0YWJiMWRmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_747ec2f909744aa9b23a73cd7de2adeb",
+      "statement": "The provider HTTP call and the RabbitMQ ack/nack are not enclosed in a distributed transaction, creating a window where the provider may accept the request before the message is acknowledged.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L47-L54",
+          "version": "repo-lines-v1:sha256:39d55f5c89be56e83be17916ba3feb594a8261d5b766648cc9a6510475a87f93:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U2NTJmODc1OGNiZTVjNDk3MWVmM2I2OWU0ZjI1NmRkMTBlNTA0MmY5YmM4ZWJlZDkwOTU1OWViN2E5MzE1OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlYTA4NmJlNWVhNDRkYzU4ZjhjNDMwYjAzODliMDhiMDJkM2IwNjNkNmY4M2VlZmExMWU0YWNlZGFlMTUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDdmNTA2NTMyZWFiMTFlYTM3NGQ5OWUxNTkyZDJmNjQzOWNjZWZlNWQ5NmRlNjFjMTBjOTFlYWNhMmVjYTk3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjE4MWMyM2RjNzg2OWViYmFlZjMwMzVmMDNiYzA3N2E5MmJkMGUzNTBiNjA1MmQ5MjgzZTE5YTM0YWJiMWRmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_919695480c0a414ba2ea9534c3e0cbf3",
+      "statement": "An outer catch block around the delivery logic sleeps for 1000 ms and negatively acknowledges the message with requeue when an unexpected error occurs after the advisory lock is held.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L55-L55",
+          "version": "repo-lines-v1:sha256:105b86b3c38034c1d22d3db5d309dcb57d1933af1196d4dd2bd6cff541251386:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA1Yjg2YjNjMzgwMzRjMWQyMmQzZGI1ZDMwOWRjYjU3ZDE5MzNhZjExOTZkNGRkMmJkNmNmZjU0MTI1MTM4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA1Yjg2YjNjMzgwMzRjMWQyMmQzZGI1ZDMwOWRjYjU3ZDE5MzNhZjExOTZkNGRkMmJkNmNmZjU0MTI1MTM4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGUwODU1N2Y0NzQ1Y2ZiYmEzNjNjNTAyNzE3OWE4ZTRjNjhkYTM4MzI4NmEyZTExN2U3MWYxZDRiZDliZTM0YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTMzOGNiNGZlZjYwMDA4MDA1Mjc0ZWRhZGEwMDQ5MDg4YTFjYTdkN2Y3NmJiMGYyMDA1ZGU1NDU3NDExMWJhMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9846eb91d57445b08bf1e7376c4f54a7",
+      "statement": "The advisory lock is released and the database client is returned to the pool in a finally block. If unlocking fails, the client is marked broken so the pool discards it.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L56-L60",
+          "version": "repo-lines-v1:sha256:d0e95c8d2086b0d60ce0e688339a8959e3b11aaae9232a79da146e7ddaa7bdfc:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E1YjIwOTliZGQ5ZTA2NzI2MzhmMjE4OTAyOTY1MDIzZDNjYzFjM2Q3ZTFhNTMwZjkwNTllZTEzZGFkMjQ4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTlkMDU4MWFkZjE3M2U4Mjg3NzJmNTYwZDNkODk3YzE1N2Q5NTYxNDViMjdmMGVlZWFhYjFhYjc5OWM0ZGNhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjI2YTYyMzhlNDRhODNhMzA1MjVmZDUxZjg1NzBhNDcyOTI5MjgxNzAwY2VhNmUzMTI4ZGUxMmEzNjhiOWI1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5611040332b84cb093ae6b63c0f02540",
+      "statement": "watchSession registers error and close listeners on the AMQP connection and channel, invoking a stop callback that marks the session ended and triggers connection cleanup.",
+      "evidence": [
+        {
+          "resource": "repo://src/lifecycle.ts#L3-L14",
+          "version": "repo-lines-v1:sha256:0f7a968bd891d781adbf80da8d7faccf53553eeec7b57f80ba0d80afba7c709e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjYzczNzM1NGY2MzBkNDA1YjU4ZDEyNTc4ZDYyNDZhMDlhYTdmY2NhNGRiYjRjNjI4NzY4N2FhODljZWUzNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjMzNDM2NTgzODJiZjdjYjBkMjNkYWFhM2RhNjQ1YjdjNTZkYjE0OGU2MGJlNzBjYWYwMDk3YWNjOTNiOWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4YmIyNTA5MmZkY2MyNzc5MDM4ZWUwMjdiMDg4NTdkZTgwZDZmZGRjMTNmMTQ4MjJlM2UwYzUwNWE1ZDNlYzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/main.ts#L22-L27",
+          "version": "repo-lines-v1:sha256:970f95dec807edc8d0b9659f08777aa10c92cef109c2dec8b52eea58ca090a26:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRmYTk0YjE0YTkwMmNhNjUzNTRhZDdmNGQxNzdiMTU2ZTU0ZTU2YjRlYjZmODQyMWRiYjkxZGE1MzM1MmVhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY0MTBlNzY3NTlhODVkNGU4NTFhMjJjZDg1OTI5ZjUxOTFhNzQ0MzU3ZjFhZDlkMjk4M2Y0NDM4MGJhN2YwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQwMzViM2M1MzUwOTVhNWRhOTZhY2FkNDE5YWZlYTAxMDEzYmJkNjViYmExN2U5YzJlOWVlZjVjZTAxZGJkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTc5MGYwY2JhYjdhNGFjMDlkMTJlOTg3NGI1YzgyMmFhYmFmYzFlMDBiNjhmMDc3ZTFiN2JiY2Q3ZDNlMTQxZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_abe8b889f37c450484f19b3ecc3fd175",
+      "statement": "The main function runs a reconnect loop that waits 3000 ms between connect() attempts until SIGTERM is received.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L71-L72",
+          "version": "repo-lines-v1:sha256:4b24d6b83151a62807ef47aa81008246660ebc93f6cc1e2d915954ea39a44fdd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI2MWY0MThiZWQ0OWRkZWYzMmY4NDM5OGJkYzdkNDI3NGMwYjhjYWI3ZGEzMGJmMzZmYjViODkxNTRmNGIwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYwMzNmMmIzZTRkZGM3ZmRkZTZmZjBkMTI0ZGEwMWM2NWRjMzNkYmQ2ZjcwNWFmNzg1NTAxNThiNzVlNDk3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGYxMjFkNDdiOTljODhlN2YyOTNjOGI0MDAwNGRkNTI4NWE2ZjhkNjNmOTVhYTExNDc1YmZiNzRmMTFhZjFlZiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

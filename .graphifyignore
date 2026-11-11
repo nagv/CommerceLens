@@ -17,3 +17,9 @@ graphify-out/
 *.min.js
 *.map
 .graphify-venv/
+
+.ai-venv/
+.test-tmp/
+.data/
+.context-work/
+services/

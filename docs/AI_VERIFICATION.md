@@ -62,3 +62,8 @@ Final regression suite: 105 tests passed. Live controlled calibration graded a d
 A live Pinecone-generated Plan run and its scores uploaded successfully to LangSmith experiment `commercelens-eval-47b7a8769db1` (project `8477cd66-efa8-4288-92cd-dc89b8a21205`). That experiment used the initial anchors. Regrading the same saved answer locally with final, stricter anchors produced quality 0.625: service impacts/details and requirement coverage were incomplete and alternatives scored zero. Local artifact: `evals/results/plan-strict-anchor-check.json`. The different grades illustrate judge sensitivity; human calibration remains necessary. No claim of production acceptance is made. The generated plan omitted Portal detail and meaningful alternatives; plan generation itself was not changed in this evaluator task.
 
 All 24 Ask cases are approved. The four existing Plan cases remain pending review; the shipping case now carries verified current facts and dimension-specific acceptance criteria. The proposed 16-case Plan coverage is documented in evals/PLAN_REVIEW.md but has not yet been fully added to the executable dataset. Replan UI/API execution is not implemented. No master catalog, vectorization or Pinecone index changes were made.
+
+
+## 2026-11-10: completed dataset and structured Replan
+
+See [live evaluation review](LIVE_EVAL_REVIEW_2026-11-10.md) for the 42-case baseline, separate retries, measured failures and limitations. Replan UI/API and structured evaluator dispatch are implemented; 114 local tests passed. This supersedes earlier statements that Replan is pending.

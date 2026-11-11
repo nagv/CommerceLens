@@ -106,7 +106,7 @@
       "evidence_service": "customer-portal",
       "raw_target": "notification-worker",
       "raw_kind": "consumes",
-      "evidence_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md",
       "evidence_version": "385e58114654ed68924d03062cee359663461cfc1e13cf9ec3916410fd5bcc68"
     },
     {
@@ -118,7 +118,7 @@
       "evidence_service": "customer-portal",
       "raw_target": "order-service",
       "raw_kind": "consumes",
-      "evidence_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md",
       "evidence_version": "385e58114654ed68924d03062cee359663461cfc1e13cf9ec3916410fd5bcc68"
     },
     {
@@ -130,7 +130,7 @@
       "evidence_service": "inventory-service",
       "raw_target": "PostgreSQL",
       "raw_kind": "database",
-      "evidence_url": "https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/dependencies.md",
       "evidence_version": "c6ef069bd5c931988ad849dbd6620292ac21ec2567e62a648fff20388dcccfb0"
     },
     {
@@ -142,7 +142,7 @@
       "evidence_service": "notification-worker",
       "raw_target": "email-provider",
       "raw_kind": "external",
-      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md",
       "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
     },
     {
@@ -154,7 +154,7 @@
       "evidence_service": "notification-worker",
       "raw_target": "postgresql",
       "raw_kind": "database",
-      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md",
       "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
     },
     {
@@ -166,7 +166,7 @@
       "evidence_service": "order-service",
       "raw_target": "PostgreSQL",
       "raw_kind": "database",
-      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md",
       "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
     },
     {
@@ -178,7 +178,7 @@
       "evidence_service": "order-service",
       "raw_target": "Inventory Service",
       "raw_kind": "http",
-      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md",
       "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
     },
     {
@@ -190,7 +190,7 @@
       "evidence_service": "order-service",
       "raw_target": "Payment Service",
       "raw_kind": "http",
-      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md",
       "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
     },
     {
@@ -202,7 +202,7 @@
       "evidence_service": "order-service",
       "raw_target": "RabbitMQ",
       "raw_kind": "publishes",
-      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md",
       "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
     },
     {
@@ -214,7 +214,7 @@
       "evidence_service": "order-service",
       "raw_target": "Shipping Service",
       "raw_kind": "http",
-      "evidence_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md",
       "evidence_version": "ca6ca04eed8812656d7846478bf7bf202b04750bdbfb63e5023452a73a16239d"
     },
     {
@@ -226,7 +226,7 @@
       "evidence_service": "payment-service",
       "raw_target": "Payment provider",
       "raw_kind": "http",
-      "evidence_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
       "evidence_version": "0e7fbf818b1053f219b9b1c7d5fc8aba128519073c70f78f8281748239113a56"
     },
     {
@@ -238,7 +238,7 @@
       "evidence_service": "notification-worker",
       "raw_target": "rabbitmq",
       "raw_kind": "consumes",
-      "evidence_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md",
       "evidence_version": "6e846da64f860a2742bfb3c398d40cf97f861cde0cc3f09ccadaf50bea3b3368"
     },
     {
@@ -250,7 +250,7 @@
       "evidence_service": "shipping-service",
       "raw_target": "Shipping provider",
       "raw_kind": "http",
-      "evidence_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md",
+      "evidence_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/service/overview.md",
       "evidence_version": "475db81bbc5c78a1ea8131399aa64ce87d4a9c7749bcbc3eb90e559314220c81"
     }
   ],
@@ -263,5 +263,5 @@
     "payment-service: unregistered target Payment provider",
     "shipping-service: unregistered target Shipping provider"
   ],
-  "version": "635c89e7e4c3a783487487ae46fbe6574e6b95506bfd97816e88946c0beb4d75"
+  "version": "d640a510c30c0cc012749330e724321351b768f5a4d2ffb5d6471b5b6bbbc248"
 }

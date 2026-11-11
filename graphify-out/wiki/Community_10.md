@@ -1,29 +1,34 @@
 # Community 10
 
-> 7 nodes · cohesion 0.29
+> 12 nodes · cohesion 0.20
 
 ## Key Concepts
 
-- **rabbitmq** (6 connections) — `compose.yaml`
-- **environment** (3 connections) — `compose.yaml`
-- **RABBITMQ_DEFAULT_PASS** (1 connections) — `compose.yaml`
-- **RABBITMQ_DEFAULT_USER** (1 connections) — `compose.yaml`
-- **image** (1 connections) — `compose.yaml`
-- **ports** (1 connections) — `compose.yaml`
-- **volumes** (1 connections) — `compose.yaml`
+- **link-wikis.mjs** (8 connections) — `scripts/link-wikis.mjs`
+- **finalize-catalog.mjs** (5 connections) — `scripts/finalize-catalog.mjs`
+- **ref_node_fs** (2 connections)
+- **ref_node_path** (2 connections)
+- **ref_node_url** (2 connections)
+- **definitions** (1 connections) — `scripts/finalize-catalog.mjs`
+- **root** (1 connections) — `scripts/finalize-catalog.mjs`
+- **central** (1 connections) — `scripts/link-wikis.mjs`
+- **drafts** (1 connections) — `scripts/link-wikis.mjs`
+- **existing** (1 connections) — `scripts/link-wikis.mjs`
+- **nested** (1 connections) — `scripts/link-wikis.mjs`
+- **{roots}** (1 connections) — `scripts/link-wikis.mjs`
 
 ## Relationships
 
-- [Community 2](Community_2.md) (1 shared connections)
-- [Community 9](Community_9.md) (1 shared connections)
+- No strong cross-community connections detected
 
 ## Source Files
 
-- `compose.yaml`
+- `scripts/finalize-catalog.mjs`
+- `scripts/link-wikis.mjs`
 
 ## Audit Trail
 
-- EXTRACTED: 8 (100%)
+- EXTRACTED: 13 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

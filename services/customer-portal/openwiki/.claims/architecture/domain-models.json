@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:83d097a4eb2384d0c171878cf626a136be969a165c9961a9a8933e9b34b6348f",
+  "claims": [
+    {
+      "id": "claim_4717995d837145b6bb86ea00467dbaa0",
+      "statement": "Core domain types Product, Checkout, Attempt, Order, and Notification are defined in src/domain.ts with exact shapes including nested item structures and optional fulfillment fields.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.ts#L1-L5",
+          "version": "repo-lines-v1:sha256:0f1fb8467569ff0e0c3f1f457160556bb8c7fd8cebc8055d8648935590d0744b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ4OTQ2MmNhOWQ1ZmQwODUzZGMwMWM2ZTgyMmI3YmRkNzQ3ODg4NDIzNTM1ZDQzOWZiZGQ4MjlkMDhjMzhhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOThiOGQyZDJlNTJlYWE0YTMwZjVhNmFiYTVmNWEwNDlkYzhkZWQ5OTBmNjliOTFjNTA0ODk1MmRlZGZjZTAyYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWI0ZDQyN2Q4NzhiOWM4NWI3YjkyMjdiNWUwMmVkNWU5M2QwM2EwMzA3OTdlYzJiNzA2ZTc2YzVkZTE5YjJkNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_96ab978faf524f5eaeba90e2e98d28cf",
+      "statement": "cartSummary computes subtotal, shipping, total, and item count entirely from the local products array and cart map without trusting externally supplied prices. Shipping is fixed at 500 cents when the item count exceeds zero, otherwise zero.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L7-L10",
+          "version": "repo-lines-v1:sha256:8c5ca89d296e8b065be070e8e31a7a75802e3a19c71d7a5a52c9de01ea59200f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmRjMzliMjIyZGVmMGFkODEzZTRhNDg5ODYxMjEwNzFkOTk1ZjM2ZWI5MDcwYWQ0OTU2NjFhYTZkMDRkNzA4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmVlYTA1ZWYwN2JlZDZmMGFiNWYyNTAwMmU1Nzc3OWY5NmFjZTQ5MzIzYWViYWJiYzQ4YjA5NzU2MzhiMGRhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOThlMGJhMDNkNzMzOWFhNmZjZTE1ZGQ3MjhjMTliZmUzYzg5ZTJjNDE4YjlhZGJkNzhmMWJlNDFlY2VmMzYzYiJ9"
+        },
+        {
+          "resource": "repo://src/domain.ts#L6-L11",
+          "version": "repo-lines-v1:sha256:16a08e05a8a08bdb2b7108a3d7dfa329e4123cb4d84ef154ebfa23343e2137db:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWFhNGJhODA5ZDc0Njk1Nzg5MTllYWFlMjU0ZDg5ZDMxODEzMWYwMzRlN2M2MDk0NGJiZGUxNmY5MzU0NWY0NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ3Yjg4MDgwZWRjNDIzYzgwODE2MDNkZmU5Njg5ZWYzYzdhZTQ2OGYzNTdjYTdmZjg2MmU4MmE2OTljMGU1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWJiNmVmOGI0ZTg1Mjk0MjJmNmRiMjE1MWU4YmQ1NDM2YTdkOGExOWJlODFhZTczODFjZTNiYzMxYjYyY2MwMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fdc28be386d410991a744bbb420337b",
+      "statement": "validateCheckout enforces five ordered rules in sequence: the cart must be non-empty; the email must match /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/; the postal code must have a trimmed length between 1 and 20; each quantity must be a positive integer; and each item must not exceed available stock of the matching product.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L11-L16",
+          "version": "repo-lines-v1:sha256:aef5a504b5e1423f531840507a81e6c954ee457e27be775d210548dd83da61e3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTZlY2Y0ZDQzZGExYzZkMDljODU2ODRlNjUxMDkyNmQ4MTJiNWJmYWEzNDFiNDFkNDUwMmY3ODc1YTYyM2RjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNhMDFhNjQwNTdkZThlYmM1NjJkMTQzYmJjMzA1NjZjZDdiN2YyODBiMDI5NTg2MzE1ZDNiZmM5ZTU3ZjUyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTgzYTY3ZjNiNmU2MzI5MDM0ZWUwY2FmMmQwNGNmM2E0OWRhZjg4MGI4MzYyNTRkM2ExYmI1YmI3ZWVkZjQzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzY2N2Q4MmRiYTdhMjgyYWViMDQxZTBjN2RiYWJlMjZhOGUxMjRkYWUyYzg5YmI4ZDRiYjgwODc0YzI2ZDRkNSJ9"
+        },
+        {
+          "resource": "repo://src/domain.ts#L12-L22",
+          "version": "repo-lines-v1:sha256:4ebc63afd013de5a8a81fc238f644cd506658e9a0a12276dd201dfd3bfc151d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNDk1OTQ5NjA3NzZiN2M3OWE0NTAzODQ2OTI4YWI4YmYxNDI1ZTM5MGQ2YjFmZWVjN2U0ZWU4ZjZhYzcxNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4YmY0YTA3YmViMWE0YTBlNTcwNWM1ZTdiNzgwMDY2YjE0ZTE1NTc4ZDRkZDg5NTRmZWUxMWUwZGYzNTNhMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2OGRkNzgyMWUyYzEwYTFjZWRhZmUwMGZmNzFhNzZiMjYwZTRlNTY5ZGIyNWMyZDdmNmVjNTMzNGQzZmY0YzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8207e16a333d4fdbbd2407239074363f",
+      "statement": "checkoutAttempt creates a new Attempt with a UUID key and a structuredClone of the Checkout body only if no previous Attempt exists; otherwise it returns the previous Attempt unchanged, making retries idempotent even when form values have changed.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L18-L23",
+          "version": "repo-lines-v1:sha256:c224943ac1246a707c064b48caef2cd7b00aee23b68eada85c82bbce09450d9c:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQwZjJlNzQ2ZTMzMWI2NzA2NzlmOTZlYTdlMDVlNWJkMjc5N2Q3MDkxYTEwYTZlNDg0N2Q0ZjBlMjY5ODkwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWY1MjE1NTdkYzU1ZGQ5OGFjN2U3ZTcwZDFiN2FiZGVhODkzMTZiYzcwZmJmMzExYTM0NDliNzNlMjMwOGVmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        },
+        {
+          "resource": "repo://src/domain.ts#L23-L25",
+          "version": "repo-lines-v1:sha256:168dd7821e2c10a1cedafe00ff71a76b260e4e569db25c2d7f6ec5334d3ff4c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTFlNDZkNjVlYjBjZmMxM2I0N2M0M2MwM2EyYTBiMjA2YzA2NjZkZjM1MmIyYmQzNjMzMzYwNjc0YzgzNDE4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGRlYmVhY2IyN2Q0MzE3YzQ0YTA3Mjk4ZTAyNzRkYmNhZjM2ZGVjOGNjYzUwYzQ5MTI3ZjY3NWQwMDc4YmRiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBlZWM5ZGQzNDJiNGY4Zjc4ZmZhMWVmNGU4MDVjMzMxOWJiNWIwNTA5NTkyMDZiYjdkMDI0MjQ5Y2U2ZWVjYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_363e352895344a1ba850d181b34506f6",
+      "statement": "money is a pure formatter that converts a cent amount to a USD currency string using Intl.NumberFormat with 'en-US' locale and 'USD' currency.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.ts#L26-L26",
+          "version": "repo-lines-v1:sha256:80eec9dd342b4f8f78ffa1ef4e805c3319bb5b050959206bb7d024249ce6eecc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODBlZWM5ZGQzNDJiNGY4Zjc4ZmZhMWVmNGU4MDVjMzMxOWJiNWIwNTA5NTkyMDZiYjdkMDI0MjQ5Y2U2ZWVjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODBlZWM5ZGQzNDJiNGY4Zjc4ZmZhMWVmNGU4MDVjMzMxOWJiNWIwNTA5NTkyMDZiYjdkMDI0MjQ5Y2U2ZWVjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTY4ZGQ3ODIxZTJjMTBhMWNlZGFmZTAwZmY3MWE3NmIyNjBlNGU1NjlkYjI1YzJkN2Y2ZWM1MzM0ZDNmZjRjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

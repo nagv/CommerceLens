@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6d1cba048102bc7a5193cb4182688fe6db0d1ab4bebea098ba1da26229e027f2",
+  "claims": [
+    {
+      "id": "claim_7b29c97a39d2488c8507e7404ed6d53b",
+      "statement": "commercelens-notification-worker is a Node.js/TypeScript service that consumes order.confirmed events from RabbitMQ, invokes an HTTP email provider, and persists delivery outcomes in PostgreSQL.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        },
+        {
+          "resource": "repo://package.json",
+          "version": "repo-file-v1:sha256:2adb6b32403bf020f98b7912e79d816f64356c738253798b543619ed44ccdf49"
+        },
+        {
+          "resource": "repo://src/main.ts",
+          "version": "repo-file-v1:sha256:397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+        }
+      ]
+    },
+    {
+      "id": "claim_143e0782f796447b9740a95f85b4a4bf",
+      "statement": "The service exposes GET /health and GET /api/notifications HTTP endpoints.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L10-L16",
+          "version": "repo-lines-v1:sha256:507a45584fb99a5f779f6c8c4df570dad0ef8e28e38fcf22fe53bb0c08d96aae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRmYzdhNzhhYjM0ZTY2MGQzMTg1NTg4OTIyYTU1MTg5Mzc4MzM0YWVjYzdkOWE1NDk5ZDFkYWI5NDYwMGNlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc1ZjQzYTZhYThjMTNhMmQ4NDlhMmE1ZDZjY2JhZDBmNjAwNmQwOGJiOTllMGQyZjk1MGQzM2E0NDBkNzE4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTA4OGRiY2Y3MjUxYjg0Y2QwNmU2MzM2NzZmOGVmMTQ5MTA5YTM2Nzk1ZjFlZDIzNjgyNDliYWIwZGI3YTE5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmUyY2Y0MDE1MzRjMzdlNTM2ZTgzYWM2OWRiNGM4YzY2NzgzOGFmNjM5ZWNmZWJiMGNlNWM4YWIyYWY1NDdkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_def0c67c69bd4c0eadcd2db008214710",
+      "statement": "The worker runs as a Dockerized service and reconnects automatically on RabbitMQ connection or channel failures, retrying startup on database connection failures.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:be4822e194ffd92f152c6de6e9fe161a882d08c5c59e31831b3fd77ca89b13f1"
+        },
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        },
+        {
+          "resource": "repo://src/main.ts#L20-L71",
+          "version": "repo-lines-v1:sha256:8e8944ea2446417fabf3d7339865344725a19e77ed04a83da8b6a241ca054b00:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyNTA5ZWM2NDRmNzVmM2NmNzgwN2JiNzA0ZmZlODE3NGNmYzFhZjIyMzk4NTE5MWEyZjViNDg3NTlkMWZjNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlOGFmMDg1MzhhYmY4OWNmMzUxOTM5NDdmZTdhNDBjZGU0OGMzMmI2Njc5ZTJkZGE1YjhjM2I0MTlhZTMwZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJlMmNmNDAxNTM0YzM3ZTUzNmU4M2FjNjlkYjRjOGM2Njc4MzhhZjYzOWVjZmViYjBjZTVjOGFiMmFmNTQ3ZGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJjOWExOGQxZGJlNWM3MWY0MWM5ZWFiYWNhMTMzMWFiY2ZkMDBmMWU0ZDA1YmZjNWQ5ZGFjNWY0MTQ5NjM2ZmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f03168cf82e84077b3385b6739514b59",
+      "statement": "The /api/notifications status endpoint is unauthenticated and intended only for local or private demonstration use.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

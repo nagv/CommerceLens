@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ec405c8563580e40f6779d4441b260233010558cad8c5039fbc88565cd6888b3",
+  "claims": [
+    {
+      "id": "claim_1be476f21a484ef0b8eb3152d9f2e4f6",
+      "statement": "The Dockerfile multi-stage build uses node:24-alpine as the build stage. It installs dependencies with npm ci, copies source files, runs npm test, then npm run build to produce the production asset bundle in /app/dist.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L7",
+          "version": "repo-lines-v1:sha256:eb7ea9918841b890b9f47acce02ad3c12bd35f0d178868e596a8f818d1d0acf7:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZkNDBhNmNkZTM5NTQ5NGFiMGYxYjU4MzRkNGE3NjdiNjhhNzU2ZmUyN2JjYjg3N2E1OWUxNGY0ZTE3YjUxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJhMTlhZjY4NjYwOWNlNDkzYWY2YWY1ZGZhMTQ1YjE3YjU4YTJkNjNiOGU5MjlhMTI2NjA2NDZiZmMwYmU0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIwYWVhNmRhMTNjNmZkM2I4NWY4YmY5Yzc2ZTc4MzkxMDU0MGY1OTJjNmUwODI1NTQ2YWY2OTMyMmViNTBjYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fce5b7a48c9541989be52dd119b6583f",
+      "statement": "The Dockerfile runtime stage uses nginx:stable-alpine, copies nginx.conf to /etc/nginx/conf.d/default.conf, copies built assets from /app/dist to /usr/share/nginx/html, exposes port 80, and defines a HEALTHCHECK that pings GET /health.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L8-L12",
+          "version": "repo-lines-v1:sha256:378bba1891bb71a7e0f5d69e4078d2482cda8218e53ed3cde860d354663ac970:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1NzE0MmZiNzc3YjRmYWI1NTEyNWJkMmE1NGZmYjhmODE0N2ZkMWFiNWRkYjQ1ZTI5ZmFmZjAwNTExN2VjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjc4YTQwZWM1MDg3ZDczNWVkMjRjMGQ4YWE0OGNlYmM4MjQzZmQwNTUzMDAzZWM4OTkyODlkOWY5ODAyNjI1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDM4NWEzZDk4YzIzNDczMGM0OGVhYjlmODE0Yjk3YTcwNjI4ODcwZTRkMjFhMzU3M2EzN2M3ZmJmNTRmOGQwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b30094e7d0784183a8690d58a8836524",
+      "statement": "The container HEALTHCHECK uses wget to request http://127.0.0.1/health every 15 seconds with a 3-second timeout; failure marks the container unhealthy.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L12-L12",
+          "version": "repo-lines-v1:sha256:678a40ec5087d735ed24c0d8aa48cebc8243fd0553003ec899289d9f98026256:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjc4YTQwZWM1MDg3ZDczNWVkMjRjMGQ4YWE0OGNlYmM4MjQzZmQwNTUzMDAzZWM4OTkyODlkOWY5ODAyNjI1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjc4YTQwZWM1MDg3ZDczNWVkMjRjMGQ4YWE0OGNlYmM4MjQzZmQwNTUzMDAzZWM4OTkyODlkOWY5ODAyNjI1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWE1MjI4NzM0MTA4NzU0YmNjOTIxYWUxMmYzNzNiYzUzZTY2YjgxMjBhNTIzMjk4MmRiMWRhNjBhMjQ1OWRmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_92e152c504f84f1e844c01db64fd5695",
+      "statement": "The nginx configuration defines an exact-match location /health that returns a JSON response {\"status\":\"ok\"}.",
+      "evidence": [
+        {
+          "resource": "repo://nginx.conf#L8-L8",
+          "version": "repo-lines-v1:sha256:3fc5dce10d476ec9ed597c6cb631c481edf605b9e3f3c370a3f4e1d12aa8e711:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZjNWRjZTEwZDQ3NmVjOWVkNTk3YzZjYjYzMWM0ODFlZGY2MDViOWUzZjNjMzcwYTNmNGUxZDEyYWE4ZTcxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZjNWRjZTEwZDQ3NmVjOWVkNTk3YzZjYjYzMWM0ODFlZGY2MDViOWUzZjNjMzcwYTNmNGUxZDEyYWE4ZTcxMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjE4ZTNlYWJmNmE0MzE3NzQ1NzAwNGZlZDljMWZmY2Q5YTY2NTIwNGUyMWE4MWQxMjQ5MmMwZWFiYmZmNzgwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDA1ODFlMzVlOTFhYWQwM2NmYmM5MmQ2NWE1YWJjZDQ0OTg1NDcwYTQ3YWU0YTM0ZDM1NmMwZDQwNjE3YmIwZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6a1c0dcb05924a13a655b9106dcae698",
+      "statement": "In nginx.conf, the location /api/notifications proxies requests to http://notification-worker:8080 with proxy_read_timeout 35s.",
+      "evidence": [
+        {
+          "resource": "repo://nginx.conf#L9-L9",
+          "version": "repo-lines-v1:sha256:1615056602c4037667595abc0df3fb600807d8b7985a13ede4b690c4c742aa1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYxNTA1NjYwMmM0MDM3NjY3NTk1YWJjMGRmM2ZiNjAwODA3ZDhiNzk4NWExM2VkZTRiNjkwYzRjNzQyYWExYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYxNTA1NjYwMmM0MDM3NjY3NTk1YWJjMGRmM2ZiNjAwODA3ZDhiNzk4NWExM2VkZTRiNjkwYzRjNzQyYWExYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIzNGUwYjRlZDY3NmFmZDVmODhlODU0NDViMTAxOTNmOGNlYjM1YWU5NTI5ZjA3MmQxNDkxZGI1OTE1NjNhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTIyNzljMzdiMDlhOGRiODI5OGVjOWMzMDBjYTc3NGZhODE3ZDc0NzhlN2NjYWZiMzk4M2Y5OGVmZGU3ZDFhMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d732346f9ec047939b32e76197ced5b8",
+      "statement": "In nginx.conf, the location /api/ proxies all remaining API requests to http://order-service:8080 with proxy_read_timeout 35s.",
+      "evidence": [
+        {
+          "resource": "repo://nginx.conf#L10-L10",
+          "version": "repo-lines-v1:sha256:3b8f4ca34a7a5955abd273afe6881a6c41fba0120f41cd1197b9592a4dcb18ca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2I4ZjRjYTM0YTdhNTk1NWFiZDI3M2FmZTY4ODFhNmM0MWZiYTAxMjBmNDFjZDExOTdiOTU5MmE0ZGNiMThjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2I4ZjRjYTM0YTdhNTk1NWFiZDI3M2FmZTY4ODFhNmM0MWZiYTAxMjBmNDFjZDExOTdiOTU5MmE0ZGNiMThjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDQ3MmExZDZiNjZiOTVlNTlmYjNhYzBhOGEyZmMxZWRkY2U5YTI1ZGJjZDNmZTQ1MWM0YzFiMWQ1OWMxMDhiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc5ZmJlMDQwYTkwOTE1M2E4OTg3ZjRkZWVlYTJhNjJmM2FkOTczNWFmNDlmNzY1MDA4ZDRiNzYxYjRmZGVjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_12fc8f70d6924e04af5b891b1268b3f8",
+      "statement": "The nginx configuration falls back to serving index.html for any unmatched route, enabling client-side SPA routing.",
+      "evidence": [
+        {
+          "resource": "repo://nginx.conf#L11-L11",
+          "version": "repo-lines-v1:sha256:69b374147cec2592ddbb8a9dd0614cd50533bd6b39bb77e6c6ced9ec525c2287:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjliMzc0MTQ3Y2VjMjU5MmRkYmI4YTlkZDA2MTRjZDUwNTMzYmQ2YjM5YmI3N2U2YzZjZWQ5ZWM1MjVjMjI4NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjliMzc0MTQ3Y2VjMjU5MmRkYmI4YTlkZDA2MTRjZDUwNTMzYmQ2YjM5YmI3N2U2YzZjZWQ5ZWM1MjVjMjI4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJkNDA4YmQzMzZiNjY2MDAwODljMzc3Mjk1M2NkYTgzMWZmYTMwYjRiNGExNjMwNmZjNzViMTQ4MzQ2MWVmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_340f817beac7460ea9e2e2ce8de77c8f",
+      "statement": "The Vite development server proxy forwards requests matching /api/notifications to http://127.0.0.1:8085.",
+      "evidence": [
+        {
+          "resource": "repo://vite.config.ts",
+          "version": "repo-file-v1:sha256:c8f1edc48572a8b6ef8dfdd9f973d4d19d7547f051886311c2ab82548fef5528"
+        }
+      ]
+    },
+    {
+      "id": "claim_c027a5bf51bf49b2837807d3b69d9c2f",
+      "statement": "The Vite development server proxy forwards all other /api requests to http://127.0.0.1:8080.",
+      "evidence": [
+        {
+          "resource": "repo://vite.config.ts",
+          "version": "repo-file-v1:sha256:c8f1edc48572a8b6ef8dfdd9f973d4d19d7547f051886311c2ab82548fef5528"
+        }
+      ]
+    },
+    {
+      "id": "claim_c7826f418674443b80aa45a9c3ca2c53",
+      "statement": "The application uses AbortSignal.timeout(30000) for browser fetch requests, while nginx is configured with proxy_read_timeout 35s so it does not drop upstream replies that arrive shortly after the client-side timeout.",
+      "evidence": [
+        {
+          "resource": "repo://nginx.conf#L9-L10",
+          "version": "repo-lines-v1:sha256:720478f1397c223a75a67a4eb5a3de97b01a972fffe07f3ddac123dfa2f49707:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYxNTA1NjYwMmM0MDM3NjY3NTk1YWJjMGRmM2ZiNjAwODA3ZDhiNzk4NWExM2VkZTRiNjkwYzRjNzQyYWExYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2I4ZjRjYTM0YTdhNTk1NWFiZDI3M2FmZTY4ODFhNmM0MWZiYTAxMjBmNDFjZDExOTdiOTU5MmE0ZGNiMThjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIzNGUwYjRlZDY3NmFmZDVmODhlODU0NDViMTAxOTNmOGNlYjM1YWU5NTI5ZjA3MmQxNDkxZGI1OTE1NjNhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc5ZmJlMDQwYTkwOTE1M2E4OTg3ZjRkZWVlYTJhNjJmM2FkOTczNWFmNDlmNzY1MDA4ZDRiNzYxYjRmZGVjNiJ9"
+        },
+        {
+          "resource": "repo://src/api.ts#L5-L5",
+          "version": "repo-lines-v1:sha256:459119b5543210728aa1feb4165f7ccdfac17855c61c3125209746c8a5d21300:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU5MTE5YjU1NDMyMTA3MjhhYTFmZWI0MTY1ZjdjY2RmYWMxNzg1NWM2MWMzMTI1MjA5NzQ2YzhhNWQyMTMwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU5MTE5YjU1NDMyMTA3MjhhYTFmZWI0MTY1ZjdjY2RmYWMxNzg1NWM2MWMzMTI1MjA5NzQ2YzhhNWQyMTMwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2QzYmMyOGZkZjk5MmQ3MjYwMWFkMzBiYjBjZjU4OWE5MDQxZTUyOGI2MjQ1M2UzMmMwMWVmYWRlZWI4NDU1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODU4OTUyNmU0OGZjZWRjMWNlNzg5N2JkMGUxZjI2ZjkzMzVkMWY0Njk3ZGEyOTE5OGQ4OWMxZmUyNTkzODkwZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f8e404b1628c486983c77ef17c5cdd22",
+      "statement": "The package.json build script runs tsc -b for TypeScript type-checking followed by vite build for production asset generation.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L8-L8",
+          "version": "repo-lines-v1:sha256:7406bc423aab401421a04f1580264ee55ce87de097dc98c26baa6ba0ce4c2ec1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQwNmJjNDIzYWFiNDAxNDIxYTA0ZjE1ODAyNjRlZTU1Y2U4N2RlMDk3ZGM5OGMyNmJhYTZiYTBjZTRjMmVjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQwNmJjNDIzYWFiNDAxNDIxYTA0ZjE1ODAyNjRlZTU1Y2U4N2RlMDk3ZGM5OGMyNmJhYTZiYTBjZTRjMmVjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEwOTYwOWIyYTgyODNkMTUyNTU3MjJjZGQ4MDg2ZmJmNjlkM2Y2NTRmYTI0MjVjNzg1Zjc1ZjMyNTJiNjQxNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmExNWI2NzgzOWRjYWNmNmM2MTE2NDE1ZTE2MmJhNjRjODZkNzI1OTk0ODRhNWYxZjhjODA5Y2JkMmJkZWZlYiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

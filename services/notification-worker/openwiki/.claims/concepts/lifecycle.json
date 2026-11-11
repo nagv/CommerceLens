@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8df6e247eb777452c777e6d95f2f1c517531b0e75b6ac1fdf2be20586e77beec",
+  "claims": [
+    {
+      "id": "claim_9f18c566aeb645bc8b53067b0ca7655b",
+      "statement": "The SIGTERM handler sets stopping=true and ready=false, closes the HTTP server, ends the PostgreSQL pool, and exits the process.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L72-L72",
+          "version": "repo-lines-v1:sha256:7261f418bed49ddef32f84398bdc7d4274c0b8cab7da30bf36fb5b89154f4b0c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI2MWY0MThiZWQ0OWRkZWYzMmY4NDM5OGJkYzdkNDI3NGMwYjhjYWI3ZGEzMGJmMzZmYjViODkxNTRmNGIwYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI2MWY0MThiZWQ0OWRkZWYzMmY4NDM5OGJkYzdkNDI3NGMwYjhjYWI3ZGEzMGJmMzZmYjViODkxNTRmNGIwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2ZmNjVmOWZmNzM4ZmJhNTE0MjllOTU0NmNiM2RhOGZmNjM2YWUyNTgwODFjMTYzMWI1MWMzZjMzYjE4ZGIxZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGYxMjFkNDdiOTljODhlN2YyOTNjOGI0MDAwNGRkNTI4NWE2ZjhkNjNmOTVhYTExNDc1YmZiNzRmMTFhZjFlZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_83ceb02360764144a42eb61d6e28d99c",
+      "statement": "The main() reconnect loop continues while !stopping, awaits connect(), catches startup errors by setting ready=false, logs them, and sleeps 3000 ms before retrying.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L71-L71",
+          "version": "repo-lines-v1:sha256:ce8af08538abf89cf35193947fe7a40cde48c32b6679e2dda5b8c3b419ae30db:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYwMzNmMmIzZTRkZGM3ZmRkZTZmZjBkMTI0ZGEwMWM2NWRjMzNkYmQ2ZjcwNWFmNzg1NTAxNThiNzVlNDk3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM5YTE4ZDFkYmU1YzcxZjQxYzllYWJhY2ExMzMxYWJjZmQwMGYxZTRkMDViZmM1ZDlkYWM1ZjQxNDk2MzZmZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_13f69974f78542efb85a0a7b70c9bf06",
+      "statement": "connect() creates an AMQP connection, wraps it with watchSession, asserts the order.confirmed.dead and order.confirmed queues, sets prefetch(1), and closes the AMQP connection in a finally block after the session ends.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L20-L70",
+          "version": "repo-lines-v1:sha256:8e23c58ef7b2e7ef996a8b77738354d8186540837cd453c33e41511373413f27:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyNTA5ZWM2NDRmNzVmM2NmNzgwN2JiNzA0ZmZlODE3NGNmYzFhZjIyMzk4NTE5MWEyZjViNDg3NTlkMWZjNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJlMmNmNDAxNTM0YzM3ZTUzNmU4M2FjNjlkYjRjOGM2Njc4MzhhZjYzOWVjZmViYjBjZTVjOGFiMmFmNTQ3ZGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2MGZjNGIxZjZkZGRiYzI4NzZjMzZhNmI1M2RhZTc3ZGI1ZmY1NTdkNzc2YjgwOTg5Njc0NTg0NzY5MGJmYWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9521c9a2da3442e4861048d37931bc9a",
+      "statement": "The ready flag is set to true only after channel.consume succeeds while the session has not ended, and is cleared when the session watcher fires onUnavailable or when connect() throws before setup completes.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L23-L23",
+          "version": "repo-lines-v1:sha256:3aac50ccb4548cfea3efe7c314fc9f9bfe460c12ef0a1e14168404ba48487a37:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2FhYzUwY2NiNDU0OGNmZWEzZWZlN2MzMTRmYzlmOWJmZTQ2MGMxMmVmMGExZTE0MTY4NDA0YmE0ODQ4N2EzNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2FhYzUwY2NiNDU0OGNmZWEzZWZlN2MzMTRmYzlmOWJmZTQ2MGMxMmVmMGExZTE0MTY4NDA0YmE0ODQ4N2EzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzk0NTg5MjYwYjAxN2E3MDAxYmQ4N2U0N2M2NjQ2ZWZlZmYzYzAzNTVkMjkwMmMwNjQ1NWYzNjYyN2Y2YWZiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjA0ZmVkMTczNTRlYjUwYjljZDY3NjEwYjlhMzk3NTUyYzk0MmVhMzg3ZDAzMzc4MDE5YzEwNGQ2MjNkY2I0MyJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L62-L62",
+          "version": "repo-lines-v1:sha256:3e5abf11df518e32935e67467bd6691ce65c7928be84377db62f0eaac655811b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U1YWJmMTFkZjUxOGUzMjkzNWU2NzQ2N2JkNjY5MWNlNjVjNzkyOGJlODQzNzdkYjYyZjBlYWFjNjU1ODExYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U1YWJmMTFkZjUxOGUzMjkzNWU2NzQ2N2JkNjY5MWNlNjVjNzkyOGJlODQzNzdkYjYyZjBlYWFjNjU1ODExYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRmM2E4N2EwNzZjNGFkNTFmNjE0NWEyOGY0NzI0NGUzNmRjYWY0YzljZTllNjllOTgyNzE4YzJhODhhZDkwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODkzYjk4OTMxODc3NDJlMDBmNjQwYjEyM2ExMDMzMzA0ZGM0YmVkMDZjYTczMDEwY2Y3MDlmYmUxMzQ5N2Q2OSJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L71-L71",
+          "version": "repo-lines-v1:sha256:ce8af08538abf89cf35193947fe7a40cde48c32b6679e2dda5b8c3b419ae30db:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2U4YWYwODUzOGFiZjg5Y2YzNTE5Mzk0N2ZlN2E0MGNkZTQ4YzMyYjY2NzllMmRkYTViOGMzYjQxOWFlMzBkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYwMzNmMmIzZTRkZGM3ZmRkZTZmZjBkMTI0ZGEwMWM2NWRjMzNkYmQ2ZjcwNWFmNzg1NTAxNThiNzVlNDk3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM5YTE4ZDFkYmU1YzcxZjQxYzllYWJhY2ExMzMxYWJjZmQwMGYxZTRkMDViZmM1ZDlkYWM1ZjQxNDk2MzZmZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_09e08f1c985a4f43a1d56ca249814aca",
+      "statement": "watchSession registers error and close listeners on the supplied connection and on any watched channel, invokes onUnavailable exactly once via an ended guard, and exposes a done Promise, a stop function, and an ended getter.",
+      "evidence": [
+        {
+          "resource": "repo://src/lifecycle.ts#L3-L15",
+          "version": "repo-lines-v1:sha256:ff4892310bb5cf950f43c27bd31107e8c58045d4b738e9658ffe8cd2cf6c8d02:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjYzczNzM1NGY2MzBkNDA1YjU4ZDEyNTc4ZDYyNDZhMDlhYTdmY2NhNGRiYjRjNjI4NzY4N2FhODljZWUzNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4YmIyNTA5MmZkY2MyNzc5MDM4ZWUwMjdiMDg4NTdkZTgwZDZmZGRjMTNmMTQ4MjJlM2UwYzUwNWE1ZDNlYzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6ab7c29953b64388837be32f296032ec",
+      "statement": "A persistent channel error listener registered by watchSession prevents Node.js from crashing due to unhandled EventEmitter errors during channel teardown.",
+      "evidence": [
+        {
+          "resource": "repo://src/lifecycle.ts#L12-L12",
+          "version": "repo-lines-v1:sha256:cab5137911635318e578c785246319c1194c7f7e139601c736a0f154619e5f30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2FiNTEzNzkxMTYzNTMxOGU1NzhjNzg1MjQ2MzE5YzExOTRjN2Y3ZTEzOTYwMWM3MzZhMGYxNTQ2MTllNWYzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2FiNTEzNzkxMTYzNTMxOGU1NzhjNzg1MjQ2MzE5YzExOTRjN2Y3ZTEzOTYwMWM3MzZhMGYxNTQ2MTllNWYzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTlkYzBiZTMzNmFhYWM0NjkxZjk0NjhiMGE4ZDIwMTBmODkzMDRjZGI4MjA2MDc3ODgyMWI0OTQzZWM4NWJmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2RmMWU0NjY1ZTFjNzRhZGQ1ZjBmZmExOWI1YjQ3YTQ4ZWEzYTcyNjdjYzBlOTEwNTI0MzU1MjYyMjYwNTg2NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2f86d33f40b4cb8aa497591ca26d206",
+      "statement": "Tests verify that a channel error ends the session without duplicate onUnavailable calls, a channel-only close releases the reconnect loop, and early connection closure prevents readiness restoration.",
+      "evidence": [
+        {
+          "resource": "repo://test/lifecycle.test.ts#L1-L23",
+          "version": "repo-lines-v1:sha256:9286b7d1ad714441ac8fc69a5f803d05ec1a2354b28c4a7c3cbbbc53a1c41fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxNDdlMjI1MDY2ZjRkYzYyMDUxZmY1ZmQ1ZGMyN2NiYWE2YzNkMjg2OTJhZGU4OGY1ODhlZGE4NjBjODdkMmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

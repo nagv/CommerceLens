@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:40c1286a3a8e6f87a558f0b88c575367e3be1bd20bf20768da66d7d601b249be",
+  "claims": [
+    {
+      "id": "claim_bdb44765b7a1446ca06656357c7f0dce",
+      "statement": "Store.handler() registers four HTTP endpoints in main.go: GET /health for database readiness, GET /api/products to return a JSON array of products, POST /api/reservations to reserve stock, and POST /api/reservations/{orderId}/release to idempotently release reserved stock.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L202-L252",
+          "version": "repo-lines-v1:sha256:46b99e8d1606c8b13f8f1566ccec6e77191c69df0276f882159e01079b9ebbf5:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MjkyMGRhZGMyZTAwOGU5M2ZjNGZmOWUzYWU1YjUyYjUxNWMwMGI4YjIwZGFlOGFhMjlhYTBlZWJlYzIyNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MzM1YjlkOTE2MGVjMGVlNWRlOGJmNTJlOTc2NzVlNDNmZWIwN2FlMzRhYTgxZDA5NjQ0MzE4ZDg0NmE0NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZhZDhiNzZjODFkMTRkNzc2MTdlMjU5YTMxOWVhYWYxYWQ2ZTk1ZTk0MzlkNDkwZTFkMGU5NWI2YzNiOTExNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxYjk5ZjYzZDM4ZmFlZDkwYzNlM2Y5MGY3YWRkN2M4ZTNhMmFkYzY4YzAxYTg2YjBhMjA5OWM4OGU2YzUzZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_580a0acb8c6348a1b95f4609d5d1eb7e",
+      "statement": "GET /health checks database readiness by calling pool.Ping with a 2-second request timeout and returns 200 with {\"status\":\"ok\"} on success, or 503 on failure.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L204-L212",
+          "version": "repo-lines-v1:sha256:83f34e7b6a365a0348591c9750710da2f217396839f8ab92a7fa97b5e224bf99:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjllODAxMDhjYzQ4ZjhlMDc1NzUzNWZlN2U1OWUwNzExNDcxMjA5ZjMzNWViZmY3ODdjMzJiMWEzN2ExNzI5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhOWI1ZTkwMTljOGRiODc4M2VjOWMzZmViYjBhMmM5ODYyZjYxYTA1YzMwOGZlODk1ZTRhOWJlZDAzZWRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMThkYTNmOWEyOWFmZDUxOGM2YjdiMTI3MzI0YWQwYzgxMjU3MWViYjdmNmQ3ODBjOGZlYWU1MjkyZTkzNWI4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDhmM2YzNzJhODhmMDdkZjExNDhhZTZmZWJlNzc2OTk5YmQ4MzQwYzA5ZmM5YmRjYWFhYzg5ZGFiNTE4MGYxNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_966981a0912c41cf9fbb6df2df831e56",
+      "statement": "GET /api/products returns a JSON array of Product objects ordered by SKU ascending, where each Product contains the fields sku (string), name (string), priceCents (int64), and available (int).",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L172-L187",
+          "version": "repo-lines-v1:sha256:b6d09b08b223e4d8e25b17651489adef552c88a472549b9e7596e7e95a4388d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NDFkNmRjNTFkYjUyMTFhNzcxOTdhODRhZThmMzBkZmJiZGQyYTI4ZTE2MzIwMGFjMmJiMGQyYjQ1MTg1OTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjliZWFiMDEzMTE4Yzc2ODIwYzdiNDA3N2IwMWYwMDM2Zjg3ODMxZjdkY2YxMzExYTVjMzdmOWVkNDIxNDMwZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0ZDE2ZWU1NTU2OWUwODk4MTEyNGE5NmEyY2RhYWFlZDE4YmE4ZjZhYzUyMDE2YzVhMzI0MDdiMDFlYTc2NjIifQ"
+        },
+        {
+          "resource": "repo://main.go#L213-L220",
+          "version": "repo-lines-v1:sha256:51085176fd212f9a615d3f7db640ec727072954d6106d07db85f3168a33714b5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTY2YjkzZWYxYWQzOTk3NjNjYjI4ZWViYmE2ZmQxOWI2YjdiM2FiY2I4MzVkNDdhNDZmMmNlYmEyYmRiZmZhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhOWI1ZTkwMTljOGRiODc4M2VjOWMzZmViYjBhMmM5ODYyZjYxYTA1YzMwOGZlODk1ZTRhOWJlZDAzZWRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWM2MWY3OGQ2ZjUwNTllOTE3ZGMwMTMyMDUwOWRiNmQ2MDA2NjJiMDAyYmZlOTgwM2U2ZDU1NzlhYTI4NGM1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWZmYTE1ZDk5MTk1ZmQ5MzE5YTQ4NGMyMGJlOGI3Njg0ODllOWFlMTFhZjY2OWUxMmFhM2UxMWMxOGIwNjI2MSJ9"
+        },
+        {
+          "resource": "repo://main.go#L30-L35",
+          "version": "repo-lines-v1:sha256:dfee71f3dfdf2d46cac2d6b08a2564bc45925092ce5eb580dc0b1d663b25c014:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxYmIwMDFiZmI5NjExMzlmYjY5ZjNkZTc0MDYzMjkyNGU2MGIwZmEwZDJkZGY2YmRmZDhiOTdmYzYwNWVhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDc4ZTRlYzQwNTlhMTQ2M2EyYjM5Njk1Yjc4NzUxYzY2YWVlMTA1NmUwMTFiOGQ1MGRiNDU5NzdiOGIwMzI3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjgxN2EzMWQ2N2IxYmMwZmRhM2ViYjA1NDdhNjEzZTc2NDBlODEzZTUwMTlmNDNjMzdhYzYxODg5YjZiZDdhZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0162e98187c4487aa97bd925f9ffe05f",
+      "statement": "POST /api/reservations enforces three request body guards: http.MaxBytesReader limits the body to 65536 bytes, the JSON decoder disallows unknown fields, and a second decoder check expects io.EOF to ensure the body contains exactly one JSON object.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L221-L232",
+          "version": "repo-lines-v1:sha256:aa219f49aac7e454662530a44794267949448ed90839b5550715c31d9f7d3d6c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZTcwMjgxYTljMGJhMzgyZWIyZjhjMjRlZDJjNDQ2MzJjN2JjOTNlODM3ZjFhZmRjOGYwNDhlMmFkYjUwY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxMzE0NTFkYjBiMWY4ZWUyNDgzNzRjZmI2NTg3Y2Q3ODQ4Mjk2MTA5OTExNzhkY2QwNDBkMzgwZGQ0ZTFlM2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFiYzRjZmY4ZmE0ZTlmZDRiYTNiMTQyNGQ2NzlmNWRmYmM3ODNkNzMyMTVjMGM0YTU5NGI5NTg3MjQyYWEyYTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViNDU0NmRjNGQ2Yzg1YjNiZmM4ZDg5YzFlZmYwZWYzNmY4NjFmYTQ3YWU5MjFlNWEwY2RlOWJkZTU2Yjk3ZDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_195d1f3535ee42efbc3f7a32cbcf381c",
+      "statement": "POST /api/reservations accepts a ReserveRequest with orderId (string) and items (array of Item), validates that orderId is 1-100 characters, items count is 1-100, SKUs are distinct and 1-100 characters, and quantities are 1-1000, then returns a 200 Reservation JSON with authoritative ReservedItem prices, computed subtotalCents, and status reserved.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L22-L29",
+          "version": "repo-lines-v1:sha256:2d23860538142f397c90de2e31aaf60d69b111d3544ebc6dbbf64d434d67fa1c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODlmN2IwOThkMTY4NTc2NGU0N2UzYTJjZjA1NDFiZDczYTE3Yzc2MjA4NzMzZTUwNWNlNjk1ZWVmNmE4MWQxYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTRhMDExOTE2NjU4ZWE3OWUzMTNlMWZiYWU4ZWY0YjlmMTY4MTM2OWNkODFkN2IxOGFlNDJmM2NhMWIwMGQ4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzlmYWFkN2RkYzdhYTFjNjk4MTA2Y2UwMTAzZmVmNDcxY2UzMmRlMWM2YjIzMzJmN2I5ZmIyNzdhNmNiNTNiOSJ9"
+        },
+        {
+          "resource": "repo://main.go#L42-L47",
+          "version": "repo-lines-v1:sha256:d7183f0982fc3bf3b611dfeda2a064caab3cdf930087dfda4d093982e6841048:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWIzN2ZjNzVhNTg3NDBlODg2NDExNTIwYzFkZThiOWI4Y2Q5ODc4ZjJlZWY3ZTFiODZlZjM1ZWU1OWMyZjYxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzUyYjg2YmU1ZTNhN2Q2ODkxZjE0MzdkYjQzMjk4MTFmYTgyNWMzNjk1ZjI4YTIyMGMzYzc3NDQ4YzgzMjcyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2EwNTg5YjFjN2U0NjlkNThiZDljYTIzYTkwNjMwNTUwMmM5ZTNkNjBkMzIyYjBkYmJlZGFiYjc5YmFkNWFmMiJ9"
+        },
+        {
+          "resource": "repo://main.go#L54-L66",
+          "version": "repo-lines-v1:sha256:673dabdbc2e97654a12435b4a53f46e60180d241bc4d35a7fb91cde84c8e1f8d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmViMDUyY2Y5MTQyMzJhYzcyYWJkNzdjNjA0MjlmZWY5ZTlkOWFjNWE2OWM4OTViMjQ5MWIzNzYzMmQ1MjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNWYzYWJkZmI2NzhjYmI1NmEyYWY5NGM5NGFmYjRkYzBjMWQ2OWM4OTJiOGI1MzJlNmExYTg5MmNkMWFlYTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNjY4YjFmMWJkOWJjYjM4ZGM5YzJkNDM5OTllYzA5N2Y1OWNlOTcxMzcxN2U3ZTFiMWUwY2ViNDE1MGMxZTUifQ"
+        },
+        {
+          "resource": "repo://main.go#L77-L135",
+          "version": "repo-lines-v1:sha256:3ceb5a77e026f2856fe43a87411d4f79fc5c4cb0372eeaa763345a52b2583320:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhMmVlYmIwNGViMDE4MzZkNWQzNWViNmEyYTJlYTU1N2EzYWQ5N2E5NDFhYTBmOTljNGIzYjI2YzZiMzA0NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjY2ZiOTllYWY4Y2YyY2FlMjExYzlhYTg2OWNlYWM3ODU5YTJlYTVmODQyNTQzNDVhYTFmODdhNjNlYjFhMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyYWJjODFlMGVmOGQ0NmQ0NTQ1Mjk1MTFiMWU3MWI0YTc4ZGI4ZjBhMWE3M2M0ZGI1ZTE1OGEzNzgzZDFiYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0MDY4OTUxNDFiNDJkYzZmYzY0MzhkMjkyMTAzZjc5MjBmYzg5NzAwY2UyZjg1OTVlNzJkZTVlZGZiY2M3OGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_175655cab16e47a2b91a6d1ff153a9e5",
+      "statement": "POST /api/reservations/{orderId}/release restores stock for all items in the reservation and returns 200 with {\"status\":\"released\"}; it is idempotent, returning success without changing data when the reservation is already released, and returns 404 if the orderId is not found.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L137-L171",
+          "version": "repo-lines-v1:sha256:9c364b6fe286d6ac8cd200d0e0317a30d38f698f1e6077a67f0debe5583ab8e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0Zjg0ZGE0NTBkZjlhNjdiNjA1YWEyNGRlNzVmMGFlZThkOGFhNGFiZDYxMDQyN2RjMThlYzRkYWY3ZmQ2NTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJhOGQ1YzhhMmQ0OWY4MTZlYmM4NTA4YjJkYTg3YjVmMTNiOTkzNGQyZjY3ZWQ4ZWI1ZWE0MzZhNjU4MDE3NWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4NDU1MzlmZWVkZThkNjhjMTRmOTYyNjQzN2JjYjEyNzk5Y2IyNjlhMGM0NTc5NDc3ZjFhMDJmMzZlMzI5MzMifQ"
+        },
+        {
+          "resource": "repo://main.go#L243-L251",
+          "version": "repo-lines-v1:sha256:1d1f51deb6f4b3552b1383237abb0f52b3647bcb8f01864758a80d3165baced1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjNhZmQyOTg3ZTI4ZTUyNjUzMGM0YzM3MDhhMWNjM2I5MjMwMWRkZTUyMzVjYjI4ZWZhMDU2ZmU5ZGI4OGIwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhOWI1ZTkwMTljOGRiODc4M2VjOWMzZmViYjBhMmM5ODYyZjYxYTA1YzMwOGZlODk1ZTRhOWJlZDAzZWRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJjNGNmZjhmYTRlOWZkNGJhM2IxNDI0ZDY3OWY1ZGZiYzc4M2Q3MzIxNWMwYzRhNTk0Yjk1ODcyNDJhYTJhMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b89e84cb87604475ad592a682e6b550d",
+      "statement": "The API returns HTTP 400 for invalid JSON, unknown fields, trailing data, or validation failures; 404 for an unknown SKU in a reservation request or a missing reservation in a release request; 409 for insufficient stock or when a reservation already exists with different items or was released; and 503 for database or unexpected errors. All error responses are JSON objects containing a single message string field.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L112-L114",
+          "version": "repo-lines-v1:sha256:8aa1bec86a97dd4963c0625a57ba6b9d113a0bdff856de9ef17b828ed4c30f43:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiYzc0MmIyY2U5MjdiNjZiZTYzYmI1YjI5YjNmMDViOTFlNDRiNGE1MmFkN2I0MzkwMGM1MzllNWRhYjcxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRlZmM0OTQxOGQyNmRjZjEyOWIyMmE2YWEyMTEwOGNlZWMzNzY3N2EzMmQwOGU5ZDVmZWUzNWRkYTY2YmI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWY2MjdmMTk1ZWU5M2VmM2Q4ZmZjNTg2N2M2YWY5OGViOTJkYzJlMzQwYmJjOGVkNGRhZWVhNWNlNmE1YTZhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODRmNTMzY2UwMjVhMGQ5YmE0ZDVhMjFkODQ3NWQ2NjJlMDhhYTIzZWI2ZjA2OWYyMjY2M2U5ZjZiMDE2ZWM4OSJ9"
+        },
+        {
+          "resource": "repo://main.go#L118-L120",
+          "version": "repo-lines-v1:sha256:059e5f790006fd2efd5e2f3ef6502999103b822d24c606cf1358fc4a295978ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjM3NmNiZDY3Zjk2MDA4ODJlZWM2YmFlMTE3NWYyN2E1YTZkMjZmMzExNWQ4ZWJmM2UwZmY2ZDQ0NTFlYmEwZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRlZmM0OTQxOGQyNmRjZjEyOWIyMmE2YWEyMTEwOGNlZWMzNzY3N2EzMmQwOGU5ZDVmZWUzNWRkYTY2YmI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODRmNTMzY2UwMjVhMGQ5YmE0ZDVhMjFkODQ3NWQ2NjJlMDhhYTIzZWI2ZjA2OWYyMjY2M2U5ZjZiMDE2ZWM4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmU1YmIzMGQ4MDIyMDJjNjQ2YjljZjBmYWE2MDEwZGI1MTFjNDdlZDcxMTZmNmM3OTE5MjQwYjU5Nzg5MGEzMyJ9"
+        },
+        {
+          "resource": "repo://main.go#L149-L152",
+          "version": "repo-lines-v1:sha256:71a88b60987b03db38cd841ac8b9721b5baae277c2f3c021e68305bf18fe7017:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIwY2FiOGU0YjhhMTNhNzkxMGI3MWY2NTkxZTVjYmQzNWVjZTJiMjAyZDllODUwZjYwNzY0OTIzNjE0ZWM5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUxYjQ5ZGM3MmY2MzI2M2RjNGY4MWRkMjFkZjNlZGJmZTY1ZTk2NWU3YWYyOGM0Mzg4YWYyNzQ1OGVlNjBjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmM0NDg3YWRiYjNlMjlkN2NjNTk3MzJjZDQ3YzA3YWZjZDI1OWYzYzU5ODFjZGZlNWQ5ZjBmOGI2MDZiY2I0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk5ODRmNjlmZTFkMTBmY2E4YWZiOTJjODYxYzU1YWViNGYyMGQ1Yzg4YjM5YjU0MDJlZTY4ZDExOTUwMDNmOCJ9"
+        },
+        {
+          "resource": "repo://main.go#L187-L200",
+          "version": "repo-lines-v1:sha256:87bc8444eaf9615e4d7b0cd6fd79a5cae79a79bbc38d33bbc7f1be2eab80e513:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhMjhkNmY1ZGRkY2UyYzZmZjM0YzAyMWU1ZWJlYWRkOTIwNzcxMDNmNTQ0MGQzMjI3OGI2YTBmZTY2OGJkMTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3Y2FjMWEwMTZmNzg0MzIxMzU4OTcyNTk2NDM4YzI1MjI3MTAyMmY1OTFlN2JhODg1ODU1ZjkyZTE5OGZmNzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4ZGEzZjlhMjlhZmQ1MThjNmI3YjEyNzMyNGFkMGM4MTI1NzFlYmI3ZjZkNzgwYzhmZWFlNTI5MmU5MzViOGQifQ"
+        },
+        {
+          "resource": "repo://main.go#L226-L232",
+          "version": "repo-lines-v1:sha256:6798a38ce1caa07500800197be7b120365f704846aa2ebe0efbe25bf6939eab1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzRlODE5MDM3MWZmODk5OWIwN2NhYTE0NjUzY2I1MWFjMDdkYWZjNjk4MjUxOGUyODZhMjlhNWE2Y2I1ZDg1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTEzMTQ1MWRiMGIxZjhlZTI0ODM3NGNmYjY1ODdjZDc4NDgyOTYxMDk5MTE3OGRjZDA0MGQzODBkZDRlMWUzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2IzMDJkYzBlNzc1ZTk5M2I1YmNmNmFmOGY3ZjU2YmFmNWEyMDVlODJlYWUwNzQzMWVhMWM4NzdiMzQyNGVjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWI0NTQ2ZGM0ZDZjODViM2JmYzhkODljMWVmZjBlZjM2Zjg2MWZhNDdhZTkyMWU1YTBjZGU5YmRlNTZiOTdkNiJ9"
+        },
+        {
+          "resource": "repo://main.go#L54-L66",
+          "version": "repo-lines-v1:sha256:673dabdbc2e97654a12435b4a53f46e60180d241bc4d35a7fb91cde84c8e1f8d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmViMDUyY2Y5MTQyMzJhYzcyYWJkNzdjNjA0MjlmZWY5ZTlkOWFjNWE2OWM4OTViMjQ5MWIzNzYzMmQ1MjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNWYzYWJkZmI2NzhjYmI1NmEyYWY5NGM5NGFmYjRkYzBjMWQ2OWM4OTJiOGI1MzJlNmExYTg5MmNkMWFlYTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNjY4YjFmMWJkOWJjYjM4ZGM5YzJkNDM5OTllYzA5N2Y1OWNlOTcxMzcxN2U3ZTFiMWUwY2ViNDE1MGMxZTUifQ"
+        },
+        {
+          "resource": "repo://main.go#L93-L96",
+          "version": "repo-lines-v1:sha256:e13226d0844cfeb812d9853526f12f01ed12cb01616ee093ab1f6165b8fe9256:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOThjZmQ4YjQyNTQwMjM0MWQ3MDI5OGE5OGIzZTFiNmM2N2E4OTc4YmU4OGJkZWEyNDI4NDVjOTc3ZGZhNmRkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRlZmM0OTQxOGQyNmRjZjEyOWIyMmE2YWEyMTEwOGNlZWMzNzY3N2EzMmQwOGU5ZDVmZWUzNWRkYTY2YmI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDEwNWYwMWRkNjY4ZGI3YTFlMDU5OTMyOWQ2MjJhOTFmM2M5NGFjNzBmYmM1ZTVjZTIzNTZlNDA5Zjc3YWMwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ2ZGI1OWU0YjhhNWQ1YTA4M2Q2ODNlMjgzZjRlOTlkNGVkNjcyZjljMzBlOWQxMjI4ZjE3ZTVkY2QyZDJhMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_177e004f35fc4bc590a2edb92e8a5b5c",
+      "statement": "The JSON schemas used in request and response bodies are defined in main.go: Item has sku (string) and quantity (int); Product has sku (string), name (string), priceCents (int64), and available (int); ReservedItem has sku (string), name (string), quantity (int), and priceCents (int64); and Reservation has orderId (string), items (array of ReservedItem), subtotalCents (int64), and status (string).",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L22-L47",
+          "version": "repo-lines-v1:sha256:3498106762fbe914cb9917c7490131b6c18736c738ceedb7e22e50d557648153:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5ZjdiMDk4ZDE2ODU3NjRlNDdlM2EyY2YwNTQxYmQ3M2ExN2M3NjIwODczM2U1MDVjZTY5NWVlZjZhODFkMWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0YTAxMTkxNjY1OGVhNzllMzEzZTFmYmFlOGVmNGI5ZjE2ODEzNjljZDgxZDdiMThhZTQyZjNjYTFiMDBkOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhMDU4OWIxYzdlNDY5ZDU4YmQ5Y2EyM2E5MDYzMDU1MDJjOWUzZDYwZDMyMmIwZGJiZWRhYmI3OWJhZDVhZjIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

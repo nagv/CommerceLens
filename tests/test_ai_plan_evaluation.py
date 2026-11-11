@@ -15,6 +15,11 @@ CASE={'id':'shipping','mode':'plan','question':'Introduce destination-based ship
       'alternatives_policy':'conditional','reference_kind':'proposed_plan_rubric'}
 
 class PlanEvaluationTests(unittest.TestCase):
+    def test_unexpected_clarification_does_not_escape_plan_rubric(self):
+        result=_judge(Mock(complete=Mock(return_value=json.dumps(assessment()))),CASE,{'behavior':'clarify','answer':'Which service?'})
+        self.assertEqual(result['status'],'ok')
+        self.assertIn('plan_strategy',result['scores'])
+
     def grade(self, payload, case=CASE):
         return _judge(Mock(complete=Mock(return_value=json.dumps(payload))),case,{'answer':'Proposed plan'})
 

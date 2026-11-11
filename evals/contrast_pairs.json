@@ -1,0 +1,26 @@
+[
+  {
+    "id": "loaded_vs_history",
+    "cases": [
+      "plan-portal-status-filter",
+      "plan-historical-status-filter"
+    ],
+    "difference": "Loaded list needs Portal-only filtering; all stored history needs Order query plus Portal."
+  },
+  {
+    "id": "timeout_vs_decline",
+    "cases": [
+      "debug-payment-timeout-assumption",
+      "debug-confirmed-decline-stock"
+    ],
+    "difference": "Timeout is uncertain and retains stock; a confirmed decline triggers attempted release. Both require investigation rather than fixes."
+  },
+  {
+    "id": "command_vs_portal",
+    "cases": [
+      "replan-notification-command",
+      "replan-notification-portal"
+    ],
+    "difference": "Command revision excludes Portal; later explicit screen selection requires Portal while still excluding Order."
+  }
+]

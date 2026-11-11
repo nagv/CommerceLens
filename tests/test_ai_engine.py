@@ -56,7 +56,8 @@ class AssistantTests(unittest.TestCase):
         self.assertIn('payment', result['selected_services'])
         self.assertTrue(any('payment documented' in s for s in result['retrieved_contexts']))
         prompt = model.messages[-1][0]['content']
-        self.assertIn('Tests and rollout', prompt)
+        self.assertIn('ordered implementation stages', prompt)
+        self.assertIn('risks and validation', prompt)
         self.assertIn('untrusted', prompt)
         self.assertIn('filenames', prompt)
 
@@ -151,6 +152,19 @@ class AssistantTests(unittest.TestCase):
 
 
 class ServerTests(unittest.TestCase):
+    def test_replan_endpoint_and_invalid_context(self):
+        payload=dict(original_request='Change order workflow',previous_plan='Use a Portal action.',selected_alternative='Operational command',instruction='No Portal changes')
+        self.client.request('POST','/api/replan',json.dumps(payload),{'Content-Type':'application/json'})
+        response=self.client.getresponse()
+        self.assertEqual(response.status,200)
+        result=json.loads(response.read())
+        self.assertEqual(result['request_type'],'replan')
+        self.assertEqual(result['original_request'],payload['original_request'])
+        self.client.request('POST','/api/replan',json.dumps(dict(payload,previous_plan='')))
+        response=self.client.getresponse()
+        self.assertEqual(response.status,400)
+        response.read()
+
     def setUp(self):
         from commercelens_ai.server import create_server
         self.server = create_server(Assistant(Retriever(), Model('Orders [order-master]'), GRAPH), port=0)

@@ -1,6 +1,6 @@
 {
   "id": "shipping-service",
-  "repository": "https://github.com/nagv/commercelens-shipping-service.git",
+  "repository": "https://github.com/nagv/CommerceLens.git",
   "pipeline_version": 1,
   "model": "moonshotai/Kimi-K2.6",
   "input_hash": "9802d47f9132d47775076131742db6f92edc78a6bba939afde5869ca8c4629d7",
@@ -52,5 +52,11 @@
   "catalog_pages": [
     "openwiki/integrations/provider.md",
     "openwiki/service/overview.md"
-  ]
+  ],
+  "repository_path": "services/shipping-service",
+  "repository_ref": "codex/commercelens-monorepo",
+  "location_migration": {
+    "date": "2026-11-11",
+    "reason": "Paths and links only; existing summary preserved, no model call."
+  }
 }

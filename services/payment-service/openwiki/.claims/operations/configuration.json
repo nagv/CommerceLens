@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:7b0e56e6d777fafcae6e03bcf089e634eee6c6f9d964c69b93decc019ebe333e",
+  "claims": [
+    {
+      "id": "claim_cfc6ba9a458e4ed3a0f906d7b53873dd",
+      "statement": "The Dockerfile defines three stages: base installs dependencies and copies app.py, test copies tests and runs unittest, and runtime creates an unprivileged user, exposes port 8080, and starts uvicorn.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:b10fd559953e9f2689e33133cc253cdaa53b4f448f610a60e4b936a7b5e3fb57"
+        },
+        {
+          "resource": "repo://Dockerfile#L1-L13",
+          "version": "repo-lines-v1:sha256:b10fd559953e9f2689e33133cc253cdaa53b4f448f610a60e4b936a7b5e3fb57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyYzdkYTczYzNkN2YyMDViN2RiZjNlNTQ2OWE2YmVlOTRjYWQ1YmE2YjgxOGZiN2E3MjBiNGJkNjg0OGE4ZTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4MTYxNjk5ZDU5NjhhNTUwYWVjNDc3ZGZhZjhiM2YzYmZiN2I3YWNmMjBkZmJjYTJlYmMzYTY2YTJiNzY5ZjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6bc3a2a7b4384012aa5428b3ca9ce695",
+      "statement": "The base stage installs Python dependencies from requirements.txt and copies app.py.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L5",
+          "version": "repo-lines-v1:sha256:e8e9d5108d01e5503bb3d5ac85ec106492b3c66576ce2985735443dd9cc2fb4a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODJjN2RhNzNjM2Q3ZjIwNWI3ZGJmM2U1NDY5YTZiZWU5NGNhZDViYTZiODE4ZmI3YTcyMGI0YmQ2ODQ4YThlMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2UyNjU5YWJlNDEzNzlhOThjMTQ3YTFlNmRjYjlhYTYxZjJkZjcwYTdjNDhmMTc3ZWI5NTdkZjU4MzJlYjVkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjVmZmZkMzQ5YTU2NTljMTk4ZWVkMGZmMDg3OWY1ZWFlN2FlNDRlZWE3ZTBlMDUwYTc3NWM5ZjVmMjZlNDRmYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a966411439674b6485f84b9b5d101c76",
+      "statement": "The test stage, based on base, copies the tests directory and runs provider contract tests with python -m unittest discover -s tests -v.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L6-L8",
+          "version": "repo-lines-v1:sha256:b5fffd349a5659c198eed0ff0879f5eae7ae44eea7e0e050a775c9f5f26e44fa:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU0NzU3NzJhZGQxOTUwOGZjMjFiMDVjNTM0Njc1MTJkYmM3ZDFlNDFjOGZlYzEwNDA0YjU3MjAwZjkzNzI0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdlY2EzMzgyYWZjZjhiMDM2NDI2MTRkYzg2NjEzYmQzOWY1NDc2YWI2NjY3MzZhNTExOTNmNjViYmYzN2JkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzU1YjBiYTk2MThiYjU3ZTVjOGU5YTRmZGNjYjMzYzlhNWZhOGZlNjA3MTJiMzI5YTJhN2Q1NzExMzIxMzc4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDcwMDM0OGMzYWZmODk2ZGQ3ZDU0NmJhN2U4NmRmYmRhYTBhOWE1ODUwN2U0N2ExY2U4MDI5NmQ5MTk4OWQ4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_86353b9384d94f59b04318a06e3d6ab3",
+      "statement": "The runtime stage, based on base, creates an unprivileged user with UID 10001, sets USER app, exposes port 8080, and starts the FastAPI application via uvicorn on host 0.0.0.0 and port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L9-L13",
+          "version": "repo-lines-v1:sha256:baf310c7d9be2d3803951e23d48490c78125314ebc50ea77b2c668310536fabe:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVlZDMyNjM5NjM3Y2M5NjU0ZTE0OTI1NTQ3YmQ3YTcyNTRkOWU5NzE3M2RkMDNkMDI3NjFkZmUwMjUzNGVmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgxNjE2OTlkNTk2OGE1NTBhZWM0NzdkZmFmOGIzZjNiZmI3YjdhY2YyMGRmYmNhMmViYzNhNjZhMmI3NjlmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjVmZmZkMzQ5YTU2NTljMTk4ZWVkMGZmMDg3OWY1ZWFlN2FlNDRlZWE3ZTBlMDUwYTc3NWM5ZjVmMjZlNDRmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a295a99e1ba245809557ea10697a788b",
+      "statement": "The application reads the environment variable PAYMENT_PROVIDER_URL via os.getenv with a default of http://mock-provider:8080.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L25-L25",
+          "version": "repo-lines-v1:sha256:68dad474cb292b5b99455a25c90b0cef67636d259f1e2bf3d803bdf0798cdebc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkYWQ0NzRjYjI5MmI1Yjk5NDU1YTI1YzkwYjBjZWY2NzYzNmQyNTlmMWUyYmYzZDgwM2JkZjA3OThjZGViYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkYWQ0NzRjYjI5MmI1Yjk5NDU1YTI1YzkwYjBjZWY2NzYzNmQyNTlmMWUyYmYzZDgwM2JkZjA3OThjZGViYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzU0ODc4MDZlMzdjMjMyZDA2OGM5YjEyMGQwODIxYzFhMzI3MDM4Yzc0M2QwYWIwODdhNTNjY2RmODg2ZDRlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWYyOGRlNmQxMGUwMDkxMGNmN2Y4MDY1YTU2MzQwNzk2NWU0Y2Y2YmNmMWJkNTVjM2ZmODYyZTc2NTVjYWE0MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_92582518d27b4148b74c6290322639b2",
+      "statement": "The application reads the environment variable PROVIDER_TIMEOUT_SECONDS via os.getenv with a default of 3.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L26-L26",
+          "version": "repo-lines-v1:sha256:e48dcb6423ec04269d0df8f00bd8e405712559d46853bbffc76742c7f52accbe:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ4ZGNiNjQyM2VjMDQyNjlkMGRmOGYwMGJkOGU0MDU3MTI1NTlkNDY4NTNiYmZmYzc2NzQyYzdmNTJhY2NiZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ4ZGNiNjQyM2VjMDQyNjlkMGRmOGYwMGJkOGU0MDU3MTI1NTlkNDY4NTNiYmZmYzc2NzQyYzdmNTJhY2NiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjE0NWU1Y2I1ZTdhNThmOWVmYjE0YmI5OTAyNjM4NzA4MTE3YTMxN2NlNDFkODA2MTVjNGEzYTBhYTRjMWZkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTVhOWFiYjI0YzgwMDBiMTJjNjY1YjBhMTVlYWMyNTQxYmNjMjE5YmRkOGQxOTFlZDM2MjNiZTljZmIyOTc5NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_82468f6df9cb4864b4765ce1dae88e2a",
+      "statement": "The health endpoint GET /health returns a JSON response {'status': 'ok'} with HTTP 200 and does not exercise any provider dependency.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L51-L53",
+          "version": "repo-lines-v1:sha256:ce97643bf39ad05ce0dbfd7c4340f3838a6bdf07c145ea1df1eefa1389f405f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM4NTZmNzIxNzBlMDZmMTAwNWQxYzg0YmIwMmEwNjBkNGNmOTQ1Y2YzMmM0ZGRmMWFkZTcyMDUyZDA2NDZhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk4MGUyMGQ4MjA1ZTdhMjJmNjUzYzBiZTFlYTEwYmM5ZmM3MzExNTY3ODg2M2IwYmZmZDNjMTgzNmE2NjA1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTM3NTc0YmVlMzYzMmM2NzUxMTFhMjIwZDRhMDlmN2EwYjI0NGI3YjZkMWEyOGI1ZmYzMTIyMDliMmJhYjk1MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjBkZDY4Y2Y4MGIxZjk1YTY1MTMyN2Q3NzM2MTI1YmE5N2ZjMDk5NTk5NGUxYjY2YzZlNjBhYzBmOGViODEzMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c26235bd52b4f24b1efdce9748214a6",
+      "statement": "FastAPI generates interactive OpenAPI documentation at the /docs path.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L18-L18",
+          "version": "repo-lines-v1:sha256:a0b6a79f343ea3f8e762bffeca15411686ce47f08e7b1feceb5f7b377e5d3745:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIzN2RkY2YzNjRlNjg2MGUxYTJiOWI4NjZhYWMxNmVlNGY4ZGRlNWVjOTJkZWU0NDAzODVkNTQ1MzQ2MTVlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe52600348e84698a936a16a04c5921b",
+      "statement": "The local demo configuration has no end-user authentication and must be exposed only on private networks or localhost/loopback interfaces.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L18-L18",
+          "version": "repo-lines-v1:sha256:a0b6a79f343ea3f8e762bffeca15411686ce47f08e7b1feceb5f7b377e5d3745:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIzN2RkY2YzNjRlNjg2MGUxYTJiOWI4NjZhYWMxNmVlNGY4ZGRlNWVjOTJkZWU0NDAzODVkNTQ1MzQ2MTVlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4364e0a1d36a4171b6adc7eaef2b0f45",
+      "statement": "The default provider HTTP timeout is 3 seconds; when a timeout occurs the service returns HTTP 504 with status unknown, indicating the outcome requires reconciliation because the provider may still have processed the request.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L26-L26",
+          "version": "repo-lines-v1:sha256:e48dcb6423ec04269d0df8f00bd8e405712559d46853bbffc76742c7f52accbe:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ4ZGNiNjQyM2VjMDQyNjlkMGRmOGYwMGJkOGU0MDU3MTI1NTlkNDY4NTNiYmZmYzc2NzQyYzdmNTJhY2NiZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ4ZGNiNjQyM2VjMDQyNjlkMGRmOGYwMGJkOGU0MDU3MTI1NTlkNDY4NTNiYmZmYzc2NzQyYzdmNTJhY2NiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjE0NWU1Y2I1ZTdhNThmOWVmYjE0YmI5OTAyNjM4NzA4MTE3YTMxN2NlNDFkODA2MTVjNGEzYTBhYTRjMWZkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTVhOWFiYjI0YzgwMDBiMTJjNjY1YjBhMTVlYWMyNTQxYmNjMjE5YmRkOGQxOTFlZDM2MjNiZTljZmIyOTc5NyJ9"
+        },
+        {
+          "resource": "repo://app.py#L45-L46",
+          "version": "repo-lines-v1:sha256:e815171f170e610b3515f4ab46d1e92d53bde3e32a4acb3844129e2717c215d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMyZjI4MmY1NmYyMzIyNWQyMTE2ZDYzZDY4MTNjOWE4MjUwZDdhNTk0YTI5YzYwMzA3ZTZmNDFlY2FkN2E4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjFjNzljMjU1NmFlYmNhNWIwZWRjMzM4Mzc3ZjY0ODBmOWQyNzA2ZjllZGUyZTFjZjQ5ZGM2YWQwMGVlNmJhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVmMjdlYTc1MDkxY2QzODQ3MjM2MWM0YzY0NDBmNjEwMWJmY2NjZWY1YWM2MzMyOTUwNWMwOTY2NmM2NWFjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzkwZjBmOTkzYmY0NTllNjUzNGEyMWE1NGZmZGFiZjcxNGViZDcxZDc0OTAyZjhhNTY5YWY1YmEyMGM5ZWYxZiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:41.531Z"
+  }
+}

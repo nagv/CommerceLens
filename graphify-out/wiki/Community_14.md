@@ -1,10 +1,19 @@
 # Community 14
 
-> 1 nodes · cohesion 1.00
+> 10 nodes · cohesion 0.31
 
 ## Key Concepts
 
-- **graphify.ps1** (0 connections) — `scripts/graphify.ps1`
+- **app.js** (9 connections) — `commercelens_ai/static/app.js`
+- **sendRequest()** (5 connections) — `commercelens_ai/static/app.js`
+- **node()** (4 connections) — `commercelens_ai/static/app.js`
+- **renderAnswer()** (4 connections) — `commercelens_ai/static/app.js`
+- **renderInline()** (3 connections) — `commercelens_ai/static/app.js`
+- **conversation** (1 connections) — `commercelens_ai/static/app.js`
+- **form** (1 connections) — `commercelens_ai/static/app.js`
+- **question** (1 connections) — `commercelens_ai/static/app.js`
+- **status** (1 connections) — `commercelens_ai/static/app.js`
+- **submit** (1 connections) — `commercelens_ai/static/app.js`
 
 ## Relationships
 
@@ -12,11 +21,11 @@
 
 ## Source Files
 
-- `scripts/graphify.ps1`
+- `commercelens_ai/static/app.js`
 
 ## Audit Trail
 
-- EXTRACTED: 0 (0%)
+- EXTRACTED: 15 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

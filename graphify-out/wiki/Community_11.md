@@ -1,27 +1,33 @@
 # Community 11
 
-> 6 nodes · cohesion 0.53
+> 12 nodes · cohesion 0.38
 
 ## Key Concepts
 
-- **Handler** (6 connections) — `mock-providers/server.py`
-- **.do_POST()** (3 connections) — `mock-providers/server.py`
-- **.send_json()** (3 connections) — `mock-providers/server.py`
-- **.do_GET()** (2 connections) — `mock-providers/server.py`
-- **.read_body()** (2 connections) — `mock-providers/server.py`
-- **BaseHTTPRequestHandler** (1 connections)
+- **PlanEvaluationTests** (11 connections) — `tests/test_ai_plan_evaluation.py`
+- **assessment()** (10 connections) — `tests/test_ai_plan_evaluation.py`
+- **.grade()** (8 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_conditional_alternatives_can_be_not_applicable()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_dimension_scores_flow_into_experiment_summary()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_dimensions_and_reasons_retained()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_langsmith_feedback_includes_dimension_reason()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_missing_dimension_is_error_not_partial_success()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_missing_reason_is_rejected()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_scores_require_zero_one_two_not_booleans_or_fractional()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_unexpected_clarification_does_not_escape_plan_rubric()** (3 connections) — `tests/test_ai_plan_evaluation.py`
+- **.test_unsupported_facts_remain_visible_despite_good_structure()** (3 connections) — `tests/test_ai_plan_evaluation.py`
 
 ## Relationships
 
-- [Community 0](Community_0.md) (1 shared connections)
+- [Community 1](Community_1.md) (6 shared connections)
 
 ## Source Files
 
-- `mock-providers/server.py`
+- `tests/test_ai_plan_evaluation.py`
 
 ## Audit Trail
 
-- EXTRACTED: 9 (100%)
+- EXTRACTED: 31 (100%)
 - INFERRED: 0 (0%)
 - AMBIGUOUS: 0 (0%)
 

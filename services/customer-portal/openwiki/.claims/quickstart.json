@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4c0b2c2d6b3bd2ed93ebf13131f3bfcec11a96b9e4a5f7efc3060d41f3ad6dd6",
+  "claims": [
+    {
+      "id": "claim_a81167e330414281b99b46fe5fb5b1e8",
+      "statement": "The CommerceLens customer portal is a React 19 + Vite storefront and operations UI.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L1-L4",
+          "version": "repo-lines-v1:sha256:f7385cc963bf77eb2332ef45fe2526b5cba9d4cea38a81cac920b019208d3c31:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjM5Yzc1NDdiNDI4ZWZmYmMxM2U1NjEyZmM3MjI5MzAwY2NlMWU4ZDRiMDEwYzIzZjNjMTUyYjUxOGViMTQ0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTBlZWUwZDZjNWMyMzFmNmM1OGM5YWY4YzViMjEzZmZjYWQwOTMxYzRmMDUxMjBhNjUzZjBjNzAwOGIxMWMxNCJ9"
+        },
+        {
+          "resource": "repo://package.json#L12-L13",
+          "version": "repo-lines-v1:sha256:1d4a029ba92fd65fd27683c0394b3b5340fb611d08213bef190eb119d8c24861:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU4MGVjYjNmMmI4MmU0MDA0MTg0OTg2MzNjOTQ4NjQ4OWU1ZTYzZmZjNDgxMzIzMjMzMmMyMWI2OWM4ZjgwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIwNmY1Y2Q0YmE4M2JhNWVkZWUyNGU4MjQyYThlY2Q0NTZkMzM3NzYzYTE4NDg3NmQ4MzNiNGI4NDMzMjQyNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmExNWI2NzgzOWRjYWNmNmM2MTE2NDE1ZTE2MmJhNjRjODZkNzI1OTk0ODRhNWYxZjhjODA5Y2JkMmJkZWZlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmMzNjhiN2JiYjE0YjRlNGIzYWZjMjhlZDM4NGUxNWJjOTIxNjM3ZjMzMjI0YTljMjNhMDhhMDE2Y2M3YWUxYyJ9"
+        },
+        {
+          "resource": "repo://package.json#L19-L20",
+          "version": "repo-lines-v1:sha256:0e6aefdbb0f8fdb49cd0c0ca0bd116627ff59aa3286af3ed082fa749b8e17fbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRiZTNkMDIwM2IxZTQ5NDY0YjBhMjYxMWEzZjExNmIzZmExNDZjNTYzZWY0ZGJmY2VjMzJhNjMxMzUxMGVhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTNjZTE3OWQ1NzQ4MGE1ZmY2M2YxMzExN2M5ZDVhODc5ODg2MDRhMjRlOTVhZWU5MDAyZGRjMmJlYmQ5NWY3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTI1YzQ4MTNlOGNkMmNiZjZkN2EyN2UxMjFkNmQ3ZDFlZDRlNjZmYjJlNmE4MWM2NDIxNWFjM2VjMzZhYTFlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY3MzlhMDZjMWNiYjEyNDRlMzM2M2QzOGJjZjlmYTUwY2U4NGZlZDM5OWMyMTkzYTNjN2YwOGQ1OTkxOGIyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_37eeb9edb06a4a488105488aa189686e",
+      "statement": "index.html is the HTML shell that loads the React application at src/main.tsx.",
+      "evidence": [
+        {
+          "resource": "repo://index.html#L1-L1",
+          "version": "repo-lines-v1:sha256:f3c4d180d6a72e78f5e80ae4d8a5e17b6433e8333d7c467c4b3624475faaf84c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNjNGQxODBkNmE3MmU3OGY1ZTgwYWU0ZDhhNWUxN2I2NDMzZTgzMzNkN2M0NjdjNGIzNjI0NDc1ZmFhZjg0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNjNGQxODBkNmE3MmU3OGY1ZTgwYWU0ZDhhNWUxN2I2NDMzZTgzMzNkN2M0NjdjNGIzNjI0NDc1ZmFhZjg0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L2-L2",
+          "version": "repo-lines-v1:sha256:8f86673ca75c232054e2b66cfaa55a2821177f303dd52698bfee49cf26dd5696:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY4NjY3M2NhNzVjMjMyMDU0ZTJiNjZjZmFhNTVhMjgyMTE3N2YzMDNkZDUyNjk4YmZlZTQ5Y2YyNmRkNTY5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY4NjY3M2NhNzVjMjMyMDU0ZTJiNjZjZmFhNTVhMjgyMTE3N2YzMDNkZDUyNjk4YmZlZTQ5Y2YyNmRkNTY5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzk0ZWJmODQ0YmM4ODNiYTQ2ZjZiMDU0Y2UwMDViMzQyMmIxODg4NTUwNDE1MDQ4OGU0Y2EyZDVhZDc5MDE5ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzdmZjllOWVlN2NhYTRiMDk4ZDM5NjdhZDk0ZWIxNDQ2YTE0NTZjMGQzODYwMzNiMTg2ZmYzM2YyNjVhZGVmOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a94277dee0954217bbbabc52809d5b75",
+      "statement": "src/main.tsx is the application root rendered with createRoot in strict mode, producing the storefront and operations tabs.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L1-L11",
+          "version": "repo-lines-v1:sha256:231a16c923a624927db2bd07a8caec2e1bd5fc0e9203ba2217ce58f3193a554d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5NGViZjg0NGJjODgzYmE0NmY2YjA1NGNlMDA1YjM0MjJiMTg4ODU1MDQxNTA0ODhlNGNhMmQ1YWQ3OTAxOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwYmU0YTNiNDMwMzVhMzFhMTY5OTg1YjMzN2M1NjVkMGM2YWQzNmY3YjNmNWNiNDkxYWFjMzg3Nzk5OWE4YzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0ZDg3YTUxMmU1MmVhNDVlNjk5YTkwNjk0NmRiNjJiMTVhOTM5ZGQzZjhlNzkyMjgzM2IxOTY3YmE4NDI1YTQifQ"
+        },
+        {
+          "resource": "repo://src/main.tsx#L52-L53",
+          "version": "repo-lines-v1:sha256:8c0339d61fb37a89d1a27adfd88dcd9d991cbe4ed37d788ddb4b918bb963cbd6:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmRlMjE1Zjk1NDFjNzAxMGM3NTkyOWQzY2JiY2Q3ZDRlODU3M2M3MGU3M2NlYzQxMzUxNWQwODRiYzlmODZmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOThjN2JiZTg2ZDRiNmJkNzUzZDE0ZmRkM2I3ZDExZGRkYzUyZWFiMjRlNTMyZjBlM2UwYzE2MjlhN2Y1ZGM5NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ0ZDFiMTRlMThlODM4NmM1Zjc4ZWMyNjVmZGYxZjI5OWE5MDdmNzZlZWE3Y2RjMzVhYjliZDEyZjkxZTZjZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTk5MGM1NTUyMTdkNTk5OGQ1OGRjYWUwY2ZhZDFiMmMyMmI4NDJhZDM4Yjg1NDA3MWJiYWY1ODdmODQ5N2YzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec8029dc92124eb1b3cd3e392057de05",
+      "statement": "src/domain.ts contains pure domain functions and TypeScript types for cartSummary, validateCheckout, checkoutAttempt, and money.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.ts#L1-L26",
+          "version": "repo-lines-v1:sha256:683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0ODk0NjJjYTlkNWZkMDg1M2RjMDFjNmU4MjJiN2JkZDc0Nzg4ODQyMzUzNWQ0MzlmYmRkODI5ZDA4YzM4YTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwZWVjOWRkMzQyYjRmOGY3OGZmYTFlZjRlODA1YzMzMTliYjViMDUwOTU5MjA2YmI3ZDAyNDI0OWNlNmVlY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9057a4aff0e046908f9836f46f762830",
+      "statement": "src/api.ts is a thin fetch wrapper around the browser fetch API that adds JSON headers, aborts after 30 seconds, parses JSON, and throws ApiError with status and body on non-2xx responses.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L1-L14",
+          "version": "repo-lines-v1:sha256:b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjNjY2YjMxZDg5YzBmMDJjMWRlZDRiYjUzOTRiZGUyODQxMGQ3ZWYxMmRhMzE2NmRkMjQ1OGY4ODM0OTFmMDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_afe9656cb1fd4ebf8f2cf93fddf94dd4",
+      "statement": "The local development workflow requires Node 24, uses npm ci for dependencies, npm test for Vitest unit tests, npm run dev for the Vite dev server, and npm run build for production assets.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L9-L18",
+          "version": "repo-lines-v1:sha256:df927ba515be6ea3727f88a5828fb96d811c018a6c7d7814459873266f9f8bbf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlNWUzMDYyYzg5YzkxZGQ5NmVlODk4ZmYxZGJjMzhlOWYxYWM5NTQ2OTkyMGU4Y2EzZGI2MmRmZWUzNzMwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxYjg4ZmNlZDk4ZjE4ZjdiYmI0ZGU3ZDA0N2FmZWM3ZGM3NWY1MmZjZjZkNDJhNGJlYjIzNjczNTBjMjA4ZjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRlZTY1MGI4MmVhYjIyYmM4ZTM1NDQ1ZjI2ZmUwMTkxMmU5ZWViNmRjZmQxOTJlOTYyNWFhYjM4NGE1ODcxNDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmZGM4OThkMWUyMzU2NzA2ZWE0NzU2YjdjYTY1NDFjNmQ4ZWM0NmYwYjAzOGFjYmNjNDMwMjY0MDgyNzYzZmUifQ"
+        },
+        {
+          "resource": "repo://package.json#L6-L10",
+          "version": "repo-lines-v1:sha256:2119d10b041bba8c666857042a42286aa834bb9d7670e2e22e7a4964ed492771:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWI0ZjZhNDYyZDEyZTExMzc1MGI2NTQzYzQzYzQzMDQ4NjIyOTExNWIyNWE1ZTdhM2E1YzFkNTcyYTU1ZjkxMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDg5ZGU3ODA0ODQzZWVkMTFlNjVhYmQ3MGIwOGU4NDcyNzM2NGQ0ODk2YjRjZDU0MzQ5YzU0MzkxNzRkYmQzYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eee1a5db913d4ba7856a2e351d115b84",
+      "statement": "The Vite dev server proxies /api to http://127.0.0.1:8080 and /api/notifications to http://127.0.0.1:8085.",
+      "evidence": [
+        {
+          "resource": "repo://vite.config.ts#L1-L2",
+          "version": "repo-lines-v1:sha256:c8f1edc48572a8b6ef8dfdd9f973d4d19d7547f051886311c2ab82548fef5528:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzJjY2Q1MThkYzJmZDZlMjE2NjgyNWZiYzU2NTJkNDgwNzRkMzVlMGE4YTY4NTkzMDAwZjk0N2U0MzI3ZmY5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTEwMWY4MzMwY2E2MDI2Y2JkMDU0YzE5NzkwYjQxY2VjZWFmNjQwODI4YjI3OGRjNmM1MDg5YzU1NDY3ZDgxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc43641cd5dc44caa786519c4b60a9f5",
+      "statement": "The Dockerfile defines a multi-stage build: the build stage runs npm ci, npm test, and npm run build; the runtime stage copies the dist output into an nginx image and exposes port 80.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L12",
+          "version": "repo-lines-v1:sha256:24df0f766d0639da1f0491fcd2a8b1e12acab781b06b70c68aaf36db2b876e24:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2ZDQwYTZjZGUzOTU0OTRhYjBmMWI1ODM0ZDRhNzY3YjY4YTc1NmZlMjdiY2I4NzdhNTllMTRmNGUxN2I1MWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3OGE0MGVjNTA4N2Q3MzVlZDI0YzBkOGFhNDhjZWJjODI0M2ZkMDU1MzAwM2VjODk5Mjg5ZDlmOTgwMjYyNTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_625357755abf4a5f8b1d561b0b2289c1",
+      "statement": "The quickstart page routes readers to related wiki documentation: service-context for identity and boundaries, architecture pages for API client and domain models, workflows for checkout and operations monitoring, operations for deployment details, and testing for verification.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L20-L51",
+          "version": "repo-lines-v1:sha256:27ab347076ec5846e48f88908a7771cd839ba8e835bf398743a6dd8899a9a11c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0Mzg0MDMzZWM1NzAwNzdkNWIwZTc4OTc5Njg2Njc0OGE4MjQxMzkxMjkxMGJkNWY4MzkyYmJiNmQzNzMzYTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlYjcwMjU3NTkzZGEwNmY2ODJhM2RkZGE1NGE5ZDI2MGQ0ZmM1MTRmNjQ1MjM3ZjVjYTc0YjA4ZjhkYTYxYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjZGUwNWM1NzFkMzJkYmRiYzBiYzNjY2FmMThiYjhjYjQ1YjIzYmM4NGVlMmFiZTQ0MTNlNDA5YzBiMTlkY2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlNzAyZjI4MDcwNDhkM2E2OTVjMzkyODdhY2ZkZTk4YzkxODUzMjMyZjAwMDFhZTBhMzNmODgyYmQyMTgxMjgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

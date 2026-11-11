@@ -7,6 +7,12 @@ const packageRoot=process.env.OPENWIKI_PACKAGE_ROOT || path.join(process.env.APP
 const api=await import(pathToFileURL(path.join(packageRoot,'dist/linking/wiki-workspaces.js')));
 // Generated locally by refresh-catalog.py from the selected service manifest.
 const {roots}=JSON.parse(await fs.readFile(path.join(central,'catalog/workspace-roots.json'),'utf8'));
+// OpenWiki 0.7.2 accepts independent Git roots only, not monorepo subfolders.
+const nested=roots.filter(root=>path.resolve(root)!==central && path.resolve(root).startsWith(central+path.sep));
+if(nested.length){
+ console.error('OpenWiki 0.7.2 cannot register nested service wikis without independent Git roots. Use the master wiki links or CommerceLens retrieval; existing workspace registrations are unchanged.');
+ process.exit(1);
+}
 for(const root of roots) await fs.access(path.join(root,'openwiki/quickstart.md'));
 const drafts=api.workspaceDrafts(await api.readWikiWorkspaceRegistry());
 const existing=drafts.find(d=>d.name.toLowerCase()==='commercelens');

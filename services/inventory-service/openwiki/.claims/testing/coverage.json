@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d01fe2f30033fa878128451446c9d414f7eee431124e8a68a18b07b176dc07a8",
+  "claims": [
+    {
+      "id": "claim_032c7f1ba05a4341bbfc87eb94a2d913",
+      "statement": "The Dockerfile runs `go test ./...` during the build stage before compiling the binary, causing unit tests to execute at image-build time.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L6-L6",
+          "version": "repo-lines-v1:sha256:34e099bc38dd5a743bae246aadab9ec17a873b048473eb9fdb61e731255af376:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNmZTAwNDJlMWZiMmFkMDUyZTc1ZjZjNGM0YWExYzBiYjA3ZTZjNjI1NDhiZjI0ZTNhODI4NTU3OTliM2FiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4645946e9ceb4812a488e3809daaa83e",
+      "statement": "`TestValidateRejectsInvalidAndDuplicateItems` in main_test.go rejects empty items, quantity zero, negative quantity, and duplicate SKUs.",
+      "evidence": [
+        {
+          "resource": "repo://main_test.go#L5-L11",
+          "version": "repo-lines-v1:sha256:8b5933c0f8474c2de106cf3d536255449104cfa4ad805adb346431bf7d4834ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU4NTJlOWVmYzA3YmI2MWJmZDUxZjI3NDFlM2Y3MDI3NWQxOThlZjQ2MGQ5MDNkOGJmNDBlODgxODk4NWQ1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDdmZThlMWE1YjEzNDYxYjkzNTBjN2M1ZjlhYWQxNWJkZTBjMDQ2ZWJlOWQ2MTZiMjY2NDM3ZmFhYzkyZGEyZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI4MGQzY2JiM2Q2YmY3OGMwNTRkNTYyOWNiNjljOWRlOTQ0YzdhNGI3YzU1ZGJlYzM1ZjYwYTBkN2MwY2YzNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac45fbae1e3748a7978fcdd5ad9046aa",
+      "statement": "`TestFingerprintIndependentOfItemOrder` in main_test.go verifies that fingerprint() sorts items by SKU before SHA-256 hashing, so identical item sets in different orders yield the same hash, while quantity changes yield different hashes.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L67-L73",
+          "version": "repo-lines-v1:sha256:5a6f75b0a92fcee29433fde81de6d139d85f7aff18668573f4e79348fa756aee:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRjZWUzYzJlMmUxNjFmMzUzYzBlNDU2NWEyYzUwOTBlODA5YmU4OGVhN2Q4OTI0NDJkZTViNWMyZmVmZGQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI5OGMzYmI1ZjFlZGVkYmE4NDM5MWNiMDljMTE5NDI5MzllNzI2MWUyZWM0NjlmM2QzNDg0ZmQ2Y2Q3ZmM1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJhYmM4MWUwZWY4ZDQ2ZDQ1NDUyOTUxMWIxZTcxYjRhNzhkYjhmMGExYTczYzRkYjVlMTU4YTM3ODNkMWJiYyJ9"
+        },
+        {
+          "resource": "repo://main_test.go#L13-L23",
+          "version": "repo-lines-v1:sha256:89163c73cf1c1867e122ce5c727ac76937a83bfdc3fde721c1b9d9db3dee2ea1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZDI0YTQyMWFkOTk1MmU1ZGRiYjMxOTUyOGY1ZDQzNWJmYmEzZTBiNGNjNGMzZDQyOTAzZDhmZWNmM2FkZTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5313c778d1e144cda2206500ff6890d4",
+      "statement": "`TestPostgresReservationsNeverOversellAndReleaseIsIdempotent` in integration_test.go requires the TEST_DATABASE_URL environment variable and skips when absent.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L14-L18",
+          "version": "repo-lines-v1:sha256:fcbc4fb591e2732ad1c5f008031844f4c9a225eca677f3c8d375de9e29fbee88:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2YyY2NjZTI3ODc5MGY3MDkyZmM4NjA0ZDFmZTE5Mjk5ZjUzN2Q2Nzc5ZGQwNmY1ZjEzNWZlOWU2NWIyNTJmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzllZGQ3MmJhNmI0MDA4M2NlOTUyNjlmYTU2ZmNmM2FjMWJkOTgyMjFhYTY2MjFhNjgzZjdkNTYzMmJiMjFkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODI4M2QxMTBiMDgzMTJlMzI5NjUxZjZlZDkyZmYxMTZhNDRiN2E0MDI5MDVjNmNhZDA0ODc2YjFlYTEwMzc2OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac79a888020d4e7fbd21397965dbf8fb",
+      "statement": "The integration test creates a disposable product with stock 5 and spawns 20 concurrent reserve goroutines, asserting exactly 5 successes and available=0 afterward.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L28-L57",
+          "version": "repo-lines-v1:sha256:1fec1cf8069e641f937f46d102c6e03544a524ca08732f9de36d93ed9ccf30d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2MWZhZjczNDZjYWFlMDk2ZmUxZWY3MDM1ODkwZDI2OTQxY2MyOTk0ZTZmODVkYzAwZjNiOGQ0M2YxYThmMTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwYzRlNWJiNzdjZDhiYTJiOGNhNjExZTlhMDAxZTRjYWJkOWEyOTgyZGQyNTliZjc1NDk0YzdiODNhNzRhYWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwODgyY2FiNWVkZWI0NTkwM2FiZmMzNTg3ZjY5ZWMxYjYyMGZhZDUwYzAyYjhlMDE3N2Y0ZjZlMDQ1ZTI2NjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0909a2920d9a48b883901d4a04bb3f60",
+      "statement": "The integration test verifies that replaying an identical reservation returns the cached result without error, while a conflicting replay with a different quantity is rejected.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L58-L69",
+          "version": "repo-lines-v1:sha256:96172a34be17dceba24c5dab0e02886ee41d14bb6ad39731f839c1b9e6b5a156:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ODk0NWU5N2YzZjY1MDFmMDNhM2JmYThkYmYzMTgyYWM0MDY4YTFkZGMyMTc1MWE4ZWM3ZTEzN2U1Y2M1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkNjllNzBjYTVkZDRhY2M1MjhmNTIwY2ZjYTk0MzNkYzA5OGMzZWJlMzQ5NzVkOGViZTgyYzQ1OTBiYjQ2NmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJlYjU2ZDllNWJjYWQxMTM3NTUyYjZiOWI1MzQzOTlmYTVlMWMxZTVmYmVkZThlYmVlODZjYWNlNmNjZDczOGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3dc8022634d74dfd8036bfd90fd70d05",
+      "statement": "The integration test verifies release idempotency by calling release twice on the same reservation and asserting that available stock increases exactly once (from 0 to 1).",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L70-L81",
+          "version": "repo-lines-v1:sha256:2660b3510fc155fb6406538acfbc2decde6e64ba3ed0d063944f2d737f3124f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiNDQ5NTJmNGY4MzY0YTQ5NjQwNDJkOGMxZDA4M2NkODg4MTJjM2RhZGZmZDcxMDE1M2JiODNkNDI5MzNlYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmMDgyYzM4ZjMwMGJiMzNkMzMzM2U4OTkzYzMwOTFjY2FmOTA1NmE0ODY4ZTUwOTVjNTMxY2Y3NTQ3N2RkNzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e5dae064c54e4e8596ed5a1d7fb4fd3d",
+      "statement": "The integration test uses unique fixture IDs by prefixing the SKU with a timestamp.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L28-L28",
+          "version": "repo-lines-v1:sha256:461faf7346caae096fe1ef7035890d26941cc2994e6f85dc00f3b8d43f1a8f10:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDYxZmFmNzM0NmNhYWUwOTZmZTFlZjcwMzU4OTBkMjY5NDFjYzI5OTRlNmY4NWRjMDBmM2I4ZDQzZjFhOGYxMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDYxZmFmNzM0NmNhYWUwOTZmZTFlZjcwMzU4OTBkMjY5NDFjYzI5OTRlNmY4NWRjMDBmM2I4ZDQzZjFhOGYxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBjNGU1YmI3N2NkOGJhMmI4Y2E2MTFlOWEwMDFlNGNhYmQ5YTI5ODJkZDI1OWJmNzU0OTRjN2I4M2E3NGFhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMThjZDZkY2UyNTQ3ZWFjNmNmZGFiZGQyZGQ5NTM4NTkxYjc0ODc2NDQ2ODkzYzEyZDk3ZWQzZDRhYzRmNTEzOCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

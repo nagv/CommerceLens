@@ -1,6 +1,6 @@
 {
   "id": "order-service",
-  "repository": "https://github.com/nagv/commercelens-order-service.git",
+  "repository": "https://github.com/nagv/CommerceLens.git",
   "pipeline_version": 1,
   "model": "moonshotai/Kimi-K2.6",
   "input_hash": "e668581df118face1e3555a93fe3884f3ddd1d72ac9f6ea0f4acdf9bf225e9ab",
@@ -93,5 +93,11 @@
   "catalog_pages": [
     "openwiki/service-context.md",
     "openwiki/workflows/failure-handling.md"
-  ]
+  ],
+  "repository_path": "services/order-service",
+  "repository_ref": "codex/commercelens-monorepo",
+  "location_migration": {
+    "date": "2026-11-11",
+    "reason": "Paths and links only; existing summary preserved, no model call."
+  }
 }

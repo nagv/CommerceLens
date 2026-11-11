@@ -71,10 +71,7 @@ let turnNumber = 0;
 form.addEventListener('change', () => {
   submit.textContent = new FormData(form).get('mode') === 'plan' ? 'Build a plan' : 'Send question';
 });
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const value = question.value.trim();
-  if (!value) return;
+async function sendRequest(value, mode, context = null) {
   submit.disabled = true;
   status.textContent = 'Retrieving evidence and preparing a response…';
   const turn = node('article', '', 'turn');
@@ -82,7 +79,7 @@ form.addEventListener('submit', async (event) => {
   turn.append(node('h3', value));
   conversation.append(turn);
   try {
-    const response = await fetch('/api/chat', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: value, mode: new FormData(form).get('mode')})});
+    const response = await fetch(context ? '/api/replan' : '/api/chat', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(context || {question: value, mode})});
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Request failed.');
     turn.append(renderAnswer(result.answer, result.citations || [], sourcePrefix));
@@ -111,9 +108,39 @@ form.addEventListener('submit', async (event) => {
     trace.append(node('summary', 'Retrieval trace'), node('pre', JSON.stringify({services: result.selected_services, steps: result.trace}, null, 2)));
     turn.append(trace);
     status.textContent = `${result.status} · ${result.latency_seconds}s · ${result.tool_calls} retrieval/relationship calls · ${result.model_calls || 0} model calls`;
-    if (result.status === 'ok') question.value = '';
+    if (result.status === 'ok' && !context) question.value = '';
+    if (result.status === 'ok' && mode === 'plan' && (result.behavior || 'answer') === 'answer') {
+      const controls = node('form', '', 'replan-form');
+      const choiceLabel = node('label', 'Selected alternative');
+      const choice = node('textarea', ''); choice.rows = 2; choice.required = true; choice.maxLength = 2000;
+      choice.placeholder = 'Enter or paste the alternative you want to explore'; choiceLabel.append(choice);
+      const constraintsLabel = node('label', 'Additional constraints (optional)');
+      const constraints = node('textarea', ''); constraints.rows = 2; constraints.maxLength = 4000;
+      constraints.placeholder = 'For example: no Customer Portal changes'; constraintsLabel.append(constraints);
+      const button = node('button', 'Replan with this alternative'); button.type = 'submit';
+      const note = node('p', 'The original request and this plan will be included. Fresh documentation will be retrieved.');
+      controls.append(choiceLabel, constraintsLabel, note, button); turn.append(controls);
+      controls.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (submit.disabled || !choice.value.trim()) return;
+        button.disabled = true;
+        try {
+          await sendRequest('Replan: ' + choice.value.trim(), 'plan', {
+            original_request: context ? context.original_request : value,
+            previous_plan: result.answer,
+            selected_alternative: choice.value.trim(),
+            instruction: constraints.value.trim()
+          });
+        } finally { button.disabled = false; }
+      });
+    }
   } catch (error) {
     turn.append(node('p', error.message, 'error'));
     status.textContent = 'Request failed. Your question is preserved for retry.';
   } finally { submit.disabled = false; question.focus(); }
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  const value = question.value.trim();
+  if (value && !submit.disabled) await sendRequest(value, new FormData(form).get('mode'));
 });

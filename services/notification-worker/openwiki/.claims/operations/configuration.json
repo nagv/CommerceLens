@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6e0e70d3aa24e0d1c94c394a6f00e7c449e5a3a0452bf57af91f6da072f5495b",
+  "claims": [
+    {
+      "id": "claim_28ec6f1244c34842858e4e5656a34e4d",
+      "statement": "The Dockerfile uses a multi-stage build where the build stage installs all dependencies, runs npm test, and compiles TypeScript; the runtime stage installs only production dependencies, copies compiled artifacts from the build stage, runs as the non-root node user, and exposes port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:be4822e194ffd92f152c6de6e9fe161a882d08c5c59e31831b3fd77ca89b13f1"
+        }
+      ]
+    },
+    {
+      "id": "claim_f23129d270ac49f5aef3c81a7121da9f",
+      "statement": "package.json defines three scripts: build (tsc), test (tsx --test test/*.test.ts), and start (node dist/main.js).",
+      "evidence": [
+        {
+          "resource": "repo://package.json",
+          "version": "repo-file-v1:sha256:2adb6b32403bf020f98b7912e79d816f64356c738253798b543619ed44ccdf49"
+        }
+      ]
+    },
+    {
+      "id": "claim_81486e7fff154d8e945cfa85f15154cc",
+      "statement": "GET /health returns HTTP 200 when the worker is ready (database initialized and RabbitMQ connected) and HTTP 503 while starting or after connection loss.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L13-L13",
+          "version": "repo-lines-v1:sha256:b046e64a1c3d8a0e4c7823c9219fb06d5172c113677868e6ca151c94636fdad1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjA0NmU2NGExYzNkOGEwZTRjNzgyM2M5MjE5ZmIwNmQ1MTcyYzExMzY3Nzg2OGU2Y2ExNTFjOTQ2MzZmZGFkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjA0NmU2NGExYzNkOGEwZTRjNzgyM2M5MjE5ZmIwNmQ1MTcyYzExMzY3Nzg2OGU2Y2ExNTFjOTQ2MzZmZGFkMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMxMzNiNzZlOGMwMzJiNzY0OWMxN2Y2ZDc3ZTU5MWVhYTE3ODA3ZGYwNzAwNTYyZjM2OTYzYWIxMDA0ODk2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDg4NmRiNDE2M2I3NTExMDhhODExMTg1ZjdjZjM3YzM4MDdiYzMxNTdmNzk0ZmY0MjlmZTZlNDE1ZGM1Mzk4NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_16fb11c2119c47f7abe705dd8ab56c8b",
+      "statement": "GET /api/notifications queries the latest 100 rows from notification_deliveries, returning JSON objects with eventId, orderId, status, attempts, and lastError.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L14-L16",
+          "version": "repo-lines-v1:sha256:4886db4163b751108a811185f7cf37c3807bc3157f794ff429fe6e415dc53986:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTFkNTlhMGY0NmI0NzI0ODMwZGI3ZWFjZGYzMjIyZjgxYmM4ZWUxMzI3ZWE5MzJhZTYzNGU5NzE3NTc1MTk1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc1ZjQzYTZhYThjMTNhMmQ4NDlhMmE1ZDZjY2JhZDBmNjAwNmQwOGJiOTllMGQyZjk1MGQzM2E0NDBkNzE4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTE5MDFkNmM3ZmM4MmNkYjdlZWUxMjcxMWMxZDBkMDY5Y2NhNDE1MWE3YzNmMzJjOGI0MGM4M2U4NjRiNzM4ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmUyY2Y0MDE1MzRjMzdlNTM2ZTgzYWM2OWRiNGM4YzY2NzgzOGFmNjM5ZWNmZWJiMGNlNWM4YWIyYWY1NDdkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_884a79224c9a4c0a8132d54e6e24a175",
+      "statement": "The /api/notifications endpoint is unauthenticated and intended only for local or private demonstration; it should not be exposed publicly in production.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec41166bbf644b74911ceb8d6549e4f6",
+      "statement": "The worker reads five environment variables: DATABASE_URL (required, no default), RABBITMQ_URL (optional, default amqp://guest:guest@rabbitmq:5672), EMAIL_PROVIDER_URL (optional, default http://mock-provider:8080), PROVIDER_TIMEOUT_MS (optional, default 3000), and PORT (optional, default 8080).",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L18-L18",
+          "version": "repo-lines-v1:sha256:0e5d02740e9bf5d688460b62b2d72613cbb810b3c9cdf6144e44a58d0ecd1295:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU1ZDAyNzQwZTliZjVkNjg4NDYwYjYyYjJkNzI2MTNjYmI4MTBiM2M5Y2RmNjE0NGU0NGE1OGQwZWNkMTI5NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU1ZDAyNzQwZTliZjVkNjg4NDYwYjYyYjJkNzI2MTNjYmI4MTBiM2M5Y2RmNjE0NGU0NGE1OGQwZWNkMTI5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDhhMGM4ZWVkNTdkMjdhMGQ0NGU4YWRiMjRjOGY5ODNmYjIyYmU1ZDk5OTE3ZjkxODBkOWMwMzhkMDAyYTM5NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWMyMTA5Mzk0OTRmMWI5NGYzZjY5ZTE0OWE4ZmE0MjdlMjc0NjljMDZlNTg2MGU3M2Y0YzYzYjY2Nzk4OTQzMCJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L19-L19",
+          "version": "repo-lines-v1:sha256:0a6a7ca70f3c3cfe97b1814afcffd75a44991c20c5e891a2361c98aee1d79a26:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE2YTdjYTcwZjNjM2NmZTk3YjE4MTRhZmNmZmQ3NWE0NDk5MWMyMGM1ZTg5MWEyMzYxYzk4YWVlMWQ3OWEyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE2YTdjYTcwZjNjM2NmZTk3YjE4MTRhZmNmZmQ3NWE0NDk5MWMyMGM1ZTg5MWEyMzYxYzk4YWVlMWQ3OWEyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGJmZTUxMDk0OTg1YWNlMDQ2MjMzYjU2NDczZjgwNDRlMjdmZjVmYmE5YzRlNzEyZDA1ZmI2MTQzZTgwNzE0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzk0NTg5MjYwYjAxN2E3MDAxYmQ4N2U0N2M2NjQ2ZWZlZmYzYzAzNTVkMjkwMmMwNjQ1NWYzNjYyN2Y2YWZiZSJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L48-L49",
+          "version": "repo-lines-v1:sha256:f7b7e6ea0df9fa0340c94cf289124697b53747fbb03b9c2b37ee5012ce5b35c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk0NDk4ZDI4MzQ4ZGE1MzM4YWI2MzBlMGMyYTkzYTIyYzA5NmRkMjFhZTc2ZGY2YTMwZTFkMGZkM2NkZGRiMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDQ1NmI5ZjUxZGM3NGIwMDRhZDdjYTA2MDc3YjIwOTJhYjc1ZTJmODY5YjMyYWM0YTVmMTZiM2MwNjkwNTBjMCJ9"
+        },
+        {
+          "resource": "repo://src/main.ts#L7-L22",
+          "version": "repo-lines-v1:sha256:9706253217bf035b99a2b7c75f203b12a4bd71bcb6a4f28d029d2942601b195c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1ZGJjYzdiZjgyYTRkMzhkNTA4ZjMzOTg1ZmRkODA5MDNkYmZkOGM4ODlhYjdmNjA5ZmYzNmVjNDZkMjhjZDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZmE5NGIxNGE5MDJjYTY1MzU0YWQ3ZjRkMTc3YjE1NmU1NGU1NmI0ZWI2Zjg0MjFkYmI5MWRhNTMzNTJlYTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjY2I0NWQ0ZGYxNmFiNTVkMWRjYjg4MzI0NjhkYWE2NjZhYTBjNWQzMzUxNzU3ODZlNGRlZDU3YjBkYmUxYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2OTY3MjlmYjE0YTRhM2FjNzJlYzYyYWMyYjE4ODJjYzY5OTA2YzVmYTNlMjdmZDZiNTNiM2NiNzdlNDUyM2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_97aa6c47f3024c6ea47734c9f87a688e",
+      "statement": "The default EMAIL_PROVIDER_URL points to a mock provider, and the recipient address fail-email@example.com triggers the mock failure path.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

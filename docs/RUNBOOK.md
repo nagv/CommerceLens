@@ -3,12 +3,12 @@
 ## Prerequisites
 
 - Docker Desktop with Linux containers running.
-- Git access to nagv's private CommerceLens repositories.
+- Git access to nagv's private CommerceLens repository.
 - PowerShell for the optional bootstrap helper; Python 3.10+ for the smoke script.
 
 This is a local demonstration with synthetic data and mock external providers. It is not hardened for public hosting: the operations UI has no authentication, and simulation controls are intentionally exposed. No real payment, shipment, or email is sent.
 
-## Get the repositories
+## Get the repository
 
 Clone CommerceLens, then from its directory:
 
@@ -18,7 +18,7 @@ docker compose up --build -d
 docker compose ps
 ```
 
-Bootstrap clones missing service repositories beside CommerceLens and preserves existing checkouts. To update existing repositories, review their working trees and pull changes explicitly.
+Bootstrap checks the six bundled service folders under services/. It does not clone additional repositories. Docker Compose builds each service from its own subdirectory.
 
 Open http://localhost:3000. Only the portal and RabbitMQ management UI are published to loopback. Internal APIs, mock providers and PostgreSQL stay on the Docker network.
 
@@ -62,7 +62,7 @@ if ($LASTEXITCODE -ne 0) { throw 'OpenWiki generation failed' }
 
 Preserve source, tests, API contracts, migrations and safe config templates. `lib` and `pages` are not globally excluded because they can contain application code. Generated Graphify code structure supports documentation; it does not independently prove complete runtime service dependencies.
 
-Application-catalog aggregation, Pinecone ingestion, the RAG chatbot, and the RAGAS evaluation runbook are subsequent milestones. The current smoke tests evaluate application behavior, not LLM answers.
+Application-catalog aggregation, Pinecone ingestion, the documentation assistant and evaluation harness are available; see RAG_RUNBOOK.md. These smoke tests evaluate service behavior; the evaluation CLI separately assesses LLM responses.
 
 ## Troubleshooting and shutdown
 

@@ -1,0 +1,197 @@
+{
+  "communities": {
+    "0": [
+      "ref_node_http",
+      "src_delivery",
+      "src_delivery_deliver",
+      "src_delivery_event",
+      "src_delivery_parseevent",
+      "src_main",
+      "src_main_connect",
+      "src_main_main",
+      "src_main_pool",
+      "src_main_server",
+      "src_main_sleep",
+      "test_delivery_test"
+    ],
+    "1": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_outdir",
+      "tsconfig_compileroptions_rootdir",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_include"
+    ],
+    "2": [
+      "ref_node_assert",
+      "ref_node_events",
+      "ref_node_test",
+      "src_lifecycle",
+      "src_lifecycle_watchsession",
+      "test_lifecycle_test"
+    ],
+    "3": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_type",
+      "package_version"
+    ],
+    "4": [
+      "package_dependencies",
+      "package_dependencies_amqplib",
+      "package_dependencies_pg",
+      "ref_amqplib",
+      "ref_pg"
+    ],
+    "5": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_start",
+      "package_scripts_test"
+    ],
+    "6": [
+      "package_devdependencies",
+      "package_devdependencies_tsx",
+      "ref_tsx"
+    ],
+    "7": [
+      "package_devdependencies_types_amqplib",
+      "ref_types_amqplib"
+    ],
+    "8": [
+      "package_devdependencies_types_node",
+      "ref_types_node"
+    ],
+    "9": [
+      "package_devdependencies_types_pg",
+      "ref_types_pg"
+    ],
+    "10": [
+      "package_devdependencies_typescript",
+      "ref_typescript"
+    ]
+  },
+  "cohesion": {
+    "0": 0.30303030303030304,
+    "1": 0.18181818181818182,
+    "2": 0.4666666666666667,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.5,
+    "6": 0.6666666666666666,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 9
+    },
+    {
+      "id": "src_main_connect",
+      "label": "connect()",
+      "degree": 6
+    },
+    {
+      "id": "src_delivery_deliver",
+      "label": "deliver()",
+      "degree": 4
+    },
+    {
+      "id": "src_delivery_parseevent",
+      "label": "parseEvent()",
+      "degree": 4
+    },
+    {
+      "id": "src_lifecycle_watchsession",
+      "label": "watchSession()",
+      "degree": 4
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "src_main_main",
+      "label": "main()",
+      "degree": 3
+    },
+    {
+      "id": "src_main_sleep",
+      "label": "sleep()",
+      "degree": 3
+    },
+    {
+      "id": "ref_amqplib",
+      "label": "amqplib",
+      "degree": 3
+    },
+    {
+      "id": "ref_pg",
+      "label": "pg",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "connect()",
+      "target": "watchSession()",
+      "source_files": [
+        "src/main.ts",
+        "src/lifecycle.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "connect()",
+      "target": "deliver()",
+      "source_files": [
+        "src/main.ts",
+        "src/delivery.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "connect()",
+      "target": "parseEvent()",
+      "source_files": [
+        "src/main.ts",
+        "src/delivery.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `amqplib` connect `Community 4` to `Community 0`, `Community 3`?",
+      "why": "High betweenness centrality (0.158) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `pg` connect `Community 4` to `Community 0`, `Community 3`?",
+      "why": "High betweenness centrality (0.158) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `scripts` connect `Community 5` to `Community 3`?",
+      "why": "High betweenness centrality (0.087) - this node is a cross-community bridge."
+    }
+  ]
+}

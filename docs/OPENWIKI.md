@@ -4,12 +4,12 @@ Completed on November 8, 2026 (America/New_York). OpenWiki 0.7.2 generated the s
 
 | Service | Markdown pages including navigation indexes | Lifecycle status | Entry point |
 | --- | ---: | --- | --- |
-| customer-portal | 13 | complete | [Quickstart](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/quickstart.md) |
-| order-service | 17 | complete | [Quickstart](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/quickstart.md) |
-| inventory-service | 15 | complete | [Quickstart](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/quickstart.md) |
-| payment-service | 9 | complete | [Quickstart](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/quickstart.md) |
-| shipping-service | 8 | complete | [Quickstart](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/quickstart.md) |
-| notification-worker | 10 | complete | [Quickstart](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/quickstart.md) |
+| customer-portal | 13 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/quickstart.md) |
+| order-service | 17 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/quickstart.md) |
+| inventory-service | 15 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/quickstart.md) |
+| payment-service | 9 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/quickstart.md) |
+| shipping-service | 8 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/quickstart.md) |
+| notification-worker | 10 | complete | [Quickstart](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/quickstart.md) |
 
 ## Verification
 
@@ -42,7 +42,7 @@ python -m pip install -r scripts/requirements-catalog.txt
 python scripts/refresh-catalog.py refresh
 # Review changed catalog/service-cards/*.json and openwiki/*.md
 node scripts/finalize-catalog.mjs
-node scripts/link-wikis.mjs
+# For this monorepo, navigate through openwiki/quickstart.md or use CommerceLens retrieval.
 python scripts/refresh-catalog.py check
 ```
 
@@ -50,7 +50,7 @@ Nebius credentials are read from the environment or `~/.openwiki/.env`; no crede
 
 ### Adding and changing services
 
-Register services in `services.example.yaml`, or use `--manifest services.yaml`. Each service needs a unique ID, repository URL, local path and optionally `catalog_pages` selecting concise overview/dependency pages. New services automatically enter the rendered catalog and the next workspace-link operation. Removing an entry removes it from the master and the managed CommerceLens workspace; other workspaces are preserved. Cached cards for removed services are inert and can be archived separately.
+Register services in `services.example.yaml`, or use `--manifest services.yaml`. Each service needs a unique ID, repository URL, local path and optionally `catalog_pages` selecting concise overview/dependency pages. New services automatically enter the rendered catalog and corpus. Removing an entry removes it from the master and the next corpus build. Cached cards for removed services are inert and can be archived separately.
 
 The script locally hashes wiki bodies to find changes. Frontmatter-only generation timestamps are ignored. Initial generation reads configured summary pages; later updates include changed pages and previously cited summary evidence. A changed service requires one model request; an unchanged service requires none. Requests and cards have explicit size bounds. If changed documentation exceeds the budget, review/condense its overview before replacing that service's cached baseline; the process never silently truncates input. Successful cards are cached even if a later service fails, while the master is rendered only after every active service has a valid card.
 
@@ -60,4 +60,10 @@ All master sections are rendered locally, but unchanged page bodies are not rewr
 
 Cards store page hashes, model, input fingerprint and links to original wiki pages. Deep links point to the latest `main`; page hashes identify what was summarized, so newer documentation can differ until refreshed. Source wiki contradictions must be visible under application overview gaps. Review summaries before finalizing: schema validation and OpenWiki completion do not guarantee factual correctness.
 
-The workspace registry is local to the user's OpenWiki profile. `catalog/workspace-roots.json` is a generated, ignored local file. `node scripts/link-wikis.mjs` recreates the workspace from the latest refresh's active manifest. Linking expands search scope and does not regenerate summaries.
+The workspace registry is local to the user's OpenWiki profile. `catalog/workspace-roots.json` is a generated, ignored local file. The legacy link script is for independent repositories only; OpenWiki 0.7.2 does not support nested monorepo wiki roots.
+
+## Monorepo location-only migration (November 11, 2026)
+
+Service code is unchanged. Original service wikis and master prose were preserved; the partial regeneration was archived locally and discarded from the active corpus. Only repository links and source locations changed. Existing compact summary content and approved golden answers were retained, with new evidence paths/hashes recorded in `evals/monorepo-evidence-migration.json`. No LLM calls were used for this correction. The original generation model and timestamps remain intact.
+
+OpenWiki 0.7.2 linked workspaces require a `.git` marker in each wiki root; nested service folders are not independent repositories. Do not add nested Git repositories to bypass this. Navigate via the master links or use CommerceLens retrieval, which indexes all six service wikis directly. Existing linked workspace registrations refer to the preserved original checkouts, not the migrated folders.

@@ -3,6 +3,17 @@ from pathlib import Path
 from unittest.mock import patch
 from commercelens_ai.cli import prepare_knowledge
 class CliTests(unittest.TestCase):
+ def test_ragas_clients_have_bounded_network_timeouts(self):
+  from unittest.mock import Mock
+  from types import SimpleNamespace
+  from commercelens_ai.cli import main
+  llm=Mock();emb=Mock()
+  with patch.dict('sys.modules',{'langchain_openai':SimpleNamespace(ChatOpenAI=llm,OpenAIEmbeddings=emb)}),patch('commercelens_ai.cli.make_assistant'),patch('commercelens_ai.evaluation.run_evaluation',return_value={}):
+   self.assertEqual(main(['evaluate','--ragas']),0)
+  for client in (llm,emb):
+   self.assertEqual(client.call_args.kwargs['timeout'],60)
+   self.assertEqual(client.call_args.kwargs['max_retries'],0)
+
  def test_json_mode_keeps_error_exit_status(self):
   from commercelens_ai.cli import main
   from unittest.mock import Mock

@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS orders (
+ id TEXT PRIMARY KEY,
+ idempotency_key TEXT UNIQUE NOT NULL,
+ request_hash TEXT NOT NULL,
+ body JSONB NOT NULL,
+ http_status INTEGER NOT NULL DEFAULT 409,
+ created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS order_outbox (
+ event_id TEXT PRIMARY KEY,
+ payload JSONB NOT NULL,
+ created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+ published_at TIMESTAMPTZ,
+ attempts INTEGER NOT NULL DEFAULT 0,
+ last_error TEXT
+);

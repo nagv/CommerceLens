@@ -1,20 +1,16 @@
-param([string[]]$Repositories = @(
-    'CommerceLens', 'commercelens-customer-portal', 'commercelens-order-service',
-    'commercelens-inventory-service', 'commercelens-payment-service',
-    'commercelens-shipping-service', 'commercelens-notification-worker'
-))
+param([string[]]$Repositories = @('.', 'customer-portal', 'order-service', 'inventory-service', 'payment-service', 'shipping-service', 'notification-worker'))
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$workspaceRoot = Split-Path -Parent $projectRoot
 $graphifyCommand = Join-Path $projectRoot '.graphify-venv/Scripts/graphify.exe'
 if (-not (Test-Path -LiteralPath $graphifyCommand)) {
     throw 'Install first: uv venv .graphify-venv --python 3.12; uv pip install --python .graphify-venv/Scripts/python.exe "graphifyy[sql]==0.9.104" (from CommerceLens)'
 }
 foreach ($repository in $Repositories) {
-    if ($repository -notmatch '^(CommerceLens|commercelens-(customer-portal|order-service|inventory-service|payment-service|shipping-service|notification-worker))$') {
+    if ($repository -notmatch '^(\.|customer-portal|order-service|inventory-service|payment-service|shipping-service|notification-worker)$') {
         throw "Unknown repository: $repository"
     }
-    Push-Location (Join-Path $workspaceRoot $repository)
+    $target = if ($repository -eq '.') { $projectRoot } else { Join-Path $projectRoot ('services/' + $repository) }
+    Push-Location $target
     try {
         & $graphifyCommand extract . --code-only --force *> graphify-extract.log
         if ($LASTEXITCODE -ne 0) { throw "Extraction failed for $repository; see graphify-extract.log" }

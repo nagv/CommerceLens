@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:daddcbe7b10f6321d6c4e019ba483843bd3e7e8e0872a29d4fc3592cfa8f8af5",
+  "claims": [
+    {
+      "id": "claim_a769ddc182de4c5080e466a04f4c0421",
+      "statement": "The `inventory_products` table has columns `sku TEXT PRIMARY KEY`, `name TEXT NOT NULL`, `price_cents BIGINT NOT NULL CHECK(price_cents>0)`, and `available INTEGER NOT NULL CHECK(available>=0)`.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L255-L255",
+          "version": "repo-lines-v1:sha256:31bcca09df88c5e95d0003747ef4d45544923261679ec0d2bd3eda525be07b42:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiY2NhMDlkZjg4YzVlOTVkMDAwMzc0N2VmNGQ0NTU0NDkyMzI2MTY3OWVjMGQyYmQzZWRhNTI1YmUwN2I0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiY2NhMDlkZjg4YzVlOTVkMDAwMzc0N2VmNGQ0NTU0NDkyMzI2MTY3OWVjMGQyYmQzZWRhNTI1YmUwN2I0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDBmZGI5OWQ1MDI0M2VlMDU0OWM0NWY5ZjYwYTc1Njg0OWM5NmRkZjA4N2IyOWU2ZjUyMDk5MDkxZWE0MmZlYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9e0a15adceb74579aa6b5d9fe3268f9c",
+      "statement": "The `inventory_reservations` table has columns `order_id TEXT PRIMARY KEY`, `request_hash TEXT NOT NULL`, `body JSONB NOT NULL`, and `status TEXT NOT NULL`.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L256-L256",
+          "version": "repo-lines-v1:sha256:db358fa49025d011133adb6e22c7e1736091ab70b29854bd7aecc2a111f9c56a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIzNThmYTQ5MDI1ZDAxMTEzM2FkYjZlMjJjN2UxNzM2MDkxYWI3MGIyOTg1NGJkN2FlY2MyYTExMWY5YzU2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIzNThmYTQ5MDI1ZDAxMTEzM2FkYjZlMjJjN2UxNzM2MDkxYWI3MGIyOTg1NGJkN2FlY2MyYTExMWY5YzU2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjFiOTlmNjNkMzhmYWVkOTBjM2UzZjkwZjdhZGQ3YzhlM2EyYWRjNjhjMDFhODZiMGEyMDk5Yzg4ZTZjNTNlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDQ4NTU4NGNkMjJhY2JmNjNkYzU4ODg2ZDc3NWJiZWM2ZWY4NzA5YWVjNzU3Mzk4NTMxYjAzN2U3ODgwOGEzYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_92c63b7e868b4561a7d59b82d848f6d3",
+      "statement": "At startup, `main()` executes a `schema` const that creates both tables with `IF NOT EXISTS` and inserts three demo products using `ON CONFLICT DO NOTHING`.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L255-L257",
+          "version": "repo-lines-v1:sha256:071b2a62beed48454b7383eaeca9bc5df7e29581e68a0533450c5b62d684031a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiY2NhMDlkZjg4YzVlOTVkMDAwMzc0N2VmNGQ0NTU0NDkyMzI2MTY3OWVjMGQyYmQzZWRhNTI1YmUwN2I0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhNzYwMDVhYTdjMjU4MWZlNTFhMzFiZjkxZGQwOTQ3MTIxNThlMTM0ZTFjN2YxM2MwODQ2MWRjY2JlMDBiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZmNTIzNDYyNTg4YTE2YjMxZTI2N2M0Y2I2ZWFiN2ExYTdmNDQ3ZTAzOTVlMzhlYmZjMjc1OGE1MWMzY2ZhOSJ9"
+        },
+        {
+          "resource": "repo://main.go#L271-L272",
+          "version": "repo-lines-v1:sha256:50ed629f2602bbc710ae95685227bd2b9647b5b68b40e36b560ada91b959bf84:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFmOTZhZGI2OWVlZGMwYzNkNDhkYWRmMTVkMTcwOTcxYmRiNWIyZWQxZDkwNDJkNmM3M2M2MDA5M2Q5ZDk5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjNWMzZTRmYjRkYmI2MjQ3MTUwMTUyNzYzZTJlN2NjN2I4NTAxMTAwZWIyZDMxOTkwMTVlZGJmNGVkNTdhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQ3MDM4NTBlN2Y3MTY5ZDRjNjViNzc5ODE4YzVkY2I3YTZlNmMzNTI2M2NiNjdkZGRlZjE4ZmY1MjQ2M2JhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzMyZGIxYmYzNzBhY2Q3NzY5ZWIwZWEwODg5NzRjNDI1NmI5YjE2MWI4ZjRhNWY3ZGQyNzE5YzllYTQ1YTcwMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_895a8c244ba44014bad11204ed7cc96b",
+      "statement": "Both reserve and release transactions acquire a `pg_advisory_xact_lock` via `hashtextextended(orderId, 0)` to serialize operations for the same order ID and prevent duplicate reservations.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L143-L143",
+          "version": "repo-lines-v1:sha256:0d084e5647ec57be02a9012473fd0c3ae6e0d447ac6fb0a6b4ae1342dc193aa1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQwODRlNTY0N2VjNTdiZTAyYTkwMTI0NzNmZDBjM2FlNmUwZDQ0N2FjNmZiMGE2YjRhZTEzNDJkYzE5M2FhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQwODRlNTY0N2VjNTdiZTAyYTkwMTI0NzNmZDBjM2FlNmUwZDQ0N2FjNmZiMGE2YjRhZTEzNDJkYzE5M2FhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGM3NmUxYjdkZTczOTg0OTU1NTE1NDQxZmY1ODhiMTBiOGYxMzhkNGUwZjg3OGUwZWRkY2UzYjNjM2E3MmU3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDFhMDBkYmQyNDU3YWYzZmVkNDg4YzU3OGNmMGVhYzJlZjRhM2EzNDVkNDJmZWQyNzFmYzA4ODdhZGMzNTc3MCJ9"
+        },
+        {
+          "resource": "repo://main.go#L87-L87",
+          "version": "repo-lines-v1:sha256:1aba9c2c64704dd772b4e495448d3995b45ddafc6aa1104da359c66618af39d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWFiYTljMmM2NDcwNGRkNzcyYjRlNDk1NDQ4ZDM5OTViNDVkZGFmYzZhYTExMDRkYTM1OWM2NjYxOGFmMzlkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWFiYTljMmM2NDcwNGRkNzcyYjRlNDk1NDQ4ZDM5OTViNDVkZGFmYzZhYTExMDRkYTM1OWM2NjYxOGFmMzlkOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2IzYzRmMzBjNTRmYzY4Mjc4ZjA1MzQ2Mjg0YjA3YmZmZWI3ODk2MGRhY2JkZmUzYTRmYWU2NzA2MTk3ODkxYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzU5Y2ZiYmFjYTA5ZDliYWM0NDNmMWIwNzRlYTRmNWZjNjJiNTZiZjI1MGIyMjk3MGQ2OTFmZjAwNzZjZmZhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_702f81a72fe14f738ce00c97aee93039",
+      "statement": "During reservation, `inventory_products` rows are selected with `FOR UPDATE` after sorting requested items by SKU in ascending order, which prevents overselling and deadlocks across concurrent transactions that touch overlapping product sets.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L107-L107",
+          "version": "repo-lines-v1:sha256:d8c49c3288b37376a28e75df1aa41dcf0ca582cd163b8ad4be56ed89abdcc007:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhjNDljMzI4OGIzNzM3NmEyOGU3NWRmMWFhNDFkY2YwY2E1ODJjZDE2M2I4YWQ0YmU1NmVkODlhYmRjYzAwNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhjNDljMzI4OGIzNzM3NmEyOGU3NWRmMWFhNDFkY2YwY2E1ODJjZDE2M2I4YWQ0YmU1NmVkODlhYmRjYzAwNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Q0ZWIzZWRjNGM4MDMyMzRiNWNlOTM5ZDNkMTJjYjAwYTEzMGZiNmNlYzY5ZmQ2NGQ1YzQyY2NlYThjZjI3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q2NWRjMGJlOTExM2Q2MGM2YzUzMzk5ZGZlNzk5NzM1NWI4ZDNjZDkxMjU1Y2Q5YjQyMzBjMWYxMmY2NWMwNSJ9"
+        },
+        {
+          "resource": "repo://main.go#L111-L111",
+          "version": "repo-lines-v1:sha256:92c7422dae6d568e2e09bc54914f1bd8b2498bdccd588186cfaa8bc5eca867e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjNzQyMmRhZTZkNTY4ZTJlMDliYzU0OTE0ZjFiZDhiMjQ5OGJkY2NkNTg4MTg2Y2ZhYThiYzVlY2E4NjdlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjNzQyMmRhZTZkNTY4ZTJlMDliYzU0OTE0ZjFiZDhiMjQ5OGJkY2NkNTg4MTg2Y2ZhYThiYzVlY2E4NjdlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Q2NWRjMGJlOTExM2Q2MGM2YzUzMzk5ZGZlNzk5NzM1NWI4ZDNjZDkxMjU1Y2Q5YjQyMzBjMWYxMmY2NWMwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFhMWJlYzg2YTk3ZGQ0OTYzYzA2MjVhNTdiYTZiOWQxMTNhMGJkZmY4NTZkZTllZjE3YjgyOGVkNGMzMGY0MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae56739a852540ccb9edca503ade64ae",
+      "statement": "There is no foreign key between `inventory_reservations` and `inventory_products`; reservations reference SKUs through the denormalized `body` JSONB column only.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L255-L256",
+          "version": "repo-lines-v1:sha256:9da507e00bc4111ec90cf56f16b95136ee6dc454e5a8599d2bebd9503a55e56d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiY2NhMDlkZjg4YzVlOTVkMDAwMzc0N2VmNGQ0NTU0NDkyMzI2MTY3OWVjMGQyYmQzZWRhNTI1YmUwN2I0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIzNThmYTQ5MDI1ZDAxMTEzM2FkYjZlMjJjN2UxNzM2MDkxYWI3MGIyOTg1NGJkN2FlY2MyYTExMWY5YzU2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDQ4NTU4NGNkMjJhY2JmNjNkYzU4ODg2ZDc3NWJiZWM2ZWY4NzA5YWVjNzU3Mzk4NTMxYjAzN2U3ODgwOGEzYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_23044584762d42dca58212fd91b9ad0a",
+      "statement": "Valid reservation statuses tracked in the `status` column are `\"reserved\"` and `\"released\"`.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L131-L131",
+          "version": "repo-lines-v1:sha256:be1d0acc378a04de084872fef5ba760e4ddc937cf84dcb9fe62eff8a4d05f2e9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUxZDBhY2MzNzhhMDRkZTA4NDg3MmZlZjViYTc2MGU0ZGRjOTM3Y2Y4NGRjYjlmZTYyZWZmOGE0ZDA1ZjJlOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUxZDBhY2MzNzhhMDRkZTA4NDg3MmZlZjViYTc2MGU0ZGRjOTM3Y2Y4NGRjYjlmZTYyZWZmOGE0ZDA1ZjJlOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQyOTQ0MjZlNjU5NjgyYWRlZmQyZThlOGU4MjkxM2Y3NWNiODJiMjYxMWU4ODc4MThhNDdiNGE2MzhlZTNkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQyOTQ0MjZlNjU5NjgyYWRlZmQyZThlOGU4MjkxM2Y3NWNiODJiMjYxMWU4ODc4MThhNDdiNGE2MzhlZTNkNSJ9"
+        },
+        {
+          "resource": "repo://main.go#L155-L155",
+          "version": "repo-lines-v1:sha256:e381c4df6d95137bfa0356f40c65c715e3735a35876e64b3b139f81e522e9b51:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM4MWM0ZGY2ZDk1MTM3YmZhMDM1NmY0MGM2NWM3MTVlMzczNWEzNTg3NmU2NGIzYjEzOWY4MWU1MjJlOWI1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM4MWM0ZGY2ZDk1MTM3YmZhMDM1NmY0MGM2NWM3MTVlMzczNWEzNTg3NmU2NGIzYjEzOWY4MWU1MjJlOWI1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGM2M2U1MTU2MjU0OTdmZDA5MmVjYzY3MjczNTE3NGI2MTQ0OTE1MTMwZDE3YTlhOTA5NjUzMWIyNDkwZGJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ5NTI3MmRlMGFlNDZiMzVjYzI5Y2NmOTI5MzA0MmZhOGQ3M2QzZjhkNTYwMTQ5ZDNlMWM2YzZjYjkzNmRlMCJ9"
+        },
+        {
+          "resource": "repo://main.go#L167-L167",
+          "version": "repo-lines-v1:sha256:db89392c0a092e66efe5487bced1986a530e5dd82f7bf3c94c7459b932c65216:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI4OTM5MmMwYTA5MmU2NmVmZTU0ODdiY2VkMTk4NmE1MzBlNWRkODJmN2JmM2M5NGM3NDU5YjkzMmM2NTIxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI4OTM5MmMwYTA5MmU2NmVmZTU0ODdiY2VkMTk4NmE1MzBlNWRkODJmN2JmM2M5NGM3NDU5YjkzMmM2NTIxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTYxZDJjYzBkMDRmOTE4NWY2YzYyMTgxNmZlN2ZiYmVmNWRlMjc3MmE0Zjk3MGI3OTk0YjIyNWM2MzNhOTEzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTA1MDI1NmY4ZGZlYTEyZTQ0NDFlYzI0N2QxZjU3YWZjMWY5ZTliODk1MzRkMzJhODBjYTg4YTkzOGNlOGEyMCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

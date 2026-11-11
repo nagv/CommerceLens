@@ -13,6 +13,8 @@ import re
 import statistics
 import time
 import uuid
+import csv
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 def _number(value):
@@ -47,7 +49,11 @@ def deterministic_checks(case, result):
                        re.search(r'\['+re.escape(c['id'])+r'\]', answer)) for c in citations)
         optional = case.get('citation_policy') == 'optional' and not result.get('factual_claims', False)
         validity=valid/len(citations) if citations else (None if optional else 0.0)
-    return dict(service_recall=len(expected & selected)/len(expected) if expected else None,
+    allowed=expected | set(case.get('allowed_retrieval_services',[]))
+    precision=len(allowed & selected)/len(selected) if expected and selected else 0.0 if expected else None
+    recall=len(expected & selected)/len(expected) if expected else None
+    f1=2*precision*recall/(precision+recall) if expected and precision+recall else 0.0 if expected else None
+    return dict(service_recall=recall,service_precision=precision,service_f1=f1,
                 behavior_match=float(case.get('expected_behavior','answer') == result.get('behavior', 'unknown' if result.get('status')=='insufficient_evidence' else 'answer')),
                 citation_validity=validity,
                 lexical_required_fact_coverage=_coverage(case.get('required_facts', []), answer),
@@ -60,7 +66,11 @@ def _judge(judge, case, result):
     if judge is None:
         return {'status':'skipped'}
     try:
-        if case['mode']=='plan':
+        if case.get('evaluation_contract',{}).get('version')=='v3':
+            from .eval_contracts import judge_contract
+            return judge_contract(judge,case,result)
+        behavioral_plan = case['mode']=='plan' and case.get('expected_behavior','answer') in ('clarify','redirect','unknown','uncertain')
+        if case['mode']=='plan' and not behavioral_plan:
             from .plan_evaluation import judge_plan
             return judge_plan(judge,case,result)
         prompt=("Evaluate the answer using ONLY provided documentation, reference evidence and rubric. "
@@ -74,6 +84,16 @@ def _judge(judge, case, result):
                 "labeled and are not unique correct answers. Set plan_quality null for ask mode. "
                 "Do not reward source-code/file/line implementation instructions for plans.")
         behavioral = 'expected_behavior' in case
+        if behavioral_plan:
+            prompt += (' This case expects a behavioral response rather than an implementation plan. '
+                       'Set plan_quality null. Do not require implementation sections, service changes, sequencing or alternatives. '
+                       'Grade the actual response against the expected behavior even if it wrongly supplies a plan. ')
+        if case.get('response_policy') == 'investigation_leads':
+            prompt += (' This debugging case requires investigation leads only: known facts and unknowns, relevant services, '
+                       'evidence-based hypotheses, ordered checks and additional evidence needed. '
+                       'Do not reward implementation plans, service modifications, selected fixes or architectural alternatives. '
+                       'Penalize unsupported root-cause certainty and unsafe recovery suggestions. '
+                       'A useful investigation is complete without diagnosing a root cause or proposing a fix. ')
         if behavioral:
             prompt += (" Also return correctness and behavior_appropriateness, numbers from 0 to 1. "
                        "Correctness compares MEANING against the reference and acceptance_criteria, including negation, quantities, and causal direction, not keyword overlap. "
@@ -94,7 +114,7 @@ def _judge(judge, case, result):
         if not isinstance(values, dict) or set(values)!=keys:
             raise ValueError('Invalid rubric keys')
         for key, value in values.items():
-            if key=='plan_quality' and case['mode']=='ask' and value is None:
+            if key=='plan_quality' and (case['mode']=='ask' or behavioral_plan) and value is None:
                 continue
             if not _number(value) or not 0<=value<=1:
                 raise ValueError('Invalid score')
@@ -126,6 +146,7 @@ def _ragas(case, result, enabled, llm, embeddings):
     try:
         # RAGAS 0.4.x retains the evaluate API and these metric implementations.
         from ragas import EvaluationDataset, evaluate
+        from ragas.run_config import RunConfig
         from ragas.metrics._faithfulness import Faithfulness
         from ragas.metrics._answer_relevance import AnswerRelevancy
         from ragas.metrics._context_recall import LLMContextRecall
@@ -141,7 +162,8 @@ def _ragas(case, result, enabled, llm, embeddings):
                                      for text in result.get('retrieved_contexts', [])])
         row['reference']=case['reference']
         evaluated=evaluate(EvaluationDataset.from_list([row]), metrics=metrics,
-                           llm=llm, embeddings=embeddings, raise_exceptions=True, show_progress=False)
+                           llm=llm, embeddings=embeddings, raise_exceptions=True, show_progress=False,
+                           run_config=RunConfig(timeout=120,max_retries=1,max_wait=10,max_workers=2))
         raw=evaluated.scores[0]
         scores={key:float(value) for key,value in raw.items() if _number(value)}
         missing=[key for key,value in raw.items() if not _number(value)]
@@ -164,7 +186,8 @@ def _upload(cases, rows, client, dataset_name, experiment_name, digest):
         examples={}
         for case in cases:
             example=client.create_example(dataset_id=dataset.id,
-                inputs={'question':case['question'],'mode':case['mode']},
+                inputs={'question':case['question'],'mode':case['mode'], **({'replan_context':case['replan_context']} if case.get('replan_context') else {})},
+                metadata={k:case[k] for k in ('category','review_status','variant_of','response_policy') if k in case},
                 outputs={k:v for k,v in case.items() if k not in ('question','mode')})
             examples[case['id']]=example.id
         project=experiment_name or f'commercelens-eval-{uuid.uuid4().hex[:12]}'
@@ -182,8 +205,14 @@ def _upload(cases, rows, client, dataset_name, experiment_name, digest):
             for key, value in _scores(row).items():
                 if _number(value):
                     detail={}
-                    if key.startswith('judge_plan_'):
-                        reason=row.get('judge',{}).get('rationale',{}).get(key.removeprefix('judge_plan_'))
+                    if key.startswith('judge_'):
+                        dimension=key.removeprefix('judge_')
+                        rationale=row.get('judge',{}).get('rationale',{})
+                        reason=rationale.get(dimension) or rationale.get(dimension.removeprefix('plan_'))
+                        if dimension=='critical_gate_pass':
+                            reason=json.dumps(row.get('judge',{}).get('requirements',{}))
+                        if dimension=='documentation_conflict':
+                            reason=json.dumps(row.get('judge',{}).get('documentation_gap',{}))
                         if reason:detail['comment']=reason
                     client.create_feedback(run_id=run_id, key=key, score=value, **detail)
         client.update_project(project_id=project_record.id, end_time=datetime.now(timezone.utc))
@@ -210,7 +239,7 @@ def _reference_snapshot(cases, evidence_root):
         evidence=case.get('reference_evidence', [])
         if not evidence and not (case.get('expected_behavior') in ('clarify','redirect') and case.get('reference_kind')=='behavior_rubric'):
             mismatches.append({'case_id':case['id'],'path':None,'reason':'missing_reference_evidence'})
-        for item in evidence:
+        for item in evidence + case.get('verification_evidence', []):
             relative=item.get('path')
             expected=item.get('sha256')
             if not isinstance(relative,str) or not relative or not isinstance(expected,str) or not re.fullmatch('[0-9a-f]{64}',expected):
@@ -232,7 +261,7 @@ def _reference_snapshot(cases, evidence_root):
 def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=None,
                    ragas=False, langsmith=False, *, ragas_llm=None, ragas_embeddings=None,
                    langsmith_client=None, dataset_name='commercelens-golden', experiment_name=None,
-                   evidence_root=None, case_mode=None):
+                   evidence_root=None, case_mode=None, workers=1):
     """Run every case repeatedly, retaining failures. Flags opt into external data transfer.
 
     A supplied judge sends the answer, contexts and reference rubric to that model.
@@ -243,6 +272,8 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
     """
     if not isinstance(repetitions, int) or isinstance(repetitions, bool) or repetitions<1:
         raise ValueError('repetitions must be a positive integer')
+    if type(workers) is not int or not 1<=workers<=4:
+        raise ValueError('workers must be between 1 and 4')
     content=Path(dataset_path).read_bytes()
     digest=hashlib.sha256(content).hexdigest()
     cases=[json.loads(line) for line in content.decode('utf-8-sig').splitlines() if line.strip()]
@@ -268,34 +299,48 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
         (output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
         paths=', '.join(str(m['path'] or m['case_id']) for m in snapshot['mismatches'])
         raise ValueError('Reference snapshot mismatch: '+paths)
+    def evaluate_one(case_number,case,repetition):
+        row=dict(case_id=case['id'],question=case['question'],mode=case['mode'],category=case.get('category'),variant_of=case.get('variant_of'),
+                 repetition=repetition,dataset_sha256=digest,
+                 started_at=datetime.now(timezone.utc).isoformat())
+        started=time.perf_counter()
+        try:
+            if case.get('replan_context'):
+                result=assistant.replan(**case['replan_context'])
+            else:
+                result=assistant.run(case['question'],mode=case['mode'])
+            row['result']=result
+            # Persist generation before any external scoring, so evaluator failures never lose the answer.
+            (output/f'generation-{repetition}-{case_number}.json').write_text(json.dumps(row,allow_nan=False),encoding='utf-8')
+            row['checks']=_efficiency_metrics(result)
+            row['status']='ok' if result.get('status') in ('ok','success','completed','insufficient_evidence') else 'failed'
+            if row['status']=='ok':
+                row['checks']=deterministic_checks(case,result)
+                row['judge']=_judge(judge,case,result)
+                row['ragas']=_ragas(case,result,ragas,ragas_llm,ragas_embeddings)
+            else:
+                row['error']='AssistantStatus:'+str(result.get('status'))
+        except Exception as exc:
+            row.update(status='failed',error=type(exc).__name__)
+        row.setdefault('judge',{'status':'skipped'})
+        row.setdefault('ragas',{'status':'skipped'})
+        row['wall_seconds']=time.perf_counter()-started
+        row['ended_at']=datetime.now(timezone.utc).isoformat()
+        return row
+
     rows=[]
-    with (output/'runs.jsonl').open('w', encoding='utf-8') as stream:
-        for repetition in range(1,repetitions+1):
-            for case in cases:
-                row=dict(case_id=case['id'],question=case['question'],mode=case['mode'],
-                         repetition=repetition,dataset_sha256=digest,
-                         started_at=datetime.now(timezone.utc).isoformat())
-                started=time.perf_counter()
-                try:
-                    result=assistant.run(case['question'],mode=case['mode'])
-                    row['result']=result
-                    row['checks']=_efficiency_metrics(result)
-                    row['status']='ok' if result.get('status') in ('ok','success','completed','insufficient_evidence') else 'failed'
-                    if row['status']=='ok':
-                        row['checks']=deterministic_checks(case,result)
-                        row['judge']=_judge(judge,case,result)
-                        row['ragas']=_ragas(case,result,ragas,ragas_llm,ragas_embeddings)
-                    else:
-                        row['error']='AssistantStatus:'+str(result.get('status'))
-                except Exception as exc:
-                    row.update(status='failed',error=type(exc).__name__)
-                row.setdefault('judge',{'status':'skipped'})
-                row.setdefault('ragas',{'status':'skipped'})
-                row['wall_seconds']=time.perf_counter()-started
-                row['ended_at']=datetime.now(timezone.utc).isoformat()
-                stream.write(json.dumps(row,allow_nan=False)+'\n')
-                stream.flush()
-                rows.append(row)
+    tasks=[(i,case,repetition) for repetition in range(1,repetitions+1) for i,case in enumerate(cases)]
+    with (output/'runs.jsonl').open('w',encoding='utf-8') as stream:
+        if workers==1:
+            results=(evaluate_one(*task) for task in tasks)
+            for row in results:
+                stream.write(json.dumps(row,allow_nan=False)+"\n");stream.flush();rows.append(row)
+        else:
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                futures=[pool.submit(evaluate_one,*task) for task in tasks]
+                for future in as_completed(futures):
+                    row=future.result()
+                    stream.write(json.dumps(row,allow_nan=False)+"\n");stream.flush();rows.append(row)
     metrics={}
     for key in sorted({key for row in rows for key in _scores(row)}):
         values=[_scores(row).get(key) for row in rows if _number(_scores(row).get(key))]
@@ -304,10 +349,20 @@ def run_evaluation(assistant, dataset_path, output_dir, repetitions=1, judge=Non
                       'min':min(values) if values else None,'max':max(values) if values else None}
     summary=dict(dataset_sha256=digest,case_mode=case_mode,case_count=len(cases),repetitions=repetitions,
                  reference_snapshot_status=snapshot,
-                 run_count=len(rows),failure_count=sum(r['status']!='ok' for r in rows),metrics=metrics,
+                 run_count=len(rows),workers=workers,failure_count=sum(r['status']!='ok' for r in rows),metrics=metrics,
+                 critical_gates=dict(Counter(r.get('judge',{}).get('gate_status','not_assessed') for r in rows)),
+                 rubric_versions=dict(Counter(r.get('judge',{}).get('rubric_version','legacy_or_unscored') for r in rows)),
                  judge=dict(Counter(r['judge']['status'] for r in rows)),
                  ragas=dict(Counter(r['ragas']['status'] for r in rows)),
                  metric_note='Lexical coverage is phrase matching, not correctness. Missing/error scores excluded.')
-    summary['langsmith']=_upload(cases,rows,langsmith_client,dataset_name,experiment_name,digest) if langsmith else {'status':'skipped'}
+    with (output/'human_review.csv').open('w',encoding='utf-8',newline='') as f:
+        writer=csv.DictWriter(f,fieldnames=['case_id','repetition','execution','gate','quality','human_verdict','human_comment'])
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(dict(case_id=row['case_id'],repetition=row['repetition'],execution=row['status'],gate=row.get('judge',{}).get('gate_status','not_assessed'),quality=row.get('judge',{}).get('scores',{}).get('quality')))
+    summary['langsmith']={'status':'pending'} if langsmith else {'status':'skipped'}
+    (output/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+    if langsmith:
+        summary['langsmith']=_upload(cases,rows,langsmith_client,dataset_name,experiment_name,digest)
     (output/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     return summary

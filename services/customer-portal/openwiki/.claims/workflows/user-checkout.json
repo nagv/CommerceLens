@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:96a568171149a45f2ff1b5b80b5504be390fadeac9dfb205abda83593742c7e7",
+  "claims": [
+    {
+      "id": "claim_b1c752b45d7a487c80f438cc967e39fe",
+      "statement": "Products are fetched at mount via GET /api/products in refresh(); cart quantities are capped by available stock and adjustable via number inputs, with zero quantity removing the item.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L17-L25",
+          "version": "repo-lines-v1:sha256:0f5cc864b2e09691e0d74cdf85682be7949803adecc890cd0649c638c7b25361:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRmZmYwNGNjMWVhOTlmM2MzMzc3ZmQwNzMxNGJlN2QzNWI5ZTI2ZGU2ZTk0MjhiMGFmNzA3MTZjNTAxYmIxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc3NTg0MjkzMmYzNGI1YTgxMGJjYzQwNDkyYTYxNjQyOGMzOTMyNjhlZGNhNzg3NDc5YTRiN2YwN2UzNjI4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGZlOTU0NTYxNTRiYTc5NzkyZmZmNzFhNmEzNDE0NmUyYWNmZDlhMTAxMGIwOTk5ZDZhYjU2ZjE0N2Q0ZDI5NiJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L60-L60",
+          "version": "repo-lines-v1:sha256:65407b0e5468adf03ead448fae4814cc09337faa078d982483d28eddeb79c705:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU0MDdiMGU1NDY4YWRmMDNlYWQ0NDhmYWU0ODE0Y2MwOTMzN2ZhYTA3OGQ5ODI0ODNkMjhlZGRlYjc5YzcwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU0MDdiMGU1NDY4YWRmMDNlYWQ0NDhmYWU0ODE0Y2MwOTMzN2ZhYTA3OGQ5ODI0ODNkMjhlZGRlYjc5YzcwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzY5M2E0N2UwOTJiOWMxMWRjNjgxZThiYjI4Y2ZhNmI2YzhiMDAxN2EyZGFmMWRkZjVkZjJmYzYyYWI1YjExOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmNkOGEyNzFmM2M4OTUyZjVmMDkxMTNjMTMxYjdhNDkxMDY2MWVmYjk4NDRhNzc2OTljZDgzYzg4ZWQ0MDczOCJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L64-L64",
+          "version": "repo-lines-v1:sha256:704f187ad1297cde0706d2a81f1d8ca0a4f311eeea108b82972aa40a7f061aa5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzA0ZjE4N2FkMTI5N2NkZTA3MDZkMmE4MWYxZDhjYTBhNGYzMTFlZWVhMTA4YjgyOTcyYWE0MGE3ZjA2MWFhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzA0ZjE4N2FkMTI5N2NkZTA3MDZkMmE4MWYxZDhjYTBhNGYzMTFlZWVhMTA4YjgyOTcyYWE0MGE3ZjA2MWFhNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmNkOGEyNzFmM2M4OTUyZjVmMDkxMTNjMTMxYjdhNDkxMDY2MWVmYjk4NDRhNzc2OTljZDgzYzg4ZWQ0MDczOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA5MjI4YWY4YjQ4YzJjYWY1MDIyMTc0ODJkYjhjNWY1MDk0OTgzZDFkNDE2NGNhZmJlODY2YjI1OThiMTZlYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_46df181b60974c25a3adc3248e1d7934",
+      "statement": "validateCheckout enforces five ordered rules—non-empty cart, email regex match, postal code length 1–20, positive integer quantities, and stock availability—returning the first failure as a human-readable string.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.ts#L12-L22",
+          "version": "repo-lines-v1:sha256:4ebc63afd013de5a8a81fc238f644cd506658e9a0a12276dd201dfd3bfc151d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNDk1OTQ5NjA3NzZiN2M3OWE0NTAzODQ2OTI4YWI4YmYxNDI1ZTM5MGQ2YjFmZWVjN2U0ZWU4ZjZhYzcxNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4YmY0YTA3YmViMWE0YTBlNTcwNWM1ZTdiNzgwMDY2YjE0ZTE1NTc4ZDRkZDg5NTRmZWUxMWUwZGYzNTNhMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2OGRkNzgyMWUyYzEwYTFjZWRhZmUwMGZmNzFhNzZiMjYwZTRlNTY5ZGIyNWMyZDdmNmVjNTMzNGQzZmY0YzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c014da77d7cb4c91b4f532541c18c925",
+      "statement": "On first submit, validateCheckout runs against the current body and products; if an Attempt already exists, validation is skipped so the original payload is resubmitted unchanged on retry.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L33-L33",
+          "version": "repo-lines-v1:sha256:334262cf36e1e87ebefdd60a81c8d843ab6f819ea2059070d9b679916d4aa893:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM0MjYyY2YzNmUxZTg3ZWJlZmRkNjBhODFjOGQ4NDNhYjZmODE5ZWEyMDU5MDcwZDliNjc5OTE2ZDRhYTg5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM0MjYyY2YzNmUxZTg3ZWJlZmRkNjBhODFjOGQ4NDNhYjZmODE5ZWEyMDU5MDcwZDliNjc5OTE2ZDRhYTg5MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjIzZjgyZGRiNjMxM2EwZmRhMmZiYzBhNmUwNDE4OTkxMmQ1YmFjMzQ5MDQ1OWFlOGM4NTUzYjRhOTUzZWQwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgyYjU5YTIyNzg1MmUwNjFiMWU4MDYzOThmMmJkMjhlZWNlZjAzNGVhMDk2N2U0ZWUyMDViYjRmZTAwMTBkYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_39663320dac34936a3f85a3f038f6cb9",
+      "statement": "checkoutAttempt creates a new Attempt with a UUID key and structuredClone of the body only when previous is null; retries return the same Attempt object, preserving the original key and payload even if the user changed form fields.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L18-L23",
+          "version": "repo-lines-v1:sha256:c224943ac1246a707c064b48caef2cd7b00aee23b68eada85c82bbce09450d9c:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQwZjJlNzQ2ZTMzMWI2NzA2NzlmOTZlYTdlMDVlNWJkMjc5N2Q3MDkxYTEwYTZlNDg0N2Q0ZjBlMjY5ODkwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWY1MjE1NTdkYzU1ZGQ5OGFjN2U3ZTcwZDFiN2FiZGVhODkzMTZiYzcwZmJmMzExYTM0NDliNzNlMjMwOGVmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        },
+        {
+          "resource": "repo://src/domain.ts#L23-L25",
+          "version": "repo-lines-v1:sha256:168dd7821e2c10a1cedafe00ff71a76b260e4e569db25c2d7f6ec5334d3ff4c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTFlNDZkNjVlYjBjZmMxM2I0N2M0M2MwM2EyYTBiMjA2YzA2NjZkZjM1MmIyYmQzNjMzMzYwNjc0YzgzNDE4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGRlYmVhY2IyN2Q0MzE3YzQ0YTA3Mjk4ZTAyNzRkYmNhZjM2ZGVjOGNjYzUwYzQ5MTI3ZjY3NWQwMDc4YmRiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBlZWM5ZGQzNDJiNGY4Zjc4ZmZhMWVmNGU4MDVjMzMxOWJiNWIwNTA5NTkyMDZiYjdkMDI0MjQ5Y2U2ZWVjYyJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L34-L34",
+          "version": "repo-lines-v1:sha256:b2cbe25119cf31c5c981cd2538229ded00ce2e8d3c1fe8d567b3997d63eea1da:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjJjYmUyNTExOWNmMzFjNWM5ODFjZDI1MzgyMjlkZWQwMGNlMmU4ZDNjMWZlOGQ1NjdiMzk5N2Q2M2VlYTFkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjJjYmUyNTExOWNmMzFjNWM5ODFjZDI1MzgyMjlkZWQwMGNlMmU4ZDNjMWZlOGQ1NjdiMzk5N2Q2M2VlYTFkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmIzYmU0YTRlODRjMDBiN2RhOGVkM2JjYTUwOTY2ZDA5ZTFiZTM4ZDIyMmI2YjZjYTVjNjE0Yzk0YmE2ZmI3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTkyNzQ5NjJhZWEwYjkwMDE0ZmJiM2U1ZGMyZGY1OWE5Y2M3OTI4YWQzOTcyODg2ZjYxMjZhNzRlZmY3OTA5YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e11f368b93b4f858ecf4da7f2a6498f",
+      "statement": "The Attempt is persisted in tab-scoped sessionStorage under the key 'commercelens.checkout.v1' before POST and restored on page load via savedAttempt; once present, add-to-cart buttons disable, the checkout form fieldset disables, and the cart controls are replaced by a read-only summary.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L15-L15",
+          "version": "repo-lines-v1:sha256:76721a9a83b80464bb2ff385b8761dee71f140a22445a085d988aab32ce7d82e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY3MjFhOWE4M2I4MDQ2NGJiMmZmMzg1Yjg3NjFkZWU3MWYxNDBhMjI0NDVhMDg1ZDk4OGFhYjMyY2U3ZDgyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY3MjFhOWE4M2I4MDQ2NGJiMmZmMzg1Yjg3NjFkZWU3MWYxNDBhMjI0NDVhMDg1ZDk4OGFhYjMyY2U3ZDgyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjRkODdhNTEyZTUyZWE0NWU2OTlhOTA2OTQ2ZGI2MmIxNWE5MzlkZDNmOGU3OTIyODMzYjE5NjdiYTg0MjVhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTM4YzlkNjVmNTQ2N2FjNzdhYmQ2YWRiN2IyYTIzMmRhZTRlMGYxZDZlMTkzMjk4YTJlNjEzM2JjMWU4MjAxNSJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L35-L36",
+          "version": "repo-lines-v1:sha256:c663bd4e9c93326f75b1ccdf02c8c938eea9979898e873b822e73fa5dd75b838:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJkNWQ4YTg5MDhjNTY2MjAzMzQ2ZGZmZjgyYTE4MDRkYjA1MjZiZWJmMjQ0Y2U5NGYyZjdlNTU0ZmM2YzI2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODQzNWI5Yzg2NjAzZGQ3NjNiYTgwOGEzYjM4MWI4NjRhY2M3MDAzMDA4ZGQxMjlkMTU1NjE0ZGZhOTM5M2MyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdlN2JlZjBhZWZkMDY5ZDRmM2Y5ZTVkNWM3MWM5YWY5ZTNmYWNiZWZkYzc1ZjlhZTkxNjY1MzVmNTZjZjlmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdmOTFmNWM1Yjg4ZTNiYzBjMTQzMzdlMjgwNWRhZTA0MTVhNWMwYjQxZmJiNzE0NmYwODVmMzEyYzQ1MDFiMCJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L60-L60",
+          "version": "repo-lines-v1:sha256:65407b0e5468adf03ead448fae4814cc09337faa078d982483d28eddeb79c705:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU0MDdiMGU1NDY4YWRmMDNlYWQ0NDhmYWU0ODE0Y2MwOTMzN2ZhYTA3OGQ5ODI0ODNkMjhlZGRlYjc5YzcwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU0MDdiMGU1NDY4YWRmMDNlYWQ0NDhmYWU0ODE0Y2MwOTMzN2ZhYTA3OGQ5ODI0ODNkMjhlZGRlYjc5YzcwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzY5M2E0N2UwOTJiOWMxMWRjNjgxZThiYjI4Y2ZhNmI2YzhiMDAxN2EyZGFmMWRkZjVkZjJmYzYyYWI1YjExOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmNkOGEyNzFmM2M4OTUyZjVmMDkxMTNjMTMxYjdhNDkxMDY2MWVmYjk4NDRhNzc2OTljZDgzYzg4ZWQ0MDczOCJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L64-L65",
+          "version": "repo-lines-v1:sha256:5331f22b6e727d13ea92bfc0510f901b8cadc7be5f91365816813e5677ae8378:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzA0ZjE4N2FkMTI5N2NkZTA3MDZkMmE4MWYxZDhjYTBhNGYzMTFlZWVhMTA4YjgyOTcyYWE0MGE3ZjA2MWFhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg4MjQ0NjIxNGEyMTQ4NDE4OWNkZTYzYmM2MzNkYWEyNDAyY2E0ZGRlNDNlNTUwY2YxNDE1NDU5ZTQ0N2RjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmNkOGEyNzFmM2M4OTUyZjVmMDkxMTNjMTMxYjdhNDkxMDY2MWVmYjk4NDRhNzc2OTljZDgzYzg4ZWQ0MDczOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjJhNWM2NzUyNjEwODkzZDg2NDUzZWMzYWU4ZDQxYTc5OTk2Y2VhZGE0NjVlZmQ4MzUzN2U1NjhhNDE1OTk5MSJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L7-L8",
+          "version": "repo-lines-v1:sha256:07de60b819bf4f4a8b7bce50f1cf304f98d5cc0788a75204cab177c523e88e61:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIyZDc1NGQ4ZjJhNzdmZWUxYzNkMDJkN2U2MDZkYmQ1YWZjMDlmZGMwNmI2YzlkODc1ZTc0YjJmNjlmYmUzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzY3NzNhZGY3NjRlYmE2NzhlNDcxNzA3ZGEzZDM3NjlhOGYzOWE0NzMwZWE5ZTc4Nzg3ZTVjYzNhNzYyNjcxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQ2YjU0Mjg0NDI3YjAyODU2NzMwOGY5YmYyMzRlNmE1NGY2MTM3OWUxM2VhNTE4MTgyNzJmZmNiOGJkYjI0MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDM2ZjQ2NDEzZjhiOGU5ODA2YTNiZTQ0NTk3MjlkMWZlNTk2ZTEyZmI4ZjdhM2U2NWVlODNlZmEzMThiNTVkYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d24d02e38fde45d78f038572ae0fb5c4",
+      "statement": "The submit handler builds a Checkout body, persists the Attempt to sessionStorage, and POSTs to /api/orders with an Idempotency-Key header carrying the stable attempt key.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L30-L38",
+          "version": "repo-lines-v1:sha256:cf6a78676f86744759a3bf28917847953faca6a4d6836a457f0293c6bc35f9f7:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmViZGRmODYwZGY3NzYyYmNhZWI2NzQ5OThlNTk0YzMyYWViOWFiYjkzMDQyMzM3NjY4ZWNjNDM3YmNlMTFkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMxY2E4MDFhZWQ0MmExY2NmMTFkZTQzM2Q3YWI2MDUyYjlhYzYwMzFjZGNkYjVkYTdjMDk0MmZmNWE1MjM4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWU0ODJmYmRhMGIyMTc0ZWJkYTA5M2NlNDY4Y2U1NzI2ZTc2MGRiZTYwZWE2NmRhZGE1ZWZlNjg4NmQ5NmQwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0NjAxNDU5YzBiZTI1MjkxZWIzYTc1YzM2YjcyMmEwZjJjNmMyYmM3NzY5ZGFkZWRjNjU2NDFhMGQxYmIyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fec50353be8f4a149ad4005014b0cedd",
+      "statement": "When a submission encounters a non-ApiError or connection interruption, the frontend warns the user that the order outcome may be unknown and prompts them to retry the same checkout.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L4-L14",
+          "version": "repo-lines-v1:sha256:ed53a1df2177d6203c61a93bb35399e6773731659d68d0c44b815f836323e68d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MzBjOWNlY2NhNDMwN2E5NWQ1NTA2NzdhNzdkZDdlYWE5MTQwNzJhYmZmYTRhYjZmYjMzMmI5OGMxYjk0OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlOGRlZTc0MjZkOGJlYmRmODBmMTRjZDMyYmE1MTY3MTEzMGJiMGI0YWQyYzI0OWU4ZWRjOTkyYmI2ZDgyNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main.tsx#L43-L43",
+          "version": "repo-lines-v1:sha256:976c9c2a3157a0c117550c1db096da78221dc885811e07c326a28752b2c45ba6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTc2YzljMmEzMTU3YTBjMTE3NTUwYzFkYjA5NmRhNzgyMjFkYzg4NTgxMWUwN2MzMjZhMjg3NTJiMmM0NWJhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTc2YzljMmEzMTU3YTBjMTE3NTUwYzFkYjA5NmRhNzgyMjFkYzg4NTgxMWUwN2MzMjZhMjg3NTJiMmM0NWJhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTI1ZTgyMWZkYzVhOGY0ZDZmYjVmNzViY2JjZTNjMDI4OTk1MGRhZjlhMzQ5Y2NhZThiN2M2OWRlMDJjNTI5OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjVkZDY5NWZhMzFjYjlkNzA4Y2I2MDE5NDZiZmU5NTdiZDhkNWQwODUyOTBkNDdjY2UzZDgxMDdlMzllNzJkNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c2b52600138419689822f87ac8dc930",
+      "statement": "If a failed POST response carries an ApiError body containing an `order` property, or an `id` paired with a `status`, the frontend surfaces those details as a selected order despite the non-2xx response.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L41-L42",
+          "version": "repo-lines-v1:sha256:83fb953bf7739727b12a81b0adcc76b9cddcc3b1b86435ee8a6ee931fe47e624:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWM3MWIyNDI2Y2VlZjhjYzI3ZmE2Y2Q3NWNmYWEwMmY3YmE1YzhhOGFhZTE0NGJlOTk3OGE2YzJjMmRkYjMxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWMwY2M0NTlmZWJiMzk3MmRkYmM5NTY1M2FlNjhlMWMxMzA2Yjc4NzI5MDJiOWJjNzQzNDIwOTU1MWVmMmQ5NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGNiODZiMDBhYzQ4NzQxZmJiZjA0YTE2MDEyYmIzODcwZjcxNDE1ODM1Njg3YzdlMmFhMTNlNDQzNDM2ZjFlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjM3YWFiZWM1NDIwNzQwOTZlZTk3ZTQ3ODgxNTk3MDQzODY2OGFlMTc5Njg1OTBhZmI2MjA0MzQ2NmMyOTkyMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9ee9fff37a8b4677bda07dde2f6aa985",
+      "statement": "For backend errors that do not include an order payload, the frontend displays the error message extracted from the response body fields `message`, `failureReason`, or `detail`.",
+      "evidence": [
+        {
+          "resource": "repo://src/api.ts#L9-L11",
+          "version": "repo-lines-v1:sha256:2d939e8b89c53f861e826daad3ec08308a840b1395d389d59945b680a929e9c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1NTRhYjU2ZDFlMDkxNmI2M2JkZjFjYjI2MTEwMjNjYTY5ZjYyMzRiNzZkYTJiMTgxZDFmNjVlMjRiNDA1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI5MDFjY2M5ZDczZThkMzRhZGMxNTEzNDliYzdiNTg3NGM2ODNkNjhkNzQ0N2E2MmVmOTJiMWU4NDQyZjYwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODU4OTUyNmU0OGZjZWRjMWNlNzg5N2JkMGUxZjI2ZjkzMzVkMWY0Njk3ZGEyOTE5OGQ4OWMxZmUyNTkzODkwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2EzZDgwMWQxN2IwZTg0OWMxODZlYjhhMmE0NGY1ODM1YmQ1YzEwMWY3ZDkyMWQyZTc5M2ViYThlZGUxNzE1OSJ9"
+        },
+        {
+          "resource": "repo://src/main.tsx#L43-L43",
+          "version": "repo-lines-v1:sha256:976c9c2a3157a0c117550c1db096da78221dc885811e07c326a28752b2c45ba6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTc2YzljMmEzMTU3YTBjMTE3NTUwYzFkYjA5NmRhNzgyMjFkYzg4NTgxMWUwN2MzMjZhMjg3NTJiMmM0NWJhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTc2YzljMmEzMTU3YTBjMTE3NTUwYzFkYjA5NmRhNzgyMjFkYzg4NTgxMWUwN2MzMjZhMjg3NTJiMmM0NWJhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTI1ZTgyMWZkYzVhOGY0ZDZmYjVmNzViY2JjZTNjMDI4OTk1MGRhZjlhMzQ5Y2NhZThiN2M2OWRlMDJjNTI5OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjVkZDY5NWZhMzFjYjlkNzA4Y2I2MDE5NDZiZmU5NTdiZDhkNWQwODUyOTBkNDdjY2UzZDgxMDdlMzllNzJkNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fce4e6c0bf1f4d96876585c89d916bc8",
+      "statement": "Starting a new order triggers a confirmation dialog warning that the previous payment may still be pending; on confirmation it clears sessionStorage, the cart, attempt state, and any selected order or displayed messages.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L46-L49",
+          "version": "repo-lines-v1:sha256:e5cb08dcf75556b4775d8b481f681888dd80ff57478ec6249e9aefe95d720325:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODQzOTUyNjE0Y2JkOTExZDUxZGE5ZDAzMmUzM2M3MTI4YTU5OGZiM2EwZDZiZDQyMjQ5NzJlNzg2NWY4OTk3NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjM3YWFiZWM1NDIwNzQwOTZlZTk3ZTQ3ODgxNTk3MDQzODY2OGFlMTc5Njg1OTBhZmI2MjA0MzQ2NmMyOTkyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzAxNDVlMWM5MjM5OWI4YTc5YTVjNDFkNjc0MWY4Y2I3MDgwZjg5Y2NlMTJlNmUxYzM0YmI0ZjUzOTZkZmRkNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3cfbf8e408d24241abe0c9efbe11096d",
+      "statement": "The submit handler calls refresh() in its finally block to reload products, order history, and notification records regardless of whether the POST succeeded or failed.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.tsx#L44-L44",
+          "version": "repo-lines-v1:sha256:97cf034ff8155f702a2c4db3ff1aefed048acf3f25402de2417d0e777a459062:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjZjAzNGZmODE1NWY3MDJhMmM0ZGIzZmYxYWVmZWQwNDhhY2YzZjI1NDAyZGUyNDE3ZDBlNzc3YTQ1OTA2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjZjAzNGZmODE1NWY3MDJhMmM0ZGIzZmYxYWVmZWQwNDhhY2YzZjI1NDAyZGUyNDE3ZDBlNzc3YTQ1OTA2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyZTg1ODQxNTE1YzQzNGJkZjU1YjU5YmJhYjllZGY1ZDVhYWU2OWQ4NjZiYzFlMDYxM2NjMzhlYjgyM2NkZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzliMTZmMTlhNjk4N2M0MGMxOWU1NDJkOTU1NDljNzFlMzJiNzRjNzE0NTY3NGRiM2ZiYzMwN2I5ZTRlZTQ3MyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

@@ -1,42 +1,60 @@
 # Community 2
 
-> 16 nodes · cohesion 0.12
+> 49 nodes · cohesion 0.09
 
 ## Key Concepts
 
-- **services** (12 connections) — `compose.yaml`
-- **volumes** (6 connections) — `compose.yaml`
-- **customer-portal** (4 connections) — `compose.yaml`
-- **compose.yaml** (3 connections) — `compose.yaml`
-- **mock-providers** (3 connections) — `compose.yaml`
-- **build** (1 connections) — `compose.yaml`
-- **depends_on** (1 connections) — `compose.yaml`
-- **ports** (1 connections) — `compose.yaml`
-- **build** (1 connections) — `compose.yaml`
-- **volumes** (1 connections) — `compose.yaml`
-- **name** (1 connections) — `compose.yaml`
-- **inventory-data** (1 connections) — `compose.yaml`
-- **notifications-data** (1 connections) — `compose.yaml`
-- **orders-data** (1 connections) — `compose.yaml`
-- **provider-data** (1 connections) — `compose.yaml`
-- **rabbit-data** (1 connections) — `compose.yaml`
+- **cli.py** (31 connections) — `commercelens_ai/cli.py`
+- **main()** (22 connections) — `commercelens_ai/cli.py`
+- **knowledge.py** (19 connections) — `commercelens_ai/knowledge.py`
+- **build_relationships()** (18 connections) — `commercelens_ai/knowledge.py`
+- **build_corpus()** (17 connections) — `commercelens_ai/knowledge.py`
+- **test_ai_knowledge.py** (17 connections) — `tests/test_ai_knowledge.py`
+- **KnowledgeTests** (13 connections) — `tests/test_ai_knowledge.py`
+- **make_retriever()** (8 connections) — `commercelens_ai/cli.py`
+- **prepare_knowledge()** (8 connections) — `commercelens_ai/cli.py`
+- **get_dependencies()** (8 connections) — `commercelens_ai/knowledge.py`
+- **LocalRetriever** (8 connections) — `commercelens_ai/retrieval.py`
+- **make_assistant()** (6 connections) — `commercelens_ai/cli.py`
+- **os** (6 connections)
+- **_repository_url()** (5 connections) — `commercelens_ai/knowledge.py`
+- **_sections()** (5 connections) — `commercelens_ai/knowledge.py`
+- **_hash()** (4 connections) — `commercelens_ai/knowledge.py`
+- **_manifest()** (4 connections) — `commercelens_ai/knowledge.py`
+- **_tokens()** (4 connections) — `commercelens_ai/retrieval.py`
+- **CliTests** (4 connections) — `tests/test_ai_cli.py`
+- **yaml** (4 connections)
+- **atomic_write()** (3 connections) — `commercelens_ai/cli.py`
+- **entrypoint()** (3 connections) — `commercelens_ai/cli.py`
+- **ingest_lock()** (3 connections) — `commercelens_ai/cli.py`
+- **_body()** (3 connections) — `commercelens_ai/knowledge.py`
+- **_normalize()** (3 connections) — `commercelens_ai/knowledge.py`
+- *... and 24 more nodes in this community*
 
 ## Relationships
 
-- [Community 4](Community_4.md) (3 shared connections)
-- [Community 5](Community_5.md) (2 shared connections)
-- [Community 8](Community_8.md) (2 shared connections)
-- [Community 10](Community_10.md) (1 shared connections)
-- [Community 1](Community_1.md) (1 shared connections)
+- [Community 5](Community_5.md) (20 shared connections)
+- [Community 1](Community_1.md) (15 shared connections)
+- [Community 6](Community_6.md) (12 shared connections)
+- [Community 3](Community_3.md) (11 shared connections)
+- [Community 0](Community_0.md) (4 shared connections)
+- [Community 8](Community_8.md) (3 shared connections)
+- [Community 7](Community_7.md) (3 shared connections)
+- [Community 12](Community_12.md) (2 shared connections)
 
 ## Source Files
 
-- `compose.yaml`
+- `commercelens_ai/__main__.py`
+- `commercelens_ai/cli.py`
+- `commercelens_ai/knowledge.py`
+- `commercelens_ai/retrieval.py`
+- `tests/test_ai_cli.py`
+- `tests/test_ai_knowledge.py`
 
 ## Audit Trail
 
-- EXTRACTED: 24 (100%)
-- INFERRED: 0 (0%)
+- EXTRACTED: 169 (98%)
+- INFERRED: 3 (2%)
 - AMBIGUOUS: 0 (0%)
 
 ---

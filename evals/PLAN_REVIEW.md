@@ -1,10 +1,10 @@
 # Plan evaluation and review
 
-Review status: first case awaiting approval; remaining cases will be reviewed one at a time. The proposed coverage target is 16 cases, not yet 16 implemented golden entries. The four original Plan entries remain in golden.jsonl. Replan UI/API support is not implemented by this evaluator change.
+Review status: 18 Plan-mode cases are stored in golden.jsonl: all 18 approved. All 24 Ask cases remain approved. Plan 12 now follows the investigation-only debugging policy. Replan UI/API is implemented. Both Replan cases call the structured engine operation shared with POST /api/replan.
 
 ## Scoring contract
 
-Each plan receives eight separate semantic scores and reasons:
+Actual implementation plans receive eight separate semantic scores and reasons. Behavioral responses and debugging leads use their own acceptance criteria instead:
 
 | Dimension | What sufficient detail means |
 |---|---|
@@ -25,7 +25,7 @@ The existing plan_quality summary is the mean of applicable dimension scores div
 
 Factual RAGAS metrics remain skipped for plans. These rubrics use an LLM judge and require human calibration. Path/hash evidence identifies sources but is not file content supplied to the judge. verified_current_facts are reviewer-checked facts; retrieved contexts remain the assistant's runtime evidence.
 
-## Proposed coverage
+## Dataset coverage
 
 | Category | Cases | Review focus |
 |---|---:|---|
@@ -35,51 +35,50 @@ Factual RAGAS metrics remain skipped for plans. These rubrics use an LLM judge a
 | External dependencies | 2 | Provider capability checks, boundaries and alternatives |
 | Missing information or constraints | 2 | Clarification, assumptions and conditional recommendations |
 | Irrelevant or infeasible requests | 2 | Appropriate response instead of an invented implementation |
-| Replan | 2 | Respect selected alternative and original requirements; future capability |
+| Replan | 2 | Respect selected alternative and original requirements; structured revision tests |
+| Debugging | 2 | Missing email and misleading payment diagnosis; investigation leads only |
 
-Behavioral Plan cases should be designed and routed to behavior-specific grading when added; the eight-dimension rubric is for actual implementation plans, not a demand to produce a plan for an irrelevant question. Replan cases and their execution contract will be reviewed separately. This coverage is not claimed implemented yet.
+Behavioral cases use behavior-specific grading. Debugging cases (including Plan 12) use response_policy=investigation_leads: grade known/unknown separation, relevant services, grounded hypotheses, ordered checks and evidence requests. Do not reward implementation plans, service changes or selected fixes. plan_quality is null. Application factual claims still need citations. All debugging examples are approved; no live evaluation of the completed set is claimed.
 
-## Plan 1: destination-based shipping
+## Approved detailed examples
 
-**Question:** Plan a high-level change from fixed shipping charges to destination-based rates.
+These examples show the required depth and organization. Implementation examples are embedded as example_plan; behavioral expected answers are stored as reference, alongside their acceptance criteria. They are not exact-match references, and proposals must not be treated as existing facts.
 
-**Status:** Pending user review. Meaningful alternatives are required for this case.
+- [Plan 1: destination-based shipping](plan-examples/destination-shipping.md) — approved; expanded overall strategy, separate service changes, ordered stages, requirement mapping and justified alternatives.
+- [Plan 2: recover failed notifications](plan-examples/notification-replay.md) — approved; operator-controlled recovery, history and duplicate protection, conditional interface impacts and alternative approaches.
 
-### Verified current facts
+Meaningful alternatives are required in the approved cases. The replay case requires Notification Worker; Customer Portal and Order impacts depend on the selected approach. All 18 Plan-mode cases, including the two additional debugging cases, are approved.
 
-- Shipping Service returns a fixed $5 USD charge and validates the provider shipment charge against that fixed amount.
-- Order Service calculates its total using fixed shipping before payment, then requests shipment creation after payment authorization.
-- Customer Portal displays a fixed shipping estimate.
-- Payment Service accepts the total from Order Service; changing its interface is not inherently necessary.
-- The current Shipping implementation does not establish a destination-based quoting capability. Do not assume the external provider supports it.
+- [Plan 3: recover uncertain payment outcomes](plan-examples/payment-reconciliation.md) — approved; original-payment verification, safe continuation, conditional service impacts and recovery alternatives.
 
-### Expected overall strategy
+- [Plan 4: extend order confirmation emails](plan-examples/order-email-products.md) — approved; event evolution, consumer/provider compatibility, rollout order and preserved delivery protections.
 
-Explain how Shipping will supply a destination-based quote, how Order will use an agreed amount before payment, and how Portal will show it before confirmation. Define assumptions around supported destinations, validity and changes. Application-managed regional rules are one reasonable starting approach; provider quotes are also acceptable if proposed conditionally and justified.
+- [Plan 5: filter loaded orders by status](plan-examples/portal-status-filter.md) — approved; single-service UI scope, loaded-data boundaries, accessibility and useful alternatives.
 
-### Per-service detail
+- [Plan 6: configurable notification attempts](plan-examples/notification-attempt-limit.md) — approved; bounded configuration, restart consistency and preservation of terminal outcomes.
 
-- **Shipping:** Explain rate determination, unsupported destinations and unavailable rates. Define quote terms and update existing fixed-charge shipment validation. Address the relationship between customer price and provider cost.
-- **Order:** Obtain/validate the quote before payment, preserve the accepted amount across retries, and require renewed confirmation for expired or changed quotes rather than silently changing the charge.
-- **Portal:** Display shipping and updated total before confirmation; refresh when destination changes; handle unavailable quotes and prevent confirmation without a valid total.
-- Additional service changes must be justified. A retrieved service is not automatically a service that must change.
+- [Plan 7: application-wide troubleshooting](plan-examples/checkout-observability.md) — approved; all-service diagnostics, asynchronous continuity, timing and external visibility limits.
 
-### Implementation sequence
+- [Plan 8: application-wide readiness](plan-examples/service-readiness.md) — approved; health semantics, deployment enforcement, capability degradation and recovery.
 
-1. Agree on pricing rules and the quote interface, validity and failure behavior.
-2. Implement Shipping quote support and compatibility with existing checkout.
-3. Integrate Order's total/payment and retry behavior. Portal development may proceed in parallel once the interface is agreed.
-4. Integrate the customer-visible quote and confirmation flow.
-5. Validate displayed, accepted and payment-requested amounts; cover changed destinations, quote expiry, failures and retries before enabling the flow.
+- [Plan 9: integrate an external payment provider](plan-examples/external-payment-provider.md) — approved; complete provider integration, customer collection, authoritative outcomes and refunds.
 
-### Requirement-to-solution explanation
+- [Plan 10: external shipment tracking](plan-examples/shipment-tracking.md) — approved; provider lookup, freshness, separate order/delivery states and resilient display.
 
-The plan should explicitly connect destination-sensitive pricing to Shipping, correct payment totals to Order, pre-confirmation visibility to Portal, and repeat-checkout consistency to the accepted quote. Explain remaining gaps instead of claiming the requirement is satisfied merely because services were listed.
+- [Plan 11: clarify retry scope](plan-examples/clarify-retries.md) — approved; single-turn clarification, relevant options and request to re-ask with operation/outcome.
 
-### Alternatives and preference
+Behavioral Plan cases expecting clarify, redirect, unknown or uncertain use the semantic behavior rubric with plan_quality null; implementation dimensions are not required. Routing is based on the case expectation, not the generated answer label. Optional citations apply only without factual assertions. Plan mode supports early clarification/scope routing. These paths are covered by local mocked tests, not a live judge calibration yet.
 
-- **Application-managed regional rules:** Predictable business pricing without an unverified provider quote dependency; requires rule maintenance and may diverge from provider costs.
-- **Provider-supplied quotes:** Potentially closer to provider pricing, conditional on verified provider support; introduces outage, validity and price-change handling.
-- **Hybrid, if useful:** Provider quotes with an explicitly approved fallback policy; adds resilience but also reconciliation complexity. Not a mandatory third option.
+- [Plan 12: missing production performance evidence](plan-examples/production-checkout-evidence.md) — approved; acknowledge missing operational evidence and provide investigation leads, ordered checks and evidence requests without proposing fixes. Uses uncertain behavior scoring rather than implementation-plan dimensions.
 
-The recommendation must explain why the choice fits the actual requirements and verified capabilities. It should identify conditions under which another option would be preferable. No specific option is the sole correct answer.
+- [Plan 13: unrelated application request](plan-examples/unrelated-application.md) — approved; brief scope redirect without invented architecture, citations or implementation sections.
+
+- [Plan 14: incompatible tracking requirements](plan-examples/incompatible-tracking-requirements.md) — approved; explicit constraint conflict, no impossible guarantee, and conditional alternatives requiring an agreed requirement change. Uses the existing uncertain behavior route with case-specific criteria; do not confuse constraint infeasibility with missing evidence.
+
+- [Plan 15: replan using provider quotes](plan-examples/replan-provider-quotes.md) — approved; selected-alternative adherence, preserved original requirements, no regional fallback and quote consistency. The original request, full previous proposal and selection are embedded in the question and retained as replan_context. execution_contract=structured_replan: the evaluator calls Assistant.replan, shared with the API. Browser state is not persisted across reloads.
+
+- [Plan 16: replan notification recovery as a command](plan-examples/replan-notification-command.md) — approved; respects excluded Portal/Order changes and preserves recovery safeguards. Structured Replan engine test; API and browser checks are reported separately.
+- [Plan 17: missing confirmation email](plan-examples/debug-missing-email.md) — approved; trace publication, messaging, worker and provider as investigation leads without triggering recovery.
+- [Plan 18: payment timeout diagnosis](plan-examples/debug-payment-timeout.md) — approved; reject timeout-as-failure, inspect original attempt and provider evidence without proposing another charge.
+
+The assistant receives a debugging-specific instruction even in Plan mode. Local mocked tests verify that this instruction reaches the model and that the judge uses the investigation-only policy with no plan-quality score. They do not demonstrate live-model adherence or calibrated judging; live evaluation remains pending.

@@ -1,26 +1,32 @@
 application:
   id: commercelens
   name: CommerceLens
+  repository: https://github.com/nagv/CommerceLens.git
+  repository_ref: codex/commercelens-monorepo
 services:
 - id: customer-portal
-  repository: https://github.com/nagv/commercelens-customer-portal.git
-  path: ../commercelens-customer-portal
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/customer-portal
   aliases:
   - web-portal
   catalog_pages:
   - openwiki/service-context.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/customer-portal
 - id: order-service
-  repository: https://github.com/nagv/commercelens-order-service.git
-  path: ../commercelens-order-service
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/order-service
   aliases:
   - orders-api
   - orders.internal
   catalog_pages:
   - openwiki/service-context.md
   - openwiki/workflows/failure-handling.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/order-service
 - id: inventory-service
-  repository: https://github.com/nagv/commercelens-inventory-service.git
-  path: ../commercelens-inventory-service
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/inventory-service
   aliases:
   - inventory-api
   - inventory.internal
@@ -28,30 +34,38 @@ services:
   - openwiki/service/overview.md
   - openwiki/service/dependencies.md
   - openwiki/service/api.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/inventory-service
 - id: payment-service
-  repository: https://github.com/nagv/commercelens-payment-service.git
-  path: ../commercelens-payment-service
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/payment-service
   aliases:
   - payments-api
   - payments.internal
   catalog_pages:
   - openwiki/service-context.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/payment-service
 - id: shipping-service
-  repository: https://github.com/nagv/commercelens-shipping-service.git
-  path: ../commercelens-shipping-service
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/shipping-service
   aliases:
   - shipping-api
   - shipping.internal
   catalog_pages:
   - openwiki/service/overview.md
   - openwiki/integrations/provider.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/shipping-service
 - id: notification-worker
-  repository: https://github.com/nagv/commercelens-notification-worker.git
-  path: ../commercelens-notification-worker
+  repository: https://github.com/nagv/CommerceLens.git
+  path: services/notification-worker
   aliases:
   - notifications
   catalog_pages:
   - openwiki/service-context.md
+  repository_ref: codex/commercelens-monorepo
+  repository_path: services/notification-worker
 pipeline:
   per_repository_order:
   - graphify

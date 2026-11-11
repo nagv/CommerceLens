@@ -14,10 +14,10 @@ sources:
     resource: repo://catalog/service-cards/payment-service.json
   - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
     resource: repo://catalog/service-cards/shipping-service.json
-generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-11T23:33:01.875Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T04:25:14.217Z
+    at: 2026-11-11T23:36:30.387Z
 ---
 
 # Documented business flows
@@ -35,7 +35,7 @@ These per-service flow summaries preserve documented boundaries. Use the linked 
 - Frontend displays order status, tracking, error explanation, or network warning
 - User views order history and notification records in the Operations tab
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md)
 
 ## order-service
 
@@ -51,7 +51,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-cu
 - Insert order_outbox event for RabbitMQ delivery
 - Return 201 with confirmed order
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/workflows/failure-handling.md)
 
 ## inventory-service
 
@@ -64,7 +64,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-or
 - Receive release request for orderId
 - Restore stock to inventory_products and mark reservation released
 
-Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/overview.md)
+Read more: [openwiki/service/api.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/overview.md)
 
 ## payment-service
 
@@ -75,7 +75,7 @@ Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-invent
 - Validate provider response
 - Return JSON result to caller
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md)
 
 ## shipping-service
 
@@ -85,7 +85,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-pa
 - Validate provider response structure and fixed shippingCents value
 - Return shipment details or map failures to HTTP 502/504/422 with outcome status
 
-Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md)
+Read more: [openwiki/integrations/provider.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/service/overview.md)
 
 ## notification-worker
 
@@ -97,6 +97,6 @@ Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercel
 - Persist final status, attempts, and last error to PostgreSQL
 - Ack sent messages or nack without requeue to dead-letter exhausted/invalid messages
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md)
 
 [Master entry point](quickstart.md)

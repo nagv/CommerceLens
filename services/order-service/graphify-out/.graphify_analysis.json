@@ -1,0 +1,311 @@
+{
+  "communities": {
+    "0": [
+      "com_fasterxml_jackson_databind_objectmapper",
+      "getmapping",
+      "org_springframework_stereotype_repository",
+      "org_springframework_transaction_annotation_transactional",
+      "postmapping",
+      "restcontroller",
+      "src_main_java_com_commercelens_orders_checkout_order",
+      "src_main_java_com_commercelens_orders_checkout_order_order",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_create",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_get",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_health",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_list",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_ordercontroller",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_products",
+      "src_main_java_com_commercelens_orders_orderstore",
+      "src_main_java_com_commercelens_orders_orderstore_existing",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_bykey",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_checkpoint",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_create",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_decode",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_encode",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_finish",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_get",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_healthy",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_list",
+      "src_main_java_com_commercelens_orders_orderstore_orderstore_orderstore",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_checkpoint",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_remoteservices"
+    ],
+    "1": [
+      "org_junit_jupiter_api_test",
+      "src_main_java_com_commercelens_orders_checkout_checkout_checkout",
+      "src_main_java_com_commercelens_orders_checkout_checkout_release",
+      "src_main_java_com_commercelens_orders_checkout_checkout_run",
+      "src_main_java_com_commercelens_orders_checkout_ports",
+      "src_main_java_com_commercelens_orders_checkout_ports_checkpoint",
+      "src_main_java_com_commercelens_orders_checkout_ports_pay",
+      "src_main_java_com_commercelens_orders_checkout_ports_refund",
+      "src_main_java_com_commercelens_orders_checkout_ports_release",
+      "src_main_java_com_commercelens_orders_checkout_ports_ship",
+      "src_test_java_com_commercelens_orders_checkouttest",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_declinereleasesreservation",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_failedcompensationrequiresmanualreview",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_paymentconflictretainsreservationforreconciliation",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_request",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_shipmentfailurerefundsandreleases",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_successusesauthoritativeprices",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_timeoutkeepsreservationforreconciliation",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_uncertainshipmentretainspaymentandreservation",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports_pay",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports_refund",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports_release",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports_ship",
+      "src_test_java_com_commercelens_orders_orderstoretest_orderstoretest_postgresacceptsonlyoneconcurrentidempotencykey"
+    ],
+    "2": [
+      "core",
+      "correlationdata",
+      "map",
+      "org_springframework_amqp_rabbit_core_rabbittemplate",
+      "org_springframework_context_annotation_bean",
+      "org_springframework_jdbc_core_jdbctemplate",
+      "org_springframework_scheduling_annotation_scheduled",
+      "org_springframework_stereotype_component",
+      "org_springframework_transaction_support_transactiontemplate",
+      "src_main_java_com_commercelens_orders_outboxpublisher",
+      "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher",
+      "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher_deadqueue",
+      "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher_orderqueue",
+      "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher_outboxpublisher",
+      "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher_publish",
+      "standardcharsets",
+      "timeunit"
+    ],
+    "3": [
+      "com_fasterxml_jackson_databind_jsonnode",
+      "httpclient",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_pay",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_products",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_refund",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_release",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_request",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_required",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_reserve",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_reserve_object_typereference_list_map_string_object_l28",
+      "src_main_java_com_commercelens_orders_remoteservices_remoteservices_ship"
+    ],
+    "4": [
+      "annotation",
+      "checkout_remotefailure",
+      "exceptionhandler",
+      "messagedigest",
+      "org_springframework_http_converter_httpmessagenotreadableexception",
+      "org_springframework_http_responseentity",
+      "src_main_java_com_commercelens_orders_checkout_remotefailure",
+      "src_main_java_com_commercelens_orders_checkout_remotefailure_remotefailure",
+      "src_main_java_com_commercelens_orders_ordercontroller",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_bad",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_upstream"
+    ],
+    "5": [
+      "assertions",
+      "assumetrue",
+      "classpathresource",
+      "concurrent",
+      "drivermanagerdatasource",
+      "jdbctemplate",
+      "objectmapper",
+      "resourcedatabasepopulator",
+      "src_test_java_com_commercelens_orders_orderstoretest",
+      "src_test_java_com_commercelens_orders_orderstoretest_orderstoretest",
+      "uuid"
+    ],
+    "6": [
+      "duration",
+      "http",
+      "instant",
+      "jsonignore",
+      "src_main_java_com_commercelens_orders_checkout",
+      "src_main_java_com_commercelens_orders_remoteservices",
+      "typereference",
+      "uri",
+      "util",
+      "value"
+    ],
+    "7": [
+      "src_main_java_com_commercelens_orders_checkout_checkout",
+      "src_main_java_com_commercelens_orders_checkout_checkout_validate",
+      "src_main_java_com_commercelens_orders_checkout_item",
+      "src_main_java_com_commercelens_orders_checkout_ports_reserve",
+      "src_main_java_com_commercelens_orders_checkout_request",
+      "src_main_java_com_commercelens_orders_checkout_reservation",
+      "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller_hash",
+      "src_test_java_com_commercelens_orders_checkouttest_checkouttest_rejectsinvalidquantitiesandduplicateskus",
+      "src_test_java_com_commercelens_orders_checkouttest_fakeports_reserve"
+    ],
+    "8": [
+      "org_springframework_boot_autoconfigure_springbootapplication",
+      "org_springframework_scheduling_annotation_enablescheduling",
+      "springapplication",
+      "src_main_java_com_commercelens_orders_orderapplication",
+      "src_main_java_com_commercelens_orders_orderapplication_orderapplication",
+      "src_main_java_com_commercelens_orders_orderapplication_orderapplication_main"
+    ],
+    "9": [
+      "src_main_resources_schema",
+      "src_main_resources_schema_order_outbox",
+      "src_main_resources_schema_orders"
+    ],
+    "10": [
+      "pkg_com_commercelens_order_service"
+    ]
+  },
+  "cohesion": {
+    "0": 0.13793103448275862,
+    "1": 0.17846153846153845,
+    "2": 0.19117647058823528,
+    "3": 0.3181818181818182,
+    "4": 0.21818181818181817,
+    "5": 0.18181818181818182,
+    "6": 0.2,
+    "7": 0.3611111111111111,
+    "8": 0.4666666666666667,
+    "9": 0.6666666666666666,
+    "10": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_main_java_com_commercelens_orders_orderstore_orderstore",
+      "label": "OrderStore",
+      "degree": 19
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_remoteservices_remoteservices",
+      "label": "RemoteServices",
+      "degree": 18
+    },
+    {
+      "id": "src_test_java_com_commercelens_orders_checkouttest_fakeports",
+      "label": "FakePorts",
+      "degree": 15
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_ordercontroller_ordercontroller",
+      "label": "OrderController",
+      "degree": 14
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_checkout_order",
+      "label": "Order",
+      "degree": 13
+    },
+    {
+      "id": "src_test_java_com_commercelens_orders_checkouttest_checkouttest",
+      "label": "CheckoutTest",
+      "degree": 11
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_checkout_checkout",
+      "label": "Checkout",
+      "degree": 11
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_checkout_request",
+      "label": "Request",
+      "degree": 11
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_checkout_ports",
+      "label": "Ports",
+      "degree": 10
+    },
+    {
+      "id": "src_main_java_com_commercelens_orders_outboxpublisher_outboxpublisher",
+      "label": "OutboxPublisher",
+      "degree": 9
+    }
+  ],
+  "surprises": [
+    {
+      "source": "OrderController",
+      "target": "RemoteServices",
+      "source_files": [
+        "src/main/java/com/commercelens/orders/OrderController.java",
+        "src/main/java/com/commercelens/orders/RemoteServices.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "RemoteServices",
+      "target": "OrderStore",
+      "source_files": [
+        "src/main/java/com/commercelens/orders/RemoteServices.java",
+        "src/main/java/com/commercelens/orders/OrderStore.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "RemoteServices",
+      "target": "Ports",
+      "source_files": [
+        "src/main/java/com/commercelens/orders/RemoteServices.java",
+        "src/main/java/com/commercelens/orders/Checkout.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "FakePorts",
+      "target": "RemoteFailure",
+      "source_files": [
+        "src/test/java/com/commercelens/orders/CheckoutTest.java",
+        "src/main/java/com/commercelens/orders/Checkout.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "Existing",
+      "target": "Order",
+      "source_files": [
+        "src/main/java/com/commercelens/orders/OrderStore.java",
+        "src/main/java/com/commercelens/orders/Checkout.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `RemoteServices` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 6`?",
+      "why": "High betweenness centrality (0.246) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `com.commercelens:order-service` to the rest of the system?",
+      "why": "1 weakly-connected nodes found - possible missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13793103448275862 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `OrderController` connect `Community 0` to `Community 3`, `Community 4`, `Community 7`?",
+      "why": "High betweenness centrality (0.129) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Ports` connect `Community 1` to `Community 3`, `Community 7`?",
+      "why": "High betweenness centrality (0.126) - this node is a cross-community bridge."
+    }
+  ]
+}

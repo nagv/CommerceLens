@@ -1,38 +1,55 @@
 # Community 3
 
-> 16 nodes · cohesion 0.12
+> 43 nodes · cohesion 0.08
 
 ## Key Concepts
 
-- **ProviderTests** (10 connections) — `tests/test_mock_providers.py`
-- **test_mock_providers.py** (6 connections) — `tests/test_mock_providers.py`
-- **pathlib** (2 connections)
-- **importlib_util** (1 connections)
-- **io** (1 connections)
-- **tempfile** (1 connections)
-- **.setUp()** (1 connections) — `tests/test_mock_providers.py`
-- **.tearDown()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_chunked_request_from_dotnet_client()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_conflicting_payment_rejected()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_decline_does_not_authorize()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_invalid_amount_and_missing_id_rejected()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_payment_replay_has_same_id_and_one_operation()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_refund_is_idempotent()** (1 connections) — `tests/test_mock_providers.py`
-- **.test_shipping_failure_and_email_failure()** (1 connections) — `tests/test_mock_providers.py`
-- **unittest** (1 connections)
+- **OpenAICompatibleModel** (16 connections) — `commercelens_ai/providers.py`
+- **test_ai_providers.py** (14 connections) — `tests/test_ai_providers.py`
+- **providers.py** (13 connections) — `commercelens_ai/providers.py`
+- **.from_env()** (11 connections) — `commercelens_ai/config.py`
+- **OpenAICompatibleEmbeddings** (11 connections) — `commercelens_ai/providers.py`
+- **ProviderTests** (10 connections) — `tests/test_ai_providers.py`
+- **Settings** (8 connections) — `commercelens_ai/config.py`
+- **ProviderError** (8 connections) — `commercelens_ai/providers.py`
+- **config.py** (7 connections) — `commercelens_ai/config.py`
+- **_Client** (7 connections) — `commercelens_ai/providers.py`
+- **SettingsTests** (7 connections) — `tests/test_ai_providers.py`
+- **._post()** (6 connections) — `commercelens_ai/providers.py`
+- **.embed()** (5 connections) — `commercelens_ai/providers.py`
+- **.complete()** (5 connections) — `commercelens_ai/providers.py`
+- **Response** (5 connections) — `tests/test_ai_providers.py`
+- **.__init__()** (3 connections) — `commercelens_ai/providers.py`
+- **_NoRedirect** (3 connections) — `commercelens_ai/providers.py`
+- **.test_chat_returns_content_and_usage()** (3 connections) — `tests/test_ai_providers.py`
+- **.test_embedding_order_and_actual_dimensions()** (3 connections) — `tests/test_ai_providers.py`
+- **channel()** (2 connections) — `commercelens_ai/config.py`
+- **get()** (2 connections) — `commercelens_ai/config.py`
+- **.call_count()** (2 connections) — `commercelens_ai/providers.py`
+- **.redirect_request()** (2 connections) — `commercelens_ai/providers.py`
+- **.__init__()** (2 connections) — `commercelens_ai/providers.py`
+- **.__init__()** (2 connections) — `commercelens_ai/providers.py`
+- *... and 18 more nodes in this community*
 
 ## Relationships
 
+- [Community 2](Community_2.md) (11 shared connections)
+- [Community 5](Community_5.md) (11 shared connections)
+- [Community 1](Community_1.md) (6 shared connections)
+- [Community 12](Community_12.md) (2 shared connections)
+- [Community 6](Community_6.md) (1 shared connections)
 - [Community 0](Community_0.md) (1 shared connections)
 
 ## Source Files
 
-- `tests/test_mock_providers.py`
+- `commercelens_ai/config.py`
+- `commercelens_ai/providers.py`
+- `tests/test_ai_providers.py`
 
 ## Audit Trail
 
-- EXTRACTED: 16 (100%)
-- INFERRED: 0 (0%)
+- EXTRACTED: 98 (91%)
+- INFERRED: 10 (9%)
 - AMBIGUOUS: 0 (0%)
 
 ---

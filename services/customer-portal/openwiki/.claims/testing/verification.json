@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:00f19b19b49baee90fc4f0327aa8a77af8a5337556cf860dd3a7012ad612b1a8",
+  "claims": [
+    {
+      "id": "claim_c7efcdef0a564384a501c25977fdadc4",
+      "statement": "The src/domain.test.ts test suite verifies cartSummary computes subtotal, shipping, total, and count from the trusted local product list for both filled and empty carts.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L7-L9",
+          "version": "repo-lines-v1:sha256:7e18a4a470c3fa4dc9e9ee333911f2357e9eb2ebd8907b1533426c451d3776a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmRjMzliMjIyZGVmMGFkODEzZTRhNDg5ODYxMjEwNzFkOTk1ZjM2ZWI5MDcwYWQ0OTU2NjFhYTZkMDRkNzA4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM1OTdiNDZkYWUzODA1MDdjOGZmZGM4MjZkZTFkOWM5ODJmODEyOWJjZTI5MTE2NzYxNmRiZjc2OTJkMzE1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmVlYTA1ZWYwN2JlZDZmMGFiNWYyNTAwMmU1Nzc3OWY5NmFjZTQ5MzIzYWViYWJiYzQ4YjA5NzU2MzhiMGRhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDRhOWE0M2Q1ODI5YWZhNmNkODZhZWJhZWZjNmJlNWU1YTUyYWU2Y2RmYmJiYzBiMDUyYjk4YjAzZjIzZWI5YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_63cbb9ea56884fa5ada6963d802ddea6",
+      "statement": "The src/domain.test.ts test suite verifies validateCheckout rejects an empty cart, an invalid email, out-of-stock quantities, non-whole quantities, and returns null for a valid checkout.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L11-L16",
+          "version": "repo-lines-v1:sha256:aef5a504b5e1423f531840507a81e6c954ee457e27be775d210548dd83da61e3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTZlY2Y0ZDQzZGExYzZkMDljODU2ODRlNjUxMDkyNmQ4MTJiNWJmYWEzNDFiNDFkNDUwMmY3ODc1YTYyM2RjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNhMDFhNjQwNTdkZThlYmM1NjJkMTQzYmJjMzA1NjZjZDdiN2YyODBiMDI5NTg2MzE1ZDNiZmM5ZTU3ZjUyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTgzYTY3ZjNiNmU2MzI5MDM0ZWUwY2FmMmQwNGNmM2E0OWRhZjg4MGI4MzYyNTRkM2ExYmI1YmI3ZWVkZjQzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzY2N2Q4MmRiYTdhMjgyYWViMDQxZTBjN2RiYWJlMjZhOGUxMjRkYWUyYzg5YmI4ZDRiYjgwODc0YzI2ZDRkNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd9dbda626d24a83ae7fd3ce6ae9c820",
+      "statement": "The src/domain.test.ts test suite verifies checkoutAttempt reuses the original Attempt key and body snapshot on retry, preserving fields even if the caller changes them.",
+      "evidence": [
+        {
+          "resource": "repo://src/domain.test.ts#L18-L22",
+          "version": "repo-lines-v1:sha256:6256a5ededa4db9014fda5b19d2386be829bbb88ea9f45c5289f5c87e3548f29:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQwZjJlNzQ2ZTMzMWI2NzA2NzlmOTZlYTdlMDVlNWJkMjc5N2Q3MDkxYTEwYTZlNDg0N2Q0ZjBlMjY5ODkwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmExZmMwYTJjYzNmYmVkOWE4OTFjNDQ2MDU5MzIwYWU4YjIwYzVjMDc4NmE0MjRkYmVkZGI0ZDgwM2VkZWFlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWY1MjE1NTdkYzU1ZGQ5OGFjN2U3ZTcwZDFiN2FiZGVhODkzMTZiYzcwZmJmMzExYTM0NDliNzNlMjMwOGVmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDgxN2ZiYjczYzkyYjM2ZDVlNDg5NmZmNTFjMWI1OGVlYzMzMGJiZTk2MWJhMDVmYzYyMDVmODY3ZWExYmNmNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c532e8d30acc42c884d5f1bbe6253258",
+      "statement": "The npm run build script runs tsc -b followed by vite build, so TypeScript type checking is a prerequisite for production asset generation.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L8-L8",
+          "version": "repo-lines-v1:sha256:7406bc423aab401421a04f1580264ee55ce87de097dc98c26baa6ba0ce4c2ec1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQwNmJjNDIzYWFiNDAxNDIxYTA0ZjE1ODAyNjRlZTU1Y2U4N2RlMDk3ZGM5OGMyNmJhYTZiYTBjZTRjMmVjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQwNmJjNDIzYWFiNDAxNDIxYTA0ZjE1ODAyNjRlZTU1Y2U4N2RlMDk3ZGM5OGMyNmJhYTZiYTBjZTRjMmVjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEwOTYwOWIyYTgyODNkMTUyNTU3MjJjZGQ4MDg2ZmJmNjlkM2Y2NTRmYTI0MjVjNzg1Zjc1ZjMyNTJiNjQxNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmExNWI2NzgzOWRjYWNmNmM2MTE2NDE1ZTE2MmJhNjRjODZkNzI1OTk0ODRhNWYxZjhjODA5Y2JkMmJkZWZlYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_04d53264dcb44d909af90bc99118c4f9",
+      "statement": "Tests run via the vitest test runner invoked by npm test.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L9-L9",
+          "version": "repo-lines-v1:sha256:d04fb2f5a462577422df1b091ac1508715d7237dda8a058bfebddb45c621c5e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA0ZmIyZjVhNDYyNTc3NDIyZGYxYjA5MWFjMTUwODcxNWQ3MjM3ZGRhOGEwNThiZmViZGRiNDVjNjIxYzVlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA0ZmIyZjVhNDYyNTc3NDIyZGYxYjA5MWFjMTUwODcxNWQ3MjM3ZGRhOGEwNThiZmViZGRiNDVjNjIxYzVlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzU4YjgzNjI5NjYxNTMyZWEzYTk4OThiNmRjN2VhZDgyNmI5NzJiNmIwMGQ2MjhkOGZkZmI5MjllM2IxOTMwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM1YjA2ODFjNjQzMTlhYjNmYWYzMzI2ZTM3MTJlYzA1Mzc4MTg1NDQ1NDNhZmQ4OWNhNzYyZTA2Y2VlOGMxMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b4e34c4dac5047bb80aae0ce9b059988",
+      "statement": "The Dockerfile build stage runs npm test and npm run build during image construction, so Docker image creation doubles as CI verification and halts if tests or type checks fail.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L7-L7",
+          "version": "repo-lines-v1:sha256:5ba19af686609ce493af6af5dfa145b17b58a2d63b8e929a12660646bfc0be44:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJhMTlhZjY4NjYwOWNlNDkzYWY2YWY1ZGZhMTQ1YjE3YjU4YTJkNjNiOGU5MjlhMTI2NjA2NDZiZmMwYmU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJhMTlhZjY4NjYwOWNlNDkzYWY2YWY1ZGZhMTQ1YjE3YjU4YTJkNjNiOGU5MjlhMTI2NjA2NDZiZmMwYmU0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzBkYThjYzUxODE4NGQ1NjQxZTg3YzE1ZTI4YjdkOThiZjE2MTc5ZTAxZjhkYzMxZTZjMTRhMTY0OGNiMTAxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIwYWVhNmRhMTNjNmZkM2I4NWY4YmY5Yzc2ZTc4MzkxMDU0MGY1OTJjNmUwODI1NTQ2YWY2OTMyMmViNTBjYyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:21.917Z"
+  }
+}

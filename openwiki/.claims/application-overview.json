@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65",
+  "pageVersion": "sha256:f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea",
   "claims": [
     {
       "id": "claim_56abcdbd1a3a400c94bc6d8467ab93f5",
@@ -8,7 +8,7 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/customer-portal.json",
-          "version": "repo-file-v1:sha256:6946c47774993552fd39464f1d6d7d09a08821e17ced5e0b22cf2f19b021846e"
+          "version": "repo-file-v1:sha256:cdb5e447e160312b6e53c8790219e38efd40dbf41bc6938a01cfacb5aa1f48bd"
         }
       ]
     },
@@ -18,7 +18,7 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/order-service.json",
-          "version": "repo-file-v1:sha256:61bc652fa82fc20cdc5bf68801595eef55078c72e688a710eceb91c8ae0fc277"
+          "version": "repo-file-v1:sha256:9c9f9caf354e3b2e9e73fbd39e185f41fdf476be7c6ff24ed3ad2338dd5573ac"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/inventory-service.json",
-          "version": "repo-file-v1:sha256:5b8f4d459d0b6d9fa48956a772926c5751da94c5daa2bd9b2518a6f7ab7acbd9"
+          "version": "repo-file-v1:sha256:7b3521e5de22851e945589c5408f268932ab42024f1d42f8834c68fd264d1da6"
         }
       ]
     },
@@ -38,7 +38,7 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/payment-service.json",
-          "version": "repo-file-v1:sha256:74d485ed4fb52f9f27e8127c664158ed9e99e093cc7316135029cd9cd73d8f5e"
+          "version": "repo-file-v1:sha256:19c999ea9c21465be753baa9bd645fe0f4e140155426d91638b014a2a64fc4b0"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/shipping-service.json",
-          "version": "repo-file-v1:sha256:c061a7846b62b7f7ab87b1c545e35963ed24e834e56c669a59119b7a9dc94aa8"
+          "version": "repo-file-v1:sha256:cf8739cc3d0d4ddc31c884dbeb4c12d2e4399bb79fc5ad66de96a8d43d0f0e12"
         }
       ]
     },
@@ -58,13 +58,13 @@
       "evidence": [
         {
           "resource": "repo://catalog/service-cards/notification-worker.json",
-          "version": "repo-file-v1:sha256:a70bbcbe2cb60473682d87717af53bb2d75714893a85af197116c1241394aecd"
+          "version": "repo-file-v1:sha256:7afcbb756be5130709068e2bf33adc1ab811f09e4319ee7caea4dec5d311b0ce"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-11-09T04:25:14.217Z"
+    "at": "2026-11-11T23:36:30.387Z"
   }
 }

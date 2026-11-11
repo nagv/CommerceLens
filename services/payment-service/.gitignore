@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.log
+graphify-out/cache/
+graphify-out/.graphify_root
+openwiki/.run.json

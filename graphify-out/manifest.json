@@ -1,9 +1,9 @@
 {
   "compose.yaml": {
-    "mtime": 1794173747.9185295,
-    "seen": 1794176965.5628958,
-    "ast_hash": "53a1c97570a8c052109f6c05dcc2a5d0",
-    "semantic_hash": "53a1c97570a8c052109f6c05dcc2a5d0"
+    "mtime": 1794375639.6892722,
+    "seen": 1794375799.8375893,
+    "ast_hash": "e9333316eb2bf1bd9727732060b2e31c",
+    "semantic_hash": "e9333316eb2bf1bd9727732060b2e31c"
   },
   "mock-providers/server.py": {
     "mtime": 1794174639.302366,
@@ -12,10 +12,10 @@
     "semantic_hash": "46b731d9cb6b7c134dfe5c8c5f6b997b"
   },
   "scripts/bootstrap.ps1": {
-    "mtime": 1794173905.0162306,
-    "seen": 1794176965.5628958,
-    "ast_hash": "5469222e7b390e3441cdf6ac17ed2bae",
-    "semantic_hash": "5469222e7b390e3441cdf6ac17ed2bae"
+    "mtime": 1794375730.3164446,
+    "seen": 1794375799.8652995,
+    "ast_hash": "bf43877b2f4f09cfedddde723345f3fe",
+    "semantic_hash": "bf43877b2f4f09cfedddde723345f3fe"
   },
   "scripts/smoke.py": {
     "mtime": 1794174575.9542687,
@@ -24,10 +24,10 @@
     "semantic_hash": "77520621bacc595a94bd4022952f1106"
   },
   "services.example.yaml": {
-    "mtime": 1794172096.0801656,
-    "seen": 1794176965.5628958,
-    "ast_hash": "df531f9547a93f5502ec1a397c718a87",
-    "semantic_hash": "df531f9547a93f5502ec1a397c718a87"
+    "mtime": 1794375678.5626907,
+    "seen": 1794375799.91402,
+    "ast_hash": "5b1fb0f773a549be3e9a44a6645b006e",
+    "semantic_hash": "5b1fb0f773a549be3e9a44a6645b006e"
   },
   "tests/test_mock_providers.py": {
     "mtime": 1794174640.0912814,
@@ -36,9 +36,280 @@
     "semantic_hash": "4db0c27fe2d9d671f985c2ade3c1b0d7"
   },
   "scripts/graphify.ps1": {
-    "mtime": 1794177017.4611175,
-    "seen": 1794177020.6686423,
-    "ast_hash": "16055cfa6b895f08c8b2fccb39003368",
-    "semantic_hash": "16055cfa6b895f08c8b2fccb39003368"
+    "mtime": 1794375730.3177032,
+    "seen": 1794375799.8790436,
+    "ast_hash": "80ae28054d25d8d4627ca099d15493e2",
+    "semantic_hash": "80ae28054d25d8d4627ca099d15493e2"
+  },
+  "catalog/master-state.json": {
+    "mtime": 1794439627.244982,
+    "seen": 1794439903.110623,
+    "ast_hash": "a6118dddef08aa069813571d59c85b31",
+    "semantic_hash": "a6118dddef08aa069813571d59c85b31",
+    "ast_empty": true
+  },
+  "catalog/monorepo-migration.json": {
+    "mtime": 1794375639.6822703,
+    "seen": 1794375799.7964067,
+    "ast_hash": "3860e831ddc107f1abaeb4fdf65296de",
+    "semantic_hash": "3860e831ddc107f1abaeb4fdf65296de",
+    "ast_empty": true
+  },
+  "catalog/page-claims.json": {
+    "mtime": 1794198152.8793612,
+    "seen": 1794375799.7964067,
+    "ast_hash": "fce6285a070bc3866a3370421d46de94",
+    "semantic_hash": "fce6285a070bc3866a3370421d46de94",
+    "ast_empty": true
+  },
+  "catalog/relationships.json": {
+    "mtime": 1794439648.5703828,
+    "seen": 1794439903.117326,
+    "ast_hash": "6f5a57d4b05e57799d8ded540bb23d27",
+    "semantic_hash": "6f5a57d4b05e57799d8ded540bb23d27",
+    "ast_empty": true
+  },
+  "catalog/service-cards/customer-portal.json": {
+    "mtime": 1794439626.5125537,
+    "seen": 1794439903.117326,
+    "ast_hash": "737e42912c9258babd9226071bdb26c2",
+    "semantic_hash": "737e42912c9258babd9226071bdb26c2",
+    "ast_empty": true
+  },
+  "catalog/service-cards/inventory-service.json": {
+    "mtime": 1794439626.8660297,
+    "seen": 1794439903.117326,
+    "ast_hash": "f23a34c911503e9b5d87531fceea856e",
+    "semantic_hash": "f23a34c911503e9b5d87531fceea856e",
+    "ast_empty": true
+  },
+  "catalog/service-cards/notification-worker.json": {
+    "mtime": 1794439627.165782,
+    "seen": 1794439903.117326,
+    "ast_hash": "dd341c048e3e07f3ac50983819545c2e",
+    "semantic_hash": "dd341c048e3e07f3ac50983819545c2e",
+    "ast_empty": true
+  },
+  "catalog/service-cards/order-service.json": {
+    "mtime": 1794439626.7060077,
+    "seen": 1794439903.117326,
+    "ast_hash": "db85e88a95287e3c97a842d526389431",
+    "semantic_hash": "db85e88a95287e3c97a842d526389431",
+    "ast_empty": true
+  },
+  "catalog/service-cards/payment-service.json": {
+    "mtime": 1794439626.96038,
+    "seen": 1794439903.117326,
+    "ast_hash": "56a49a73a22da7a52c7191d5140645fc",
+    "semantic_hash": "56a49a73a22da7a52c7191d5140645fc",
+    "ast_empty": true
+  },
+  "catalog/service-cards/shipping-service.json": {
+    "mtime": 1794439627.0548072,
+    "seen": 1794439903.117326,
+    "ast_hash": "bc93c08c008888af323ac022a979f0cc",
+    "semantic_hash": "bc93c08c008888af323ac022a979f0cc",
+    "ast_empty": true
+  },
+  "commercelens_ai/__init__.py": {
+    "mtime": 1794243046.082478,
+    "seen": 1794375799.797405,
+    "ast_hash": "e18f568b347a4d5ed754556ec65f2d9e",
+    "semantic_hash": "e18f568b347a4d5ed754556ec65f2d9e"
+  },
+  "commercelens_ai/__main__.py": {
+    "mtime": 1794243858.232046,
+    "seen": 1794375799.8049312,
+    "ast_hash": "69cb4f0e524c85ddfc7355687069cd72",
+    "semantic_hash": "69cb4f0e524c85ddfc7355687069cd72"
+  },
+  "commercelens_ai/cli.py": {
+    "mtime": 1794376127.8287876,
+    "seen": 1794439903.1283643,
+    "ast_hash": "da4b8335792319a25b28052144e91258",
+    "semantic_hash": "da4b8335792319a25b28052144e91258"
+  },
+  "commercelens_ai/config.py": {
+    "mtime": 1794245082.848672,
+    "seen": 1794375799.8104594,
+    "ast_hash": "a75150af9bee4f888e3000b8a43f714b",
+    "semantic_hash": "a75150af9bee4f888e3000b8a43f714b"
+  },
+  "commercelens_ai/engine.py": {
+    "mtime": 1794290388.09849,
+    "seen": 1794375799.8134758,
+    "ast_hash": "f43085d422d1e493bb7d66948eca7cb0",
+    "semantic_hash": "f43085d422d1e493bb7d66948eca7cb0"
+  },
+  "commercelens_ai/eval_contracts.py": {
+    "mtime": 1794330646.60691,
+    "seen": 1794375799.8154757,
+    "ast_hash": "532b635a5b90db8678d4c29f383eac61",
+    "semantic_hash": "532b635a5b90db8678d4c29f383eac61"
+  },
+  "commercelens_ai/evaluation.py": {
+    "mtime": 1794331065.36553,
+    "seen": 1794375799.8174744,
+    "ast_hash": "ac853c1147cc93988e72ab1bb7f17ecf",
+    "semantic_hash": "ac853c1147cc93988e72ab1bb7f17ecf"
+  },
+  "commercelens_ai/knowledge.py": {
+    "mtime": 1794375678.5524576,
+    "seen": 1794375799.8200076,
+    "ast_hash": "00aeeebbc066f560c3898dfa32ee2795",
+    "semantic_hash": "00aeeebbc066f560c3898dfa32ee2795"
+  },
+  "commercelens_ai/plan_evaluation.py": {
+    "mtime": 1794285350.8499193,
+    "seen": 1794375799.8220294,
+    "ast_hash": "eb276b09059ed21c733a0a68b674ff8e",
+    "semantic_hash": "eb276b09059ed21c733a0a68b674ff8e"
+  },
+  "commercelens_ai/providers.py": {
+    "mtime": 1794243707.4404416,
+    "seen": 1794375799.8260264,
+    "ast_hash": "62d131bc702a8bb249eb5476495424ee",
+    "semantic_hash": "62d131bc702a8bb249eb5476495424ee"
+  },
+  "commercelens_ai/provision.py": {
+    "mtime": 1794244077.00598,
+    "seen": 1794375799.8275476,
+    "ast_hash": "643fe7472b2c6e96ce30bdb9396208ae",
+    "semantic_hash": "643fe7472b2c6e96ce30bdb9396208ae"
+  },
+  "commercelens_ai/retrieval.py": {
+    "mtime": 1794245217.9406364,
+    "seen": 1794375799.8300674,
+    "ast_hash": "d8fcfcf0119f54aae0721b43cbc38c98",
+    "semantic_hash": "d8fcfcf0119f54aae0721b43cbc38c98"
+  },
+  "commercelens_ai/server.py": {
+    "mtime": 1794290388.8154662,
+    "seen": 1794375799.8335845,
+    "ast_hash": "bd10124b6780ef4c83300293ef7ce384",
+    "semantic_hash": "bd10124b6780ef4c83300293ef7ce384"
+  },
+  "commercelens_ai/static/app.js": {
+    "mtime": 1794290468.0153046,
+    "seen": 1794375799.8355885,
+    "ast_hash": "46b6b7648150743359a9a2f069e19214",
+    "semantic_hash": "46b6b7648150743359a9a2f069e19214"
+  },
+  "evals/contrast_pairs.json": {
+    "mtime": 1794329848.9230747,
+    "seen": 1794375799.8442,
+    "ast_hash": "8621ff5631c9089eee5d8a8e53728d39",
+    "semantic_hash": "8621ff5631c9089eee5d8a8e53728d39",
+    "ast_empty": true
+  },
+  "evals/run_calibration.py": {
+    "mtime": 1794330535.0118146,
+    "seen": 1794375799.8442,
+    "ast_hash": "e1ec409c53b7c518bc033b120a55c778",
+    "semantic_hash": "e1ec409c53b7c518bc033b120a55c778"
+  },
+  "scripts/finalize-catalog.mjs": {
+    "mtime": 1794197974.2812295,
+    "seen": 1794375799.8725252,
+    "ast_hash": "7acc9eb949859f5a5a3d120644b0074c",
+    "semantic_hash": "7acc9eb949859f5a5a3d120644b0074c"
+  },
+  "scripts/link-wikis.mjs": {
+    "mtime": 1794439753.8920822,
+    "seen": 1794439903.2304091,
+    "ast_hash": "f3c0a307e0cd566e7ea6831e4de58cb9",
+    "semantic_hash": "f3c0a307e0cd566e7ea6831e4de58cb9"
+  },
+  "scripts/refresh-catalog.py": {
+    "mtime": 1794376025.0207758,
+    "seen": 1794439903.2331312,
+    "ast_hash": "a83c10599667c2d002e9a6ddf769f573",
+    "semantic_hash": "a83c10599667c2d002e9a6ddf769f573"
+  },
+  "scripts/snapshot-catalog.py": {
+    "mtime": 1794198118.0559323,
+    "seen": 1794375799.9110188,
+    "ast_hash": "b2bcc2ff72663eae2f28b45d72992b9b",
+    "semantic_hash": "b2bcc2ff72663eae2f28b45d72992b9b"
+  },
+  "tests/test_ai_behaviors.py": {
+    "mtime": 1794289790.894547,
+    "seen": 1794375799.9160242,
+    "ast_hash": "570d97292e8cc6acae4a7db98b6ef3af",
+    "semantic_hash": "570d97292e8cc6acae4a7db98b6ef3af"
+  },
+  "tests/test_ai_cli.py": {
+    "mtime": 1794376115.9636464,
+    "seen": 1794439903.2587752,
+    "ast_hash": "65105d7873265beca06ff0cff48d2df9",
+    "semantic_hash": "65105d7873265beca06ff0cff48d2df9"
+  },
+  "tests/test_ai_engine.py": {
+    "mtime": 1794290561.3916316,
+    "seen": 1794375799.9222062,
+    "ast_hash": "0676947b82ea7ebaac87014e2571c57f",
+    "semantic_hash": "0676947b82ea7ebaac87014e2571c57f"
+  },
+  "tests/test_ai_eval_contracts.py": {
+    "mtime": 1794330648.0861223,
+    "seen": 1794375799.9242134,
+    "ast_hash": "6e32cb64e8f042044c42c0236cd818f0",
+    "semantic_hash": "6e32cb64e8f042044c42c0236cd818f0"
+  },
+  "tests/test_ai_evaluation.py": {
+    "mtime": 1794330479.575109,
+    "seen": 1794375799.9262118,
+    "ast_hash": "ea09586c9a1ac8f5303808b33b7db94a",
+    "semantic_hash": "ea09586c9a1ac8f5303808b33b7db94a"
+  },
+  "tests/test_ai_knowledge.py": {
+    "mtime": 1794375603.4971895,
+    "seen": 1794375799.929745,
+    "ast_hash": "beb84abf92b454d6b638eac98205b1af",
+    "semantic_hash": "beb84abf92b454d6b638eac98205b1af"
+  },
+  "tests/test_ai_plan_evaluation.py": {
+    "mtime": 1794289006.8932636,
+    "seen": 1794375799.9318502,
+    "ast_hash": "0edd1b628d9bbea2569910c3f28271c7",
+    "semantic_hash": "0edd1b628d9bbea2569910c3f28271c7"
+  },
+  "tests/test_ai_providers.py": {
+    "mtime": 1794246431.0143325,
+    "seen": 1794375799.9368582,
+    "ast_hash": "5ac323fe37b9ac131a7bf6f470565be4",
+    "semantic_hash": "5ac323fe37b9ac131a7bf6f470565be4"
+  },
+  "tests/test_ai_provision.py": {
+    "mtime": 1794244038.4252982,
+    "seen": 1794375799.9393687,
+    "ast_hash": "f42c8ebff7293cd0b904521d9e03dea3",
+    "semantic_hash": "f42c8ebff7293cd0b904521d9e03dea3"
+  },
+  "tests/test_ai_replan.py": {
+    "mtime": 1794290803.4466398,
+    "seen": 1794375799.951742,
+    "ast_hash": "aefac6c490b2786cd901a3a186a2d69e",
+    "semantic_hash": "aefac6c490b2786cd901a3a186a2d69e"
+  },
+  "tests/test_catalog_refresh.py": {
+    "mtime": 1794376260.26298,
+    "seen": 1794439903.3067276,
+    "ast_hash": "8dad4fdc2fbd94fa1739d65df90299fa",
+    "semantic_hash": "8dad4fdc2fbd94fa1739d65df90299fa"
+  },
+  "catalog/documentation-location-migration.json": {
+    "mtime": 1794439627.2585266,
+    "seen": 1794439903.110623,
+    "ast_hash": "fd47e9b4392ea6d11ed8b6807d19caa8",
+    "semantic_hash": "fd47e9b4392ea6d11ed8b6807d19caa8",
+    "ast_empty": true
+  },
+  "evals/monorepo-evidence-migration.json": {
+    "mtime": 1794439628.8182876,
+    "seen": 1794439903.2020695,
+    "ast_hash": "a28e720d05b2ec37ae4a5647b83da127",
+    "semantic_hash": "a28e720d05b2ec37ae4a5647b83da127",
+    "ast_empty": true
   }
 }

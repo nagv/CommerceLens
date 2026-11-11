@@ -1,0 +1,1539 @@
+{
+  "date": "2026-11-11",
+  "services": [
+    {
+      "service_id": "customer-portal",
+      "original_repository": "https://github.com/nagv/commercelens-customer-portal.git",
+      "original_commit": "1d444dcaa6e0bf3ffb2dd9254c6430ad501c6f95",
+      "original_status": "",
+      "destination": "services/customer-portal",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "adeaecc7414a3a3cb5fbb90a10a669c06f15bcc8e4e5d3398165d495c3653497"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "740826c477cdae67e26d189dffb6b656476e490ac8ab1dd4c61ee72ea18a8e1b"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "24df0f766d0639da1f0491fcd2a8b1e12acab781b06b70c68aaf36db2b876e24"
+        },
+        {
+          "path": "README.md",
+          "sha256": "4c208c9c82621af672b42e6ebbd8489a215df03c47f34c537114dd1a52076a26"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "66b25eebf2b0d51fff57ba50d7921b459f5269056e81f5fce3429156e957f842"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "b3ae882dc7cda1db7ea679b1b0841d2fe0aa8739f35eb22dedc65966c1a18660"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "29455b26312ebd7c04d7b593779d46be751a9257d676fa18399200ca78a462b1"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "87748a514a7106f4fd75467258a14572f0418d29366a5cd3d2b19f16fc894fb0"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "91100912ff2f7ab803dd0f5c551526c84813274c06c64bd374156b9e4061fde1"
+        },
+        {
+          "path": "graphify-out/wiki/ApiError.md",
+          "sha256": "f81a76bb55104cfba2417183af4410730791f784b9dc0a336016deeb0507e8ff"
+        },
+        {
+          "path": "graphify-out/wiki/App.md",
+          "sha256": "a4a655d3a039641fa85069b67a67471c3c3aab202ab711ad1fb77b62134b444f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "ddae4a2e091467b03e9ab3b0d5892f69f189f4e50f1984f23be0169afdb8729a"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "55d512cde4d77deb211aa3f9b7d9f77326b1f27ce01b0037c4e78d7dbe4da447"
+        },
+        {
+          "path": "graphify-out/wiki/Community_10.md",
+          "sha256": "d65be895e4021e3e089c95c9472eeb2a58e0ce101702fba2b1e58c8c82d0b629"
+        },
+        {
+          "path": "graphify-out/wiki/Community_11.md",
+          "sha256": "9e5839f68944c2e9d2fa2a21feb52b5068f2fddbd49dbf0def6a8abb332fb9c8"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "fde418e1ea4cdcbe6395cd299b323813b8b7895368e9aae34dae191c4d7cb734"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "8b41479ba29faf57bd022d40d6d6b9795f5d9905abd11297fae0a3110672ef4f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_4.md",
+          "sha256": "33814f49bde1ba42bac4a9e2f52db545a22637a846e9e1614664e801f4f35a8f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_5.md",
+          "sha256": "252ccd530d219535931dd870d1250e92bec18a0aa00ec87d9fff889a52f39b87"
+        },
+        {
+          "path": "graphify-out/wiki/Community_6.md",
+          "sha256": "4f7fff73338a7c1d67fc25eb92859b08f8072cd12d157a7f07b6204082e3e27f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_7.md",
+          "sha256": "08ab67c3735fc18be5d6cc5cdb3ef023a3287f64038a1d556b60c5e365064d84"
+        },
+        {
+          "path": "graphify-out/wiki/Community_8.md",
+          "sha256": "aee18d34eef33ea47d9db5f2e90e191070415c2daf59ee73a477447dd1dedff3"
+        },
+        {
+          "path": "graphify-out/wiki/Community_9.md",
+          "sha256": "508b3692994ab6ebe45b5d316e5fd04e49ff46318e48089306da321516956dc7"
+        },
+        {
+          "path": "graphify-out/wiki/cartSummary.md",
+          "sha256": "c23a45264384aec2bbee9ad1ac58b4f9f122be8e4f20c2a40f70aa518d5e92ae"
+        },
+        {
+          "path": "graphify-out/wiki/checkoutAttempt.md",
+          "sha256": "83a80e418bafdd7c395eb4ab3a11e9c206bf2c3dd48bc6ceb8248d81a8afe08b"
+        },
+        {
+          "path": "graphify-out/wiki/compilerOptions.md",
+          "sha256": "407e410cb6ac6ce4f2f670cf8f20009a01b1161d83160a1ee28efc6064dcd688"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "d14999b8ccfec4cb120a81ee8d7083dce20cb4836f9aaf892c5d7543a36ff766"
+        },
+        {
+          "path": "graphify-out/wiki/refresh.md",
+          "sha256": "88fee15a5de85e2a75649904bccb9b5e83ed2bf3e924297b641538cd1e7a5ba3"
+        },
+        {
+          "path": "graphify-out/wiki/request.md",
+          "sha256": "5bb03652fb1c10957cebd1cc2cb7e086ca8e8a800092bdb0fbbfa3da5256474d"
+        },
+        {
+          "path": "graphify-out/wiki/scripts.md",
+          "sha256": "2c1084a3cf4facbc4f4bdbe5b0687aa769f8ce184b286d5405b0f4c3ee11e57b"
+        },
+        {
+          "path": "graphify-out/wiki/submit.md",
+          "sha256": "75c58a6686119256bf8c06adbb2d896cddb96cab289673906b464b6e6b77a647"
+        },
+        {
+          "path": "graphify-out/wiki/validateCheckout.md",
+          "sha256": "c49b26776da800d30b16770851206c4b7a23474134086eccb86c583b629f8e3c"
+        },
+        {
+          "path": "index.html",
+          "sha256": "f3c4d180d6a72e78f5e80ae4d8a5e17b6433e8333d7c467c4b3624475faaf84c"
+        },
+        {
+          "path": "nginx.conf",
+          "sha256": "0e53cf56877b77ff8f9855e9dff7885729be3f6306c568ee2afe71b0c91eca5d"
+        },
+        {
+          "path": "openwiki/.claims/architecture/api-client.json",
+          "sha256": "8730b18758f4bd7ba3703742e076550be82809585664dc04caa4c33aeea516af"
+        },
+        {
+          "path": "openwiki/.claims/architecture/domain-models.json",
+          "sha256": "a3a1f2f8b892462c05f05ba45232c53aacccf680cc6bad2a17b955c9561955b0"
+        },
+        {
+          "path": "openwiki/.claims/operations/deployment.json",
+          "sha256": "148fa24e877d009c91bfad622bc2d0dbb99b9cf2b93b8ab7264e7886d5354f91"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "210db1ba1e0b744c8f70b5638df82d3c9cb022e1520ceded38c03ed5042fdde9"
+        },
+        {
+          "path": "openwiki/.claims/service-context.json",
+          "sha256": "133cc5902aaebd373284f8efcc16828e124a0fca8ca3c335cabdce9339d5cbc9"
+        },
+        {
+          "path": "openwiki/.claims/testing/verification.json",
+          "sha256": "d70957203e6480177184221dd61eb5f2149e6b8bca1271d60679d7bfe74b4e87"
+        },
+        {
+          "path": "openwiki/.claims/workflows/operations-monitoring.json",
+          "sha256": "2f12f4637b410512ca86c0793ce2d9016634c1c56a61ef99a373fc0faf99e9a3"
+        },
+        {
+          "path": "openwiki/.claims/workflows/user-checkout.json",
+          "sha256": "50e3c41badc9ad57d975848553cb7f02e078cedeb6296ddeaf267f804b25d308"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "8bc6e0b2f44299f1be7997a4d8200a274420408c0daf1d234830e2101987b9a3"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "8c2722bb545ea37716051411f03b3e949cb445ca08a7804e709fc98822ca5563"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/architecture/api-client.md",
+          "sha256": "e9aa5419c4afde8ac4f2980f9a30d10a4ed84dd0046f1ddf57978c709170964b"
+        },
+        {
+          "path": "openwiki/architecture/domain-models.md",
+          "sha256": "83d097a4eb2384d0c171878cf626a136be969a165c9961a9a8933e9b34b6348f"
+        },
+        {
+          "path": "openwiki/architecture/index.md",
+          "sha256": "9c374a10d5aa299b82c3a2d40fa6b31c3866c59fa04b9979f4a8d62a150540d6"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "df0bed7f56d3abadd85580742fa7b33ba5d7c4a2ed4a7248574c516704adb424"
+        },
+        {
+          "path": "openwiki/operations/deployment.md",
+          "sha256": "ec405c8563580e40f6779d4441b260233010558cad8c5039fbc88565cd6888b3"
+        },
+        {
+          "path": "openwiki/operations/index.md",
+          "sha256": "dee6215175dcd852d6d7aa1c1ac8905d355fceb8421e0540f222f8145905b541"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "4c0b2c2d6b3bd2ed93ebf13131f3bfcec11a96b9e4a5f7efc3060d41f3ad6dd6"
+        },
+        {
+          "path": "openwiki/service-context.md",
+          "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f"
+        },
+        {
+          "path": "openwiki/testing/index.md",
+          "sha256": "9cca7b9e68bc75c722f79c6e325a5452889d16c46c83e2d3d702ffdd0b52e788"
+        },
+        {
+          "path": "openwiki/testing/verification.md",
+          "sha256": "00f19b19b49baee90fc4f0327aa8a77af8a5337556cf860dd3a7012ad612b1a8"
+        },
+        {
+          "path": "openwiki/workflows/index.md",
+          "sha256": "f3c4ab8c83f4009586262e5739d8d5027782821a65a29ac2269dcd43bae71132"
+        },
+        {
+          "path": "openwiki/workflows/operations-monitoring.md",
+          "sha256": "6c3a8c84b4950310aaf3b217b294e2628d4a0376be38e855a5e66528690269c5"
+        },
+        {
+          "path": "openwiki/workflows/user-checkout.md",
+          "sha256": "96a568171149a45f2ff1b5b80b5504be390fadeac9dfb205abda83593742c7e7"
+        },
+        {
+          "path": "package-lock.json",
+          "sha256": "06d4025e3ed85e7958795fa502e70a0e973c50ac6a7be5604eaa9d15398fbc37"
+        },
+        {
+          "path": "package.json",
+          "sha256": "d5074c6274850c6bd459c33c0deadcc4c96c4e40d392638382daad4c31203f60"
+        },
+        {
+          "path": "src/api.ts",
+          "sha256": "b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308"
+        },
+        {
+          "path": "src/domain.test.ts",
+          "sha256": "c7eccf9728a9bf71b91c61cb4e3eeba2e1b956364f7deac91a8a7878aff3ebb8"
+        },
+        {
+          "path": "src/domain.ts",
+          "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+        },
+        {
+          "path": "src/main.tsx",
+          "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+        },
+        {
+          "path": "src/styles.css",
+          "sha256": "6c9fd4a4286fd73cfeef07a6c54357854fd21f7e20546acf70956aa2d67b85f1"
+        },
+        {
+          "path": "tsconfig.json",
+          "sha256": "c904f7667b845b93bf5e2a5ffb4c7e5f1c4cfbab768e0f6f53ed6682a84e4d50"
+        },
+        {
+          "path": "vite.config.ts",
+          "sha256": "c8f1edc48572a8b6ef8dfdd9f973d4d19d7547f051886311c2ab82548fef5528"
+        }
+      ]
+    },
+    {
+      "service_id": "order-service",
+      "original_repository": "https://github.com/nagv/commercelens-order-service.git",
+      "original_commit": "cd8bdf02b98c4033b203fe554e12d95a46a13225",
+      "original_status": "",
+      "destination": "services/order-service",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "00644eb294264159d50b74ea68502666ab1a5d058206d7e6a4f07ca32802c409"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "e209996ba9d84f2d5fe8ab0237c5991389876bf4521e4ea828e2870e33370bf3"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "fa4574bfc538836d7e19ef7bfb40ddface0557af8c9053f63c56b5b521cc7d2f"
+        },
+        {
+          "path": "README.md",
+          "sha256": "3bf89ccfe35e9338fdb2ee6adf743fadbd09dd732c1fc97ff1c0defae9923f1f"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "503439e12dc7912cf7c4ad5b2549c3581571a9b346abb2d2f6c0b23e12b1d4f0"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "e83c3933443ac8e5a698b136530121e62839386e952e4f3961585940667a2337"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "ac8c1b7e5f97a9748052bbc74dd76ac6d7f175adc2320a09eb54b97c0a2bbdc8"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "0c060ede34992194ab71f6b93f21b8aabee2194fd0c2ed0b4698c73f103ac035"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "c4ef4b19d7e4a2a51096f895813b25cc7551cc3b6b8741c353fd8deb311f07d8"
+        },
+        {
+          "path": "graphify-out/wiki/Checkout.md",
+          "sha256": "f7dc187576934fe5e63991131bfdd1fbc40fd2b6339ac50b7b63c119eaaae9e7"
+        },
+        {
+          "path": "graphify-out/wiki/CheckoutTest.md",
+          "sha256": "4efe9b017f416597410f2db1cfbcb706f013a7301b22c9c72540b344f832b8e0"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "748ca089498c6cb4482be4e41efdc3ea795f2ff2d36812d2321369065db0ae6f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "e127c7550564815932e321b526acf56f17c55f9176129617ef379f6ff7e467f8"
+        },
+        {
+          "path": "graphify-out/wiki/Community_10.md",
+          "sha256": "1884c0c7df501023e603e5c8e093aa610f4413f265a72666b5cb01c2a6da2548"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "396fc6a2e626221b3f281e2d017b7befdc317722fa074beb051de2d3214343b8"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "de52c3c370f4842ef34985ab0d0b66cf3b5192b6855f85b51caa975a32d944fb"
+        },
+        {
+          "path": "graphify-out/wiki/Community_4.md",
+          "sha256": "c8a5276425462286ff2ced16d722dad68d5ebfa6e63498666f9e8a8d8c3dc343"
+        },
+        {
+          "path": "graphify-out/wiki/Community_5.md",
+          "sha256": "3d5051e95f2b49b1b7b96b245f21ad9f74cfb1f291ccd1c9cbe713e17e02bf51"
+        },
+        {
+          "path": "graphify-out/wiki/Community_6.md",
+          "sha256": "664f45ad015e0c084ee2583c570f041bb4b72ac8aede07957fc2cfcf0f8c431f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_7.md",
+          "sha256": "1e69e9e68dbd65987554ea74a18dfc56ac3123094b904ead7dab84dc6b3a9923"
+        },
+        {
+          "path": "graphify-out/wiki/Community_8.md",
+          "sha256": "4b5e08d62c43656646e0860f299809449da10bf77228881bd60beecac8e05065"
+        },
+        {
+          "path": "graphify-out/wiki/Community_9.md",
+          "sha256": "76e600c7c402f840ebb15f08ba01ee19107858e2687d177bbc36905384c18493"
+        },
+        {
+          "path": "graphify-out/wiki/FakePorts.md",
+          "sha256": "e818aed0b1752fb95362bf0f7de0db4c2c12691b5de5679654dc0f05bb3f6e0a"
+        },
+        {
+          "path": "graphify-out/wiki/Order.md",
+          "sha256": "78cdc92bb8e305ad9e4a40bcb131b9c2d5581e828e0df25616f7db88abd0b218"
+        },
+        {
+          "path": "graphify-out/wiki/OrderController.md",
+          "sha256": "4d44becc1c1ab15ec8b97ed8c6b91f22c7b7e0d163be65725365348d36deaa4c"
+        },
+        {
+          "path": "graphify-out/wiki/OrderStore.md",
+          "sha256": "2bbd4896178bd4cd8ef30e05a680005bf4cce3ef8667fa7df844b307f9511966"
+        },
+        {
+          "path": "graphify-out/wiki/OutboxPublisher.md",
+          "sha256": "07a03deef7eb75b9a2353b1e15511fb8e1d7273cc15a03e17227638ab217c602"
+        },
+        {
+          "path": "graphify-out/wiki/Ports.md",
+          "sha256": "a399225bee7721e569cc7c42805ed789695a4ce84eb049c33f6fe877c341218c"
+        },
+        {
+          "path": "graphify-out/wiki/RemoteServices.md",
+          "sha256": "0b9ec4af9a96e56e957213655b12859ffa3ef42dbd31e9c0f70fc69fcb758f64"
+        },
+        {
+          "path": "graphify-out/wiki/Request.md",
+          "sha256": "834ed32a0dd625cb525af9c14672c45ca83be5147cc50270b3af944ab75d0df6"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "63e8833a63944fb86784cd177ae8b0b46c712f450b6bf1b147bb0aba7ba4b702"
+        },
+        {
+          "path": "openwiki/.claims/architecture/api-surface.json",
+          "sha256": "dc8fd80c298712bdc2808aa83e6f873429de0912bebee85e5e10e6e037f1eb5f"
+        },
+        {
+          "path": "openwiki/.claims/architecture/checkout-saga.json",
+          "sha256": "49b8d5f6d7642bce1a604b96bef1b974eb96cd37bd81eb0c9fd04a56770ba3d8"
+        },
+        {
+          "path": "openwiki/.claims/architecture/data-model.json",
+          "sha256": "38d9d37727116946caf638333d9494e692bf35240d05d205c9ec2049d585c62b"
+        },
+        {
+          "path": "openwiki/.claims/architecture/outbox-publishing.json",
+          "sha256": "3cfb8e61987c1924311eeadb98c99bb23aabe19b840e898c450f24e01c1c04fd"
+        },
+        {
+          "path": "openwiki/.claims/integrations/external-services.json",
+          "sha256": "013c96d160e099f0cff760206ebfca052d0f28f8686b7213896e17c08663b056"
+        },
+        {
+          "path": "openwiki/.claims/operations/configuration.json",
+          "sha256": "d56e891ad37d675fd8f72abda30eaf6adf45433d9e4a44b8453c6888efc02290"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "e99db66375b60c02ca6d517cf41f05c44b4e266d18e9cadfe9bc7d1513a96d46"
+        },
+        {
+          "path": "openwiki/.claims/service-context.json",
+          "sha256": "52899a54642e28c15257e05f29aeeca031154092c180cab85d06914fb3e71526"
+        },
+        {
+          "path": "openwiki/.claims/testing/test-strategy.json",
+          "sha256": "06a6ed6fb6e312b94e17fde8d09de45c94e29c3e2102a79b1bcf6f4c9ffcfa6c"
+        },
+        {
+          "path": "openwiki/.claims/workflows/failure-handling.json",
+          "sha256": "23dfa255fa77bc45e59f84c95b34f1f234b554e41b1416284ddcebebcf9ad4a4"
+        },
+        {
+          "path": "openwiki/.claims/workflows/idempotency-and-concurrency.json",
+          "sha256": "6551c4639e1b2cd37e7b5bbf6dfd2eb96989ce85c4197e5f45b4a23ccf22e745"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "f148066fbb53690b27256d86c38d385d6ae853c5c6e8fc2d1099931f285dd76e"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "6629ae140bb1c9fb9f8a0a717d2f0fb5a76ee8aac92bdfe5ae19facb4b098ceb"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/architecture/api-surface.md",
+          "sha256": "868526dff360ebdb01a382705b10b72e772defd707d3ac01d385b54d7a23f983"
+        },
+        {
+          "path": "openwiki/architecture/checkout-saga.md",
+          "sha256": "dfb23a702760c12d2808dd74ec2d53ab8ce7757418fc637e83d51e23fa9c4bab"
+        },
+        {
+          "path": "openwiki/architecture/data-model.md",
+          "sha256": "71d486db05573526ec96fe6fcf47bb5cb0dae99ccad100b5ae52368a9307399f"
+        },
+        {
+          "path": "openwiki/architecture/index.md",
+          "sha256": "da4d0bee151b4098e663f9843d0b703df5acfc4d17cfaa2daef6640c6e5ddf28"
+        },
+        {
+          "path": "openwiki/architecture/outbox-publishing.md",
+          "sha256": "65650be0c46d3d0765396e11c248aad8a2efd06437ae2eafcde44a14c0fb0528"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "bb363934c0478491c9c8813db8f770d4de13ca061ff75265b34992d937d0eea7"
+        },
+        {
+          "path": "openwiki/integrations/external-services.md",
+          "sha256": "f14af4e2bb14bad07f6abe5b14b9d9e6ce8b486c087b28dde5f1d75ebfadc3b2"
+        },
+        {
+          "path": "openwiki/integrations/index.md",
+          "sha256": "6acb4dababca0fc367ed59c1a41bfe06eb212fc315a5e73b85ef1215699fcb4d"
+        },
+        {
+          "path": "openwiki/operations/configuration.md",
+          "sha256": "8e65c07596ddf1bc44be95b86a9ea114ec7f5ea4ad8ea59a50cd40469ef8ceca"
+        },
+        {
+          "path": "openwiki/operations/index.md",
+          "sha256": "40f898e2c2bfe63d5beaece1cc4b675e793c770a84c40aeecea2eeb0e918aed1"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "25012a98e7b5055be24ed77fd621bf5dcf33a4da390e9022d1ae58a7b0e8ad3c"
+        },
+        {
+          "path": "openwiki/service-context.md",
+          "sha256": "1396c4f257efb5753945e2eb9e819c7d9a490b4ec0f39a08122bd61db757ffab"
+        },
+        {
+          "path": "openwiki/testing/index.md",
+          "sha256": "a86070d1b8a326c2855d64030a55aeb2d2c4080ec3519b40d8952f4bd3023ed7"
+        },
+        {
+          "path": "openwiki/testing/test-strategy.md",
+          "sha256": "250669bec263fa7ef4147c33bd826ef6fdae2f7ff1da1662c9d7d8ef452262a9"
+        },
+        {
+          "path": "openwiki/workflows/failure-handling.md",
+          "sha256": "dc77775f04856819fb553cd1a0fbf7c616818b1074b394dddb280b6951b14465"
+        },
+        {
+          "path": "openwiki/workflows/idempotency-and-concurrency.md",
+          "sha256": "18b7df60483370920af2af014941518c26853a2c93ba4e79745f20c591537a84"
+        },
+        {
+          "path": "openwiki/workflows/index.md",
+          "sha256": "37df4effd0fc18789139125dd0897f603a3a80ecc460cea4508f626afec29cfd"
+        },
+        {
+          "path": "pom.xml",
+          "sha256": "d2046a6f9bb4d099bd4279fa378c059c56d7531bbb548c062e80bb5826d8301d"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/Checkout.java",
+          "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/OrderApplication.java",
+          "sha256": "987283c1b4d16bc6ea0e8127ac7ad3af40ab855ea1ca81b24ebcd156c29da740"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/OrderController.java",
+          "sha256": "2eeef399267ef537d955120fefea798cf5b773b0aa17d930af44f80f022ad86c"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/OrderStore.java",
+          "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/OutboxPublisher.java",
+          "sha256": "66a41350dd2a6497828b64f338605c001eaf33a8d8194a61148cbb42dfc580f8"
+        },
+        {
+          "path": "src/main/java/com/commercelens/orders/RemoteServices.java",
+          "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+        },
+        {
+          "path": "src/main/resources/application.properties",
+          "sha256": "ce1a18993ca6dcdb35a2de8de8edf3b1715b509494b7ab4e49ae0de410eea41b"
+        },
+        {
+          "path": "src/main/resources/schema.sql",
+          "sha256": "47dd2bbd159b12dada055c76a890731241f7024e8f0979014612e06cebf31337"
+        },
+        {
+          "path": "src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "sha256": "e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        },
+        {
+          "path": "src/test/java/com/commercelens/orders/OrderStoreTest.java",
+          "sha256": "71e7c9f937402ac79abc01d218a2a9e7c6b9ac120a2f4326ae357768232c07ae"
+        }
+      ]
+    },
+    {
+      "service_id": "inventory-service",
+      "original_repository": "https://github.com/nagv/commercelens-inventory-service.git",
+      "original_commit": "160854d9317c07a55cb5a23703a0487bb98ab4d8",
+      "original_status": "",
+      "destination": "services/inventory-service",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "a8372e6bfb87c95a23cf503cd0a743c83ac27e0599c9014e0a162c6c3a56c152"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "be08aeae03a8dc85508dc2ad335676e7c148c01654e4701256da7b628e561fa5"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "447fe39356c9ac0e1f353c4a2ab1d6c43152bb68b9d8ad65f3c71a6681c5777a"
+        },
+        {
+          "path": "README.md",
+          "sha256": "40674734ff3f1756284235e3a11aeec7cf92f4f0baed7732dc16780f3d09121c"
+        },
+        {
+          "path": "go.mod",
+          "sha256": "0d5a1d4e8990ceedd7da90ba29dfa846a5c5560896f87ad07a8398f32520e806"
+        },
+        {
+          "path": "go.sum",
+          "sha256": "91f1a749534aa3796620eb4234076b9ccd74932dd428e51b5a2372dbff254eeb"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "39e8b222e7a5c379a3ca35b76e2bf779d9d869c9ba0a1abb4e4b1c7414d77f0c"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "450f1108eec08a51a5a65073634a4a87806ed7446fbf9f9817d3244782748ff4"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "8ca5e913307dd6df5ca8de0145df26c885c0fa72206dd678ef0c13d2e92ed49b"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "cc6caf670960346e5ab54b780b911075968099f561b8fd9cbbeb4063aa0e52a9"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "a3bba79b890630b0395dc7d54cf13dc30b29a695a6f84321c7f22c288c2667ec"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "43cd8099f2a7f8e9bd39562a37624928e1b7d048abd386d23942a172e7091198"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "6eace07469903f7a1cf3c6e348bcdacb867ae77f342559f25965a91bbe7aa76d"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "0eac4c2f10a323f7a6f2bba3d1277c601b091966da33c98a7eb188d6bbbc984f"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "f94408cb21c7416bc503c2c2f9dd4f86fc96ebebef0274814963c1fda7da9c5b"
+        },
+        {
+          "path": "graphify-out/wiki/Community_4.md",
+          "sha256": "a675f1030c11b2474f996c8aef5b13e5f50735586278cb6edc4ab3b6fc68fab9"
+        },
+        {
+          "path": "graphify-out/wiki/Community_5.md",
+          "sha256": "9f55e0627cb5b926b0235cbb0290b21d175b401fba3c7cdbc609ca83e18ec485"
+        },
+        {
+          "path": "graphify-out/wiki/Community_6.md",
+          "sha256": "974708bc72874769472f256d1be90dc83263bb1c87e44e0d4a7debb814a2b9dc"
+        },
+        {
+          "path": "graphify-out/wiki/Reservation.md",
+          "sha256": "434712bcf184152a6926c98dffc343f0ea55ee1dffd65b5c890f18126c552b95"
+        },
+        {
+          "path": "graphify-out/wiki/ReserveRequest.md",
+          "sha256": "decead45a9d56e13d85bbd854456ae0c91b6113b6a6734049a28816468a28b61"
+        },
+        {
+          "path": "graphify-out/wiki/Store.md",
+          "sha256": "11ebc351976a61f088c70b0180436a69f196de3e78aa8f21475aab293c4fc06e"
+        },
+        {
+          "path": "graphify-out/wiki/TestFingerprintIndependentOfItemOrder.md",
+          "sha256": "7b6eb19c2bf4447e88d5861fa4f92075c66c27793e133565f416fc2ee8c52cb7"
+        },
+        {
+          "path": "graphify-out/wiki/TestPostgresReservationsNeverOversellAndReleaseIsIdempotent.md",
+          "sha256": "66d9758daf994a35324c852bdc4b1058d88516747f9a336b2ed89c558af0ae96"
+        },
+        {
+          "path": "graphify-out/wiki/TestValidateRejectsInvalidAndDuplicateItems.md",
+          "sha256": "e91898875f5971ce5403eec5a99908861c4c5ec6bbffe5ff2cb8b53706382101"
+        },
+        {
+          "path": "graphify-out/wiki/fail.md",
+          "sha256": "0257a9a555ac5929b45b8f6612f98dc7419d108ab9b0ca6deef91f91b9a31696"
+        },
+        {
+          "path": "graphify-out/wiki/fingerprint.md",
+          "sha256": "ece47ef69dfcd9fecd267dce2990f416538758c56a14304240c76fbc191fee84"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "9a07441bab788201ef1e087db282d221c978bcb79e70d470a3c9d2be27cae823"
+        },
+        {
+          "path": "graphify-out/wiki/validate.md",
+          "sha256": "7f0518a670a6c83fe739987e293a8fbcc835e089739b834df5b75364a76dea39"
+        },
+        {
+          "path": "graphify-out/wiki/write.md",
+          "sha256": "cd13fa19127a8e9a5e6d7d7cd7fc0766640044b3600ceba417941df120da5500"
+        },
+        {
+          "path": "integration_test.go",
+          "sha256": "b8a863a2cf76b94e7de78a89fdfa14421e50100f9d946440c1fc1d58607382e7"
+        },
+        {
+          "path": "main.go",
+          "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+        },
+        {
+          "path": "main_test.go",
+          "sha256": "1f701e08c137a4804f4178ada6966ddfb3db4fb4a27dcc87b574d6e9ea609fc6"
+        },
+        {
+          "path": "openwiki/.claims/data-model/schema.json",
+          "sha256": "ae1af4a3ff4c277f7166a9baa2c51550d9af2720d04aa6ca4510e4324eccab02"
+        },
+        {
+          "path": "openwiki/.claims/operations/configuration.json",
+          "sha256": "668fc9c74019293866bad5979947c134d9bb09ae5b18fa398b713aa06d3265c2"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "2583228718e8cd20ed2c8f7f171daf8b9be4e1c2c43beec55bc60e66a4c2519f"
+        },
+        {
+          "path": "openwiki/.claims/runtime/release-flow.json",
+          "sha256": "238192a95329801ef23f4cdb07ec1c6cb5b92a7a458bb87c4cb6b29157ebd658"
+        },
+        {
+          "path": "openwiki/.claims/runtime/reservation-flow.json",
+          "sha256": "6749502ac9656e2993db63fba1c2a4318f8f3563b656d0b0bf99db50fea34c80"
+        },
+        {
+          "path": "openwiki/.claims/service/api.json",
+          "sha256": "df4ce96e9ff8f535236e30b63c8d04f627bd145476b1155ace927d7074635bfe"
+        },
+        {
+          "path": "openwiki/.claims/service/dependencies.json",
+          "sha256": "cc099fd3019a8a4dc57153a6f7ae50df2f9fcc789d46707dc383a6da307aa058"
+        },
+        {
+          "path": "openwiki/.claims/service/overview.json",
+          "sha256": "30ce76d2a978522dda2310279c175809d089a82b9df173602fe4bddd3d9f348f"
+        },
+        {
+          "path": "openwiki/.claims/testing/coverage.json",
+          "sha256": "67c31c1c89b8c10a1ac572c362db79f8a8b9a3a5a84fef9d834dbf46d0c71f1e"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "b2db29a75a93e26ec043b8c2ca73416717ca2f8c20ea24daccb323a05951f1d4"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "e2bc89105a7f282723464f7a6a8595586351699daf56ef8dd8f47b3e8bb69edc"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/data-model/index.md",
+          "sha256": "c9aa766459a5c62bfce627ad07f92fd3a358d579a5a0fd573787e641e4b78ed3"
+        },
+        {
+          "path": "openwiki/data-model/schema.md",
+          "sha256": "daddcbe7b10f6321d6c4e019ba483843bd3e7e8e0872a29d4fc3592cfa8f8af5"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "fa0a5404a483d06caefdf27a9682b4d692051155eb1d650df35756cc4e714aa8"
+        },
+        {
+          "path": "openwiki/operations/configuration.md",
+          "sha256": "bade2f1900e8d24c4c9d4b0a2a23db3efdb3377cc8768871452483ceb8666cdb"
+        },
+        {
+          "path": "openwiki/operations/index.md",
+          "sha256": "1f8c4f8e0f5c0b758110e44bf2d1f106fe710b2840610e71f06be6e9c9972d2e"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "68c6417e2406a65302dead000b3ee6e36b638d3c0182529a3647a1381a8ef059"
+        },
+        {
+          "path": "openwiki/runtime/index.md",
+          "sha256": "d40c2075b692134a7b0d654ea09c5671c83b4f02f991de1dab513ad13e99ccd2"
+        },
+        {
+          "path": "openwiki/runtime/release-flow.md",
+          "sha256": "650788d9aaa15378c145f7604ae515d12df0f27b61254a35502a33a4fe86d739"
+        },
+        {
+          "path": "openwiki/runtime/reservation-flow.md",
+          "sha256": "136f0badd2560dda0f5572eb68ba2f32bdb417e1e7ddaac4539facbb1cbfc989"
+        },
+        {
+          "path": "openwiki/service/api.md",
+          "sha256": "40c1286a3a8e6f87a558f0b88c575367e3be1bd20bf20768da66d7d601b249be"
+        },
+        {
+          "path": "openwiki/service/dependencies.md",
+          "sha256": "163f27f858f3c6223e5db478146649e9db55212923db73002900283f1e62f718"
+        },
+        {
+          "path": "openwiki/service/index.md",
+          "sha256": "4b7a828600260a76b8effdfc7753d1b21abb296fe273282b89db961057c38f05"
+        },
+        {
+          "path": "openwiki/service/overview.md",
+          "sha256": "24098bdc3fa7eefd578d29ed443ca26060be5c08cf98467974a5c2639171a595"
+        },
+        {
+          "path": "openwiki/testing/coverage.md",
+          "sha256": "d01fe2f30033fa878128451446c9d414f7eee431124e8a68a18b07b176dc07a8"
+        },
+        {
+          "path": "openwiki/testing/index.md",
+          "sha256": "f5801a9b6731e59be9d55d58f70cb8f43384ea910287cb852c296a69f655fe99"
+        }
+      ]
+    },
+    {
+      "service_id": "payment-service",
+      "original_repository": "https://github.com/nagv/commercelens-payment-service.git",
+      "original_commit": "55a3bce4ebb15f3c4b4558005c46e6bc5a6a53cd",
+      "original_status": "",
+      "destination": "services/payment-service",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "3f926c4116ced27d371761b19c276366f37a1e4245f9889be3a1fc388260de52"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "1178e2403b3a97926ee1eaddcabca5c88bdcf99fb002c723d7640218a4ea6f7f"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "b10fd559953e9f2689e33133cc253cdaa53b4f448f610a60e4b936a7b5e3fb57"
+        },
+        {
+          "path": "README.md",
+          "sha256": "daf06ec15b25f440765cfab83f9227f19fc8dbc777821af02ff8b4f8f755d9a0"
+        },
+        {
+          "path": "app.py",
+          "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "e00b2686cb4a61623ecf743cee79ef763ac91a0e34701e015948c25fbb2e094d"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "3606c64c27107ede0de52f110db9e8498bfe41b3df428e09042aefc843ea5602"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "491f46fd2c15a5155fcbb74ec4ee35d5e2dc29478d58a08f94a62cc8824e0bd6"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "adadc33ae995e693e8f40bcd9ba8598e3007bd6208a14ed2c29de191a69a7ce1"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "f59fb54bbaa92973a58260256147dfea51e052e17b7897e8845a924da3229120"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "2df5f387c4ab1508bbc5dc1fa0195b7ec3d7f6f78efed036147349ad5353bf5c"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "77b1f7bf75e178cf1c2cc94bd511ba4cea8bb71dd23fa97079dd2bef2e580986"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "90d403ace2c24ff4f9dfaf012019ac9d0606b4932adcf6ddbcf3568e49c3c0e8"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "d13f39f84ae7665afcf862a0f99fcfd7b3ab59f8b9a1a3fdcacd7aef9e8d5cfc"
+        },
+        {
+          "path": "graphify-out/wiki/Payment.md",
+          "sha256": "7743fd12fc973089f2ef9647f634c03227e9cfbda23570b7e25290bf3e7b7c73"
+        },
+        {
+          "path": "graphify-out/wiki/PaymentsTest.md",
+          "sha256": "3f0a389dd00fd026a3fb9cb76fd703420e3400f5729647f5d0bea20b5053ec7d"
+        },
+        {
+          "path": "graphify-out/wiki/Refund.md",
+          "sha256": "2b267aab12dc126ac1f9219c2cd6bf59ba6b68bf3054226a23c6461e5c6a6ee7"
+        },
+        {
+          "path": "graphify-out/wiki/authorize.md",
+          "sha256": "233ceeabae5add14c589c53dabeee23f1a3f9e7f36f5382337a2a56bf19c32d8"
+        },
+        {
+          "path": "graphify-out/wiki/client.md",
+          "sha256": "e984b013bf52a97c30203cc4f3945a7ed75acf58af289334e507439350e992af"
+        },
+        {
+          "path": "graphify-out/wiki/forward.md",
+          "sha256": "f520fff648da353c2ba5e52d0fb862fd6ad5100142da259732ae10c7348f1fe0"
+        },
+        {
+          "path": "graphify-out/wiki/handle.md",
+          "sha256": "38d82fdeab306c1409882c24d4d402fa655a64e0cf319e5f524cb93011c9fc18"
+        },
+        {
+          "path": "graphify-out/wiki/health.md",
+          "sha256": "6389137d910a9fb2afc7e8a84c2f05093876654496e70c6d73cb47e81c0c99ba"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "029adb76d88f81332c844120a2a7820ede503f72d672bf1d20fcb6610d219b8a"
+        },
+        {
+          "path": "graphify-out/wiki/provider_client.md",
+          "sha256": "67af0403e58fedc6c2b1317d45cb694837c1094309328311cbbc6b4ab1a9215e"
+        },
+        {
+          "path": "graphify-out/wiki/refund_2.md",
+          "sha256": "89d4ac7e5d0875f833a9950f43cf700c7f5512d4a39b3e5c53748e75e592041b"
+        },
+        {
+          "path": "openwiki/.claims/operations/configuration.json",
+          "sha256": "65d51fe36fb8770508fa6002ee8a4bca697c4b1260233d24c120ad97c995421f"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "9c55c9efccc2dd8271ca02fddba9aa4585721a6ed32a77d457af1778960582c1"
+        },
+        {
+          "path": "openwiki/.claims/runtime/payment-flows.json",
+          "sha256": "fd07aed573ed897aa595917046317957fc9239f2e436487df3ac34290f7ffaa8"
+        },
+        {
+          "path": "openwiki/.claims/safety/failure-model.json",
+          "sha256": "17c4758408ca8071c76559d516e31484f93b8b93633b5b075ca411b73f07b877"
+        },
+        {
+          "path": "openwiki/.claims/service-context.json",
+          "sha256": "fb0ee4e126d22626b0648f70a82e8b03a9ea6e31425b7d547245078cdf02ac02"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "a44334eded7d7d3052c45ce3e34d2ad6989b250e0d246cf254a73ea7bc5b30ec"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "15f868202855fabff8f568388751cd8c43c374183bcbb151f9b72b7b78f271b6"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "e0e8421a2e3220d95c2b3dc5b1d5762a484d7b4472581567cba43b8c693774f6"
+        },
+        {
+          "path": "openwiki/operations/configuration.md",
+          "sha256": "7b0e56e6d777fafcae6e03bcf089e634eee6c6f9d964c69b93decc019ebe333e"
+        },
+        {
+          "path": "openwiki/operations/index.md",
+          "sha256": "f0540077423ad0ffd7e39ae5fa2d1b25d0bb137a1cda56b8f4f2075253ac9e02"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "849630779604065e5949523613368fd0d0e136ec2976c7701ced304f8ab8ee16"
+        },
+        {
+          "path": "openwiki/runtime/index.md",
+          "sha256": "99c5d7dee920ac832d9fa4ce317b6570619b134c16fbd157edb5beaa91a8f606"
+        },
+        {
+          "path": "openwiki/runtime/payment-flows.md",
+          "sha256": "c66a512ef085409d8be03e677511d16b35fcc153157f73c47f219d0d26344f6a"
+        },
+        {
+          "path": "openwiki/safety/failure-model.md",
+          "sha256": "409aa41ac39874a189a237afc01123589d9a34423cf9f6fedcee25b07a628260"
+        },
+        {
+          "path": "openwiki/safety/index.md",
+          "sha256": "03d313295c3b933555b329ce6f70f1c899087adad2aa8e3592f65fc585eff893"
+        },
+        {
+          "path": "openwiki/service-context.md",
+          "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "8f7de12fc7f320e0932d2c553a5646b4bbad3d5f36ac24cecd073529073d3e80"
+        },
+        {
+          "path": "tests/test_app.py",
+          "sha256": "c45751fd89699133ff747cfd8eafcbeef88dee3a071a7a7f3121dde2ec22ac99"
+        }
+      ]
+    },
+    {
+      "service_id": "shipping-service",
+      "original_repository": "https://github.com/nagv/commercelens-shipping-service.git",
+      "original_commit": "e12ce558709ff52a0094cd1a1e2f67bdc6f32d00",
+      "original_status": "",
+      "destination": "services/shipping-service",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "d7e6cc42627ba5b5f7bebf2619d653e312d0f0addb8e7afb168ceb86059dfc98"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "0a1e125bd7596ccc3884715ea4327b4bd3b100ef713dfe416fe212062623fa5a"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "009e1ba40a21d8a183abd93f33d66e6e5ce6231fc746ab1bd6f1ac73537e4b41"
+        },
+        {
+          "path": "Program.cs",
+          "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+        },
+        {
+          "path": "README.md",
+          "sha256": "5231c6b4165a66327cb1d836b1b06bc77ffd2dbf9cea49dbcdd0a783ebc74220"
+        },
+        {
+          "path": "Shipping.csproj",
+          "sha256": "66498654b305f91a361b12b03ed003a200ceb67b0973e6b56f11a29e5cb5bd81"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "01d00a8613e7b9ce32572248e38b255fb49cecabaddaf2cb03b85f460b457970"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "55f917b6bfbfd4bf233f51af27b1910f084d76517e8f9e40cff7cc19f5d734c7"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "53bdfab6af28b03f897ee64ebebbe91e1d52bfefe11c63ea4a7e110b892d7ad0"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "f3eb60a4861efad1602ed7ebe16e31ac8ddcb37902ceca502b8b5a0d4b94aee9"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "6e2fdf74bfb788dad1bfb9b941120a364e5c447d8bb538b9851021c255ec7190"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "5cdc9c24461c5d93080c263b893687787fe498781505d386bade5b592dd0e2d5"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "7d79c0ae211de44a454eb016905c6aee40f9f9b3f6862c44e4d221e58df5d2f1"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "6527865aa16d225c04ebc5e2c4023694f6fe95601cac319e7bc210cd31961e62"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "e504636a2eba2eef791dbe56b938a4f3639bc8edb1a85340b20f1d68e1ef1027"
+        },
+        {
+          "path": "graphify-out/wiki/Community_4.md",
+          "sha256": "02019e5f558116af34cb6716317e29586b6302ff19915a5b44e4df7b439393ab"
+        },
+        {
+          "path": "graphify-out/wiki/Community_5.md",
+          "sha256": "58d2b54f5dda0ec9937cc4592855f2750cc60f1adf88795eed7f0342166a288e"
+        },
+        {
+          "path": "graphify-out/wiki/Handler.md",
+          "sha256": "96ab51102377a3ceeaf221eba34a170d707e13eabe6cb2fbba0ec2c9b31c7149"
+        },
+        {
+          "path": "graphify-out/wiki/Microsoft.NET.Test.Sdk_17.12.0.md",
+          "sha256": "4938aae60de41e2ede37af98ca6d6ebddd9381fc984c1b290acb2bf757713269"
+        },
+        {
+          "path": "graphify-out/wiki/ProviderException.md",
+          "sha256": "4f0c46db05a2b3b6dcdebbf44bbede816f812a8b01789614998b698aba76db32"
+        },
+        {
+          "path": "graphify-out/wiki/Shipment.md",
+          "sha256": "a6408bda1ec94433c68345871382ae519b5f126c587f8169ba32ef0c497bdc6b"
+        },
+        {
+          "path": "graphify-out/wiki/ShipmentRequest.md",
+          "sha256": "6d8167da8edacb920ed3b819699790d849ee8b60b8dc0ed9c4f88deb26569510"
+        },
+        {
+          "path": "graphify-out/wiki/ShippingProvider.md",
+          "sha256": "e3150f9c534e39ba382e74a96e811de141594e12bbd7d2fa8537e359d06ef8c6"
+        },
+        {
+          "path": "graphify-out/wiki/ShippingTests.md",
+          "sha256": "3c65abadcb57caad8286cd84610cf9c5c2efef7ce24657f87bc6f71a31bf3898"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "604c6072162d438379e27bfe826540225c4c4b7b386b5343d1b1766cf2b88642"
+        },
+        {
+          "path": "graphify-out/wiki/net8.0.md",
+          "sha256": "519e95bfb8e37463ab8fbb5de9a8c4a2d13fbafff242d072ed287635c49e68ce"
+        },
+        {
+          "path": "graphify-out/wiki/xunit.runner.visualstudio_3.0.2.md",
+          "sha256": "69d3952f0cd2c63d399bb0f4c744d7be74947d43f459a128e3b53114a7ac05af"
+        },
+        {
+          "path": "graphify-out/wiki/xunit_2.9.3.md",
+          "sha256": "92f7c6ee88cbde96f927ccb55cc2a5231789040e17b7ebd013dccdb4ba938d46"
+        },
+        {
+          "path": "openwiki/.claims/integrations/provider.json",
+          "sha256": "c0276ae6198c56f4e84249581806fa096408836e6b0c2383a30766679007f69e"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "42d9822a7a40f19298ce09341f1715b6511c5d2ba630769623f7c09d62b1e445"
+        },
+        {
+          "path": "openwiki/.claims/service/overview.json",
+          "sha256": "5816404fc38148ec7c463042295e3a7d27c113ade5ff58c76efb8a18bfe71b1b"
+        },
+        {
+          "path": "openwiki/.claims/testing/contract-tests.json",
+          "sha256": "1c84b8afe3ec847c13c033856608de2fcb97f13633a26925b5ace68b27d95ba2"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "d69a8f5adac9659b8f7cd62744bb9b571fad8ed0b8f958443d191f8a74c4060b"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "d0d7f2fdc2465157d9e09a5f0e4c5f43db4213dd141a365b1e474ccf2a69cc44"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "92909a95ffbe37bff430593a9258a358e5c1a1d9e81c0f39736b7886f6804834"
+        },
+        {
+          "path": "openwiki/integrations/index.md",
+          "sha256": "ec4ef1d43a57149269a41679ae6212e3a85820f78e28a8508043002185dce681"
+        },
+        {
+          "path": "openwiki/integrations/provider.md",
+          "sha256": "9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "873c0195c6681b80778553906c1dbbe82910a88cfdb87f007565c37dba30bbce"
+        },
+        {
+          "path": "openwiki/service/index.md",
+          "sha256": "43760fd19e4c1cc34382bff0b8625ffd536b3b3069cd09a2b93aced150b65d4f"
+        },
+        {
+          "path": "openwiki/service/overview.md",
+          "sha256": "a7df5e6a36446dfe5d938eaa4648ce6b9eb58feaf9e2e4591228fc28b3327f29"
+        },
+        {
+          "path": "openwiki/testing/contract-tests.md",
+          "sha256": "d67e22f5df804f20587869500f03936bdce91659c0d786558c44b5ac7aef4966"
+        },
+        {
+          "path": "openwiki/testing/index.md",
+          "sha256": "745a94d392346a0eb5fa9d4e3f60e14d5987ff3ab6362eca641cc08e66b3b687"
+        },
+        {
+          "path": "tests/Shipping.Tests.csproj",
+          "sha256": "b0e5a9f2344bfc5dd362a127200fa3ff53b09c67153418303c68a730f85ad81e"
+        },
+        {
+          "path": "tests/ShippingTests.cs",
+          "sha256": "0844e48d3cea89a5085465b6b861b8e70f49ea4b06613fdd6489ca8dde2b76ef"
+        }
+      ]
+    },
+    {
+      "service_id": "notification-worker",
+      "original_repository": "https://github.com/nagv/commercelens-notification-worker.git",
+      "original_commit": "4159264c5465925d8edc99a21fb49565401967d5",
+      "original_status": "",
+      "destination": "services/notification-worker",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "11c0a999ac9b4074c7494c9a9268a0756d91757cc37113fef68d16c8c6d54d4a"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "4069354362c2077cda81208ad08d2f88e14474c08e82d191d5abfd916695bd02"
+        },
+        {
+          "path": ".graphifyignore",
+          "sha256": "421f3f408dbaa82271657a2453b860c0758088a1c8784dbbb64596ff47ed0063"
+        },
+        {
+          "path": ".openwikiignore",
+          "sha256": "349c61512b0fbccc41c6ceb5318dacaae3ecbdd10692f4ca52d69ebaccfd602d"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "be4822e194ffd92f152c6de6e9fe161a882d08c5c59e31831b3fd77ca89b13f1"
+        },
+        {
+          "path": "README.md",
+          "sha256": "6725df534367d1b186a2e965b5ba18b56feed32590717f16efeb33a6342ad128"
+        },
+        {
+          "path": "graphify-out/.graphify_analysis.json",
+          "sha256": "5f9a8b9af9be45b8846a4b21191491442e54c363f808521c81d8b5e2cc726b37"
+        },
+        {
+          "path": "graphify-out/.graphify_build.json",
+          "sha256": "f0b9e1470ed2a6532385ec5028bccec8a2491405bdc961b7b27b1a8acc729629"
+        },
+        {
+          "path": "graphify-out/GRAPH_REPORT.md",
+          "sha256": "0d0ab318be1e74ef2bc805d637b381efbe1c2d33f993ee89b8ec2434530bd0a6"
+        },
+        {
+          "path": "graphify-out/graph.html",
+          "sha256": "90d8aaf23dbca4fdd64a50c4e6ef7caf2aedf445ae8db5a0c9575bb214d592bc"
+        },
+        {
+          "path": "graphify-out/graph.json",
+          "sha256": "ed47bea5f122238c44d6166e71304aff85a807928d7f793bcdfefe1a38e298b7"
+        },
+        {
+          "path": "graphify-out/manifest.json",
+          "sha256": "c1a8d5567800954f6e8f388ed4038e0eae84d4b42f0a14331919b665e0ae659a"
+        },
+        {
+          "path": "graphify-out/wiki/Community_0.md",
+          "sha256": "37bdd28ba4358d3bbee610e6c91d08b0baa104681f0045660b0167aeb57937d4"
+        },
+        {
+          "path": "graphify-out/wiki/Community_1.md",
+          "sha256": "dab359a1c2800d9387f4059bfb6a5ad67531157d4069ffdfec369c9629e3e93d"
+        },
+        {
+          "path": "graphify-out/wiki/Community_10.md",
+          "sha256": "9e0ea15e8366a0c79a2f94535ec7c1ddada425cb28350b164196d75f32ff9417"
+        },
+        {
+          "path": "graphify-out/wiki/Community_2.md",
+          "sha256": "e1cc7c999f96c4a8e783f849410d2087c3c3c63295171e41730f7757b595b59b"
+        },
+        {
+          "path": "graphify-out/wiki/Community_3.md",
+          "sha256": "7c973092474a97636dd26c7d8a18dcde5e9f68fc28ee3602208ee422ff9d9378"
+        },
+        {
+          "path": "graphify-out/wiki/Community_4.md",
+          "sha256": "4f10c1489427764c868630f9a95043af2dbc31ef9db5f2eae86b160090ad097d"
+        },
+        {
+          "path": "graphify-out/wiki/Community_5.md",
+          "sha256": "9ef5a39230fe9e98e379007c9b08a4b680afba43f3ccebd2869f51bf34a6d256"
+        },
+        {
+          "path": "graphify-out/wiki/Community_6.md",
+          "sha256": "6073f5de3a891464ee94446c156f401b0087ba0a3526520f66d96ce9f1d25302"
+        },
+        {
+          "path": "graphify-out/wiki/Community_7.md",
+          "sha256": "596be70d6f32052d54171d5b0a7275782efdf50f3294e6da9510cfc6597353c3"
+        },
+        {
+          "path": "graphify-out/wiki/Community_8.md",
+          "sha256": "c5f446f0c27259a3578345df94a6a99286bf8bdbadcf356e6d4fc90e0cb0ec08"
+        },
+        {
+          "path": "graphify-out/wiki/Community_9.md",
+          "sha256": "265833ac42947e35c205441d0f02c7ae5e202824e3750a19dec43e9d2b3e322a"
+        },
+        {
+          "path": "graphify-out/wiki/amqplib.md",
+          "sha256": "6e7e7750a0b2127c9a55a1df7aaa2e7cbd88118f542329e8e20429fca76504c1"
+        },
+        {
+          "path": "graphify-out/wiki/compilerOptions.md",
+          "sha256": "ce5c8b1b812cc090c5dadf5dc5091eca3829916de77874eeb400ff515efbb2c9"
+        },
+        {
+          "path": "graphify-out/wiki/connect.md",
+          "sha256": "008d399202882e89def5d1f15968aee32becd0f3cb79e95762f4fe65b3809e26"
+        },
+        {
+          "path": "graphify-out/wiki/deliver.md",
+          "sha256": "952973f5b8ae533ed23aa90f813fa37aa538d19580d1e70a768cc88f3a5fe666"
+        },
+        {
+          "path": "graphify-out/wiki/index.md",
+          "sha256": "447760fceb0b60e7a50083cd76cc61f783ee8b3ad99c44cdea3b1f2738a3062b"
+        },
+        {
+          "path": "graphify-out/wiki/main.md",
+          "sha256": "f96ff07bccb54ff0e9517900eba4c70e987cc697efaaac45e19d9497aa9bf8c3"
+        },
+        {
+          "path": "graphify-out/wiki/parseEvent.md",
+          "sha256": "627e84dc1a8d992890ae7f0aca59afd6291f95905ba2fd9c12b8934aa4c9258c"
+        },
+        {
+          "path": "graphify-out/wiki/pg.md",
+          "sha256": "787a2b0fdfeb1d1c5ced80e05bcb54caf230e1da36cde7b13e8217432882ca88"
+        },
+        {
+          "path": "graphify-out/wiki/scripts.md",
+          "sha256": "8e1d36b9adc3d6fa0bcaacad3cca8314a664068a27509ea5a1b4ec1fab868136"
+        },
+        {
+          "path": "graphify-out/wiki/sleep.md",
+          "sha256": "0c4ba6e05b4573a92bef894a2166cf3aeae54615a632a63e60591b1736f6b605"
+        },
+        {
+          "path": "graphify-out/wiki/watchSession.md",
+          "sha256": "761364f8a712d9b9c22b025cc3ec3290bfd543c2626ce93479a197d6753504c8"
+        },
+        {
+          "path": "openwiki/.claims/concepts/delivery-retry.json",
+          "sha256": "122db928b9102a7057768bfba3d524faff47d27cb010c5c731a7559d9abd3062"
+        },
+        {
+          "path": "openwiki/.claims/concepts/lifecycle.json",
+          "sha256": "d730465894eefcfd9c31e51b99478d970c27dcd8f5a9be1b14a735823b4b3bad"
+        },
+        {
+          "path": "openwiki/.claims/flows/message-consumption.json",
+          "sha256": "5cf8f3b8dfca1c46560cc2e10507216ead175c06f85b32163faba573d397606d"
+        },
+        {
+          "path": "openwiki/.claims/operations/configuration.json",
+          "sha256": "9078abef572c132f1a1634ee8cdc12a393000a40c323314a885c8790f5246df8"
+        },
+        {
+          "path": "openwiki/.claims/quickstart.json",
+          "sha256": "fe5119ab5f4ddb339b483b95c798eba8eb6fc43231c59f44e7117a274ad822dd"
+        },
+        {
+          "path": "openwiki/.claims/service-context.json",
+          "sha256": "dad75723d7c9160e28a1664765e7c6e161ad124fe2511f9a240ba53ebf9e0cc5"
+        },
+        {
+          "path": "openwiki/.last-update.json",
+          "sha256": "55f035dc385f79cdf69bc5f3180183e0abf658517b77e3baceae53cc4cb7d4df"
+        },
+        {
+          "path": "openwiki/.page-manifest.json",
+          "sha256": "5eae6b36bce56f4b256b93bfd8d19b1384f6c4b0be17cef83c813719a537b44a"
+        },
+        {
+          "path": "openwiki/INSTRUCTIONS.md",
+          "sha256": "9a45e290d4246750af3a132beb706e728ebc15169788d0c36955768a4e15232f"
+        },
+        {
+          "path": "openwiki/concepts/delivery-retry.md",
+          "sha256": "34e5631e95bdd9e3436295960f758fd0d2c9f0500eea509eb1bece1f48678f2a"
+        },
+        {
+          "path": "openwiki/concepts/index.md",
+          "sha256": "a31d50f22b378d28a913b1cec9cc68bf748b2b6462ef1a04e0df63f84d95952f"
+        },
+        {
+          "path": "openwiki/concepts/lifecycle.md",
+          "sha256": "8df6e247eb777452c777e6d95f2f1c517531b0e75b6ac1fdf2be20586e77beec"
+        },
+        {
+          "path": "openwiki/flows/index.md",
+          "sha256": "51a405ca2553adb84b2a9f534880d394788cfce49c7ea97031746669927340d3"
+        },
+        {
+          "path": "openwiki/flows/message-consumption.md",
+          "sha256": "f54da2cab1db62025451b8e2f623e0d6fc8dc35ab58adde08f2dc1e7f38086c6"
+        },
+        {
+          "path": "openwiki/index.md",
+          "sha256": "5bba27c9042f4f2a7cf021b7a7fec96229a5ce2c16b0acbae8be4267df8aa627"
+        },
+        {
+          "path": "openwiki/operations/configuration.md",
+          "sha256": "6e0e70d3aa24e0d1c94c394a6f00e7c449e5a3a0452bf57af91f6da072f5495b"
+        },
+        {
+          "path": "openwiki/operations/index.md",
+          "sha256": "b70df094db958a21f1093ac370f6192cfbd2cb1adedb61b61e0dd98852c419a9"
+        },
+        {
+          "path": "openwiki/quickstart.md",
+          "sha256": "6d1cba048102bc7a5193cb4182688fe6db0d1ab4bebea098ba1da26229e027f2"
+        },
+        {
+          "path": "openwiki/service-context.md",
+          "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893"
+        },
+        {
+          "path": "package-lock.json",
+          "sha256": "92adaddb9bcb65bb2261d5ac9c102beb9bb017e2c89d293e34354a73939668a8"
+        },
+        {
+          "path": "package.json",
+          "sha256": "2adb6b32403bf020f98b7912e79d816f64356c738253798b543619ed44ccdf49"
+        },
+        {
+          "path": "src/delivery.ts",
+          "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+        },
+        {
+          "path": "src/lifecycle.ts",
+          "sha256": "58e60706427f82d8e814a4f9213cfdac82a30c48f11dd1f71ac7ab191938912b"
+        },
+        {
+          "path": "src/main.ts",
+          "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+        },
+        {
+          "path": "test/delivery.test.ts",
+          "sha256": "b8bc30fda4bab637560106e41af4fb50d8701cda5231454257073eaae1d751f9"
+        },
+        {
+          "path": "test/lifecycle.test.ts",
+          "sha256": "9286b7d1ad714441ac8fc69a5f803d05ec1a2354b28c4a7c3cbbbc53a1c41fd1"
+        },
+        {
+          "path": "tsconfig.json",
+          "sha256": "0494c0c204a81a308b385b758edacf5b85a1aa083b821b0ac82301daea53fdf8"
+        }
+      ]
+    }
+  ]
+}

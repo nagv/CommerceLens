@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:24098bdc3fa7eefd578d29ed443ca26060be5c08cf98467974a5c2639171a595",
+  "claims": [
+    {
+      "id": "claim_e389204ccd06440689fce6d38da79fa8",
+      "statement": "The CommerceLens Inventory Service is a single-binary Go HTTP service that owns authoritative product prices and stock reservations. Its purpose is to manage inventory_products and inventory_reservations tables, providing product catalog listings, stock reservations, and releases to upstream callers such as a checkout service.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L11",
+          "version": "repo-lines-v1:sha256:e6a8d9c0088d98bb655a27a7fa2329fd0f86100efd1e6a65862ea6332883cc6d:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2YTRhZDYxYzY4ZTczNGJhMTMwOWFhNzJmY2MzYWRmYjY4M2FmMTRlNTM2YjY5M2UyMTkwOGU1MzA3Yjk4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI3MDRkZjIzZGZkMDE3MTA2N2MyODAwNjFhZDk2NmMxZjM1ODE5ODhhMjUyZDA3ZGZkNjA0ZDUxZDdiYjk4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2YxYzQwOTc3YmIzNWJlMGM4ZjhjODhlNGE2NjEzODA5YmNlNmVmZjFjOWVjNjQwOGQ2OWFhYzJkNjMxMjUxYyJ9"
+        },
+        {
+          "resource": "repo://main.go#L22-L47",
+          "version": "repo-lines-v1:sha256:3498106762fbe914cb9917c7490131b6c18736c738ceedb7e22e50d557648153:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5ZjdiMDk4ZDE2ODU3NjRlNDdlM2EyY2YwNTQxYmQ3M2ExN2M3NjIwODczM2U1MDVjZTY5NWVlZjZhODFkMWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0YTAxMTkxNjY1OGVhNzllMzEzZTFmYmFlOGVmNGI5ZjE2ODEzNjljZDgxZDdiMThhZTQyZjNjYTFiMDBkOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhMDU4OWIxYzdlNDY5ZDU4YmQ5Y2EyM2E5MDYzMDU1MDJjOWUzZDYwZDMyMmIwZGJiZWRhYmI3OWJhZDVhZjIifQ"
+        },
+        {
+          "resource": "repo://main.go#L77-L187",
+          "version": "repo-lines-v1:sha256:433475c825b1022ddd3a283bd1cfadb5f5a3e2ee88e8ac5647cc4b229ab55efc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTExLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYTJlZWJiMDRlYjAxODM2ZDVkMzVlYjZhMmEyZWE1NTdhM2FkOTdhOTQxYWEwZjk5YzRiM2IyNmM2YjMwNDQyIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhMmFiYzgxZTBlZjhkNDZkNDU0NTI5NTExYjFlNzFiNGE3OGRiOGYwYTFhNzNjNGRiNWUxNThhMzc4M2QxYmJjIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI5NGQxNmVlNTU1NjllMDg5ODExMjRhOTZhMmNkYWFhZWQxOGJhOGY2YWM1MjAxNmM1YTMyNDA3YjAxZWE3NjYyIn0"
+        }
+      ]
+    },
+    {
+      "id": "claim_47d61aacfc0742a9ae53b955e3fd05b3",
+      "statement": "The service never accepts prices from callers. During reservation it reads price_cents from inventory_products and returns authoritative prices and subtotals in the response.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L3",
+          "version": "repo-lines-v1:sha256:d06a4ad61c68e734ba1309aa72fcc3adfb683af14e536b693e21908e5307b988:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2YTRhZDYxYzY4ZTczNGJhMTMwOWFhNzJmY2MzYWRmYjY4M2FmMTRlNTM2YjY5M2UyMTkwOGU1MzA3Yjk4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2YTRhZDYxYzY4ZTczNGJhMTMwOWFhNzJmY2MzYWRmYjY4M2FmMTRlNTM2YjY5M2UyMTkwOGU1MzA3Yjk4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI3MDRkZjIzZGZkMDE3MTA2N2MyODAwNjFhZDk2NmMxZjM1ODE5ODhhMjUyZDA3ZGZkNjA0ZDUxZDdiYjk4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWM2ZGE5MDFiMGEyMzM4YjNhMzJiMzdkZmZlZGQwODlkMTNlMWIzZTMwZWI0MzQ0N2E1MjBkY2Q1ZjZmYjYyMCJ9"
+        },
+        {
+          "resource": "repo://main.go#L111-L125",
+          "version": "repo-lines-v1:sha256:038de225b92aa37567d23083dba56581e49c159930edd0da430e47e9d05169da:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyYzc0MjJkYWU2ZDU2OGUyZTA5YmM1NDkxNGYxYmQ4YjI0OThiZGNjZDU4ODE4NmNmYWE4YmM1ZWNhODY3ZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5MzY2ZGU1MmE1YWRhNjI5YTZhNmQzODY1NGNjMjEwNjc1N2ZmZDMyYjFhZjNmMjRmMGQ4OGJjODlmN2M4NGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkNjVkYzBiZTkxMTNkNjBjNmM1MzM5OWRmZTc5OTczNTViOGQzY2Q5MTI1NWNkOWI0MjMwYzFmMTJmNjVjMDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyY2Q1Mjc1NjgwMzllMDlkZDljZDkyODNjNTIwNzdhZWNkMTQ4OTFkM2ViMWNiOTNjMzE0OGFjYzVkZmY2N2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b6ec47acfd824110bf6b942bc85404d8",
+      "statement": "The technology stack is Go 1.23 with net/http (no external framework), jackc/pgx/v5 v5.7.2 for PostgreSQL connectivity, and PostgreSQL as the only runtime dependency.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L1-L9",
+          "version": "repo-lines-v1:sha256:deba61e7f5d168a9077deb8c29f2f614fc2e326cac33767ef94748235d7f25db:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTliMGM5ODA1NzM5YTcyNDNjZTQyZmE3ZmYxODE3NDkwYzUwZGVkNzI0YTAyMWM1MzFkN2MxOGY1NDExZTY4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDFjNTY1MjAyNmUzNDE1ZDJmYzhmYTkyYTY1MzkzYjI0NjhlMmYzMGZkMDExMTlhYmY3N2JhNzI4NmEzMDFiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQzOTBiNjViOGJlYzZhOGEzYTQ3NDg0MGU5NTcwYWFiMWVjMTE5NGQyYzg5YjM2OTQ1OWZiYmMyZjYxNGVmNiJ9"
+        },
+        {
+          "resource": "repo://go.mod#L3-L5",
+          "version": "repo-lines-v1:sha256:e503e9ab08495101805adfbfe855013139f2b3772b3e3a1a7a41b85ef085e10a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODk3YmNmMmNlYTM1MTc3MDkxYzJlYTg4MzUwMjQyMDEwZGNkZTVhZTg0YTIwMjA5MGVlOTM3Nzk2ZjRkNGNlOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ3ZTY4N2Y5YWFkMWZmZWU0MTNjMGEwNzIzNTc2MDBlYjRjMDY0Y2ZkN2ViZWUyMGYwYTA5MjVkM2I5N2Q0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGNhOTE2YWFlNmU3OGU3NmQzNDAxNTJjMjYzMjk5ODkzNGZiYzQ0YTVjMDhhZmJiODljNGNhMzgxOGFkYWNkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q2Y2Q4ODVjZjViOGRhMTkyMDI1NGQ4ZmU0NmQxMTg1NzhhMjdkNDdlYjIwZmYxYmU4ZTliNmY4ZmQ1NmI4MiJ9"
+        },
+        {
+          "resource": "repo://main.go#L1-L20",
+          "version": "repo-lines-v1:sha256:0266be8fb405d1580c4c3cacf8a6f3bd9d58f255efe5b60ce0206b91335970c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmMWQwMzZjYmJmM2RmNDZlMjA0NTA3MWUwODIyNDVlY2UyMDRjN2Y1M2VjZjBhNGUwMjJiZmY5YmIyMjhmNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwMGJjNDZiYmNjZWEyMTY3OTI3YjY5M2ZkYjczNmYwZjI5ZDk5NzM4NjJmNDE2N2FkMzhhZWFhMjE0OTgxMmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_238cdf3bc9884563bf486f2de95e80bf",
+      "statement": "The binary entry point is main() in main.go. It reads DATABASE_URL from the environment (exiting if unset), creates a pgxpool.Pool, executes the embedded schema to create tables and seed demo products if missing, and starts an http.Server listening on :8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L11-L12",
+          "version": "repo-lines-v1:sha256:c4f18852adf55645eeb835bc83f35c602064dc66799f2a9213860dd6aeb7dcdf:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhkOGY5YjY2OTM5OGFiZTgwNWM4ZDc1N2JjM2M2MTBjYzJmMmE3Njg0NzMyNTgwZWNhOWQ2ZDM0OWFjNDgxYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQyMzliZmEzYzAyM2U3NTg2ZGYyYjUyNGM1ZDRhMDEyNGVkZWE0ZTE1NzA0YTRmNmY5NjljZDViMjg5ZGYzYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTgwZTA2NzQyZDllYjc1Yjk4Y2JiYzcwYjk0NzQ4ZTY0YWY2ODYzMmIwMjc4ZWU5OWNiYzRmMWY2YzkxZjZjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://Dockerfile#L6-L6",
+          "version": "repo-lines-v1:sha256:34e099bc38dd5a743bae246aadab9ec17a873b048473eb9fdb61e731255af376:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNmZTAwNDJlMWZiMmFkMDUyZTc1ZjZjNGM0YWExYzBiYjA3ZTZjNjI1NDhiZjI0ZTNhODI4NTU3OTliM2FiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSJ9"
+        },
+        {
+          "resource": "repo://main.go#L259-L277",
+          "version": "repo-lines-v1:sha256:7a7d053ec4c602280351486a99acd955fe5035e23b246963a90ef48d664f0eed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNWQ2NGY5NzFiMjRmNzAxZDM0Yzc3ZjEyNWFkOTNkNzBiN2I0MGEwMmMwMjM2YjA0NTM5M2UyNGJmNmI1ZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwZmRiOTlkNTAyNDNlZTA1NDljNDVmOWY2MGE3NTY4NDljOTZkZGYwODdiMjllNmY1MjA5OTA5MWVhNDJmZWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6144578aced4552aab1f36b82cd41f1",
+      "statement": "Ownership of inventory data is unambiguous through table namespacing (inventory_ prefix on both tables), a single static binary named inventory produced by a Dockerfile multi-stage build, and the schema co-located as a const string in main.go rather than managed by an external migration tool.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L10-L12",
+          "version": "repo-lines-v1:sha256:94390b65b8bec6a8a3a474840e9570aab1ec1194d2c89b369459fbbc2f614ef6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA2Yzg3OTlkOTFiNWMxZjc0NzZmYTE3MWI3YTIwYmNkYmI4ZGNjNzcwM2ZjMTM2NDcwMGE1NmU0OTg1YzQ2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQyMzliZmEzYzAyM2U3NTg2ZGYyYjUyNGM1ZDRhMDEyNGVkZWE0ZTE1NzA0YTRmNmY5NjljZDViMjg5ZGYzYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://Dockerfile#L6-L6",
+          "version": "repo-lines-v1:sha256:34e099bc38dd5a743bae246aadab9ec17a873b048473eb9fdb61e731255af376:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNmZTAwNDJlMWZiMmFkMDUyZTc1ZjZjNGM0YWExYzBiYjA3ZTZjNjI1NDhiZjI0ZTNhODI4NTU3OTliM2FiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSJ9"
+        },
+        {
+          "resource": "repo://main.go#L255-L257",
+          "version": "repo-lines-v1:sha256:071b2a62beed48454b7383eaeca9bc5df7e29581e68a0533450c5b62d684031a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiY2NhMDlkZjg4YzVlOTVkMDAwMzc0N2VmNGQ0NTU0NDkyMzI2MTY3OWVjMGQyYmQzZWRhNTI1YmUwN2I0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhNzYwMDVhYTdjMjU4MWZlNTFhMzFiZjkxZGQwOTQ3MTIxNThlMTM0ZTFjN2YxM2MwODQ2MWRjY2JlMDBiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzQ2YzhjZjFjN2Q4NGZiZjgxZTdhNDU0NjNkMDMwYzFlOTI5MzVmYTUwYmNhZmZiMzAwODljZjVmNjRhMmQ5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZmNTIzNDYyNTg4YTE2YjMxZTI2N2M0Y2I2ZWFiN2ExYTdmNDQ3ZTAzOTVlMzhlYmZjMjc1OGE1MWMzY2ZhOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2c577a20f41241ad968874a03e60f7d3",
+      "statement": "Reservation requests are idempotent: replaying the exact same request returns the cached result without decrementing stock again. The service detects replays using a SHA-256 fingerprint of the canonicalized item list. Replaying a released reservation returns 409.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L67-L73",
+          "version": "repo-lines-v1:sha256:5a6f75b0a92fcee29433fde81de6d139d85f7aff18668573f4e79348fa756aee:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRjZWUzYzJlMmUxNjFmMzUzYzBlNDU2NWEyYzUwOTBlODA5YmU4OGVhN2Q4OTI0NDJkZTViNWMyZmVmZGQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI5OGMzYmI1ZjFlZGVkYmE4NDM5MWNiMDljMTE5NDI5MzllNzI2MWUyZWM0NjlmM2QzNDg0ZmQ2Y2Q3ZmM1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJhYmM4MWUwZWY4ZDQ2ZDQ1NDUyOTUxMWIxZTcxYjRhNzhkYjhmMGExYTczYzRkYjVlMTU4YTM3ODNkMWJiYyJ9"
+        },
+        {
+          "resource": "repo://main.go#L90-L101",
+          "version": "repo-lines-v1:sha256:1a97953f90fae520a9b30b1c1a993ca269c5d661e83d899ddfdd73b92c0acc41:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlZDNlNzQxZGZmN2IyZjJmNjlmOTdkYjJmMzc3MjAwMWFlMjliNDVjZTY4NzA5ZmFkYTc1ZjkzYTliODg4ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkY2RkNGJjOGQxOTVkMGM5MTZjNmJhNjU1Nzk3ZTE0NzBkYmM2MGJhODQ1NzI4ZGQ2OGExZWJhNTUzNDI5YzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmNTFiZjJlN2JhYzc1ZGRiZTE4NjdkYzBmYmYyMTgwMDcyNzI0MWUzYjgxNDk1ZGZkZmRmMWI3NzIwZTU1MjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE0ZGI2NmUyNjgzYjE2YThmNzQ2NTI0OGNjMTdmODEwMDk1OWIwYWMyNDI3ZWRmNDJlOTNjZWM5NDg0Nzg0YmYifQ"
+        },
+        {
+          "resource": "repo://main.go#L94-L95",
+          "version": "repo-lines-v1:sha256:cce67827b477a865bd4e0eccbbd240aa0b3c0bbb6be58d881208f874d10b45ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2IwMjkyODFlZjJjNjViOTEzYWUwOWUyY2M2Mjg3ZDZjNWFhZGY1YWU3NTY2MzVhMTg5ODc4NjVmYmYxOWQ3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzc0ZmI4OGM0ZGU1NTUxM2JjMWZhMDg1Y2E3NWQzOTViY2ZiNTYyNzBlYWM0ZjlkYTNhMzc3YTJmMzA5NDRjZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzg3OTc0MzA4MWFhMGRhMDdjMTRmZjA3ODkxZWNjOGVjMDE3MjM2MjViMWEyNDc2NjJhNWYyZjMzZmZlZDBhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjYzNDJmNTdiMTIyNDEzMmFkZDNhNzZhNjFjYjJmNmNkN2M5YTU3ZjViNDNiNzUwMTE2MzM3ZWEyYTMwMTk5NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_050f3f3971284015b18a90da0194644b",
+      "statement": "Stock overselling is prevented by selecting inventory_products rows with FOR UPDATE in ascending SKU order within the reservation transaction. Concurrent requests for the same order_id are serialized by a pg_advisory_xact_lock via hashtextextended(orderId, 0).",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L106-L108",
+          "version": "repo-lines-v1:sha256:cceb811bc49b4b4d112e4bdf8eb4b216e4cac1cfc88d6be9d2b7b8f92b83e371:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQyMzFiZTRjZDY2NjgyOWJiODljZjVjNWNlNWMwN2Y4ZWZlOTFhMjhhYzE5NGFiMmYyMGQ5NzFhOTc0ODY0MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWM2YzliZjAxZDIxOTBiNzNjMWFhNmViYmYyYTk4ZTcwYzc1MTM3YjIzYjFmYjU4MjhjNWFkYjEyZWUyYTQ3NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTBhNzFkYmQ0OGExNjJjMWRmOWQxMTZkNzYwOTU1Zjc5YjljMzZlMjlhM2YzMzI3Nzc2YzAyZjVmYzE2ZmJiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY2MjdmMTk1ZWU5M2VmM2Q4ZmZjNTg2N2M2YWY5OGViOTJkYzJlMzQwYmJjOGVkNGRhZWVhNWNlNmE1YTZhZSJ9"
+        },
+        {
+          "resource": "repo://main.go#L111-L111",
+          "version": "repo-lines-v1:sha256:92c7422dae6d568e2e09bc54914f1bd8b2498bdccd588186cfaa8bc5eca867e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjNzQyMmRhZTZkNTY4ZTJlMDliYzU0OTE0ZjFiZDhiMjQ5OGJkY2NkNTg4MTg2Y2ZhYThiYzVlY2E4NjdlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjNzQyMmRhZTZkNTY4ZTJlMDliYzU0OTE0ZjFiZDhiMjQ5OGJkY2NkNTg4MTg2Y2ZhYThiYzVlY2E4NjdlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Q2NWRjMGJlOTExM2Q2MGM2YzUzMzk5ZGZlNzk5NzM1NWI4ZDNjZDkxMjU1Y2Q5YjQyMzBjMWYxMmY2NWMwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFhMWJlYzg2YTk3ZGQ0OTYzYzA2MjVhNTdiYTZiOWQxMTNhMGJkZmY4NTZkZTllZjE3YjgyOGVkNGMzMGY0MyJ9"
+        },
+        {
+          "resource": "repo://main.go#L86-L88",
+          "version": "repo-lines-v1:sha256:ee6860b075e3106d73033d51b4528a18cc0885107ead81549b1ef32e00d65552:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTUwZTQwMTJhMGE0Y2IyYjA4MjBmMTVmYTMyMjNmOTY3ZWI2MmI4ZjY0ZjY2Zjk2ZTQxN2JlZmVhZjE4YWNhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEwYTdmY2ZlMjBlOGYzNDc4ODFlZGFiNjI5ODk0MTFiNDZkZDYwNThmMWU2NGM1Y2E1MGZmNGRlY2JkNDVhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWFkNmU2MWM5NzI5YmYzYjhjYmQyYzM4NTEzNzdkZjg4ZjIyYzc3MGNjMGYwMjY0NjdkMWRhY2ZiMjI5YTMwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWRkZGE0YWU1MWNkYzgyNjVkNDk0Zjk4YTQ3YWEyOWE5NmZkYmJjOTgxOGY1NGNmODNjODQyNjkzMDE0ZmIwMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5ec5dad3137f48e4a64964e418cfad36",
+      "statement": "Release is idempotent: calling release on an already-released reservation succeeds (returns 200) without restoring stock a second time.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L155-L156",
+          "version": "repo-lines-v1:sha256:f01bb68a83f756db5da7027583b4b8642d956c3e5b317352f07416ef2d7cef82:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM4MWM0ZGY2ZDk1MTM3YmZhMDM1NmY0MGM2NWM3MTVlMzczNWEzNTg3NmU2NGIzYjEzOWY4MWU1MjJlOWI1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWNiZjZkOTBjYmQ2MjMzN2I1OTkyNDhiNmNkZTMxMGJhNjFkNGYwZGExYTVhZjgwMzdjOTI0MWEzNTE3Zjc3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGM2M2U1MTU2MjU0OTdmZDA5MmVjYzY3MjczNTE3NGI2MTQ0OTE1MTMwZDE3YTlhOTA5NjUzMWIyNDkwZGJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTYzOTgwYWZjNjcwZjg2ZWIxYjdiZDEyZDQ1MWVhMDdkNDQzNzA2ODkxODhjMTJmYTQ3NTJhNGU3ODJhZDNiNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5de520568b5b42ef85faea7a4ec0f0f4",
+      "statement": "Tests are split into two layers: main_test.go contains fast unit tests validating input rules and fingerprint behavior without a database; integration_test.go contains PostgreSQL-backed tests verifying concurrent reservations cannot oversell, exact replays succeed, conflicting replays fail, and double-release is idempotent. The Docker build runs go test ./... before producing the final binary.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L10-L10",
+          "version": "repo-lines-v1:sha256:206c8799d91b5c1f7476fa171b7a20bcdbb8dcc7703fc1364700a56e4985c464:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA2Yzg3OTlkOTFiNWMxZjc0NzZmYTE3MWI3YTIwYmNkYmI4ZGNjNzcwM2ZjMTM2NDcwMGE1NmU0OTg1YzQ2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA2Yzg3OTlkOTFiNWMxZjc0NzZmYTE3MWI3YTIwYmNkYmI4ZGNjNzcwM2ZjMTM2NDcwMGE1NmU0OTg1YzQ2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzRmMTg4NTJhZGY1NTY0NWVlYjgzNWJjODNmMzVjNjAyMDY0ZGM2Njc5OWYyYTkyMTM4NjBkZDZhZWI3ZGNkZiJ9"
+        },
+        {
+          "resource": "repo://Dockerfile#L6-L6",
+          "version": "repo-lines-v1:sha256:34e099bc38dd5a743bae246aadab9ec17a873b048473eb9fdb61e731255af376:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlMDk5YmMzOGRkNWE3NDNiYWUyNDZhYWRhYjllYzE3YTg3M2IwNDg0NzNlYjlmZGI2MWU3MzEyNTVhZjM3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNmZTAwNDJlMWZiMmFkMDUyZTc1ZjZjNGM0YWExYzBiYjA3ZTZjNjI1NDhiZjI0ZTNhODI4NTU3OTliM2FiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTlmM2Y0NGUzYzQzOTU1ZTBiMzNlMjZjODE2MGEyMTNhNTc4NGNkMzkwZmJhOGRiYjMyZTJkODJmNTU2YmEzMSJ9"
+        },
+        {
+          "resource": "repo://integration_test.go",
+          "version": "repo-file-v1:sha256:b8a863a2cf76b94e7de78a89fdfa14421e50100f9d946440c1fc1d58607382e7"
+        },
+        {
+          "resource": "repo://main_test.go",
+          "version": "repo-file-v1:sha256:1f701e08c137a4804f4178ada6966ddfb3db4fb4a27dcc87b574d6e9ea609fc6"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

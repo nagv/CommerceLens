@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f14af4e2bb14bad07f6abe5b14b9d9e6ce8b486c087b28dde5f1d75ebfadc3b2",
+  "claims": [
+    {
+      "id": "claim_af15254be563417ba37eedb4148e98e2",
+      "statement": "Downstream Inventory, Payment, and Shipping base URLs are injected into RemoteServices via Spring @Value annotations from application.properties (inventory.url, payment.url, shipping.url).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L17-L17",
+          "version": "repo-lines-v1:sha256:13c6f2bfe6f06fe8ab2b6f6e28a56273f248d75e00d68ca8a621f9f939342ca8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTNjNmYyYmZlNmYwNmZlOGFiMmI2ZjZlMjhhNTYyNzNmMjQ4ZDc1ZTAwZDY4Y2E4YTYyMWY5ZjkzOTM0MmNhOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTNjNmYyYmZlNmYwNmZlOGFiMmI2ZjZlMjhhNTYyNzNmMjQ4ZDc1ZTAwZDY4Y2E4YTYyMWY5ZjkzOTM0MmNhOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDZjYTM3Y2Q3ODkwNTRmMzk1N2EyMjZmNzUxMzM1YWE5NGE3Njk2YjBkYzYzMjEwOWRmMzc4NWFjNzU5ZDMxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWEyYjI0ZjI2NTYxZGQzZjZiNDg4YTk0MTU1NTg1OWIxZDEzMzYxZjI3MDE1MzdhNDdhNDAxNmU5NzA3ZWIyNSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L14-L16",
+          "version": "repo-lines-v1:sha256:4f78323e51fdd6e9fbc97b74851901d6e600d97786719225bc70b410b4261ebc:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI2ODQ4YTQ2MjhmOTg4ZjlkNmE1MzExNWE3NmRmODc2NTA0ZDVlYjMyYTNjNjkwMTJkNDQwMjEzOGYwYmJjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNiMmE0YTk1ZTY2NWQyNTJiM2UwYjUxYjU0MjAxY2RjYjJlYmQxMDU2ZjA1NTIyNmEyZGZhZWUwYmI5ZjMzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODQ4ODhkNmEyM2QzNWMwNzcxNzg0ODZhMDgzNDZhOGMxYWQyZGE2NDUxMWJiNzQzNzdmYjZlNTAzNGY0NGUyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc1ZDlhZThkNDQ2MTc1ZWI5NzBlN2VmYzIyNDllOWE5ODg0M2I5NDJlNGNhMTM4MjU1OWNlMGQzZDIzZDRiYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b028dcf79584503ad40420d91150ffd",
+      "statement": "RemoteServices builds a shared java.net.http.HttpClient with a 2-second connect timeout.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L16-L16",
+          "version": "repo-lines-v1:sha256:2c5b4c38fad4872fdb9f7ba8be2f2510f9db80a55dcb4f9f9d2dc139fa8ac831:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1YjRjMzhmYWQ0ODcyZmRiOWY3YmE4YmUyZjI1MTBmOWRiODBhNTVkY2I0ZjlmOWQyZGMxMzlmYThhYzgzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1YjRjMzhmYWQ0ODcyZmRiOWY3YmE4YmUyZjI1MTBmOWRiODBhNTVkY2I0ZjlmOWQyZGMxMzlmYThhYzgzMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQ3ZDFhYmQ1NzhlODY2YTFhMjkyNzBlMWFmYWE0YTcwOTg5ZGFiZWY5MmJkMzZlNjI3NjA5ZGRjOGQxMGMwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmMyZDViYTBlM2I3YzY2ZGRiYWU4MmQyNzMxMjAxZmE0M2Y2Y2RkYjhhYmFkMzdmNGU2ODdhYTIzM2JmZGE3MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_072c0d455431422098ba61e0db481a5a",
+      "statement": "Each HTTP request issued by RemoteServices has an 8-second timeout set on the HttpRequest builder inside the request() method.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L20-L20",
+          "version": "repo-lines-v1:sha256:451b742a77658db41c71f463e72e94d43bfc9af8f2c6cb19269f71542a170225:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDUxYjc0MmE3NzY1OGRiNDFjNzFmNDYzZTcyZTk0ZDQzYmZjOWFmOGYyYzZjYjE5MjY5ZjcxNTQyYTE3MDIyNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDUxYjc0MmE3NzY1OGRiNDFjNzFmNDYzZTcyZTk0ZDQzYmZjOWFmOGYyYzZjYjE5MjY5ZjcxNTQyYTE3MDIyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmMyZDViYTBlM2I3YzY2ZGRiYWU4MmQyNzMxMjAxZmE0M2Y2Y2RkYjhhYmFkMzdmNGU2ODdhYTIzM2JmZGE3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjVmN2QzYmQ3OTMwNjE3YmI3YTlhNDU4YzAzZTNlMDVhYmVmZTEzNzBmNjU3MDY0ODFlNTM0Yzk5ZTJiNDQ4YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e22f595442124e248435f5e8ba9cdf8e",
+      "statement": "Transport-level failures (IOException, InterruptedException, or timeout) are mapped to Checkout.RemoteFailure with HTTP status 504 and the message \"upstream response unavailable; outcome may be uncertain\".",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L25-L25",
+          "version": "repo-lines-v1:sha256:dafdf5d6bfd34fbb8212255a6b08a70fd2a52704d4735b4f830f45bf3f471bc1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFmZGY1ZDZiZmQzNGZiYjgyMTIyNTVhNmIwOGE3MGZkMmE1MjcwNGQ0NzM1YjRmODMwZjQ1YmYzZjQ3MWJjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFmZGY1ZDZiZmQzNGZiYjgyMTIyNTVhNmIwOGE3MGZkMmE1MjcwNGQ0NzM1YjRmODMwZjQ1YmYzZjQ3MWJjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMwZGZmODdiMmRkNDM5NzhjNGM5ZjQyOWMwMTQ5ZjMzMGNjYTMzZGMwOTkwZTc2NWRjMDAyNDg4YTA4Nzc1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTZjNDExMzY3MWViMWI2ZWQyMjIzY2I3YzNmYWE3YTgzOWM3MTNhYjU5Y2U2ZDRkZWY3ZjM2NTJhYmM1YzNkZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3a430695a2a946c7868d124be959d616",
+      "statement": "RemoteServices calls Inventory via GET /api/products, POST /api/reservations (with orderId and items), and POST /api/reservations/{orderId}/release (with an empty JSON body).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L27-L28",
+          "version": "repo-lines-v1:sha256:cb0d87223d771befd10592290c287e18c579062815e05e263f507a510848acb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMzZjFiYjQ1N2QxMzUxYmM1NmU5N2ZjODkwOTNiMTM3Yjk1NTE0ZjlhZTRlZWMyOTU4OTc3NmYzMTk4YzUzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc3ZjZkYzgzMmM0NGY4MzAzYTJkOTU3NGUzM2M0YmU3YTQ0MTEyNjM4NWYxYWFhMmQ1ZWFhYjNmYjg2ZjVlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGRkMzA0YmVmMDhkMDlhMzM2NmViMzZmZDEzMjBhOGMyZWNlNTJmYmVmMDQyOGJmYmE1NDZjN2E3NWMwODlkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjJhZGQ4MjQ3MDA1OTY3OGQyMWMxZmFkMTUzZjZiNWFiYzBkOTAwZDE5ZmQ1N2JmMmE4N2EzNWU5MGEzOGQ1OCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L32-L32",
+          "version": "repo-lines-v1:sha256:9f7568f9dbb8280dc581f965e1bcc8cebf1ae726b4e4607a76fdc8f2bbdb2f9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY3NTY4ZjlkYmI4MjgwZGM1ODFmOTY1ZTFiY2M4Y2ViZjFhZTcyNmI0ZTQ2MDdhNzZmZGM4ZjJiYmRiMmY5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY3NTY4ZjlkYmI4MjgwZGM1ODFmOTY1ZTFiY2M4Y2ViZjFhZTcyNmI0ZTQ2MDdhNzZmZGM4ZjJiYmRiMmY5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjJhZGQ4MjQ3MDA1OTY3OGQyMWMxZmFkMTUzZjZiNWFiYzBkOTAwZDE5ZmQ1N2JmMmE4N2EzNWU5MGEzOGQ1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODI2OTcwYjg3ZWI1OWUyYWJhMDU3NjYzODQwZjkzMmUyZDllMjA1YThhOTViMGI2ZmJlOTNkMmU1MTNjYThkOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_31c1671c59f94290b9dada808f3e92fe",
+      "statement": "RemoteServices validates the inventory reserve response by requiring a non-null items list and a non-negative subtotalCents; otherwise it throws Checkout.RemoteFailure with status 502.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L28-L28",
+          "version": "repo-lines-v1:sha256:c77f6dc832c44f8303a2d9574e33c4be7a441126385f1aaa2d5eaab3fb86f5ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc3ZjZkYzgzMmM0NGY4MzAzYTJkOTU3NGUzM2M0YmU3YTQ0MTEyNjM4NWYxYWFhMmQ1ZWFhYjNmYjg2ZjVlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc3ZjZkYzgzMmM0NGY4MzAzYTJkOTU3NGUzM2M0YmU3YTQ0MTEyNjM4NWYxYWFhMmQ1ZWFhYjNmYjg2ZjVlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjI5NWFiYWE5YTIxNDhjMjcxYTkzODdkNDU4M2I1YThmMjg4NDQzMjEwYTk3NTg0NGIxM2FlY2RhZTE0ZGE0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjJhZGQ4MjQ3MDA1OTY3OGQyMWMxZmFkMTUzZjZiNWFiYzBkOTAwZDE5ZmQ1N2JmMmE4N2EzNWU5MGEzOGQ1OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7d3b610d67264233b8af8e364f2d6f9e",
+      "statement": "RemoteServices calls Payment via POST /api/payments (body includes orderId, amountCents, currency=USD, and scenario) and POST /api/payments/{paymentId}/refund (body includes orderId).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L29-L29",
+          "version": "repo-lines-v1:sha256:afce02daa46e74f785fe5a6c55b95f4f3cd9a888168957752b20ba4077769d28:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZjZTAyZGFhNDZlNzRmNzg1ZmU1YTZjNTViOTVmNGYzY2Q5YTg4ODE2ODk1Nzc1MmIyMGJhNDA3Nzc2OWQyOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZjZTAyZGFhNDZlNzRmNzg1ZmU1YTZjNTViOTVmNGYzY2Q5YTg4ODE2ODk1Nzc1MmIyMGJhNDA3Nzc2OWQyOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZjNDExMzY3MWViMWI2ZWQyMjIzY2I3YzNmYWE3YTgzOWM3MTNhYjU5Y2U2ZDRkZWY3ZjM2NTJhYmM1YzNkZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDdmOWExMjZhZTQzOTkxNmNmZDcyYTcxN2I5MGU3Mzg1NjQ2NTEwNmE3ZTAzMWZkNDk5MjhiOGNlYzk4N2RiYiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L33-L33",
+          "version": "repo-lines-v1:sha256:c59fe93e3464bf4c4dbab4f05ae437a7a46e3da4e2e1e64369998b2b9e8cab92:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU5ZmU5M2UzNDY0YmY0YzRkYmFiNGYwNWFlNDM3YTdhNDZlM2RhNGUyZTFlNjQzNjk5OThiMmI5ZThjYWI5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU5ZmU5M2UzNDY0YmY0YzRkYmFiNGYwNWFlNDM3YTdhNDZlM2RhNGUyZTFlNjQzNjk5OThiMmI5ZThjYWI5MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDdmOWExMjZhZTQzOTkxNmNmZDcyYTcxN2I5MGU3Mzg1NjQ2NTEwNmE3ZTAzMWZkNDk5MjhiOGNlYzk4N2RiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWNmMDBkNDY2YWIxNzgzY2Q0MTEyNzY5M2E5OTZhMzlmOTc1ZWU2ZjBiYTlmNWYyOTJlZThiZjRjZWZlNGM2NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d90458d245624524929b896bc2202a32",
+      "statement": "RemoteServices calls Shipping via POST /api/shipments (body includes orderId, postalCode, and scenario) and expects a trackingNumber in the response.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L30-L30",
+          "version": "repo-lines-v1:sha256:0b5a47795ea43b8beaf0e9cb6fdc73b867ce0c1c44bdc5ad108c5ae8296fa367:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI1YTQ3Nzk1ZWE0M2I4YmVhZjBlOWNiNmZkYzczYjg2N2NlMGMxYzQ0YmRjNWFkMTA4YzVhZTgyOTZmYTM2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI1YTQ3Nzk1ZWE0M2I4YmVhZjBlOWNiNmZkYzczYjg2N2NlMGMxYzQ0YmRjNWFkMTA4YzVhZTgyOTZmYTM2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTg4ODI3MTY0ZDhkZDMwNDEyYzM2ZGUzZjRiMDQyOGNlNjcxZDRkNDcxNjI4NjE2MjZhYWNkMDAyNzgyMTM0NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Q4YzdhOWRmMmNmNGJhZTY4ZTRmZTc2MTRlODQ0NDBmYTA1NjdmYzcyMzhhZGYyOGIwYzI3NDUxYmI0MWVlYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b82bc86c717b4abfb5f5b8b58f70340b",
+      "statement": "RemoteServices.required validates that paymentId and trackingNumber response fields are present and non-blank; a blank value produces Checkout.RemoteFailure with status 504.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L31-L31",
+          "version": "repo-lines-v1:sha256:70a4e478a9132c01dd69b35de1bff101494964594af8354a5cd182cce4021322:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhNGU0NzhhOTEzMmMwMWRkNjliMzVkZTFiZmYxMDE0OTQ5NjQ1OTRhZjgzNTRhNWNkMTgyY2NlNDAyMTMyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhNGU0NzhhOTEzMmMwMWRkNjliMzVkZTFiZmYxMDE0OTQ5NjQ1OTRhZjgzNTRhNWNkMTgyY2NlNDAyMTMyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg3MzhlMDY1ZmQ1YTI3NjBkYTNkODZlMGQ2NTlkODM1ODEzYjFjOGNmYjNkZTlhZTRmMWE1MmY4OWI4ZjRhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2RhNDQyYTMwNjFjMGY2NGVkNjY4NzIzMDYyY2QyMDBiMzQ4MjZmYjA5NzY0YjAwYTU2YThiMmFiMTg5M2I3NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d21c227907e49109896a141ef690802",
+      "statement": "For non-2xx responses, RemoteServices attempts to parse the JSON error body and prefers the \"message\" field, falling back to \"detail\", then to a generic default message.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L23-L23",
+          "version": "repo-lines-v1:sha256:bd544e77c7c6df81000ea895094f3f884eb2a30e65d228a6beb9a483a991062a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1NDRlNzdjN2M2ZGY4MTAwMGVhODk1MDk0ZjNmODg0ZWIyYTMwZTY1ZDIyOGE2YmViOWE0ODNhOTkxMDYyYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1NDRlNzdjN2M2ZGY4MTAwMGVhODk1MDk0ZjNmODg0ZWIyYTMwZTY1ZDIyOGE2YmViOWE0ODNhOTkxMDYyYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWI4MDA4YzNlZGZmZDAzNzgxYTNmNWZjOTViZWYwODAzOTA4YzU5MmIwMGZlYTM4OTFmYWRhOGNhYzY4MzZkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGRkMzA0YmVmMDhkMDlhMzM2NmViMzZmZDEzMjBhOGMyZWNlNTJmYmVmMDQyOGJmYmE1NDZjN2E3NWMwODlkMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b44d3dd661284bb6bd58804fa2ba569a",
+      "statement": "CheckoutTest.FakePorts is a hand-written test double (not a mock framework object) that implements Checkout.Ports, records whether release and refund were called, and can inject configurable failures for unit testing the saga without real HTTP calls.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L50-L57",
+          "version": "repo-lines-v1:sha256:f9d9b545ab3ea21c233e15ab8e566b50b7b61a04a2c5c7932964192c4038b527:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkyOGNhMWQxYjBkMTkwYzIzZDdlY2EwZWZiNGM4ZTRlMTRlMjFkZGY1NDViODYwYjJmNDVkODM2YjE4ZjlkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJhYmQ2MTFmMjViZWQxM2EyMDdhNTFlNzU5OWNkNWRjMGQ5NjcwNjQxY2UyZDBjN2VmZTljODgzZmYyNTcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ca5a8946cebd4b1c90568b7189cbd304",
+      "statement": "RemoteServices.checkpoint delegates order persistence to OrderStore.checkpoint.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L34-L34",
+          "version": "repo-lines-v1:sha256:314df04842969e714612e5c188f7e0d75df367814bfb75c3f4864363cab1b490:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE0ZGYwNDg0Mjk2OWU3MTQ2MTJlNWMxODhmN2UwZDc1ZGYzNjc4MTRiZmI3NWMzZjQ4NjQzNjNjYWIxYjQ5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE0ZGYwNDg0Mjk2OWU3MTQ2MTJlNWMxODhmN2UwZDc1ZGYzNjc4MTRiZmI3NWMzZjQ4NjQzNjNjYWIxYjQ5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Q4YzdhOWRmMmNmNGJhZTY4ZTRmZTc2MTRlODQ0NDBmYTA1NjdmYzcyMzhhZGYyOGIwYzI3NDUxYmI0MWVlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

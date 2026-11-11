@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:25012a98e7b5055be24ed77fd621bf5dcf33a4da390e9022d1ae58a7b0e8ad3c",
+  "claims": [
+    {
+      "id": "claim_8a01e5b4494f4cf09bb1342122d8ba91",
+      "statement": "The CommerceLens Order Service is a Java 21 / Spring Boot checkout coordinator that orchestrates inventory reservation, payment authorization, and shipment creation, persisting state in PostgreSQL and publishing confirmed events through RabbitMQ.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L39-L59",
+          "version": "repo-lines-v1:sha256:16e05e280b160f29b08d231a479a8c601198dc5c372b69812fcbb6c314a1b37c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYjY5YjQ5NTcwZjJhY2U4M2VkOWI0Y2RiZmZiZWMwMTNjYzNlMTVhNGIyNjIwOGU5NTg1NzdlOTNmODNmMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4YWJmZTg5NmY1ZWMzNTJhMDgyM2Q5MjY4MzY5NTcxOTNkNWUzNDZjY2E3OTBhNDJkZWYyM2Q4YmJhOTAzMWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MDUzZDJmOGJjYTVjYjM3ZWY3ZDFmMzM4OTRjMzFhNmRhZTViZDQzNzdiN2JkODE0ZWU1OTliNGI5YzViMTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5NjRkM2E2ZTljMmUzZTlmZjE2YTg5MjVmMzYxNjdhYjI3YjBkOTg3NzBhMDlhZDZlYmJiYzZhM2MyMWJmNDEifQ"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderApplication.java#L1-L9",
+          "version": "repo-lines-v1:sha256:987283c1b4d16bc6ea0e8127ac7ad3af40ab855ea1ca81b24ebcd156c29da740:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3NjBlOWQ3NzlmNDMzZDljOWUwNGM0MDEyNDkwNzQyM2U3MjliNWZiYjMxZTU0ZTJlNjliMWE1NjE0MWMwMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRhZTA1OGVlZmY0YzQzYjJmMTg3NGJjM2QxNzZmYmFiZjcxZjMxNWE2YTBiZmFkZTQyYmIxMjFiMWZlNTE2OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L19-L20",
+          "version": "repo-lines-v1:sha256:12520fd45ab37a54451a353a55e35e4f80e5e9529d554f280c252bb8f7585de7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdkNTRkNWU0NTIxZGViZmMxM2VkNTNjNzgzY2QyYTZmYWM3MmE3ZTY0NTNiMGRiZWM5Y2U4Y2M1NzQ5ZWU0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4NzA4NzIxOWQ1OGQyNTUyZjc2YWIyNWE3ZjM5ODliY2E1MTljNWVmZjliNTBjYjI3ZjBkZDI0ZDA0YjRiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2VmZDY0NjUwZjFmYmNmMTY2YTNkNWYwMTRkMmI3ZmIzZGI3NjhjNDBmZWI0ZjcyZjA2NGU0ODlhNDI0MjE1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTIwNDg3N2ZjYzNhZTUzNGM5ODZmM2M1ZTE3YmVhOWQwMjYyZTM1MDI4NzI0ZDExYzA0NjIxMzlkYjc5YjNhNiJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/schema.sql#L1-L16",
+          "version": "repo-lines-v1:sha256:47dd2bbd159b12dada055c76a890731241f7024e8f0979014612e06cebf31337:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmOWU2YmZhOGU5YTNiMzk1MGJmZDQxODUyYWRhYzYwYjlmNGQ0ODg2NmNjZGQ5MjZjMjBjYjY2Njk0ODg0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bdae78351da34530ad8fd714099a475d",
+      "statement": "The service is a local demonstration without authentication and should be exposed only through a loopback-bound portal.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L3",
+          "version": "repo-lines-v1:sha256:1c4c9bcb876217e637cc00f75d77b9650e24fd7312a1d6a578c1183701644f9e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM0YzliY2I4NzYyMTdlNjM3Y2MwMGY3NWQ3N2I5NjUwZTI0ZmQ3MzEyYTFkNmE1NzhjMTE4MzcwMTY0NGY5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM0YzliY2I4NzYyMTdlNjM3Y2MwMGY3NWQ3N2I5NjUwZTI0ZmQ3MzEyYTFkNmE1NzhjMTE4MzcwMTY0NGY5ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWNkYzNhMTRiNTA5NDU5MGQ0NGE2OGRlMTdlZjM2ZDdkOWEwMTI5Nzg1ZGQ2NjM3ZTFjZjgwNWJiNGRmOTBmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWM2ZGE5MDFiMGEyMzM4YjNhMzJiMzdkZmZlZGQwODlkMTNlMWIzZTMwZWI0MzQ0N2E1MjBkY2Q1ZjZmYjYyMCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L14-L24",
+          "version": "repo-lines-v1:sha256:2645d19652504429e43a9fd1ca978a7083b8fe70a036f3e5df581e981f290ac3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1ZDNjMjE5MTZiODBiODIxYzRhMjllNzdkMGE3MmJjMzgxYWYwM2VmZjcwOWE4NWI0ZmE4YmUyYTk5NGQ2ZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU5ZmYyZWM0MDExZDZjM2RkMjFkOTNlNmQ4ODZlYzNhYzQ4YTRiYTUwYjBiZTJhOTJjNWVkNDU1MTYzNzJhM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2YzRiM2EzNTYzZTFjYTJmYWMzM2I4ZTljZDdhNmU2NDRhN2EyY2IzNTkxNjVlNmEzNjZlZGE1MjA2MmY4ZWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7ce5f1e391c14f92b83edabf5ab02091",
+      "statement": "Changes fall into distinct subsystems, and the quickstart routes each change domain to its corresponding documentation: HTTP API changes are handled by OrderController; checkout saga logic by the Checkout state machine; database schema and persistence by OrderStore and PostgreSQL; messaging by OutboxPublisher and RabbitMQ; downstream service contracts by RemoteServices; error and compensation paths by Checkout failure branches; and tests by CheckoutTest and OrderStoreTest.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L39-L59",
+          "version": "repo-lines-v1:sha256:16e05e280b160f29b08d231a479a8c601198dc5c372b69812fcbb6c314a1b37c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYjY5YjQ5NTcwZjJhY2U4M2VkOWI0Y2RiZmZiZWMwMTNjYzNlMTVhNGIyNjIwOGU5NTg1NzdlOTNmODNmMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4YWJmZTg5NmY1ZWMzNTJhMDgyM2Q5MjY4MzY5NTcxOTNkNWUzNDZjY2E3OTBhNDJkZWYyM2Q4YmJhOTAzMWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MDUzZDJmOGJjYTVjYjM3ZWY3ZDFmMzM4OTRjMzFhNmRhZTViZDQzNzdiN2JkODE0ZWU1OTliNGI5YzViMTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5NjRkM2E2ZTljMmUzZTlmZjE2YTg5MjVmMzYxNjdhYjI3YjBkOTg3NzBhMDlhZDZlYmJiYzZhM2MyMWJmNDEifQ"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L25",
+          "version": "repo-lines-v1:sha256:c38ef75d02e06ea7917c7fc14f08b6a1be63069899e6e10aa3177470e0bfdcac:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNkMTZiZjMzNzVmYjU1YmM3MDFmYmM2NTE1NGE1ODE0MTE5ZjVlZWZjYjk3N2UwYTY2ZmY3NjhmOWQ1MzlhMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTI1ZjQ4Y2IyODZiYjQ0NmMwMzVmYTlmNzkwYzZhNmQ2OTMzNDVjMGQ5ZmE2YmFjOWI2NDg1NjBjN2JmMzE4ZSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L15-L27",
+          "version": "repo-lines-v1:sha256:b4fca1e5dbe86f7444e20bde111c9a04cf2459c7d52800745317ce097e4f2d60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhOTk0NzVjMDY1ZjRjNGMzZWU0OGQzYjcxY2Q5YzU4NDk3Y2MyNDJlYWQ5MTJjZDYyYTFkYmE4Y2M3Zjk4MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0ZmRmMjMwM2ZlZmFkMjcyOThkMTI2YjBiNjI3ZDUwYTk2ZWQ1YTA4YjY3MjJlY2M0MmY4YmViNWU3NzFjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhODVkNmRiNzJlZDZjYTliMjlhMTRkYWRkYTA5ZWY0MTRmODgyZDQ3NDlhZTY1NDI5YzFiNDIxZjQ3MjQ1NDAifQ"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OutboxPublisher.java#L19-L20",
+          "version": "repo-lines-v1:sha256:12520fd45ab37a54451a353a55e35e4f80e5e9529d554f280c252bb8f7585de7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdkNTRkNWU0NTIxZGViZmMxM2VkNTNjNzgzY2QyYTZmYWM3MmE3ZTY0NTNiMGRiZWM5Y2U4Y2M1NzQ5ZWU0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4NzA4NzIxOWQ1OGQyNTUyZjc2YWIyNWE3ZjM5ODliY2E1MTljNWVmZjliNTBjYjI3ZjBkZDI0ZDA0YjRiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2VmZDY0NjUwZjFmYmNmMTY2YTNkNWYwMTRkMmI3ZmIzZGI3NjhjNDBmZWI0ZjcyZjA2NGU0ODlhNDI0MjE1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTIwNDg3N2ZjYzNhZTUzNGM5ODZmM2M1ZTE3YmVhOWQwMjYyZTM1MDI4NzI0ZDExYzA0NjIxMzlkYjc5YjNhNiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L16-L33",
+          "version": "repo-lines-v1:sha256:b9906fcce12b0f6ec6920fb691ddf034107914e22df4f035a4053a8bf8f15b44:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjNWI0YzM4ZmFkNDg3MmZkYjlmN2JhOGJlMmYyNTEwZjlkYjgwYTU1ZGNiNGY5ZjlkMmRjMTM5ZmE4YWM4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1OWZlOTNlMzQ2NGJmNGM0ZGJhYjRmMDVhZTQzN2E3YTQ2ZTNkYTRlMmUxZTY0MzY5OTk4YjJiOWU4Y2FiOTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk0N2QxYWJkNTc4ZTg2NmExYTI5MjcwZTFhZmFhNGE3MDk4OWRhYmVmOTJiZDM2ZTYyNzYwOWRkYzhkMTBjMDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljZjAwZDQ2NmFiMTc4M2NkNDExMjc2OTNhOTk2YTM5Zjk3NWVlNmYwYmE5ZjVmMjkyZWU4YmY0Y2VmZTRjNjcifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/schema.sql#L1-L16",
+          "version": "repo-lines-v1:sha256:47dd2bbd159b12dada055c76a890731241f7024e8f0979014612e06cebf31337:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmOWU2YmZhOGU5YTNiMzk1MGJmZDQxODUyYWRhYzYwYjlmNGQ0ODg2NmNjZGQ5MjZjMjBjYjY2Njk0ODg0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L8-L57",
+          "version": "repo-lines-v1:sha256:8c4bca189721a311d48775c347878fb15981ecb10dc39e5895d5729991b57f69:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3Y2U3NzIxMmFjNDA4ZDE4MDhkMjRlNGM2NzA4ZjA2ZDAwMjFlMDMyODcxMTcxY2RmMTI4N2NlOTVmNjg2MjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg0ZmU5YjdmNWI1NzU2NmMzMDdkOTBhZTBkNTMyNDYyOWQwZThkMDAxMjE0ZTVjMDM5ZWEwZTZmMTBkODYwMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L15-L24",
+          "version": "repo-lines-v1:sha256:06121182621c8d668e1ec11f9f80744d0d0d62bf7bbe46213ace68c1d6cb5023:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZGVhYjQ2MjI0YjRlMWQ1MzQ4NmFhOTAyNDk3NjQ4M2E3YWFjZTllMTQyMTgwNGQ3MzJkY2I2ZWE5N2Y1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjMxY2MzNmI2OTYyZGJhNDk5YWQwOTQ3NmUxM2YxYzc4ZjhiMzE1MzVmOWJmN2MxZGVmYTE0MjU1MmNlYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3NGYwMjE4M2IzY2MxN2JkMWRjNGYwOGJlMmNiZTQ5NTc0MWVkOWQxZGNkMWU4NTE4ZTFhOWM5N2FiOGRlZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3YzYzNWJhOGQ5M2ZjZmUyMTFjNzc4YzZiYjc5ZjVlNTM1MzgyY2MwZjFkYWVlMjY3MzE1NGI3M2IyMmM3NWEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

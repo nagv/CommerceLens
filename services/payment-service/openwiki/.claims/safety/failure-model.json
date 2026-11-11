@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:409aa41ac39874a189a237afc01123589d9a34423cf9f6fedcee25b07a628260",
+  "claims": [
+    {
+      "id": "claim_0c9ffa4bb7f440fc839f9544487d078e",
+      "statement": "The idempotency key for POST /api/payments is the caller-supplied orderId, forwarded to the provider as the Idempotency-Key header.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L56-L58",
+          "version": "repo-lines-v1:sha256:f370b39ba33115255a1e2ad4cb82e1e474d836d97c476c5c2b090dd3ecc68d14:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwMTdlYjdiYmViN2M1ZDUyNDlmNmEzNTE3YTBjYzkxY2RlNGRiZWJiZmI2Y2JjMzE3YjRkNjQ2NjFkMzY5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThlOTBlMDMwNzZmYWI3Mjk3NDcyYmM0NGJlNjBlY2ZlOTU3YzMzM2E0ZDAyMDY5YzQwYmIxOTNhZjMzNjQyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDkxZWE2YjE4OTc4YzEyOTc0MDNmMmQ4Yzg1MDY1MmEwM2QxOGVlYzEwMzBlNDRmYThiOWU0MzU5OTQxZDY4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVhZTEzYzNjMmRjMWU5Y2I3Y2VkODlhOWRjNjI5ODEwN2FjMTgyZTZlMDQ4NmY5ZmQ1OWFiMDIwMzRjY2E4YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6ed1e99183d8488ab024a3564f7d86ea",
+      "statement": "The idempotency key for POST /api/payments/{paymentId}/refund is refund:orderId:paymentId, ensuring refund retries and distinct refunds remain scoped to the original payment and order.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L61-L63",
+          "version": "repo-lines-v1:sha256:9c24dddb60dd169dc6e8fa5ea08603dd3a5d907d7a8f6d0094eb05ce47dc37f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNkNjliOGE1MTFkY2Q2ZWY4MzQ1ZjhjN2FlZTg1NTlmZTA3YzM0NGZiMGE2OWJmODJkYjljYjY3ZWQxMTE0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNkZTUwYjcyNTg4MzY2MzE4NGQ4MGViNDdiMmU2MzgwNzk0ZDY0NmZjNzNjMDIzMjdiZDgyZTUzYTExYmJhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGVmMzkyYjIzODNiZjlkNzBjMGE2NmU3MTQzMWE1MDlkMzM3ZWU2Y2RmOGIzNjZlOThkYWJkMDdlNzA5ZGJlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ce0fa01725834c9580867bcaf3ed7bb2",
+      "statement": "A 402 response from the provider is translated into an explicit Payment Declined (status declined) to the caller; it is safe to inform the end user and does not require reconciliation before retrying with different parameters.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L34-L35",
+          "version": "repo-lines-v1:sha256:b55cf570880f0ca8409050816320b612f87f1c90395d3e8894205c54849165a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFjY2E0MzNmZTA5YjlmNzVmYWU4M2E1YTg0MTE1MjU5MTBjNjZlNTcwMDg5MTM2NDU5ZTJjMzczN2E0M2Q0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmI2ZDNlOWE1ZDNmNDZhODhmNTc3MjJhYjJkZmY3ZWE0MmI1MGI1YzFkOWRkNWQzYWIzNjQzY2RjYzFhNjA0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDNiZTRkNmUxMzQwYjcwYjRkYTY0OGViMjUyYTU1ZWY2N2Q1N2JjMzNhYmI5MmU2Mzk3NTgxZDc1NDdiZjhkYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjhhMDcxOWVhOGE5MTE2NWY3YWYzNzUxMzU0YTZlZmFlZTFhNmVjZTlkMDkyZmJkYzNlNmQ1MjIzYTMxMTNhYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_34cc8540708346e88014b23d9cf6e771",
+      "statement": "A 409 Conflict response from the provider indicates a conflicting idempotency key payload already exists at the provider, returning status unknown and requiring reconciliation.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L36-L37",
+          "version": "repo-lines-v1:sha256:7f785bbad2220196861d9e4d7c3a42ebd1c83099b0e95ba97da4b3fbb52db159:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYxY2ZlYzk1M2Y5ZmQ4YTcxN2JhNzRjYTdmMjMxODE2ZmMwMGRiMGU5Mjg4MTEyNmY1NzFlYjlkMGE3NTFhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4MzdkOTgyNmNlMDQwOWM1YzdlMWQyNDAzMDE2YTEwNzhlZWQyZmRhYTVlY2I2ZTI1YmIyY2E3Nzk0NDhkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWQyMDgxNTc1NDU0MGMzN2EyOGRjYzVhY2JlYzUxOWFhN2JlYjg5ZDUwYTBhYjEwYjU2ZmNkOGVjM2M4NzkyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTI3NDMwZjcyZjYwODZmNjZkOGRkODJhM2ExYTFhMjhjMWE3NTVlYWM4OTk1NjJiMjdmNGYyNDE1ZjUyOGE0OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6aef39e17cd848da814fe12a1337d83c",
+      "statement": "A 502 Bad Gateway response indicates the provider is unreachable or returned an invalid or unexpected response; the outcome is unknown and requires reconciliation before retry.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L38-L39",
+          "version": "repo-lines-v1:sha256:135d823ded63340b4637cb3ef75ac3ab6b1d7a51e191324ec33422a2fef350ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTM1ODU4ODBjM2RiMzhjNTk4MTBiOTQyY2ZmYzdiN2JkOWMwNDA1ZjEwY2EzN2E2NjA5NjkwOWY0YmNmZGEzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWM1MjUzYWNlNjMwODkwZTFjN2NjM2NkZmExMWFiYjY2NTI2ZGJmZTgyMWQxMDQ3ZjJiY2UxZWY0MTFlYWQ1OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTZlOGI4NDM4MTliYTZjNmYyZmZmNDQ2Y2VmNzRkYWE4N2QzZjFhMGJlYTMyOTI0YzQxMTY4NTk0NGU0NGJiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTdiNDQ4Y2QwNmU5YTZjYWM1NGUyOGZhOWI5MDY4YTAzMWNjOTcyMzJlNjljNTk0ZTNjNDg0NjJmNjNlZmJkYiJ9"
+        },
+        {
+          "resource": "repo://app.py#L47-L48",
+          "version": "repo-lines-v1:sha256:6be777fcd602729cd4a52c1e9fcd5d700ce7e3dd70f796d8e9334608a63fe74d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTVkY2E1NDA1MmE2ZWQxZDA1MzYzZDQyZjM3MWMyY2E2YzIyNDU3ZjMzZWE2ODNmYTIzYjcwYTIyYjczOTYxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjExNzg5NmI3MjcyN2VmNDk0YWVjZTNhYTdkYjRhY2QzMmM3ZjRhZDE5Y2ViNDQ0N2NkZWQ3Y2YxMDIxM2FiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmMxZTk3ODE1ZWE3M2ZiNmYwMjY1NjdjYjFjMWM2ZTkwYTdhMmFlYThkNjJiNjZiMDQyYWU4M2Y3MDdiNmYxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWUwYTcwODIxMzdiOWY1MzhjMDI5YmY3MDYyMzljOWVhODM5MWMwNzgwZWE4ODExMDY0MjVhNDQ4NGMwMTcwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a0fbf3b821b4ef8b7dea7e63ddaeeb3",
+      "statement": "A 504 Gateway Timeout response indicates the provider did not respond in time; the outcome is truly unknown and requires manual or system reconciliation before any retry.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L45-L46",
+          "version": "repo-lines-v1:sha256:e815171f170e610b3515f4ab46d1e92d53bde3e32a4acb3844129e2717c215d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMyZjI4MmY1NmYyMzIyNWQyMTE2ZDYzZDY4MTNjOWE4MjUwZDdhNTk0YTI5YzYwMzA3ZTZmNDFlY2FkN2E4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjFjNzljMjU1NmFlYmNhNWIwZWRjMzM4Mzc3ZjY0ODBmOWQyNzA2ZjllZGUyZTFjZjQ5ZGM2YWQwMGVlNmJhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVmMjdlYTc1MDkxY2QzODQ3MjM2MWM0YzY0NDBmNjEwMWJmY2NjZWY1YWM2MzMyOTUwNWMwOTY2NmM2NWFjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzkwZjBmOTkzYmY0NTllNjUzNGEyMWE1NGZmZGFiZjcxNGViZDcxZDc0OTAyZjhhNTY5YWY1YmEyMGM5ZWYxZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_15212d5b9d51464b9c62719a8e0cdd60",
+      "statement": "The provider must durably enforce idempotency keys and reject conflicting payloads.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L10-L11",
+          "version": "repo-lines-v1:sha256:8b5294dde91568e20ab4cec04284af7def1be677fea29cc4f21c70ce810284b6:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI4MWZkZjRmODdhNzMxMWNiZTQ5ODQ0ZGI0MWUzZjk1YTM5YzBmYzUxOWYyYTkyODUxZjcyZjVmMjE2ZTVmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjY4OTA0OTFjYWU2NDUzZDk3M2YxZmU0ZDRjZDMxNDY2YmQ2NjQ2ZjhlMThkNDVjMTkxZGRhOTg4ZTI2NzkwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU5NjVhYWNlZTExNWU3YzZiNTVjZjkyNTUyMzU0ZjRjY2U0Mjg1NmI5YmYxYTJiYjA0NmI5MGY4OTFiODllZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9278c8da153f4a02a623c5fc8fdb6277",
+      "statement": "The service prohibits blind retries of ambiguous payment writes; reconciliation is required for 502 and 504 outcomes.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L11-L12",
+          "version": "repo-lines-v1:sha256:53f7a5f8aeb64fa5961ac508a8f627a5486fb2007ca0bb4f7fbfafec42224588:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE4NzNkZmQ1ZmI5MWZhN2ExZmNiY2Y4ODg4ZDcxZjBiN2JkNzE5MjA4YjVmOGU2OWYzMDAwMzIyNDZjYWY3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJlZjM5M2ZjNjZhMGUyZTYzY2M4NTg4N2UwOWE0MTUwYWU1YWU3YmUzODkwYWQ0OGYxNzZmODQ5OThhNTAzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE2NTEzNWY2NTQ5OTVkYmM4MjNlZWNkMWVkMmRjZGEyM2ViOGI0ZDcyNWUwNGNkOGZiMGI5NWQwYWZkMGUyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7475049267774cd58258ae14f8cd7b87",
+      "statement": "Test case test_timeout_is_uncertain_and_decline_is_distinct verifies that a provider timeout results in HTTP 504 with status unknown while a provider decline results in HTTP 402, confirming the failure taxonomy distinction.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_app.py#L33-L40",
+          "version": "repo-lines-v1:sha256:98e870078ea08671bbe9228bbbfc2c1eefa63bc904aa9723bed686e18567c55f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjExZmJhY2U5NGVkNzhiZWQ5ZDRjMzkxNTMyNzVjMTEwYThhMmI0NDNlNGI3YWFlNGI0ZTJmNGE1YTE3NTAzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2MzQ2MjVhOWE0ZjA3NzJjZmYxYTZhNDNhNDgzZTViMzIwYzQ4ZDQ2MDdmNjlkZjEwODc3MmVmMzQ3YWYzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmU0MzUyYWJmMTUyY2VjMTZlOTYxYTZjZmI1MGU0ZTRmYzNkZDNlYTljODI5NDgxMjFlOGVmNWJjYjNmZDdmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzY5OWE4OTk4OTM1NTQ5ZWY3ZTE0MjlkZmZkMzhjZjJjN2E4Njc5MmNkYjg2NDc0MmU1NGQ4ZjQ4Mzc5MzM2MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_25141b1b80414d648b7c6b70593b1e0a",
+      "statement": "Test case test_refund_key_is_distinct verifies that refund requests carry a distinct idempotency key scoped to both order and payment, such as refund:o1:pay-1.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_app.py#L42-L44",
+          "version": "repo-lines-v1:sha256:f2563de0303e8e2b9b7c670bbf9ec61e4edc827d14f364986cbb10bdb14f854c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI4MjkwZWEwMDViNjJiMWFmN2U4NWMxZWNiNjljOTc5NDExMmJiMTI4MzMxYzg3MDEzZTFiMDc5YmZlN2RkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGNlODk5Y2UzYWM5ZWVkMmU1YTJjOTJlYzA2NmI3NDE2OGI0NzNjN2RiYzJhYzQ2NjUyMzYwNzAwMmE4YzM1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjMwM2U4MDAxN2NmZTA4NDZmYzM2YWUxNzBjOGQxYzI0NTYxYWE1Y2U3ZjQzNDI3ZDYxODc0NzI4Nzc4ZDYyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:41.531Z"
+  }
+}

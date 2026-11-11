@@ -80,6 +80,7 @@ def main(argv=None):
     p=sub.add_parser('evaluate');p.add_argument('--dataset',type=Path,default=ROOT/'evals/golden.jsonl');p.add_argument('--output',type=Path)
     p.add_argument('--mode',choices=['ask','plan'],help='Evaluate only the selected feature')
     p.add_argument('--repetitions',type=int,default=1);p.add_argument('--judge',action='store_true');p.add_argument('--ragas',action='store_true');p.add_argument('--langsmith',action='store_true')
+    p.add_argument('--workers',type=int,default=1,choices=range(1,5),help='Bounded concurrent evaluation cases')
     args=parser.parse_args(argv)
     from .config import Settings
     settings=Settings.from_env(ROOT,args.env_file)
@@ -122,16 +123,16 @@ def main(argv=None):
             if args.ragas:
                 # Imports are explicit: optional missing evaluator dependencies never silently disappear.
                 from langchain_openai import ChatOpenAI,OpenAIEmbeddings
-                kwargs['ragas_llm']=ChatOpenAI(model=settings.chat_model,api_key=settings.chat_api_key,base_url=settings.chat_base_url,temperature=0)
-                kwargs['ragas_embeddings']=OpenAIEmbeddings(model=settings.embedding_model,api_key=settings.embedding_api_key,base_url=settings.embedding_base_url,check_embedding_ctx_length=False)
+                kwargs['ragas_llm']=ChatOpenAI(model=settings.chat_model,api_key=settings.chat_api_key,base_url=settings.chat_base_url,temperature=0,timeout=60,max_retries=0)
+                kwargs['ragas_embeddings']=OpenAIEmbeddings(model=settings.embedding_model,api_key=settings.embedding_api_key,base_url=settings.embedding_base_url,check_embedding_ctx_length=False,timeout=60,max_retries=0)
             if args.langsmith:
                 if not settings.langsmith_api_key:raise ValueError('LANGSMITH_API_KEY is required for experiment upload')
                 from langsmith import Client
                 kwargs['langsmith_client']=Client(api_key=settings.langsmith_api_key)
             output=args.output or ROOT/'evals/results'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
             result=run_evaluation(assistant,args.dataset,output,repetitions=args.repetitions,
-                judge=OpenAICompatibleModel(settings.chat_api_key,settings.chat_base_url,settings.chat_model) if args.judge else None,
-                ragas=args.ragas,langsmith=args.langsmith,evidence_root=ROOT,case_mode=args.mode,**kwargs)
+                judge=OpenAICompatibleModel(settings.chat_api_key,settings.chat_base_url,settings.chat_model,max_tokens=8000,timeout=120) if args.judge else None,
+                ragas=args.ragas,langsmith=args.langsmith,evidence_root=ROOT,case_mode=args.mode,workers=args.workers,**kwargs)
             print(json.dumps(result,indent=2,ensure_ascii=False));print('Results: '+str(output))
             return 0 if result.get('failure_count',0)==0 and result.get('langsmith',{}).get('status')!='error' and not any(result.get('judge',{}).get(k,0) or result.get('ragas',{}).get(k,0) for k in ['error','missing_configuration','missing_dependency']) else 2
         result=assistant.run(args.question,mode=args.command);result['retrieval_backend']=args.backend

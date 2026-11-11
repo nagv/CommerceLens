@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:34e5631e95bdd9e3436295960f758fd0d2c9f0500eea509eb1bece1f48678f2a",
+  "claims": [
+    {
+      "id": "claim_893764f3cc3c450f9456a17f98d33732",
+      "statement": "The Event type defines five fields: eventId, orderId, customerEmail, totalCents, and trackingNumber, with string lengths capped at 320 and totalCents constrained to a non-negative safe integer.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L1-L1",
+          "version": "repo-lines-v1:sha256:624c1748e04bebeba7168e98d01aff4b2cd39072537a94290979c84dcbcb0498:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQ5NmZkYjJiYmI2MTMxZTNmMWY3MGQ5NmU4YTVmYmQwMWZjYjE3NDg1NzMxNmQ0ZjFmZDQ1MWMwZWZjN2FjYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d12f0307332443cf8a834bf075384371",
+      "statement": "parseEvent validates the JSON payload, rejects malformed input, missing fields, wrong types, or values exceeding constraints, and throws 'Invalid order.confirmed event' on any failure.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L2-L6",
+          "version": "repo-lines-v1:sha256:bb27dcda9e1e2a375b1732db0ecde26cac9e9cc8820713bba57b0bb7ba685efc:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdmZmEyZDdhNjQ4YjgwNmZmOThjMDFmZDlmYWE1YjQ2MzMxNzBhMjYzMjU4ZWVjMGNhYjdmMDQ4NGViNDc1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjI0YzE3NDhlMDRiZWJlYmE3MTY4ZTk4ZDAxYWZmNGIyY2QzOTA3MjUzN2E5NDI5MDk3OWM4NGRjYmNiMDQ5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDBlZTU2ZGY1YTQ3YWJhYjQ2ZTFjODYwNTU1YjFlYTQ4MjBlM2IwOTFjNWVmMjBmOWViY2YwODg3NmQxMTIwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd96b8e8b5204591b21104b0b0829dbb",
+      "statement": "deliver() accepts a prior attempt count, a send callback, a beforeAttempt callback, and an optional sleep function, capping total attempts at 3 and preserving the prior count across retries.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L7-L10",
+          "version": "repo-lines-v1:sha256:833d1e0b9a32beeeb39ee10dfe697bc2f1bc04aff8a222463a90c837ee09bfdf:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhiYmE0NzJmNzU0YTZmNjBlYzc2NjMzMTE5ZGQxZmE4ZjFiNGNkMjMxZGQyMDk3YzI0MjY2YjVjYWJhZTgxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E0YzBlYWViZmRkYWQ4YmVlNjdjMTExMDEyZjY0Y2YzM2I1YzQyM2ZhYmRkN2UyMjYyMTJhYzYxZmU5Yzg2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JmMzU1MTMzYTg2NTZkNzA0YTI0MTcxMGI2ZDA4ODJjYmM0NGVkMzI5OWNmZmEzMTNiM2Q1YjYzMTM1NzZmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Q1ZjU3NGI3MDc5ZjI2YTlhYzQ2ZTZjYTczZDQ1MWQxNmJhY2Q2YmI5NTlkYzgyODkzNzQ5NzBlYzBjZmUzZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9c5067af31864ff1a00d25320127101c",
+      "statement": "On send failure with attempts less than 3, deliver() delays for 250ms multiplied by the current attempt number before the next retry.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L12-L12",
+          "version": "repo-lines-v1:sha256:55af51f9129988ccaf2a45c2b011d66008899fdc9bf3a956a5693512df5924a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVhZjUxZjkxMjk5ODhjY2FmMmE0NWMyYjAxMWQ2NjAwODg5OWZkYzliZjNhOTU2YTU2OTM1MTJkZjU5MjRhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVhZjUxZjkxMjk5ODhjY2FmMmE0NWMyYjAxMWQ2NjAwODg5OWZkYzliZjNhOTU2YTU2OTM1MTJkZjU5MjRhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWI1NGNjZTFjMGI3N2NjNjEwZjQ1NzVkZTQzODBiNTAzZTQ2ODVjMmEwMWFmZjI1NTg5ZTA1NjA3OGQxMjFiNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzczM2FiMGRhMGEyZTAxMDUyMDAxOThlY2EzNTU1NWZmNzhjZWZlZDRlOGQwNjhjNmI0ZWI4ZDI5MWI1ZDAxMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_45fd2fec583a4d1393ef42ea30a2b4b9",
+      "statement": "deliver() returns status 'sent' with null lastError on success, or status 'dead' with lastError set to the last error message, or 'Attempt limit reached' when prior already equals 3.",
+      "evidence": [
+        {
+          "resource": "repo://src/delivery.ts#L11-L11",
+          "version": "repo-lines-v1:sha256:5255d69d7880245ad64ab18bbd94da4ae97827006ed670632e7cba0b5346a900:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTI1NWQ2OWQ3ODgwMjQ1YWQ2NGFiMThiYmQ5NGRhNGFlOTc4MjcwMDZlZDY3MDYzMmU3Y2JhMGI1MzQ2YTkwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTI1NWQ2OWQ3ODgwMjQ1YWQ2NGFiMThiYmQ5NGRhNGFlOTc4MjcwMDZlZDY3MDYzMmU3Y2JhMGI1MzQ2YTkwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTNiZjZmY2EyNjdiMTYwOTJkNTA1NjVmYjcxZjRkMmZhMTdlMzhkYWI0NTlkM2I2NjkxZTlhYTQzZTg0M2UwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGRmZTE2MDg4OWVhNmFkMWQ1OTQ3YTUxODc0NjVkMjRjNjc2ZDljMGZjMTVmNzIxODVmODIwNzRlOWExYmVmNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f302c069d0a34b6088bd428e07cd66f0",
+      "statement": "main.ts passes eventId as the HTTP Idempotency-Key header on every POST to the email provider so the provider can durably deduplicate retries.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L48-L48",
+          "version": "repo-lines-v1:sha256:cd2cb635eed87bfe104cd5f18c30cb909ce62d528f50dfa41d928f1de3fa2138:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QyY2I2MzVlZWQ4N2JmZTEwNGNkNWYxOGMzMGNiOTA5Y2U2MmQ1MjhmNTBkZmE0MWQ5MjhmMWRlM2ZhMjEzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JkNjkxYjM1NjQyYjhiN2NkMDFiYzliN2Y1MGVmNzNhMzE2YTQ4ZmIzYmFkODFkZTQ3NTk5OWE1M2VmMjdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQxMTAyNGE0MTQzNzVjM2M1NGI0MTFiY2E1OThhMjMzOTE3ZGM1MTI4OGE4NjIzZjRmNjc1ZDcxNTFhZDkyZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c74ffda62cd43be952eda6817259e32",
+      "statement": "main.ts integrates deliver() by acquiring a PostgreSQL advisory lock, upserting the event, checking payload matches, short-circuiting on prior sent or dead states, persisting attempts via beforeAttempt, and finally persisting the outcome status.",
+      "evidence": [
+        {
+          "resource": "repo://src/main.ts#L38-L54",
+          "version": "repo-lines-v1:sha256:e6b47f59eb10741ef3709e83c4e4a1a99585204bb6cca690ae75321c02496dfc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4NDBlZGI2ZWY0ZTM4ZTJhNjk4MGVmZTBhZTYwMTZkMjI1ODMyYjBmZDQ4NGQ4YjNkODUxMGJmMDAwNTFjMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxZWEwODZiZTVlYTQ0ZGM1OGY4YzQzMGIwMzg5YjA4YjAyZDNiMDYzZDZmODNlZWZhMTFlNGFjZWRhZTE1MzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0NTQ3ZTFhODg3NDVjZjc5YWQzOGY5ZTI1ZGE5Y2QxMTdlYmZlZWFlYzRjZGQ5MWU3ZDQwYTJjNTg0MGFhOTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxODFjMjNkYzc4NjllYmJhZWYzMDM1ZjAzYmMwNzdhOTJiZDBlMzUwYjYwNTJkOTI4M2UxOWEzNGFiYjFkZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_16800e935a8e4ea7b018686e0c08823a",
+      "statement": "test/delivery.test.ts validates that parseEvent rejects malformed input, that bounded retries preserve prior attempt counts and succeed when send eventually passes, and that three failures terminate as dead with no fourth attempt.",
+      "evidence": [
+        {
+          "resource": "repo://test/delivery.test.ts#L4-L15",
+          "version": "repo-lines-v1:sha256:c3d5c4b9fa45d8ff5cc506b5d5ef749e11d22ef771dc9c76ccab1f733ae1442d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwODRkNTU1Yjk3Zjk3MGYyZGY1ZTNhMjI2ZWY0MzMwM2UxMzFkOGEwNzFkOWYwYzQyMDE3ZGM2MmY5ODJlYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1Y2NiY2VhNjdlNTBkNjE5ODdkYThjZWE1NmQwMTZkNmU2YzQwY2ZhYTdiMzE3NGNlZDAxODVlYzYxN2VlMTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0MTFmMTlmYzQ2YjM3NDZiMTEyYjZlYjA1ZmFlMjliMTUyMDNmOWFjNDY5MjE5ZWZmMzMwNGQ3NjU3YjNiNWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:52.130Z"
+  }
+}

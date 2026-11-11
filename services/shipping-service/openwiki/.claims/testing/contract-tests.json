@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d67e22f5df804f20587869500f03936bdce91659c0d786558c44b5ac7aef4966",
+  "claims": [
+    {
+      "id": "claim_681d6978c5744d94a5ddabb784280d9c",
+      "statement": "The test project Shipping.Tests targets net8.0, references xunit 2.9.3, Microsoft.NET.Test.Sdk 17.12.0, xunit.runner.visualstudio 3.0.2, and the main Shipping.csproj, and is marked as a non-packable test project.",
+      "evidence": [
+        {
+          "resource": "repo://tests/Shipping.Tests.csproj",
+          "version": "repo-file-v1:sha256:b0e5a9f2344bfc5dd362a127200fa3ff53b09c67153418303c68a730f85ad81e"
+        }
+      ]
+    },
+    {
+      "id": "claim_529352b2a66643f2a11adbc68093569b",
+      "statement": "The mock provider Handler is a private nested HttpMessageHandler inside ShippingTests that captures the Idempotency-Key header in its Key field and returns a configurable HttpStatusCode (default OK) with a fixed JSON payload representing a created shipment.",
+      "evidence": [
+        {
+          "resource": "repo://tests/ShippingTests.cs#L19-L25",
+          "version": "repo-lines-v1:sha256:3d1e6c9a024282aac1a7f24421987e7544c93bc6561cba32d2eb44bfaedfcdaf:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjBmMmU2NWRmOTIxOTE0N2M4YjAzMzZkNzE2ZTZkM2VhNmI1NGZkM2E4OTc3OWVjZTgxNDVjYWI2ODRjYjIzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjViOWM4MDEyYjE4NjUxM2FmZTBjNzljY2QxMTUwZDFkYjBjMGQ2MDk3NGJiZGRmMzVmMGQxMGZjNzI0ZjZhMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_00fb471a5d2d4f17a306150a31c2271c",
+      "statement": "The PassesOrderKeyAndReturnsTracking test validates that ShippingProvider sends the OrderId as the Idempotency-Key header and correctly maps a 200 OK response to a Shipment with TrackingNumber \"track-1\".",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L29-L31",
+          "version": "repo-lines-v1:sha256:71fc5910896f75eb17c1b47def92b563016349680ab437980d8548b32100613d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzg1MTE2NGZmNmY4MGJhY2IxNWEzODU3ZWM2Yzc2ZDM1MjU5ZmMzMjk4YWE5NGQ1YTQ5N2I0MTllMTBkM2U5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZmOTRkZTM1ODNiZmViZjMyNGIxNWU5ZmNmNWI2MGQ5MjBiNjZiZmMxNjEyYTE1Yjc2ZjUwNmQ0ZWEwODBlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEzZGIxODU3NDJhY2M2ODNmMDdjZmRiNzA2MjM1NTg5NTVhZTQwMzkyYWQ2N2Y2ZDA5YTlhYTIxNWNiZTZiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmI1YjViZmE4NDA3MjQwZTM3NzU2ZDZjNjUzOWFhNTM0OTI5NTVjZTM2MDI4M2VhYzdjYzg1NDk1NjRhNDljZiJ9"
+        },
+        {
+          "resource": "repo://tests/ShippingTests.cs#L4-L8",
+          "version": "repo-lines-v1:sha256:1bc466a17a423ae72a64c8e4836cc37c2f42fcd33f3166ecd7e380937be14933:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWNjNDQ1YTFjM2I0NmRkOTA5NmQyZTQ0ZDdhZThlOWVkYzAxYmYxMDBkYTZiNGU0ZjRkN2Y3ZmM3MDZiNjQ3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODAxNzE3ZWFmMTNmMTdlNjc3ZjQwNWUwMjk1ODFiZWYwZmIwZjRjNmVkMTE3ZDM3ZTE5Y2E0NzBhMjViNGU1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM2M2E1ODhkZWYzYzAzOGM5MjkwY2NmNmQ0ZTQzNTc5NTk1ZTJjNjA1ZTdhNjE0ZGNjZmE1OWE4YTRhMzhjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_900e6d7a06384b3593b7aeaeb131f525",
+      "statement": "The FailureDoesNotProduceShipment test validates that an HTTP 503 ServiceUnavailable response from the provider results in a ProviderException with Status \"unknown\", indicating the shipment outcome is indeterminate.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L32-L37",
+          "version": "repo-lines-v1:sha256:d3fa65ed596ba825be595b5d0440206239bd868dc4f6ab4d75c3b23ee5689bef:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU4NjUzYjQzNjRlMGI2MzkxY2FiNDI2NzdhODc5ODliNWY1NDEzNjYwNzBjMzNkYjhiYjIwNzUwZDNkOTYxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzFmYzU5MTA4OTZmNzVlYjE3YzFiNDdkZWY5MmI1NjMwMTYzNDk2ODBhYjQzNzk4MGQ4NTQ4YjMyMTAwNjEzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGZjZjljMTA2NmQ3ZWQzYTQxNWUyZWJkODBkY2VkOTZjNjAxZWU1YzQwYzIxNWViNTljYjMyZTJjNTY1MDU0MCJ9"
+        },
+        {
+          "resource": "repo://tests/ShippingTests.cs#L9-L13",
+          "version": "repo-lines-v1:sha256:92f60ed89c50b1e96c3cc278823cf4ca3c8623f89f023a1a4482decbe26c0de2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYzNTY0Nzk2YThmYjZlYzExN2U2YmMxZWQwNThjNzlmZmRkZTQ3ODk0MjEwMzUwN2U5MjcyMTJjZjZkN2JlYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjU1OWEyMzBlOTI1YTk4NmEzMWU1MTcxMmNmNjUzMGYyNDBlZmNiMjBmMmNhZTk2YjgwZjYyNGMxNDk2YzdjNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmZlMjYwMzAwMDA4ZjM0MTQzY2IzZDYxYzNlYjM4NTVhODExNzVkOWRlZjFiYWFmYjQwNmE0NTMxNWFmOGIwZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d1fedd2cbf14bc8808bef1a0146eb93",
+      "statement": "The ExplicitRejectionIsSafeToCompensate test validates that an HTTP 422 UnprocessableEntity response results in a ProviderException with Code 422 and Status \"failed\", providing a deterministic failure signal safe for compensation logic.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L33-L35",
+          "version": "repo-lines-v1:sha256:5b7e1795c04cab605f21f258f479285be3036f1ee4097ed2f9f6ca761056634b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxMTg0MzIxNDM3ODI5NWE5MmNkOTY3ZDc0YjhhNzZiNzJhZmE2MTRlZDBmOTYwNTVhYjZlOTVkZDhjZTkwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTU5OWUzOTY5OTI5NWRmNDU5ZmFmNzI2MWY4YTVjZTA2NmFjNmQ1MmNmN2FkYTRmYzY2MmViZmEwYjgxZTU5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdkZjgxYTI5YTlhMjg5OTQ2ZTAzNzI0NzE4NTcyMTlkZDFhZTQ5ZWZkMTNmN2I3YWMyNmZkMzgzNzZiZTlhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDg4MGU3MGNmYzNkZWUxZmE5OTE0MzQxZjJmNmMwMGVmMTQ3ZGU3Mjg1ODg5NDIwMTJiZDNlYjg4ZDAzMzUyMSJ9"
+        },
+        {
+          "resource": "repo://tests/ShippingTests.cs#L14-L18",
+          "version": "repo-lines-v1:sha256:2d0935bd87f88b5478604cecaff2aec7da67d108c60da0e940adb1fc0ce6710e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODE4NDc2ZjJjOGI2NGJmOWExYmQxNTQzMjI1OWE5OTRlNjM1Mjc3ZThlZGRhNjRlNzlkOTY0N2NjMDk2ZTI0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODhlYjc3YmQyYmQxODk3ZjM0ZDA3ZWMyNTZjOWNkMjdiNWU2MDUxN2I4YWJlNDNlNDhjMzE3NTZlYjE1NGQ3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQyZTdjMDRjMDFhYjQ3YjExZjQ2YzJkZmIxMjAzODE0MmE5ZjZhNGZlMzkwYmY5OTY3OWY2OGMxYTg2Nzk1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_aa05c97a72714fe99e0381ff04aa51e5",
+      "statement": "The mock provider Handler is used only at test time and is distinct from the real runtime provider, which is configured via the SHIPPING_PROVIDER_URL environment variable and reached through an injected HttpClient with configurable timeout.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L6-L9",
+          "version": "repo-lines-v1:sha256:fafe6a6b128b4883432147bad124bf049d57635641a32d7f11b962007c2e3b62:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjczZThhZjk3MDUwNDMwNTExMDg2M2NkNTY1ZjI3NjQ4YTNjNmRjNzg3NDkzMWMyY2EzM2ExZDRjMzgyMzNhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWEyNjA0NjFhYzVlYmY4ZjE2YzM1ODVjYmU3NDAyMmU1OTU2YjJkMjI5YWI3ZDU3OGJiYjBkOTZlOWQ1ZGMxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzM4YzA5ZWU5YmJkMjk0MThhODQ0MTY0OTViMDA4MGU5NzdiMWRmMjA4Yzg1YWU1ZGI1NGM5ZTllZWVjMzRlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_256748b51f8d498eb53975a1e1f42886",
+      "statement": "ShippingProvider.Create treats any non-success HTTP status other than 422 as an indeterminate failure (status unknown), while 422 is treated as a determinate failure (status failed), and a successful 200 response is validated against expected Shipment fields before being returned.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L32-L41",
+          "version": "repo-lines-v1:sha256:66fc26869458464befe351160519e472cf5b6ecd7eb167d85ff63fad664d22d3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1ODY1M2I0MzY0ZTBiNjM5MWNhYjQyNjc3YTg3OTg5YjVmNTQxMzY2MDcwYzMzZGI4YmIyMDc1MGQzZDk2MWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliZGZmYjI0Y2FkYWE5Y2FjNzM4M2Q2NjQwNGQ5OTU0ZmJlMGFlZDc1ZTk4ZWQ5ZWUyODVkMjdhNDAwM2I4MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxZmM1OTEwODk2Zjc1ZWIxN2MxYjQ3ZGVmOTJiNTYzMDE2MzQ5NjgwYWI0Mzc5ODBkODU0OGIzMjEwMDYxM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjM2JkODQwZmI0MmI4MzVjZDkyZDZhYWRkOTgxNTE4ZjIzZDQwZjc1MGFmYTVlYzNiNWFmZWY3OTRiOTBhMWMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:46.596Z"
+  }
+}

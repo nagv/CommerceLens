@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/operations/configuration.md": {
+      "pageVersion": "sha256:7b0e56e6d777fafcae6e03bcf089e634eee6c6f9d964c69b93decc019ebe333e",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "3c382d16-abdf-4fdb-8217-52bf67017236",
+      "gitHead": "029a5d8e6cb53c85d16825bf9e2ce8679643aa62",
+      "sourceFingerprint": "sha256:44624d910b39a7d72e0858e8daf24bb1fb48d8d34d47e8bef97349e4ce77b37e"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:849630779604065e5949523613368fd0d0e136ec2976c7701ced304f8ab8ee16",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "3c382d16-abdf-4fdb-8217-52bf67017236",
+      "gitHead": "029a5d8e6cb53c85d16825bf9e2ce8679643aa62",
+      "sourceFingerprint": "sha256:44624d910b39a7d72e0858e8daf24bb1fb48d8d34d47e8bef97349e4ce77b37e"
+    },
+    "/openwiki/runtime/payment-flows.md": {
+      "pageVersion": "sha256:c66a512ef085409d8be03e677511d16b35fcc153157f73c47f219d0d26344f6a",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "3c382d16-abdf-4fdb-8217-52bf67017236",
+      "gitHead": "029a5d8e6cb53c85d16825bf9e2ce8679643aa62",
+      "sourceFingerprint": "sha256:44624d910b39a7d72e0858e8daf24bb1fb48d8d34d47e8bef97349e4ce77b37e"
+    },
+    "/openwiki/safety/failure-model.md": {
+      "pageVersion": "sha256:409aa41ac39874a189a237afc01123589d9a34423cf9f6fedcee25b07a628260",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "3c382d16-abdf-4fdb-8217-52bf67017236",
+      "gitHead": "029a5d8e6cb53c85d16825bf9e2ce8679643aa62",
+      "sourceFingerprint": "sha256:44624d910b39a7d72e0858e8daf24bb1fb48d8d34d47e8bef97349e4ce77b37e"
+    },
+    "/openwiki/service-context.md": {
+      "pageVersion": "sha256:90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "3c382d16-abdf-4fdb-8217-52bf67017236",
+      "gitHead": "029a5d8e6cb53c85d16825bf9e2ce8679643aa62",
+      "sourceFingerprint": "sha256:44624d910b39a7d72e0858e8daf24bb1fb48d8d34d47e8bef97349e4ce77b37e"
+    }
+  }
+}

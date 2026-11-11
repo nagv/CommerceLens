@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/architecture/api-surface.md": {
+      "pageVersion": "sha256:868526dff360ebdb01a382705b10b72e772defd707d3ac01d385b54d7a23f983",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/architecture/checkout-saga.md": {
+      "pageVersion": "sha256:dfb23a702760c12d2808dd74ec2d53ab8ce7757418fc637e83d51e23fa9c4bab",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/architecture/data-model.md": {
+      "pageVersion": "sha256:71d486db05573526ec96fe6fcf47bb5cb0dae99ccad100b5ae52368a9307399f",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/architecture/outbox-publishing.md": {
+      "pageVersion": "sha256:65650be0c46d3d0765396e11c248aad8a2efd06437ae2eafcde44a14c0fb0528",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/integrations/external-services.md": {
+      "pageVersion": "sha256:f14af4e2bb14bad07f6abe5b14b9d9e6ce8b486c087b28dde5f1d75ebfadc3b2",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/operations/configuration.md": {
+      "pageVersion": "sha256:8e65c07596ddf1bc44be95b86a9ea114ec7f5ea4ad8ea59a50cd40469ef8ceca",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:25012a98e7b5055be24ed77fd621bf5dcf33a4da390e9022d1ae58a7b0e8ad3c",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/service-context.md": {
+      "pageVersion": "sha256:1396c4f257efb5753945e2eb9e819c7d9a490b4ec0f39a08122bd61db757ffab",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/testing/test-strategy.md": {
+      "pageVersion": "sha256:250669bec263fa7ef4147c33bd826ef6fdae2f7ff1da1662c9d7d8ef452262a9",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/workflows/failure-handling.md": {
+      "pageVersion": "sha256:dc77775f04856819fb553cd1a0fbf7c616818b1074b394dddb280b6951b14465",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    },
+    "/openwiki/workflows/idempotency-and-concurrency.md": {
+      "pageVersion": "sha256:18b7df60483370920af2af014941518c26853a2c93ba4e79745f20c591537a84",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "c72a5bc8-fc9d-4d9a-8171-2b082b1ecdf4",
+      "gitHead": "ace6802ae3fee1931f4b5b358cee19ef7c8e82fa",
+      "sourceFingerprint": "sha256:e3324e49b1f69c4b5cc360fbf0c0994b64f15d45e9e7eb926fe644ec29337b25"
+    }
+  }
+}

@@ -19,6 +19,19 @@ RESULT = dict(answer='Inventory owns stock. [c1]', selected_services=['inventory
 
 
 class EvaluationTests(unittest.TestCase):
+    def test_parallel_run_keeps_answers_when_judge_fails(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); dataset=root/'cases.jsonl'
+            dataset.write_text('\n'.join(json.dumps(dict(CASE,id=str(i))) for i in range(3)),encoding='utf-8')
+            summary=run_evaluation(Mock(run=Mock(return_value=RESULT)),dataset,root,
+                                   judge=Mock(complete=Mock(return_value='invalid')),workers=3)
+            self.assertEqual(summary['run_count'],3)
+            self.assertEqual(summary['failure_count'],0)
+            self.assertEqual(summary['judge'],{'error':3})
+            self.assertEqual(summary['critical_gates'],{'not_assessed':3})
+            self.assertEqual(len(list(root.glob('generation-*.json'))),3)
+            self.assertEqual(len((root/'human_review.csv').read_text().splitlines()),4)
+
     def evaluate(self, assistant=None, **kwargs):
         with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]) as directory:
             path = Path(directory) / 'golden.jsonl'
@@ -79,6 +92,7 @@ class EvaluationTests(unittest.TestCase):
     def test_ragas_filters_nan_and_keeps_metric_failure_visible(self):
         evaluate=Mock(return_value=SimpleNamespace(scores=[{'faithfulness':float('nan'), 'answer_relevancy':0.75}]))
         modules={'ragas':SimpleNamespace(EvaluationDataset=SimpleNamespace(from_list=lambda rows:rows),evaluate=evaluate),
+                 'ragas.run_config':SimpleNamespace(RunConfig=lambda **kwargs:SimpleNamespace(**kwargs)),
                  'ragas.metrics._faithfulness':SimpleNamespace(Faithfulness=Mock),
                  'ragas.metrics._answer_relevance':SimpleNamespace(AnswerRelevancy=Mock),
                  'ragas.metrics._context_precision':SimpleNamespace(LLMContextPrecisionWithReference=Mock),
@@ -96,6 +110,7 @@ class EvaluationTests(unittest.TestCase):
         evaluate=Mock(return_value=SimpleNamespace(scores=[dict.fromkeys(names,1.0)]))
         def metric(name): return lambda:SimpleNamespace(name=name)
         modules={'ragas':SimpleNamespace(EvaluationDataset=SimpleNamespace(from_list=lambda rows:rows),evaluate=evaluate),
+                 'ragas.run_config':SimpleNamespace(RunConfig=lambda **kwargs:SimpleNamespace(**kwargs)),
                  'ragas.metrics._faithfulness':SimpleNamespace(Faithfulness=metric(names[0])),
                  'ragas.metrics._answer_relevance':SimpleNamespace(AnswerRelevancy=metric(names[1])),
                  'ragas.metrics._context_recall':SimpleNamespace(LLMContextRecall=metric(names[2])),
@@ -111,6 +126,8 @@ class EvaluationTests(unittest.TestCase):
         self.assertIn('[c1]',RESULT['answer'])
         self.assertIs(evaluate.call_args.kwargs['llm'],llm)
         self.assertIs(evaluate.call_args.kwargs['embeddings'],embeddings)
+        self.assertEqual(evaluate.call_args.kwargs['run_config'].timeout,120)
+        self.assertEqual(evaluate.call_args.kwargs['run_config'].max_retries,1)
 
     def test_ragas_plan_skips_proposals_even_without_models(self):
         result=_ragas(dict(CASE,mode='plan',reference=None),RESULT,True,None,None)
@@ -136,6 +153,7 @@ class EvaluationTests(unittest.TestCase):
     def test_ragas_cleans_context_ids_without_mutating_original_context(self):
         evaluate=Mock(return_value=SimpleNamespace(scores=[{'faithfulness':1.0}]))
         modules={'ragas':SimpleNamespace(EvaluationDataset=SimpleNamespace(from_list=lambda rows:rows),evaluate=evaluate),
+                 'ragas.run_config':SimpleNamespace(RunConfig=lambda **kwargs:SimpleNamespace(**kwargs)),
                  'ragas.metrics._faithfulness':SimpleNamespace(Faithfulness=Mock),
                  'ragas.metrics._answer_relevance':SimpleNamespace(AnswerRelevancy=Mock),
                  'ragas.metrics._context_precision':SimpleNamespace(LLMContextPrecisionWithReference=Mock),
@@ -192,7 +210,9 @@ class EvaluationTests(unittest.TestCase):
         for case in cases:
             self.assertTrue(case['reference_evidence'])
             self.assertTrue(all(len(e['sha256']) == 64 for e in case['reference_evidence']))
-            if case['mode']=='ask': self.assertTrue(case['reference'])
+            if case['mode']=='ask' or case.get('expected_behavior') in ('clarify','redirect','unknown','uncertain'):
+                self.assertTrue(case['reference'])
+                if case['mode']=='plan': self.assertEqual(case['reference_kind'], 'behavior_rubric')
             else: self.assertEqual(case['reference_kind'], 'proposed_plan_rubric')
 
 

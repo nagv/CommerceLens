@@ -1,6 +1,6 @@
 {
   "id": "customer-portal",
-  "repository": "https://github.com/nagv/commercelens-customer-portal.git",
+  "repository": "https://github.com/nagv/CommerceLens.git",
   "pipeline_version": 1,
   "model": "moonshotai/Kimi-K2.6",
   "input_hash": "99c044f5284abc61570d26bf80bf35236759f76690b663e8b90c6f6fd2d9b4cc",
@@ -64,5 +64,11 @@
   "review": "Codex reviewed against selected service wiki pages; removed unsupported ambiguity claims and distinguished provider boundaries from mock deployments.",
   "catalog_pages": [
     "openwiki/service-context.md"
-  ]
+  ],
+  "repository_path": "services/customer-portal",
+  "repository_ref": "codex/commercelens-monorepo",
+  "location_migration": {
+    "date": "2026-11-11",
+    "reason": "Paths and links only; existing summary preserved, no model call."
+  }
 }

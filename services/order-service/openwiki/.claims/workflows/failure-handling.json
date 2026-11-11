@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:dc77775f04856819fb553cd1a0fbf7c616818b1074b394dddb280b6951b14465",
+  "claims": [
+    {
+      "id": "claim_77bec044f8f44ebc86c63e997244be48",
+      "statement": "Inventory reservation errors below 500 produce failed; errors at least 500 produce manual_review with HTTP 503 and no automatic release.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java",
+          "version": "repo-file-v1:sha256:a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0ff1ea019524c84a803461179b6d4fd",
+      "statement": "Checkout checkpoints payment_unknown before calling pay; only HTTP 402 is a definite decline that triggers inventory release. Other payment failures retain payment_unknown and the reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java",
+          "version": "repo-file-v1:sha256:a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_cf276ef6c8ab4d889befc3632c8049db",
+      "statement": "After successful payment, shipping errors at least 500 retain payment and stock and produce manual_review; lower status errors attempt refund followed by release.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java",
+          "version": "repo-file-v1:sha256:a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_25d22402e2e947cbb7c712ee562bbc07",
+      "statement": "Refund failure produces manual_review, but release is still attempted. Release failure produces manual_review with HTTP 503.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java",
+          "version": "repo-file-v1:sha256:a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_c1db6f9cbc07403db5b7195678495ecf",
+      "statement": "The checkout tests cover payment timeout and conflict uncertainty, decline release, shipping rejection compensation, refund failure and uncertain shipment handling.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java",
+          "version": "repo-file-v1:sha256:a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-11",
+  "model_calls": 0,
+  "service_wikis_restored": 6,
+  "summary_content_preserved": true,
+  "changed_link_files": [
+    "openwiki\\application-overview.md",
+    "openwiki\\checkout-flow.md",
+    "openwiki\\data-and-events.md",
+    "openwiki\\dependencies.md",
+    "openwiki\\quickstart.md",
+    "openwiki\\service-catalog.md"
+  ],
+  "partial_refresh_archive": ".test-tmp\\partial-wiki-refresh-archive"
+}

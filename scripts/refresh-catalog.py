@@ -81,8 +81,8 @@ def collect(service,base):
  return pages
 
 def render(cards):
- def link(c,p='openwiki/quickstart.md'):return c['repository'].removesuffix('.git')+'/blob/main/'+p
- def evidence(c):return ' · '.join(f'[{p}]({link(c,p)})' for p in c['summary']['evidence'])
+ def link(c,p='openwiki/quickstart.md'):return c['repository'].removesuffix('.git')+'/blob/'+c.get('repository_ref','main')+'/'+'/'.join(x for x in (c.get('repository_path','').strip('/'),p) if x)
+ def evidence(c):return ' Ã‚Â· '.join(f'[{p}]({link(c,p)})' for p in c['summary']['evidence'])
  def bullets(values):return '\n'.join('- '+v for v in values) or '- Not specified in supplied service documentation.'
  def safe(s):return str(s).replace('|','/').replace('\n',' ')
  pages={}
@@ -144,7 +144,7 @@ def main():
   configured=sorted(service.get('catalog_pages',['openwiki/service-context.md'] if 'openwiki/service-context.md' in pages else ['openwiki/quickstart.md']))
   if not set(configured)<=set(pages):raise ValueError('Configured summary page missing for '+service['id'])
   target=ROOT/'catalog/service-cards'/f'{service["id"]}.json';old=read_json(target)
-  if needs_refresh(old,digest,args.model) or (old and (old['repository']!=service['repository'] or old.get('catalog_pages')!=configured)):
+  if needs_refresh(old,digest,args.model) or (old and (old['repository']!=service['repository'] or old.get('catalog_pages')!=configured or old.get('repository_path','')!=service.get('repository_path','') or old.get('repository_ref','main')!=service.get('repository_ref','main'))):
    if args.command=='check':stale.append(service['id']);continue
    selected=set(configured)
    if old:
@@ -157,7 +157,7 @@ def main():
    if len(json.dumps(inputs))>MAX_INPUT:raise ValueError(f'{service["id"]} exceeds {MAX_INPUT} input characters. Condense service-context documentation or explicitly review a new baseline; no truncation performed.')
    print('Generating '+service['id']+f' from {len(inputs)} wiki pages',flush=True)
    summary=summarize(service,inputs,old['summary'] if old else None,args.model);calls+=1
-   old=dict(id=service['id'],repository=service['repository'],catalog_pages=configured,pipeline_version=VERSION,model=args.model,input_hash=digest,page_hashes={p:fingerprint(t) for p,t in pages.items()},summary=summary)
+   old=dict(id=service['id'],repository=service['repository'],repository_path=service.get('repository_path',''),repository_ref=service.get('repository_ref','main'),catalog_pages=configured,pipeline_version=VERSION,model=args.model,input_hash=digest,page_hashes={p:fingerprint(t) for p,t in pages.items()},summary=summary)
    save(target,old)
   else:print('Reusing '+service['id'],flush=True)
   cards.append(old)

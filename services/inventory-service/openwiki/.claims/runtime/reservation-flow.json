@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:136f0badd2560dda0f5572eb68ba2f32bdb417e1e7ddaac4539facbb1cbfc989",
+  "claims": [
+    {
+      "id": "claim_d0df173d2c5246cc9ddbb685963c82d1",
+      "statement": "The POST /api/reservations HTTP handler enforces a 64 KiB body limit with MaxBytesReader, rejects unknown JSON fields with DisallowUnknownFields, and requires a single JSON object via an EOF guard on a second decode.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L221-L233",
+          "version": "repo-lines-v1:sha256:769882aff69d7be059073ee15b8a99485e8a51c20ad70889e41c3189287160a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZTcwMjgxYTljMGJhMzgyZWIyZjhjMjRlZDJjNDQ2MzJjN2JjOTNlODM3ZjFhZmRjOGYwNDhlMmFkYjUwY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ZWZjNDk0MThkMjZkY2YxMjliMjJhNmFhMjExMDhjZWVjMzc2NzdhMzJkMDhlOWQ1ZmVlMzVkZGE2NmJiOWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFiYzRjZmY4ZmE0ZTlmZDRiYTNiMTQyNGQ2NzlmNWRmYmM3ODNkNzMyMTVjMGM0YTU5NGI5NTg3MjQyYWEyYTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE5MGI3OGUwNjg5NTAwYTE4OTMwOWJlNjA3MGRkYjc5NDA5NGUxYjcyOTZjZGQ5NTdhYjQ4ZjI4ZmE5MjEwYTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8dae1ef4e4af4894a5b85809f533f923",
+      "statement": "validate() returns a 400 APIError when orderId is empty or longer than 100 characters, when there are 0 or more than 100 items, when SKUs are not distinct, when a SKU is empty or longer than 100 characters, or when quantity is outside 1-1000.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L54-L66",
+          "version": "repo-lines-v1:sha256:673dabdbc2e97654a12435b4a53f46e60180d241bc4d35a7fb91cde84c8e1f8d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmViMDUyY2Y5MTQyMzJhYzcyYWJkNzdjNjA0MjlmZWY5ZTlkOWFjNWE2OWM4OTViMjQ5MWIzNzYzMmQ1MjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNWYzYWJkZmI2NzhjYmI1NmEyYWY5NGM5NGFmYjRkYzBjMWQ2OWM4OTJiOGI1MzJlNmExYTg5MmNkMWFlYTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNjY4YjFmMWJkOWJjYjM4ZGM5YzJkNDM5OTllYzA5N2Y1OWNlOTcxMzcxN2U3ZTFiMWUwY2ViNDE1MGMxZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2a4912e15fd2472389e66fd0678ac866",
+      "statement": "The reservation flow acquires a pg_advisory_xact_lock on hashtextextended(orderId, 0) at the start of the transaction to serialize all concurrent operations for the same order_id.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L87-L89",
+          "version": "repo-lines-v1:sha256:8f51bf2e7bac75ddbe1867dc0fbf21800727241e3b81495dfdfdf1b7720e5524:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWFiYTljMmM2NDcwNGRkNzcyYjRlNDk1NDQ4ZDM5OTViNDVkZGFmYzZhYTExMDRkYTM1OWM2NjYxOGFmMzlkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2IzYzRmMzBjNTRmYzY4Mjc4ZjA1MzQ2Mjg0YjA3YmZmZWI3ODk2MGRhY2JkZmUzYTRmYWU2NzA2MTk3ODkxYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDEwNWYwMWRkNjY4ZGI3YTFlMDU5OTMyOWQ2MjJhOTFmM2M5NGFjNzBmYmM1ZTVjZTIzNTZlNDA5Zjc3YWMwNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a3b75528e2f74fcfa54a08b3d3017f8d",
+      "statement": "If an existing reservation row for the same orderId has a matching request_hash and status 'reserved', reserve() replays the cached body JSON, commits, and returns the stored result without modifying inventory.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L90-L102",
+          "version": "repo-lines-v1:sha256:1fe7b5077e9508d8bdbb57162bae9e7cd921ec0e08d4ac502f43903904f6813e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlZDNlNzQxZGZmN2IyZjJmNjlmOTdkYjJmMzc3MjAwMWFlMjliNDVjZTY4NzA5ZmFkYTc1ZjkzYTliODg4ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmNTFiZjJlN2JhYzc1ZGRiZTE4NjdkYzBmYmYyMTgwMDcyNzI0MWUzYjgxNDk1ZGZkZmRmMWI3NzIwZTU1MjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwYTcxZGJkNDhhMTYyYzFkZjlkMTE2ZDc2MDk1NWY3OWI5YzM2ZTI5YTNmMzMyNzc3NmMwMmY1ZmMxNmZiYjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_baa602ebbcf945ef9d3eed098561fbd7",
+      "statement": "If an existing reservation row for the same orderId has a different request_hash or status is not 'reserved' (e.g., already released), reserve() returns a 409 conflict.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L93-L96",
+          "version": "repo-lines-v1:sha256:e13226d0844cfeb812d9853526f12f01ed12cb01616ee093ab1f6165b8fe9256:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOThjZmQ4YjQyNTQwMjM0MWQ3MDI5OGE5OGIzZTFiNmM2N2E4OTc4YmU4OGJkZWEyNDI4NDVjOTc3ZGZhNmRkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRlZmM0OTQxOGQyNmRjZjEyOWIyMmE2YWEyMTEwOGNlZWMzNzY3N2EzMmQwOGU5ZDVmZWUzNWRkYTY2YmI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDEwNWYwMWRkNjY4ZGI3YTFlMDU5OTMyOWQ2MjJhOTFmM2M5NGFjNzBmYmM1ZTVjZTIzNTZlNDA5Zjc3YWMwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ2ZGI1OWU0YjhhNWQ1YTA4M2Q2ODNlMjgzZjRlOTlkNGVkNjcyZjljMzBlOWQxMjI4ZjE3ZTVkY2QyZDJhMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b99afe5ba60442899593519842c3d741",
+      "statement": "Items are sorted by SKU ascending before acquiring FOR UPDATE row locks and before computing the SHA-256 fingerprint, preventing deadlocks during concurrent overlapping reservations.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L106-L107",
+          "version": "repo-lines-v1:sha256:3bb7629956eccb046ddf87b54e1013d25103b9218478061e8da0fc59af0b391d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQyMzFiZTRjZDY2NjgyOWJiODljZjVjNWNlNWMwN2Y4ZWZlOTFhMjhhYzE5NGFiMmYyMGQ5NzFhOTc0ODY0MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhjNDljMzI4OGIzNzM3NmEyOGU3NWRmMWFhNDFkY2YwY2E1ODJjZDE2M2I4YWQ0YmU1NmVkODlhYmRjYzAwNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTBhNzFkYmQ0OGExNjJjMWRmOWQxMTZkNzYwOTU1Zjc5YjljMzZlMjlhM2YzMzI3Nzc2YzAyZjVmYzE2ZmJiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q2NWRjMGJlOTExM2Q2MGM2YzUzMzk5ZGZlNzk5NzM1NWI4ZDNjZDkxMjU1Y2Q5YjQyMzBjMWYxMmY2NWMwNSJ9"
+        },
+        {
+          "resource": "repo://main.go#L67-L73",
+          "version": "repo-lines-v1:sha256:5a6f75b0a92fcee29433fde81de6d139d85f7aff18668573f4e79348fa756aee:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRjZWUzYzJlMmUxNjFmMzUzYzBlNDU2NWEyYzUwOTBlODA5YmU4OGVhN2Q4OTI0NDJkZTViNWMyZmVmZGQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI5OGMzYmI1ZjFlZGVkYmE4NDM5MWNiMDljMTE5NDI5MzllNzI2MWUyZWM0NjlmM2QzNDg0ZmQ2Y2Q3ZmM1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJhYmM4MWUwZWY4ZDQ2ZDQ1NDUyOTUxMWIxZTcxYjRhNzhkYjhmMGExYTczYzRkYjVlMTU4YTM3ODNkMWJiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f3bda332073f48709e1207ba1508eaf5",
+      "statement": "For each item, reserve() selects the product row with FOR UPDATE. If the SKU does not exist, it returns 404. If available stock is less than the requested quantity, it returns 409. Otherwise it decrements available and accumulates the subtotal with authoritative prices from the database.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L109-L126",
+          "version": "repo-lines-v1:sha256:fc9a0d3b6844b68f7160f86361bc1d0b0863bf48e8e6007609cb8abe72eef6c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhZjMyOTE2NGEyMGNiOGE3NDJlNWEwM2QyMWVmZmFjMmM1MDE0Yjg4MDA1YzFiMjFjMzQ1MjVjYzdiMzY1OTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjZWI4MTFiYzQ5YjRiNGQxMTJlNGJkZjhlYjRiMjE2ZTRjYWMxY2ZjODhkNmJlOWQyYjdiOGY5MmI4M2UzNzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJlNjRhNGRhYTYzNWFhODU0NjFhMzkyNjAxMTM5OTBjNDU0N2Q2NzgwZjFiZjkwMGIwN2ZjMDFmNjI2YzQ0Y2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b9ff7ca8529844aa8f6bd82406cdaa3e",
+      "statement": "After successful stock decrement, reserve() inserts a new row into inventory_reservations with order_id, request_hash, the marshaled result body, and status 'reserved', then commits the transaction.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L127-L135",
+          "version": "repo-lines-v1:sha256:92bedd181bccf0bcfecb11261499cf155b826472d10f1fdb339970b8e888446b:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmUwZTk4MjA1OTFjZjMxOGVjMjE4ODJjNzVmZjAyZTcwZTA2Mjk5ODA4ZTBlZmJiYmJjOGE5YThkOTk5N2FjOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGNjZmI5OWVhZjhjZjJjYWUyMTFjOWFhODY5Y2VhYzc4NTlhMmVhNWY4NDI1NDM0NWFhMWY4N2E2M2ViMWEyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNkMjBiMjJmOTQ5Yzc1ODJiZGE2ODVjZGFiNDQ1ODExNTNkY2UwZTcyOGYxZWY4YzgxMWZiZmQ3OGRiYzU5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDQwNjg5NTE0MWI0MmRjNmZjNjQzOGQyOTIxMDNmNzkyMGZjODk3MDBjZTJmODU5NWU3MmRlNWVkZmJjYzc4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5f489ad48b15453c93dcf6201cae71c1",
+      "statement": "There are no retries, backoff, or dead-letter mechanisms in the reservation flow; callers receive errors immediately.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L77-L136",
+          "version": "repo-lines-v1:sha256:873f5e3949fe77b13ad171f78a149fad64569c4f159a42abd395b2a2a98f2a97:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhMmVlYmIwNGViMDE4MzZkNWQzNWViNmEyYTJlYTU1N2EzYWQ5N2E5NDFhYTBmOTljNGIzYjI2YzZiMzA0NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyYWJjODFlMGVmOGQ0NmQ0NTQ1Mjk1MTFiMWU3MWI0YTc4ZGI4ZjBhMWE3M2M0ZGI1ZTE1OGEzNzgzZDFiYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2NDg2M2ZlZTZjNzU4MDQ4ZTY5YmM1ODRlNjAzYWE3NTE4YTgwNmYzYWQ4ZWUwYzQzMjM0NDUxNDhiOTk4ZDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c1362eafa274257b7e2296912d2574a",
+      "statement": "The service returns specific HTTP status codes: 400 for validation or JSON decode failures, 404 for unknown SKU, 409 for insufficient stock or conflicting reservation state, and 503 for database or other transient errors via the fail() handler.",
+      "evidence": [
+        {
+          "resource": "repo://main.go#L112-L119",
+          "version": "repo-lines-v1:sha256:7497ad672f334d5e4e95229fed0ad89122990fcfc429a66ed7641312ae00f997:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiYzc0MmIyY2U5MjdiNjZiZTYzYmI1YjI5YjNmMDViOTFlNDRiNGE1MmFkN2I0MzkwMGM1MzllNWRhYjcxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTc0NTViZjY5YjkxOGQyYTJjNjNhNGM3ZmZjM2MxY2QxYjA1MjQwOTgxMGJlMzNhNGJiN2M2OTg5NmM1MDgzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWY2MjdmMTk1ZWU5M2VmM2Q4ZmZjNTg2N2M2YWY5OGViOTJkYzJlMzQwYmJjOGVkNGRhZWVhNWNlNmE1YTZhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTYwYWE3YjkxYzY2MzRiNjA5MjY1NDVlNDQ1ZDE5ODA4ZjdmNjY2ZmQ2ZmM4MjkzYmUwNTA3MzZmYjZlMTkwNSJ9"
+        },
+        {
+          "resource": "repo://main.go#L121-L135",
+          "version": "repo-lines-v1:sha256:0df000f577d36a5737a1aa66b7d566c3c75506b9c09636887d3a473d85d5aad0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNzYzZDMxYzczZDExMTkyNGViMWZmZWNhOGZhMDRiNmQ0Yjk4Njg3Y2JlYjAwMDYwNDY4Mzk5ZmYxODYyYjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjY2ZiOTllYWY4Y2YyY2FlMjExYzlhYTg2OWNlYWM3ODU5YTJlYTVmODQyNTQzNDVhYTFmODdhNjNlYjFhMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA1OWU1Zjc5MDAwNmZkMmVmZDVlMmYzZWY2NTAyOTk5MTAzYjgyMmQyNGM2MDZjZjEzNThmYzRhMjk1OTc4ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0MDY4OTUxNDFiNDJkYzZmYzY0MzhkMjkyMTAzZjc5MjBmYzg5NzAwY2UyZjg1OTVlNzJkZTVlZGZiY2M3OGIifQ"
+        },
+        {
+          "resource": "repo://main.go#L193-L201",
+          "version": "repo-lines-v1:sha256:01a581438993abb6ce28d5434ab68cdf7f8c334f000bfda4b23dc8320c82f132:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWU2NGU2ZWJmZTIzNDk5NjViOTFkNmJkZjNmZmU1MGMyOTU2NDlhODM1MDk4MDc1ODAxMGZhYTlmODdlNTBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTVhOGNmYjJlNTcxYTEyMzUyNmRiZGY3N2FlOTMwZGJmYTk0MDg0Yjc4Y2U2MTBhZmIxZDllYTFlZWUxNzJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc0YWE5ZTI1ZGViMTE0YTRjNDZkNTY3Zjc1YTA1NzI2ZTI3MDYzYzE0NDA1YzZjZmM5NDhkZTA2NjA3ZjFkMSJ9"
+        },
+        {
+          "resource": "repo://main.go#L54-L66",
+          "version": "repo-lines-v1:sha256:673dabdbc2e97654a12435b4a53f46e60180d241bc4d35a7fb91cde84c8e1f8d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmViMDUyY2Y5MTQyMzJhYzcyYWJkNzdjNjA0MjlmZWY5ZTlkOWFjNWE2OWM4OTViMjQ5MWIzNzYzMmQ1MjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNWYzYWJkZmI2NzhjYmI1NmEyYWY5NGM5NGFmYjRkYzBjMWQ2OWM4OTJiOGI1MzJlNmExYTg5MmNkMWFlYTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNjY4YjFmMWJkOWJjYjM4ZGM5YzJkNDM5OTllYzA5N2Y1OWNlOTcxMzcxN2U3ZTFiMWUwY2ViNDE1MGMxZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2271267c0ccb434590316b8ee16a2210",
+      "statement": "The integration test confirms that 20 concurrent goroutines competing for 5 units of stock result in exactly 5 successful reservations, zero remaining stock, and that replay succeeds while modified replays are rejected.",
+      "evidence": [
+        {
+          "resource": "repo://integration_test.go#L14-L82",
+          "version": "repo-lines-v1:sha256:4733e2ec745291fdf17df194284bd924ad4f2b6bd6cb28124cb83ef7f61a135a:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmMmNjY2UyNzg3OTBmNzA5MmZjODYwNGQxZmUxOTI5OWY1MzdkNjc3OWRkMDZmNWYxMzVmZTllNjViMjUyZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5ZWRkNzJiYTZiNDAwODNjZTk1MjY5ZmE1NmZjZjNhYzFiZDk4MjIxYWE2NjIxYTY4M2Y3ZDU2MzJiYjIxZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:34.529Z"
+  }
+}

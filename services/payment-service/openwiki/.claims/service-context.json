@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+  "claims": [
+    {
+      "id": "claim_4f6d638377084a9d8e4731e99d94cf8a",
+      "statement": "The CommerceLens Payment Service is a payment-authorization and refund boundary within CommerceLens, built with Python 3.12, FastAPI, and httpx, with entrypoint app.py:app served by uvicorn on port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:b10fd559953e9f2689e33133cc253cdaa53b4f448f610a60e4b936a7b5e3fb57"
+        },
+        {
+          "resource": "repo://app.py#L9-L9",
+          "version": "repo-lines-v1:sha256:2153c46459e52344d34b078219a099e52089ea376b626620f09e2bb6aba554b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE1M2M0NjQ1OWU1MjM0NGQzNGIwNzgyMTlhMDk5ZTUyMDg5ZWEzNzZiNjI2NjIwZjA5ZTJiYjZhYmE1NTRiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE1M2M0NjQ1OWU1MjM0NGQzNGIwNzgyMTlhMDk5ZTUyMDg5ZWEzNzZiNjI2NjIwZjA5ZTJiYjZhYmE1NTRiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGY4MTUzNjk2N2ZmYzVlM2I1ZTcyNjE5ODZiYmI5ZDY2MDNmZGU4NTNiMDBlZWRlMjI3YmM2ZTZlZTVkNmM3MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTY3YTZmY2ExYzk5MWViM2U3ZWExMzM2OWViMGY4NWVjMjk4YzQ1ZjIwZDFmYzY5MDBjMDIwMGE4NmYzMDI2ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_106f2755a56d446fa5f4aa89dac1e6de",
+      "statement": "The service provides GET /health returning {status: 'ok'}, POST /api/payments accepting a Payment body, and POST /api/payments/{paymentId}/refund accepting a Refund body, with OpenAPI documentation at /docs.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L6-L8",
+          "version": "repo-lines-v1:sha256:7c56c591a1956e118bb8cfe337d2edb8cf21b68b21850a2330903cf7c3c573bb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA4NzU5OGQ1NDgxZjgyMTUxNzZlNzg3MmMzOWUxMzEzZjJlOTBlODQzMzJkZWNjYzgyZjM1MWE0N2Y0OWY0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODBjNTdkMmJiNWViNjlhZjQ2ZjQ2OTM5YzViODAyZDY3OWI1NzE4MmNlNzFkYTUwMWJlMjdmM2ZmOGRlMzZlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWM2ZGE5MDFiMGEyMzM4YjNhMzJiMzdkZmZlZGQwODlkMTNlMWIzZTMwZWI0MzQ0N2E1MjBkY2Q1ZjZmYjYyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjlhYjdkYjJjNDU4NTY4NDg2OTJiY2NlMjhiZTVhODllZTgyNjc1NjZkYjNlZWE3YzVkMzE1ZDk0ZTQzYzY1MyJ9"
+        },
+        {
+          "resource": "repo://app.py#L51-L63",
+          "version": "repo-lines-v1:sha256:68968b9be97091266275748a0d63943f48c47b20e4bafa7942916f248ce2c7e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzODU2ZjcyMTcwZTA2ZjEwMDVkMWM4NGJiMDJhMDYwZDRjZjk0NWNmMzJjNGRkZjFhZGU3MjA1MmQwNjQ2YTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZGU1MGI3MjU4ODM2NjMxODRkODBlYjQ3YjJlNjM4MDc5NGQ2NDZmYzczYzAyMzI3YmQ4MmU1M2ExMWJiYTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzNzU3NGJlZTM2MzJjNjc1MTExYTIyMGQ0YTA5ZjdhMGIyNDRiN2I2ZDFhMjhiNWZmMzEyMjA5YjJiYWI5NTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9f05236327e84ff6adc4041c6030af52",
+      "statement": "The Payment model requires orderId as 1-128 characters, amountCents as a strict integer >0 and ≤100,000,000, currency as literal 'USD' defaulting to 'USD', and scenario as literal 'success'|'decline'|'timeout' defaulting to 'success'.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L12-L17",
+          "version": "repo-lines-v1:sha256:898316e303ef924a410fddfa36ce780aed7d0950cb23196a7b61e593fd95ddb7:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmRhYjIyZTIyNzMzY2ZkZWQ3ZjQyZDE5YTU3NmQxYmVlNGFjODkyMzYzZTA4ZTI0NWMyZTc0OTNkYzFhNDhjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2VhZmFmOThiYTAxODdhYTE4YmZlZjI2ODViNDBiMDkyMjc2Yzg0YjE5Y2QzZTYzNWU0YjAyN2FmOGE1MmEwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjRjMDM1ZGFjZDk2Y2VhYzM4OWYwN2VhYzYzODEwYjdmOTI4NTgyMGQzM2VmYzBhYWU0MTRiZTgyZDEyNGVjOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9a4150efb6e54abaa928ee9024e1175f",
+      "statement": "The Refund model requires orderId as 1-128 characters.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L19-L21",
+          "version": "repo-lines-v1:sha256:a53b048425498d0f6394af8c18f58ef3fc352e5c8b587617abe7614e50131110:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQxNzViZTQzOTY4NzMxZjc2NmZlNmIyNTliY2NmYmFhN2VmN2E0MmQ3NTI2ZTRhYzAyZTc1YWUxNDNjMjdhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTliNGZjODU1NWI3NmY5MTRlNjZhYjM2OWFkMWVjOGVmMjVjODZhY2EyMDZjYTkzZjRlZGIyYjc0ZGMyZTg3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU0ODc4MDZlMzdjMjMyZDA2OGM5YjEyMGQwODIxYzFhMzI3MDM4Yzc0M2QwYWIwODdhNTNjY2RmODg2ZDRlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_32860190536744dcbe0e60689fe2007f",
+      "statement": "On POST /api/payments, the service forwards to provider POST /payments with Idempotency-Key equal to orderId; on refund, it forwards to POST /refunds with body {paymentId, orderId} and Idempotency-Key refund:<orderId>:<paymentId>.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L56-L63",
+          "version": "repo-lines-v1:sha256:c9ee238d70206b613084384ee047d7a0eee920864b86f8b03afe1ab28bd0478f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwMTdlYjdiYmViN2M1ZDUyNDlmNmEzNTE3YTBjYzkxY2RlNGRiZWJiZmI2Y2JjMzE3YjRkNjQ2NjFkMzY5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNkZTUwYjcyNTg4MzY2MzE4NGQ4MGViNDdiMmU2MzgwNzk0ZDY0NmZjNzNjMDIzMjdiZDgyZTUzYTExYmJhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDkxZWE2YjE4OTc4YzEyOTc0MDNmMmQ4Yzg1MDY1MmEwM2QxOGVlYzEwMzBlNDRmYThiOWU0MzU5OTQxZDY4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fad78dc422841a08d94485f153360ae",
+      "statement": "The forward() function validates the provider response: for /payments it requires a dict with status 'authorized' and a paymentId; for /refunds it requires status 'refunded'. Invalid responses return 502.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L31-L48",
+          "version": "repo-lines-v1:sha256:e82e0591d833917c636168909ae88d1f5a7384b90a6032649bab0eb6f13a5ed3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkZjU3YzdhNDA2NDRhYTAwNmNiMjc3ZDdjNGI0NTQ5Njg3MDgzNzY1ZGY2YjU0MWM2MWQ5YzNiMmFiYTM4YmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMTc4OTZiNzI3MjdlZjQ5NGFlY2UzYWE3ZGI0YWNkMzJjN2Y0YWQxOWNlYjQ0NDdjZGVkN2NmMTAyMTNhYjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3Nzg0ZmJiODM5MDgxZDViM2FiYzE4ODcwOTBiNmJmNDgyZDJhZmFjMzYyZDY5M2M0YzQ2Mzk4NTM4MjQ2YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlMGE3MDgyMTM3YjlmNTM4YzAyOWJmNzA2MjM5YzllYTgzOTFjMDc4MGVhODgxMTA2NDI1YTQ0ODRjMDE3MDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_da21ee60bd8f4833abb0d7a2970cbb7a",
+      "statement": "The service maps provider 402 to 402 {message: 'Payment declined', status: 'declined'}; provider 409 to 409 {message: 'Conflicting provider idempotency key', status: 'unknown'}; non-success responses to 502 {message: 'Payment provider unavailable; reconcile before retrying', status: 'unknown'}; and httpx.TimeoutException to 504 {message: 'Payment provider timed out; outcome requires reconciliation', status: 'unknown'}.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L31-L48",
+          "version": "repo-lines-v1:sha256:e82e0591d833917c636168909ae88d1f5a7384b90a6032649bab0eb6f13a5ed3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkZjU3YzdhNDA2NDRhYTAwNmNiMjc3ZDdjNGI0NTQ5Njg3MDgzNzY1ZGY2YjU0MWM2MWQ5YzNiMmFiYTM4YmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMTc4OTZiNzI3MjdlZjQ5NGFlY2UzYWE3ZGI0YWNkMzJjN2Y0YWQxOWNlYjQ0NDdjZGVkN2NmMTAyMTNhYjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3Nzg0ZmJiODM5MDgxZDViM2FiYzE4ODcwOTBiNmJmNDgyZDJhZmFjMzYyZDY5M2M0YzQ2Mzk4NTM4MjQ2YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlMGE3MDgyMTM3YjlmNTM4YzAyOWJmNzA2MjM5YzllYTgzOTFjMDc4MGVhODgxMTA2NDI1YTQ0ODRjMDE3MDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21534c639ea2429196dc27fad61d6920",
+      "statement": "The service reads PAYMENT_PROVIDER_URL defaulting to http://mock-provider:8080 and PROVIDER_TIMEOUT_SECONDS defaulting to 3, used by the provider_client httpx.AsyncClient.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L18-L18",
+          "version": "repo-lines-v1:sha256:a0b6a79f343ea3f8e762bffeca15411686ce47f08e7b1feceb5f7b377e5d3745:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiNmE3OWYzNDNlYTNmOGU3NjJiZmZlY2ExNTQxMTY4NmNlNDdmMDhlN2IxZmVjZWI1ZjdiMzc3ZTVkMzc0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIzN2RkY2YzNjRlNjg2MGUxYTJiOWI4NjZhYWMxNmVlNGY4ZGRlNWVjOTJkZWU0NDAzODVkNTQ1MzQ2MTVlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://app.py#L23-L28",
+          "version": "repo-lines-v1:sha256:ae33c7246beaad86382b439afed26d09b03f5948ef1cbfa717e5a7d41e5be932:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTBiOWEwZDYzYjIwMTZjZjZiNDQ0YjlkZWJkNjcyZmM4OTZiMjRiZjU4YTE2ZDhkY2I4ZGY4ZjM4NjI2ZDkwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMyNjRmNmJiOTRjYWQ3NTA2NzVmOWQ3ZDMxNmE1OWJlYTFlNzFiNGY0NTY2NTBkNTNlZmQ1M2Q0NTQyNmRjNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjM1ZGU3Y2E5NDM0OGUwY2RhOWJhNmUxODAzY2YwMjQxY2Y0Mjc3ZDg5MzNiM2Q2NjdjZDljZTljMjAyOTBmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDA5MGM2NWQ3M2FhY2U1MTVmMGE5NWE5MWI5ZDA4NjExODZlZGNhMmFiOTNhODU1MWI0Njc3Y2RmMDBhZGNhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_051dde6dbdeb4ed88a2f8fd8568726ae",
+      "statement": "The service has no database, cache, message bus, or authentication dependencies; it relies entirely on the external payment provider for write durability and idempotency enforcement.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L9-L11",
+          "version": "repo-lines-v1:sha256:29ab7db2c45856848692bcce28be5a89ee8267566db3eea7c5d315d94e43c653:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViNzAyNTc1OTNkYTA2ZjY4MmEzZGRkYTU0YTlkMjYwZDRmYzUxNGY2NDUyMzdmNWNhNzRiMDhmOGRhNjFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2M1NmM1OTFhMTk1NmUxMThiYjhjZmUzMzdkMmVkYjhjZjIxYjY4YjIxODUwYTIzMzA5MDNjZjdjM2M1NzNiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU5NjVhYWNlZTExNWU3YzZiNTVjZjkyNTUyMzU0ZjRjY2U0Mjg1NmI5YmYxYTJiYjA0NmI5MGY4OTFiODllZCJ9"
+        },
+        {
+          "resource": "repo://app.py#L1-L63",
+          "version": "repo-lines-v1:sha256:cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZGJkNmNkNWU5M2YzZjg3NDMyOWFmZDAyNzc1ZGJjZTI5ZTRhNmJiZWFjNTg4NzMzMDJiNWU5YmFlZDZhMTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZGU1MGI3MjU4ODM2NjMxODRkODBlYjQ3YjJlNjM4MDc5NGQ2NDZmYzczYzAyMzI3YmQ4MmU1M2ExMWJiYTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_972992888875483980696ac2e7badd38",
+      "statement": "The Dockerfile builds a multi-stage image from python:3.12-slim with base, test, and runtime stages; the runtime stage exposes port 8080 and runs as UID 10001 via uvicorn app:app.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:b10fd559953e9f2689e33133cc253cdaa53b4f448f610a60e4b936a7b5e3fb57"
+        }
+      ]
+    },
+    {
+      "id": "claim_d8db59404e824797a6982a79f2161055",
+      "statement": "The README documents that the provider must enforce durable idempotency by orderId for payments and by refund:<orderId>:<paymentId> for refunds, rejecting conflicting payloads, and that ambiguous writes (timeout or invalid response) must not be blindly retried.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L10-L12",
+          "version": "repo-lines-v1:sha256:5e4bf2d5b510b4e9f829466c0adb330ef8168f47918c23ec530b2175fccb72fc:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI4MWZkZjRmODdhNzMxMWNiZTQ5ODQ0ZGI0MWUzZjk1YTM5YzBmYzUxOWYyYTkyODUxZjcyZjVmMjE2ZTVmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE4NzNkZmQ1ZmI5MWZhN2ExZmNiY2Y4ODg4ZDcxZjBiN2JkNzE5MjA4YjVmOGU2OWYzMDAwMzIyNDZjYWY3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjY4OTA0OTFjYWU2NDUzZDk3M2YxZmU0ZDRjZDMxNDY2YmQ2NjQ2ZjhlMThkNDVjMTkxZGRhOTg4ZTI2NzkwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE2NTEzNWY2NTQ5OTVkYmM4MjNlZWNkMWVkMmRjZGEyM2ViOGI0ZDcyNWUwNGNkOGZiMGI5NWQwYWZkMGUyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cea9d52dea1e4b05ab2c7ecb4db86493",
+      "statement": "Tests in tests/test_app.py verify authorization passes idempotency key equal to orderId, validates that amountCents=0 returns 422, distinguishes timeout (504 status unknown) from decline (402), and confirms refund idempotency key format.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_app.py",
+          "version": "repo-file-v1:sha256:c45751fd89699133ff747cfd8eafcbeef88dee3a071a7a7f3121dde2ec22ac99"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:41.531Z"
+  }
+}

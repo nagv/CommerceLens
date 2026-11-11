@@ -35,7 +35,7 @@ class PipelineTests(unittest.TestCase):
    for name in ['one','two']:
     wiki=root/name/'openwiki';wiki.mkdir(parents=True)
     (wiki/'quickstart.md').write_text('Overview '+name)
-    services.append({'id':name,'path':name,'repository':'https://github.com/demo/'+name+'.git'})
+    services.append({'id':name,'path':name,'repository':'https://github.com/demo/app.git','repository_path':'services/'+name,'repository_ref':'codex/test'})
    manifest.write_text(m.yaml.safe_dump({'services':services}))
    def summary(service,inputs,previous,model):
     return {'purpose':'Purpose '+service['id'],'stack':'Demo','interfaces':[],'data':[],'events':[],'flow':[],'dependencies':[],'unknowns':[],'evidence':list(inputs)}
@@ -43,6 +43,7 @@ class PipelineTests(unittest.TestCase):
     with patch('sys.argv',['refresh',command,'--manifest',str(manifest)]):m.main()
    with patch.object(m,'ROOT',root),patch.object(m,'summarize',side_effect=summary) as gen:
     run('refresh');self.assertEqual(gen.call_count,2)
+    self.assertIn('/blob/codex/test/services/one/openwiki/quickstart.md',(root/'openwiki/service-catalog.md').read_text())
     run('refresh');self.assertEqual(gen.call_count,2)
     run('check')
     (root/'one/openwiki/quickstart.md').write_text('Changed overview')

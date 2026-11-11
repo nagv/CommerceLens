@@ -52,25 +52,25 @@ services:
     build: ./mock-providers
     volumes: [provider-data:/data]
   inventory-service:
-    build: ../commercelens-inventory-service
+    build: ./services/inventory-service
     environment:
       DATABASE_URL: postgres://commerce:${LOCAL_DB_PASSWORD:-local-demo-only}@inventory-db:5432/inventory?sslmode=disable
     depends_on:
       inventory-db: {condition: service_healthy}
   payment-service:
-    build: ../commercelens-payment-service
+    build: ./services/payment-service
     environment:
       PAYMENT_PROVIDER_URL: http://mock-providers:8080
       PROVIDER_TIMEOUT_SECONDS: '3'
     depends_on: [mock-providers]
   shipping-service:
-    build: ../commercelens-shipping-service
+    build: ./services/shipping-service
     environment:
       SHIPPING_PROVIDER_URL: http://mock-providers:8080
       PROVIDER_TIMEOUT_SECONDS: '3'
     depends_on: [mock-providers]
   notification-worker:
-    build: ../commercelens-notification-worker
+    build: ./services/notification-worker
     environment:
       DATABASE_URL: postgres://commerce:${LOCAL_DB_PASSWORD:-local-demo-only}@notifications-db:5432/notifications
       RABBITMQ_URL: amqp://commerce:${LOCAL_BROKER_PASSWORD:-local-demo-only}@rabbitmq:5672
@@ -81,7 +81,7 @@ services:
       rabbitmq: {condition: service_healthy}
       mock-providers: {condition: service_started}
   order-service:
-    build: ../commercelens-order-service
+    build: ./services/order-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://orders-db:5432/orders
       SPRING_DATASOURCE_USERNAME: commerce
@@ -100,7 +100,7 @@ services:
       payment-service: {condition: service_started}
       shipping-service: {condition: service_started}
   customer-portal:
-    build: ../commercelens-customer-portal
+    build: ./services/customer-portal
     ports: ['127.0.0.1:3000:80']
     depends_on: [order-service, notification-worker]
 volumes:

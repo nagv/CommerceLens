@@ -10,6 +10,22 @@ from commercelens_ai.retrieval import LocalRetriever, PineconeRetriever, Pinecon
 
 
 class KnowledgeTests(unittest.TestCase):
+    def test_monorepo_source_and_relationship_links_include_service_path(self):
+        import yaml
+        path=self.root/'services.example.yaml'
+        manifest=yaml.safe_load(path.read_text())
+        for service in manifest['services']:
+            service['repository']='https://github.com/example/app.git'
+            service['repository_path']='services/'+service['id']
+        path.write_text(yaml.safe_dump(manifest))
+        chunks=build_corpus(self.root)
+        order=next(c for c in chunks if c['metadata']['service_id']=='orders')
+        self.assertEqual(order['metadata']['source_url'],'https://github.com/example/app/blob/main/services/orders/openwiki/details.md')
+        self.assertEqual(order['metadata']['source_path'],'services/orders/openwiki/details.md')
+        graph=build_relationships(self.root)
+        edge=next(e for e in graph['edges'] if e['from']=='orders')
+        self.assertEqual(edge['evidence_url'],'https://github.com/example/app/blob/main/services/orders/openwiki/details.md')
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)

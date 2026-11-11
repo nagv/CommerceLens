@@ -1,0 +1,112 @@
+{
+  "communities": {
+    "0": [
+      "app",
+      "app_health",
+      "app_rationale_1",
+      "fastapi",
+      "fastapi_responses",
+      "get",
+      "pydantic",
+      "typing"
+    ],
+    "1": [
+      "tests_test_app_paymentstest",
+      "tests_test_app_paymentstest_setup",
+      "tests_test_app_paymentstest_setup_client",
+      "tests_test_app_paymentstest_setup_handle",
+      "tests_test_app_paymentstest_teardown",
+      "tests_test_app_paymentstest_test_authorization_passes_idempotency_and_validates_amount",
+      "tests_test_app_paymentstest_test_refund_key_is_distinct",
+      "tests_test_app_paymentstest_test_timeout_is_uncertain_and_decline_is_distinct"
+    ],
+    "2": [
+      "app_authorize",
+      "app_forward",
+      "app_payment",
+      "app_refund_b51118",
+      "app_refund_e17c8a",
+      "basemodel",
+      "post"
+    ],
+    "3": [
+      "app_provider_client",
+      "fastapi_testclient",
+      "httpx",
+      "os",
+      "tests_test_app",
+      "unittest"
+    ]
+  },
+  "cohesion": {
+    "0": 0.25,
+    "1": 0.2857142857142857,
+    "2": 0.3333333333333333,
+    "3": 0.4
+  },
+  "gods": [
+    {
+      "id": "tests_test_app_paymentstest",
+      "label": "PaymentsTest",
+      "degree": 6
+    },
+    {
+      "id": "app_authorize",
+      "label": "authorize()",
+      "degree": 4
+    },
+    {
+      "id": "app_provider_client",
+      "label": "provider_client()",
+      "degree": 4
+    },
+    {
+      "id": "app_payment",
+      "label": "Payment",
+      "degree": 3
+    },
+    {
+      "id": "app_refund_e17c8a",
+      "label": "Refund",
+      "degree": 3
+    },
+    {
+      "id": "app_forward",
+      "label": "forward()",
+      "degree": 3
+    },
+    {
+      "id": "app_refund_b51118",
+      "label": "refund()",
+      "degree": 3
+    },
+    {
+      "id": "app_health",
+      "label": "health()",
+      "degree": 2
+    },
+    {
+      "id": "tests_test_app_paymentstest_setup_client",
+      "label": "client()",
+      "degree": 2
+    },
+    {
+      "id": "tests_test_app_paymentstest_setup_handle",
+      "label": "handle()",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `PaymentsTest` connect `Community 1` to `Community 3`?",
+      "why": "High betweenness centrality (0.437) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `authorize()` connect `Community 2` to `Community 0`?",
+      "why": "High betweenness centrality (0.073) - this node is a cross-community bridge."
+    }
+  ]
+}

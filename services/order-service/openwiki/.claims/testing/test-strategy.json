@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:250669bec263fa7ef4147c33bd826ef6fdae2f7ff1da1662c9d7d8ef452262a9",
+  "claims": [
+    {
+      "id": "claim_9004db7ed2a6420c9ccc04da11224e85",
+      "statement": "`CheckoutTest` is a unit-test suite that exercises the checkout saga in memory using `FakePorts`, a lightweight mock implementation of `Checkout.Ports`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L20-L27",
+          "version": "repo-lines-v1:sha256:6557c32899c486724cf7b962b36dc513ba3e9d51fc9b10559fc5e9cff4d1b4e6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTAwN2Y2YjRkODg5MzY4ODIxMjgxZmNjZWYzNDNhOGVkMDNhMzViNzdkYzJkZTQ1MDcwZjE5YmNlMWMyNzJhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIzN2E4YjA2ODcxOGUwNTRhOTFjNDk4N2VjYzlmODNiYTYwZjJlNGVlYmEyYTUyZTE1MGEyZWEyMGM1Nzk5OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWNhZDE0ZGRlM2IzNTc1NDkyN2FhM2Q5N2EwY2M3Y2MwZGZhYzRjMTcxOTlhMGZiZGFhYjg1NWI4Zjk1MjMyNyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java",
+          "version": "repo-file-v1:sha256:e73adfcb2055f1ce4f8ee749b71e6e8890449e89a128098828b656ac5808fdf3"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb03b5eb5fe34875909fe36b94f56366",
+      "statement": "`FakePorts` is a mock provider (not a real sandbox integration) that exposes tunable fields—`paymentFailure`, `shippingFailure`, `refundFailure`, `released`, `refunded`, and `shippingStatus`—to simulate specific failure conditions and record side effects during saga execution.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L50-L57",
+          "version": "repo-lines-v1:sha256:f9d9b545ab3ea21c233e15ab8e566b50b7b61a04a2c5c7932964192c4038b527:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkyOGNhMWQxYjBkMTkwYzIzZDdlY2EwZWZiNGM4ZTRlMTRlMjFkZGY1NDViODYwYjJmNDVkODM2YjE4ZjlkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJhYmQ2MTFmMjViZWQxM2EyMDdhNTFlNzU5OWNkNWRjMGQ5NjcwNjQxY2UyZDBjN2VmZTljODgzZmYyNTcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9482b3c527cb4e6aa6a69ba4ee68caf8",
+      "statement": "`CheckoutTest.rejectsInvalidQuantitiesAndDuplicateSkus` verifies that `Checkout.validate` throws `IllegalArgumentException` for invalid item quantities and duplicate SKUs.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L31-L37",
+          "version": "repo-lines-v1:sha256:8d66fa21acfaedd9063536607e9c8da67e296ea2e3bd4c2a6ed3b329ca0d8b46:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzZTBjZjdjYWUxNjI1ZmNiYjhjZmQ3ZDhlYjM3YTYzMDNkODYzZDRlMmJlN2JlNDMzYWRhZmE0MmNhYmM5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhZDE0ZGRlM2IzNTc1NDkyN2FhM2Q5N2EwY2M3Y2MwZGZhYzRjMTcxOTlhMGZiZGFhYjg1NWI4Zjk1MjMyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQ2ZTg4MGU4Y2UxYWFiMTU3NjFhNDJmYzZjZDBiYzA5Y2RhZTgyMDk0OTVkZWFiYmI0ZDgwNzAzODZmYTIyYSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L8-L13",
+          "version": "repo-lines-v1:sha256:fdeb75915c9df6d4cacfbed52f24f88104fe2e85916abccd0ca75c3fceb7ea38:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdjZTc3MjEyYWM0MDhkMTgwOGQyNGU0YzY3MDhmMDZkMDAyMWUwMzI4NzExNzFjZGYxMjg3Y2U5NWY2ODYyNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODRmZTliN2Y1YjU3NTY2YzMwN2Q5MGFlMGQ1MzI0NjI5ZDBlOGQwMDEyMTRlNWMwMzllYTBlNmYxMGQ4NjAzOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTQ4M2VmZjdjMTliMmZjN2NjZDJlYjQ3MzFiNDA4ZTdiYTAzYTY2NTlmZjczNDU2MmJjNWI3NDVhZWVkMjUyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e01be45d5dd4f7d873ea548a05e139e",
+      "statement": "`CheckoutTest.timeoutKeepsReservationForReconciliation` verifies that when payment returns a `504` timeout, the saga enters `payment_unknown` status and does **not** release the inventory reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L44-L46",
+          "version": "repo-lines-v1:sha256:1853a5b183063bfb749d209de48489ae5556553443b2427d1ef1d260351c5788:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODY4YzI4NjAyMjcwNDFjMTcyYmM5MjE3MTViZjg3MDM3YjFmNWZmZGExOTA2N2ZkZTBhM2ZlNmVkNWEwZGNmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc4YzlkNTAzMmJiOGJmYTRiMzdhODU3N2QxZDZlYmRhNmY3NWNiYjdmMzhjODkxNjdlNWNjM2U2ZWM0MjZjNCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L14-L19",
+          "version": "repo-lines-v1:sha256:710fa9c7cb18678c9a813635159029c8e03a90b3484ced90a8aa5e4beee2ceda:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQwNWFkMjBiNjE2ZjAyNzFhZWM2OTcxZWU1OWY4MzBkYzg2YjBlMmYwNDFiMWQyMTUzYTI1YzY4MDgyNGVhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTNmMDA1MGRiYjQ0ODMyNjFlY2E0MTlmYWZhM2Y0ZjBiZjViMTRkODk2MDZjYWI3Y2NlYmY2Y2RhNjNkNTVmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQwYTU0NmEzMTViZGMyZWVjYTgxNDJhYTEzY2RkMjg1NzhjNjFkOTk1MDFiM2Y0MmUyZGVkNzg5MjkzZDkzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0d72a456366944dfa4d3a1f877c6c09d",
+      "statement": "`CheckoutTest.declineReleasesReservation` verifies that when payment is declined (`402`), the saga transitions to `failed`, releases the reservation, and does not issue a refund.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L44-L46",
+          "version": "repo-lines-v1:sha256:1853a5b183063bfb749d209de48489ae5556553443b2427d1ef1d260351c5788:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODY4YzI4NjAyMjcwNDFjMTcyYmM5MjE3MTViZjg3MDM3YjFmNWZmZGExOTA2N2ZkZTBhM2ZlNmVkNWEwZGNmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc4YzlkNTAzMmJiOGJmYTRiMzdhODU3N2QxZDZlYmRhNmY3NWNiYjdmMzhjODkxNjdlNWNjM2U2ZWM0MjZjNCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L20-L24",
+          "version": "repo-lines-v1:sha256:73da9ab67081cb395495e2a5ad2b9cfb2dc02d8ddf7a53605432452f78ba2775:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRiOTNlMDY2MTM0YzE1YTQ5NjAxN2QxYzU0YWM0NzM4OWQ0M2E3NWVmNmExNmE2OGM4NGU0ZTEyYjVmMGU1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODE4NmY0NmI4NzcwNzYzYWUwZDdhMjdhOWNmM2Y0OTI2ZTI3ZGZlMWE2ZTZkNTJhMDA1NGI4ZTYzOGY3ZjllYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjAyYmUyZDBmNzgxMTE4YTI4MzllZmEyYWJkMTE3MzE1MzYzNzdhNmI4OGQ4MTA3MDVhZDgxNGIwYzRlNDEyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_11a54242f62b49afb3408793a48bcf84",
+      "statement": "`CheckoutTest.paymentConflictRetainsReservationForReconciliation` verifies that when payment returns a `409` conflict, the saga enters `payment_unknown` and retains the reservation without releasing or refunding.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L44-L46",
+          "version": "repo-lines-v1:sha256:1853a5b183063bfb749d209de48489ae5556553443b2427d1ef1d260351c5788:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNjMmMxZTU1ZTY3MTRlZjI1NjkxOWU3NTU1Njk5ZTVjOTM4NzBjZDE5MzMxYWM4ZGZhMGZkMDU2Y2QwZGIwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIwZTE3YzEzZWI1ODMzNDU2YmYxMmNiYTUxZDlkNWRkZTEwYWY5ODM3NmJkMzhkNTQxNjEwMjk3NjEzOTFjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODY4YzI4NjAyMjcwNDFjMTcyYmM5MjE3MTViZjg3MDM3YjFmNWZmZGExOTA2N2ZkZTBhM2ZlNmVkNWEwZGNmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc4YzlkNTAzMmJiOGJmYTRiMzdhODU3N2QxZDZlYmRhNmY3NWNiYjdmMzhjODkxNjdlNWNjM2U2ZWM0MjZjNCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L25-L29",
+          "version": "repo-lines-v1:sha256:128591f9a331d45874830eadc65ef1c5a92b416104b86b4f37bac983042bf2c5:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzMjc2NTIzOThlZTA0YjNlZDEzNTY0OWVhZDBiMWIxNTNmZTZjYTVmYmIxYmZiY2FhNWJkNjZiZTNlZTM0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDU1MGE1ZTQwZDY2MTViOGVjN2YwZWE5Nzc5MmI3NGU1MDY0ZWQzMWU5OTBjNzk1NDgwY2ZhYjExODk3OGZlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTczZTVmN2Q4MmVjOWZkNTljMjRhMTRhN2FlOTlkZjNjNjBiNTdmZGYzOTFjYjg0ZDQxMjgzOWJlNzcwZTQ1NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4bea92d429234ba98afef28cfe399fbe",
+      "statement": "`CheckoutTest.shipmentFailureRefundsAndReleases` verifies that when shipping fails, the saga transitions to `failed`, issues a refund, and releases the reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L48-L56",
+          "version": "repo-lines-v1:sha256:6f44bde683337ba45c2dfdcb0386a05275db06ab4602936a93eff389b7d79d41:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1NGNiMzM2ODQ0NGE1YzUxNzFkYzc1NTU0N2VmN2FiN2UyZGU1YmRhM2I5ZGJjYzc4Nzk2MjVjN2E4ZTQ2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFkZDY0MGI3MzM1NmJkMjkxODE2OTQyNTA2MjlhNDM5ZGUwZDkzMDE2Yjk1Zjk5Y2Q0OTNmYmNjNDY2MThmOCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L30-L34",
+          "version": "repo-lines-v1:sha256:cd30cd7c8e88ac9590d22222eb37ba866acc704dfa4ece4ee118b3e93af6f7af:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVhZTIyZjI2Y2Q5NmRjNzgwMGE5MTQzYWUyZDY1NTIzMTA5ZGRmNTgxNWJjZTk0ZDFiMDYzMzA3MjM2Y2M5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzMzMGZjODliZTNhODI5MjFkN2Y4MDMxMDMzZDRmZTNjOTJjYjM4ZWEzYTllZWYyN2E4ZDZkNjFlNGRhZGM0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZiY2RiMzMyZTBlZWIxNThjMTZjNjkyYjQ1YmMzOWE3MjBjNmE4ZDkwYTIzN2RhNjJlNjE2Yzk3ZGYwMTk5MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2106884d1b614e498693c7ee693858a8",
+      "statement": "`CheckoutTest.failedCompensationRequiresManualReview` verifies that when shipping fails and the refund compensation also fails, the saga escalates to `manual_review`.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L48-L56",
+          "version": "repo-lines-v1:sha256:6f44bde683337ba45c2dfdcb0386a05275db06ab4602936a93eff389b7d79d41:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1NGNiMzM2ODQ0NGE1YzUxNzFkYzc1NTU0N2VmN2FiN2UyZGU1YmRhM2I5ZGJjYzc4Nzk2MjVjN2E4ZTQ2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFkZDY0MGI3MzM1NmJkMjkxODE2OTQyNTA2MjlhNDM5ZGUwZDkzMDE2Yjk1Zjk5Y2Q0OTNmYmNjNDY2MThmOCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L35-L39",
+          "version": "repo-lines-v1:sha256:d60e8f531d53ba4c66a15ce6cd65a2cc5a4f52d933d50758615dac36650b4100:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2JjZmFhNGZiYTliYTIxMDZmMzBjNDQzYzY3MmUxMjAxMzlmMjYyNTVkZTlhMjg4NWZjMmFhNzI3YzhjZDA5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2I5NGU1YTEwMTJmMDRjZTdhNmQ2NjFlMDlkZmNiNDY4MjFiMTg2YzAzNGEyNGI3OGI1OTgzZjhkNzlhOTUxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmU4YjQzY2UxMjQzOWRjZTJlYzk0NmE5MzM3MGQ5ZWYwYjk4OTkzZjU4MDhlMzdkZjlhNTkwOTAxZmRlYmFkNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fac22707d05142448143704d94a14cc6",
+      "statement": "`CheckoutTest.uncertainShipmentRetainsPaymentAndReservation` verifies that when shipping returns a `504` timeout, the saga enters `manual_review` and retains both the payment and the reservation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L48-L53",
+          "version": "repo-lines-v1:sha256:b1a7f05ef1b64e4c4aa52549845db77fee4541cf3327e855c6cc1e0eff56c2da:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM1NGNiMzM2ODQ0NGE1YzUxNzFkYzc1NTU0N2VmN2FiN2UyZGU1YmRhM2I5ZGJjYzc4Nzk2MjVjN2E4ZTQ2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ1YWU4MjYxYWJhMWQyZGI5MGRmZjJlMzE3ZGI5MzUzMWU0ODY2YzJhODM0NzFhMmU4MDM2YzkyNmVlMTliYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjliZmI1NWJkZDI3YjdhNTg5ZGJlY2QxZDgzZGU0MmE1NzZhMjE5ZTUzNzA4MzUyMWUzZTlhODc4OTAxMWRmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGU3NTgzOWRkNmZhYjk0MWE4MmJlMDYxNWE2NzRkNjQ5YTEzZTdkMDRmN2M1NTNmMDdiNjdhYjI2MmJiNTY2YyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L40-L44",
+          "version": "repo-lines-v1:sha256:e30f68e54d0ade307d9ef61db5088c493c37dc18d82b40a3e8e9742614463f8b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGE0NmFjNWYzZjhkNjczNTljZDhiNzM4ZGVkZGQ5MThlYzBlMmZlZWMyZWMyMGIzYjg5ZGM5MTZkNWJkMzY1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmIyMTVjNDJmN2JmNmY5MzA4MzNkYTc5N2QwZGY1NzhhZjM0MjNhZjE1NWNlOTJjMzUzZmUzZjUzMzFhMWEwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDIwNzdjMzkyYjdhNGVmOTU2ZDY1N2JlMmJkYjNiODA4MDAzMjQyMzBiYWIwNjM2MjFhY2I4Y2Q4N2NmNWVjYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_995a7282de8546acb54ce1c727194bc5",
+      "statement": "`CheckoutTest.successUsesAuthoritativePrices` verifies that a successful saga run ends in `confirmed` status with the correct total amount (`totalCents`) including shipping.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L57-L57",
+          "version": "repo-lines-v1:sha256:8bca85ad1566b2688ed6c89772246bae762c666e663ab7fd704258578ce6cb0c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJjYTg1YWQxNTY2YjI2ODhlZDZjODk3NzIyNDZiYWU3NjJjNjY2ZTY2M2FiN2ZkNzA0MjU4NTc4Y2U2Y2IwYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJjYTg1YWQxNTY2YjI2ODhlZDZjODk3NzIyNDZiYWU3NjJjNjY2ZTY2M2FiN2ZkNzA0MjU4NTc4Y2U2Y2IwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGU3NTgzOWRkNmZhYjk0MWE4MmJlMDYxNWE2NzRkNjQ5YTEzZTdkMDRmN2M1NTNmMDdiNjdhYjI2MmJiNTY2YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTA0NzgwYzY3MTg2OTgwYWMwMTY1ODIyZGJkZDBiYTQ1YzA3ZDA3OTk4OTU2NGZmNmFiMGI2MmY1N2U5MWVhYyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L45-L48",
+          "version": "repo-lines-v1:sha256:4966874a782da03fd823e1168ca943d17ac2b150a0d5cd7a0ba49bcac64b4016:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzYyODhkY2EzNmViM2JiYWNlNDUwM2M2ZGVmN2Y4N2ZmNDhkZTEwM2MyMjZhZDU2NWUxNDk1MmQyNWM3NzcwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWU5ZTA3NTZlNTU3NWMzYzI0MTdmZGM0NTllYTYzODkzYTI0MGZhMDJiYTcxNmUwYzE5M2ZiODY5N2JhMzExOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDhkODQxZDA5Y2UwYjRjYmMzNmU4ZDRhOGVlYjY0ZTIzNTg5YjA1MTgwN2I0OTBiZTZkMDk5OTI5MGRkNjE5OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2fea5c2be02245c69b4d9e0ee6cc34dd",
+      "statement": "`OrderStoreTest.postgresAcceptsOnlyOneConcurrentIdempotencyKey` uses 8 threads to submit 20 concurrent `store.create` calls with the same idempotency key and asserts that exactly one succeeds and the stored request hash is retrievable.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L15-L15",
+          "version": "repo-lines-v1:sha256:ca99475c065f4c4c3ee48d3b71cd9c58497cc242ead912cd62a1dba8cc7f9809:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E5OTQ3NWMwNjVmNGM0YzNlZTQ4ZDNiNzFjZDljNTg0OTdjYzI0MmVhZDkxMmNkNjJhMWRiYThjYzdmOTgwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmZGYyMzAzZmVmYWQyNzI5OGQxMjZiMGI2MjdkNTBhOTZlZDVhMDhiNjcyMmVjYzQyZjhiZWI1ZTc3MWNlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ5YTNlY2ZmMmRmMmI3YmZiMmNiOWM5NTA2ODZiMmI5NzIwYjE5MDY4OGEzOGNjZjI4YmI3ZDgzY2U0MGNjYSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/schema.sql#L3-L3",
+          "version": "repo-lines-v1:sha256:5bd3f367ab4c62287fc05b9e997f81bbf25c1b7f2f81dab53ddda1ed406c37cb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkM2YzNjdhYjRjNjIyODdmYzA1YjllOTk3ZjgxYmJmMjVjMWI3ZjJmODFkYWI1M2RkZGExZWQ0MDZjMzdjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJkM2YzNjdhYjRjNjIyODdmYzA1YjllOTk3ZjgxYmJmMjVjMWI3ZjJmODFkYWI1M2RkZGExZWQ0MDZjMzdjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg5YzBlZmI4ZTFkNjI1MjMwMWQ4MTczYjMyNzA3NjRjNWI5MDE4ZjRjMGQ0OGNlY2Q5Y2RiMTUyNWM4NjIwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFjZDQ0ZTFkNWVkMDQyMDkwYzljZDIyOWNkNzZjNjhiNDUwYzMwZjJkYmY3M2RhZDU3YjVhNzMwOTZkMDM5MCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L15-L26",
+          "version": "repo-lines-v1:sha256:96b6b6504a6a6e38e4890ee3db4a7201f25be7eeacec210c70ee11ed5aeaad30:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZGVhYjQ2MjI0YjRlMWQ1MzQ4NmFhOTAyNDk3NjQ4M2E3YWFjZTllMTQyMTgwNGQ3MzJkY2I2ZWE5N2Y1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3NGYwMjE4M2IzY2MxN2JkMWRjNGYwOGJlMmNiZTQ5NTc0MWVkOWQxZGNkMWU4NTE4ZTFhOWM5N2FiOGRlZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6bbadccfbb87412ea781d16e53334933",
+      "statement": "Running `mvn verify` executes `CheckoutTest` by default, while `OrderStoreTest` requires the environment variables `TEST_JDBC_URL`, `TEST_DB_USER`, and `TEST_DB_PASSWORD` to connect to a disposable PostgreSQL database.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L16-L17",
+          "version": "repo-lines-v1:sha256:5519246cf316207f0e23cd9f740c3dc76d3e27fda8524ff98905b51765c05b04:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDA1Y2RlMWEyMWQ3NmQxYWI1ZDhkZDgwZDVkZjNjNzljMmE0MTM5OGRiMmZhOWQyYTQxNTcyODFkM2Y3NDcxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDIwMTA5YjI3ZmQ5MWVjYjlkYzBiMTU0MTQzNjVhNWYyZTgzMmRlYjA5NDdiNDE0MjMwMDllNTkzZWFjNjJlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQxODhjMTkyNTdiZTNkNzUwYWE4YWQ0MGJhYTNjZDQwMDMyMWFjOTQ2MjcyODFmZDEwOGYzZWE3NzYyYjU4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjA0MDQ5ZGVlZTk1YmEwMjFiODBlMGI3Nzg3MDI4OTNmYjY5NGM1NTBiZTY5NjllYjNhNTkyMjA0ZDhkZWFhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_64755953782f47d99dbc33abce2c0090",
+      "statement": "The project's `Dockerfile` runs `mvn -q verify` during the build stage, so tests must pass (or be properly skipped via `assumeTrue`) for image creation.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile#L6-L6",
+          "version": "repo-lines-v1:sha256:591b0abeb1a7a1650669d5babfc4ac132f83d812a0787533e09d765ed79650df:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTkxYjBhYmViMWE3YTE2NTA2NjlkNWJhYmZjNGFjMTMyZjgzZDgxMmEwNzg3NTMzZTA5ZDc2NWVkNzk2NTBkZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTkxYjBhYmViMWE3YTE2NTA2NjlkNWJhYmZjNGFjMTMyZjgzZDgxMmEwNzg3NTMzZTA5ZDc2NWVkNzk2NTBkZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTExOThkMmE1YjUwODgxZjNmZjAyZDY5NzJlNTFhYjBiYzM4OTc2NDZlOWUyZTU2YzI4OTJkZGIyOTQxMmJhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWQ4MzYwZjA1YjcwZmMwZTYxMmMwNjFiMTRkMzNhN2QxZmY0NWQxMmMwMTg5Njk0MDEzZmU3ZTA3Y2U4NjljMSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

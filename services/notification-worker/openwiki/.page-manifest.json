@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/concepts/delivery-retry.md": {
+      "pageVersion": "sha256:34e5631e95bdd9e3436295960f758fd0d2c9f0500eea509eb1bece1f48678f2a",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    },
+    "/openwiki/concepts/lifecycle.md": {
+      "pageVersion": "sha256:8df6e247eb777452c777e6d95f2f1c517531b0e75b6ac1fdf2be20586e77beec",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    },
+    "/openwiki/flows/message-consumption.md": {
+      "pageVersion": "sha256:f54da2cab1db62025451b8e2f623e0d6fc8dc35ab58adde08f2dc1e7f38086c6",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    },
+    "/openwiki/operations/configuration.md": {
+      "pageVersion": "sha256:6e0e70d3aa24e0d1c94c394a6f00e7c449e5a3a0452bf57af91f6da072f5495b",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:6d1cba048102bc7a5193cb4182688fe6db0d1ab4bebea098ba1da26229e027f2",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    },
+    "/openwiki/service-context.md": {
+      "pageVersion": "sha256:da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+      "completedBy": "codex/openwiki-lifecycle-review",
+      "completedRunId": "701c0214-2a5f-490d-b692-9f8fd857acfc",
+      "gitHead": "6383fdfcb8e3cfca08bbffebee14c78f5a17e150",
+      "sourceFingerprint": "sha256:607e434d152edea247bc1dc2c4f6b88ffb67f97929efc9c875a040a0937f71ff"
+    }
+  }
+}

@@ -14,10 +14,10 @@ sources:
     resource: repo://catalog/service-cards/payment-service.json
   - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
     resource: repo://catalog/service-cards/shipping-service.json
-generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-11T23:33:01.875Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T04:25:14.217Z
+    at: 2026-11-11T23:36:30.387Z
 ---
 
 # CommerceLens master wiki
@@ -36,11 +36,11 @@ The GitHub links open the latest documentation. Cards record source-page hashes 
 
 ## Individual service wikis
 
-- [customer-portal](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/quickstart.md)
-- [order-service](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/quickstart.md)
-- [inventory-service](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/quickstart.md)
-- [payment-service](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/quickstart.md)
-- [shipping-service](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/quickstart.md)
-- [notification-worker](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/quickstart.md)
+- [customer-portal](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/quickstart.md)
+- [order-service](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/quickstart.md)
+- [inventory-service](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/quickstart.md)
+- [payment-service](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/quickstart.md)
+- [shipping-service](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/quickstart.md)
+- [notification-worker](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/quickstart.md)
 
 [Master entry point](quickstart.md)

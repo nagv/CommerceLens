@@ -72,7 +72,7 @@ Budgets default to 12 retrieval/relationship calls, 3 model calls, 6 candidate s
 .ai-venv\Scripts\python.exe -m commercelens_ai --trace evaluate --repetitions 3 --judge --ragas --langsmith
 ```
 
-The dataset now contains 24 Ask cases and four existing Plan cases. All 24 Ask references have been reviewed and approved by the user. See evals/ASK_REVIEW.md and evals/ASK_POLICY.md. Categories cover single-service, cross-service, overview, external dependencies, unknown information, uncertainty, irrelevant requests and single-turn clarification. Multi-turn follow-up flows are excluded. Treat them as an MVP seed set, not production acceptance proof. Review/extend them using real questions, adversarial cases and changes; keep held-out cases when tuning retrieval. Repetitions estimate variation. The default model judge uses the same configured model as generation; calibrate against human review and optionally use a different provider/model in the Python API.
+The dataset contains 24 Ask cases and 21 Plan-mode cases. The original 42 references are reviewed; three controlled variants are newly authored and marked proposed_variant pending user review. All 24 Ask references have been reviewed and approved by the user. See evals/ASK_REVIEW.md and evals/ASK_POLICY.md. Categories cover single-service, cross-service, overview, external dependencies, unknown information, uncertainty, irrelevant requests and single-turn clarification. Multi-turn follow-up flows are excluded. Treat them as an MVP seed set, not production acceptance proof. Review/extend them using real questions, adversarial cases and changes; keep held-out cases when tuning retrieval. Repetitions estimate variation. The default model judge uses the same configured model as generation; calibrate against human review and optionally use a different provider/model in the Python API.
 
 Deterministic metrics include expected-service recall, retrieved citation validity, phrase coverage, tool/model calls and latency. Phrase coverage is explicitly lexical, not factual correctness. The judge scores factual groundedness, completeness, uncertainty and plan quality. For plans, proposed changes are not hallucinations merely because they are new; factual premises must still be grounded.
 
@@ -104,4 +104,33 @@ Model response labels and factual-claim flags are not guaranteed truth. Human re
 
 Run `.ai-venv/Scripts/python.exe -m commercelens_ai evaluate --mode plan --judge --langsmith`.
 
-Plan rubric v2 reports strategy, service impacts, service details, implementation order, requirement coverage, alternatives, recommendation rationale and grounding separately on a 0–2 scale. Each has a reason; critical issues remain visible in the local run record. Numeric dimension scores and explanations are uploaded as LangSmith feedback. The aggregate plan_quality stays on 0–1 for compatibility, and is not an acceptance gate. Alternatives applicability is set per case; null is not a passing score. See evals/PLAN_REVIEW.md for anchors, coverage proposals and the first case awaiting review. Plan generation and Replan functionality were not changed by this evaluation update.
+The legacy Plan rubric v2 reports strategy, service impacts, service details, implementation order, requirement coverage, alternatives, recommendation rationale and grounding separately on a 0–2 scale. Each has a reason; critical issues remain visible in the local run record. Numeric dimension scores and explanations are uploaded as LangSmith feedback. The aggregate plan_quality stays on 0–1 for compatibility, and is not an acceptance gate. Alternatives applicability is set per case; null is not a passing score. See evals/PLAN_REVIEW.md for approved examples and anchors. Behavioral and debugging cases use their own criteria; investigation leads are not graded as implementation plans.
+
+
+## Replan workflow
+
+After a successful implementation plan, enter a selected alternative and optional constraints beneath that answer, then choose **Replan with this alternative**. The original request and the immediately preceding plan are retained. Each revision retrieves fresh documentation. Ask, clarification, uncertainty and error responses do not show this action. State is held in the browser page and is lost on reload; this is not persistent chat history.
+
+`POST /api/replan` accepts `original_request` (1–8,000 characters), `previous_plan` (1–32,000), `selected_alternative` (1–2,000), and optional `instruction` (0–4,000). It shares the loopback, origin, request-size and concurrency protections of `/api/chat`. Previous plans are proposals, not authoritative evidence. API errors preserve the UI selection/constraints for retry.
+
+Both Replan golden cases now call `Assistant.replan` with structured context, the same engine operation used by the API. They no longer approximate Replan by concatenating one question. UI testing and API tests provide separate workflow evidence. Debugging requests return investigation leads even when Plan mode is selected.
+
+
+## Evaluation contract v3
+
+All golden cases now use explicit must-pass requirements in addition to scored dimensions. A failed critical requirement cannot be hidden by a high average. `meets_critical_requirements` means those requirements passed; it is not a production release certification. Unknown judgments need review, and invalid judge output is not assessed rather than scored zero. Execution, judge errors and quality gates are separate.
+
+Current application correctness uses reviewed facts; documentation grounding uses retrieved evidence. A correct answer can be poorly grounded when documentation is stale. Documentation conflicts do not require the answer to mention the conflict. Debugging gets investigation-specific criteria; Replan gets selected-approach, preserved-requirements and exclusion criteria. Service precision/F1 and evidence-topic coverage expose broad or incomplete retrieval. Keyword checks remain diagnostics.
+
+`evals/contrast_pairs.json` identifies three scope variations. `evals/judge_calibration.jsonl` contains controlled good, incomplete, incorrect and stale-document examples. These are agent-authored fixtures, not independent human calibration. Their disagreements must be retained and reviewed.
+
+Run up to four cases concurrently with `--workers 3`. Each answer is saved before scoring as `generation-<repetition>-<case>.json`. `runs.jsonl` retains every completed attempt, `summary.json` includes gate and scoring coverage, and `human_review.csv` leaves human verdicts blank. Review individual requirement reasons alongside averages. v3 scores use a normalized 0–1 scale and must not be compared directly with v2 averages. The current run is one repetition per case; repeated runs and held-out human-reviewed examples remain necessary before production acceptance.
+
+
+Run controlled judge calibration explicitly with:
+
+```powershell
+.ai-venv\Scripts\python.exe evals/run_calibration.py --live --output evals/results/calibration-new-run
+```
+
+This sends the fixtures to the configured chat provider. Use a new output directory to preserve prior attempts. The judge permits one correction of invalid JSON/schema/evidence quotations; `scoring_attempts` and `validation_errors` retain that history. It does not regenerate the application answer. A valid but unfavorable judgment is not automatically retried. Code verification hashes, when present, are checked alongside reference-document hashes before subsequent runs.

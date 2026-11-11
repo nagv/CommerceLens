@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:868526dff360ebdb01a382705b10b72e772defd707d3ac01d385b54d7a23f983",
+  "claims": [
+    {
+      "id": "claim_f89277ed3d24435d802d791ea5cb463e",
+      "statement": "GET /health returns 200 with body {\"status\":\"ok\"} when OrderStore.healthy() is true, and 503 when the database is unreachable.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L14-L14",
+          "version": "repo-lines-v1:sha256:a5d3c21916b80b821c4a29e77d0a72bc381af03eff709a85b4fa8be2a994d6e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVkM2MyMTkxNmI4MGI4MjFjNGEyOWU3N2QwYTcyYmMzODFhZjAzZWZmNzA5YTg1YjRmYThiZTJhOTk0ZDZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVkM2MyMTkxNmI4MGI4MjFjNGEyOWU3N2QwYTcyYmMzODFhZjAzZWZmNzA5YTg1YjRmYThiZTJhOTk0ZDZlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTlmZjJlYzQwMTFkNmMzZGQyMWQ5M2U2ZDg4NmVjM2FjNDhhNGJhNTBiMGJlMmE5MmM1ZWQ0NTUxNjM3MmEzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L29-L29",
+          "version": "repo-lines-v1:sha256:d29dce38df5e44647c7f9286396e0e584af7492e5e63fa119097df61e896eb0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI5ZGNlMzhkZjVlNDQ2NDdjN2Y5Mjg2Mzk2ZTBlNTg0YWY3NDkyZTVlNjNmYTExOTA5N2RmNjFlODk2ZWIwZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmJmZTZkZTI3MjVlNDU1ZjNmMmVjYzNlZDEzYTQyZmFhNDEzZThjMjRmNTU1YjhjNTk4N2NkNzhkMjhlNWRiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eab1649527c6472d8b6633405f2a3a71",
+      "statement": "GET /api/products proxies the request to RemoteServices.products(), which calls the configured inventory service.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L15-L15",
+          "version": "repo-lines-v1:sha256:3c5017bfd16d4c01e5db174772936e4aa145bdb1d327ed1d846a795dc8f1b65d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M1MDE3YmZkMTZkNGMwMWU1ZGIxNzQ3NzI5MzZlNGFhMTQ1YmRiMWQzMjdlZDFkODQ2YTc5NWRjOGYxYjY1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M1MDE3YmZkMTZkNGMwMWU1ZGIxNzQ3NzI5MzZlNGFhMTQ1YmRiMWQzMjdlZDFkODQ2YTc5NWRjOGYxYjY1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWU1N2E5Y2E4ZmMxMGM1ZWFlNWMyOGRkZDViYzQ0YmU0MDg3NmI2ZjA1NTFiYmEwZTdlYWExZTdiNjgxMGQ0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWM3MDFjMzgzYjgxY2YxNjc0OTkzODhhMjU4YTBkZTUwY2VmM2JkOWM4ODhjNTVmOGM1MDMyMDAzNjhmOTE0NSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/RemoteServices.java#L27-L27",
+          "version": "repo-lines-v1:sha256:1c3f1bb457d1351bc56e97fc89093b137b95514f9ae4eec29589776f3198c53d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMzZjFiYjQ1N2QxMzUxYmM1NmU5N2ZjODkwOTNiMTM3Yjk1NTE0ZjlhZTRlZWMyOTU4OTc3NmYzMTk4YzUzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMzZjFiYjQ1N2QxMzUxYmM1NmU5N2ZjODkwOTNiMTM3Yjk1NTE0ZjlhZTRlZWMyOTU4OTc3NmYzMTk4YzUzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGRkMzA0YmVmMDhkMDlhMzM2NmViMzZmZDEzMjBhOGMyZWNlNTJmYmVmMDQyOGJmYmE1NDZjN2E3NWMwODlkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg3MzhlMDY1ZmQ1YTI3NjBkYTNkODZlMGQ2NTlkODM1ODEzYjFjOGNmYjNkZTlhZTRmMWE1MmY4OWI4ZjRhYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_50036f5baad4463da232c4b1c9461203",
+      "statement": "GET /api/orders lists the 200 most recent orders ordered by created_at DESC, delegating to OrderStore.list().",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L16-L16",
+          "version": "repo-lines-v1:sha256:eee71b966fc6022f5e3f2325b9c21333f0e441e9fcb8a5594225fc0f2e8fe110:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWVlNzFiOTY2ZmM2MDIyZjVlM2YyMzI1YjljMjEzMzNmMGU0NDFlOWZjYjhhNTU5NDIyNWZjMGYyZThmZTExMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWVlNzFiOTY2ZmM2MDIyZjVlM2YyMzI1YjljMjEzMzNmMGU0NDFlOWZjYjhhNTU5NDIyNWZjMGYyZThmZTExMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzZhMDkxN2NjMDg3ODUxNTU4MGFlMjg5MDYyMWFkZjJjZTZjZjVmYTQyNmZhZjk0ZGZmNjI2OGMwMWM3ZGNhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDJhZjQyZGI4OWMzZjA0NzJhMmU1ZmFlOWZhYzE5ZmNmZDJhMjA0OTExMThlM2MwZDQ1MzgyNDU5OGQyNjAxNiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L20-L20",
+          "version": "repo-lines-v1:sha256:7b1546d64827f694c3fe0e6a2b15df523597dcf94bfba6fc5444a07351f60dfa:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxNTQ2ZDY0ODI3ZjY5NGMzZmUwZTZhMmIxNWRmNTIzNTk3ZGNmOTRiZmJhNmZjNTQ0NGEwNzM1MWY2MGRmYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWZjMTUwNTFjYzI2NGE2M2I1ODFkMjM1Y2JmNGJhMjU3MDc1NjI3ZDdmNzRiODY1MmNkYzFiMGViYmU4YjcyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWUxNWUwY2U2MmJlNjcxMmU4Mzc4ZmU2MjdkYWM3YzI2YzA5M2JiZWE5MDAwYWY5OGU4M2UzNGIwZWEwNDQyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb08fd5bf6414911833fc30380303890",
+      "statement": "GET /api/orders/{id} returns the stored order body and HTTP status if found; otherwise returns 404 Not Found with body {\"message\":\"order not found\"}.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L17-L17",
+          "version": "repo-lines-v1:sha256:3fc13894f5f02fbf309a1483e247c44bda1296eade14ab39a7d62036e66961ec:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZjMTM4OTRmNWYwMmZiZjMwOWExNDgzZTI0N2M0NGJkYTEyOTZlYWRlMTRhYjM5YTdkNjIwMzZlNjY5NjFlYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZjMTM4OTRmNWYwMmZiZjMwOWExNDgzZTI0N2M0NGJkYTEyOTZlYWRlMTRhYjM5YTdkNjIwMzZlNjY5NjFlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWRjMjA5Yzc1NTgwNTI0MTBjZDFkZTY4Nzk5MDlhNjU2Zjk3YjFhZjlmZWRlMmEyYTFiYWQzMDBlNTY1MDA2ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDdkOWZhZTQ4ZjQ1OWM4OGRjMzhjNGIxNjYwMzJlNjJkZjBkMDMwMzdlNTY5N2EyMDIxMDkzMzk1NDc2YzY0ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d283215da8c6426e8cc00a6d4729be60",
+      "statement": "POST /api/orders requires an Idempotency-Key header matching ^[A-Za-z0-9_-]{1,100}$; a missing or malformed header raises IllegalArgumentException and results in 400 Bad Request.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L19",
+          "version": "repo-lines-v1:sha256:b7e45eb7eb03d91e6f56a023d50251c4e8d5b30c22c2475e5a0f80e529953226:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU0ODI4M2QzNGFiMTkzZDkyOTQ4NWM5OTc0NjBjMWRhYzA2MTEzNjI4Y2FkNDk3NTY1NTNlMTZlMTU3N2ZmYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZiNTExYzA4NWI3YzM5ZGIxNTI1ZDEyOWU4MTllNWFmZTdhYTQ0MjRiMjk1Zjk2NWQyMDg0Y2QxOTAwOTMyNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e0cf8d539e104a48baa57b0827918f5d",
+      "statement": "Checkout.validate enforces request body rules for POST /api/orders: customerEmail must be non-null, max 254 chars, and match an email regex; postalCode must be non-null and match ^[A-Za-z0-9 -]{3,16}$; items must contain 1-100 distinct SKUs matching ^[A-Za-z0-9_-]{1,100}$ with quantities between 1 and 1000; optional paymentScenario must be success, decline, or timeout; optional shippingScenario must be success or failure.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L31-L37",
+          "version": "repo-lines-v1:sha256:8d66fa21acfaedd9063536607e9c8da67e296ea2e3bd4c2a6ed3b329ca0d8b46:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzZTBjZjdjYWUxNjI1ZmNiYjhjZmQ3ZDhlYjM3YTYzMDNkODYzZDRlMmJlN2JlNDMzYWRhZmE0MmNhYmM5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhZDE0ZGRlM2IzNTc1NDkyN2FhM2Q5N2EwY2M3Y2MwZGZhYzRjMTcxOTlhMGZiZGFhYjg1NWI4Zjk1MjMyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQ2ZTg4MGU4Y2UxYWFiMTU3NjFhNDJmYzZjZDBiYzA5Y2RhZTgyMDk0OTVkZWFiYmI0ZDgwNzAzODZmYTIyYSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/CheckoutTest.java#L8-L13",
+          "version": "repo-lines-v1:sha256:fdeb75915c9df6d4cacfbed52f24f88104fe2e85916abccd0ca75c3fceb7ea38:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdjZTc3MjEyYWM0MDhkMTgwOGQyNGU0YzY3MDhmMDZkMDAyMWUwMzI4NzExNzFjZGYxMjg3Y2U5NWY2ODYyNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODRmZTliN2Y1YjU3NTY2YzMwN2Q5MGFlMGQ1MzI0NjI5ZDBlOGQwMDEyMTRlNWMwMzllYTBlNmYxMGQ4NjAzOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTQ4M2VmZjdjMTliMmZjN2NjZDJlYjQ3MzFiNDA4ZTdiYTAzYTY2NTlmZjczNDU2MmJjNWI3NDVhZWVkMjUyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3ed513afa15840e2b67ccceaa039d128",
+      "statement": "IllegalArgumentException and HttpMessageNotReadableException thrown from OrderController are handled by the @ExceptionHandler bad method, returning 400 Bad Request.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L26-L26",
+          "version": "repo-lines-v1:sha256:5dc56d98d53aabf4568c6282da61f3746db02da0e7b28b0e97fb535580dd745d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRjNTZkOThkNTNhYWJmNDU2OGM2MjgyZGE2MWYzNzQ2ZGIwMmRhMGU3YjI4YjBlOTdmYjUzNTU4MGRkNzQ1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRjNTZkOThkNTNhYWJmNDU2OGM2MjgyZGE2MWYzNzQ2ZGIwMmRhMGU3YjI4YjBlOTdmYjUzNTU4MGRkNzQ1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGYxOGFhZWMxOWYwYWYxMzM4MjhiYjAxMTBlOGM2MDRmNDY3NzYzNDhjMjk0Y2I2ZTgwYTY5MmUwNjJjODc0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2RkZTEyZjJkM2IwZGViYjMxYTEyMzRhZDMyNzFhMzA3MWNkN2RiMTUyMjJmMDI2NjJmOGJiNDcyOGZlOTcyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2a6612d9e2c1413abcf5cb80eb72d6d1",
+      "statement": "Checkout.RemoteFailure exceptions are handled by the @ExceptionHandler upstream method, returning the upstream HTTP status carried by the exception.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L27-L27",
+          "version": "repo-lines-v1:sha256:db26a755aaddded3d388fda986fffb0dbc891f9c366b58aabbfd06cf0c3d12b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIyNmE3NTVhYWRkZGVkM2QzODhmZGE5ODZmZmZiMGRiYzg5MWY5YzM2NmI1OGFhYmJmZDA2Y2YwYzNkMTJiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIyNmE3NTVhYWRkZGVkM2QzODhmZGE5ODZmZmZiMGRiYzg5MWY5YzM2NmI1OGFhYmJmZDA2Y2YwYzNkMTJiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTgwOGRiM2Q3YzRkZTg2ZmNhZWFjOGY4NjYzYmUwNDkxMmZmOGE4NzlhNjEyYzA5NGQxYTFjMTNjNDUzMmM2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d918cdd17c64492395343b504011069e",
+      "statement": "Idempotency for POST /api/orders is enforced by computing a SHA-256 hash of a canonical JSON representation where items are sorted by ascending SKU and null scenarios default to \"success\".",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L25-L25",
+          "version": "repo-lines-v1:sha256:d3d16bf3375fb55bc701fbc65154a5814119f5eefcb977e0a66ff768f9d539a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNkMTZiZjMzNzVmYjU1YmM3MDFmYmM2NTE1NGE1ODE0MTE5ZjVlZWZjYjk3N2UwYTY2ZmY3NjhmOWQ1MzlhMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNkMTZiZjMzNzVmYjU1YmM3MDFmYmM2NTE1NGE1ODE0MTE5ZjVlZWZjYjk3N2UwYTY2ZmY3NjhmOWQ1MzlhMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTI1ZjQ4Y2IyODZiYjQ0NmMwMzVmYTlmNzkwYzZhNmQ2OTMzNDVjMGQ5ZmE2YmFjOWI2NDg1NjBjN2JmMzE4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7e45b07aa074c23a45f976e8af6264a",
+      "statement": "OrderStore.create inserts using ON CONFLICT(idempotency_key) DO NOTHING; OrderController returns 409 Conflict when the key already exists with a different request hash, and replays the cached outcome when the hash matches.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L21-L21",
+          "version": "repo-lines-v1:sha256:826fbf5100f9706a2b42001bc32c52e685553cc5bd9ff0cab053ab399c8e493d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI2ZmJmNTEwMGY5NzA2YTJiNDIwMDFiYzMyYzUyZTY4NTU1M2NjNWJkOWZmMGNhYjA1M2FiMzk5YzhlNDkzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDdkOWZhZTQ4ZjQ1OWM4OGRjMzhjNGIxNjYwMzJlNjJkZjBkMDMwMzdlNTY5N2EyMDIxMDkzMzk1NDc2YzY0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZmFlNDgwNTAyYjY0NTczYTMzYTE2OGI4OWM2NTQ5YWQ2MDIwNTMxNmU3NDJiNmVmNWFlMmI0ZDMwMGFmOCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L16-L16",
+          "version": "repo-lines-v1:sha256:e1cb9940fa609f179224444fc1ecff1e946c6324e0601643553c269b2c33df0e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjYjk5NDBmYTYwOWYxNzkyMjQ0NDRmYzFlY2ZmMWU5NDZjNjMyNGUwNjAxNjQzNTUzYzI2OWIyYzMzZGYwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjYjk5NDBmYTYwOWYxNzkyMjQ0NDRmYzFlY2ZmMWU5NDZjNjMyNGUwNjAxNjQzNTUzYzI2OWIyYzMzZGYwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTY4NzBiOWVhNzIxYzkxZjYyMWM4Y2IxMjk2NzM2ZjcyMzUxYTYxYjBhMGUxOTE3ODZkZDdlYjYwMTllZTVhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZjMTUwNTFjYzI2NGE2M2I1ODFkMjM1Y2JmNGJhMjU3MDc1NjI3ZDdmNzRiODY1MmNkYzFiMGViYmU4YjcyMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_89507532951148809d6030fe3e72024c",
+      "statement": "The POST /api/orders flow validates the request, hashes it, attempts OrderStore.create, runs Checkout (reserve, checkpoint, pay, checkpoint, ship, checkpoint), calls OrderStore.finish to persist the final state and optionally write an order_outbox event, and returns the order with its stored HTTP status.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/Checkout.java#L39-L58",
+          "version": "repo-lines-v1:sha256:e130dcbbd441f475a7012fca1574dbea0f3dcbf4b2f984103fb9f7d196c23ae0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYjY5YjQ5NTcwZjJhY2U4M2VkOWI0Y2RiZmZiZWMwMTNjYzNlMTVhNGIyNjIwOGU5NTg1NzdlOTNmODNmMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MDUzZDJmOGJjYTVjYjM3ZWY3ZDFmMzM4OTRjMzFhNmRhZTViZDQzNzdiN2JkODE0ZWU1OTliNGI5YzViMTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMWIxNjJlODExMmMxNjQ0ZmQ5NTg0MWRkNzJjOGIzMzg0MzkxYjEwNzFlZjQwMmVmMDI5MGE3ZWMyOThkNWMifQ"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderController.java#L18-L23",
+          "version": "repo-lines-v1:sha256:d39e52011ffc3937b421a00efa69ee8e9f20be034d3353f0f5e1157f8b03a3be:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTI1ZTE1ZWQzZDUyNWZlNTA3NTk4MmY3MTUyNDJlMDMzZDRkMTE5MmJhMGFhMmMyYzAwN2Q4ZWFmMjhjZTBiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhhZDU3ZmEyMTQ2ZmUxMzQzYjVkOTNmN2ZjODNhMzczNTU2OWIxYmI0OWFjYTZlYWFkMmI5YjE1OTQ3MGI4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQ1NWFmMWI4MDZiYzRmZTJjYjRiODU5ZjhmNWI2ZDM0NzYxMjJmY2U2YTdhZWJkYTU4ODA1OThjOGEyMmQ0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTgwOGRiM2Q3YzRkZTg2ZmNhZWFjOGY4NjYzYmUwNDkxMmZmOGE4NzlhNjEyYzA5NGQxYTFjMTNjNDUzMmM2NyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/com/commercelens/orders/OrderStore.java#L22-L28",
+          "version": "repo-lines-v1:sha256:7d95ebd97b50423bd684355e4b7b29dc5ba3ecaab0bdc062dfac77032f40dd3e:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFkNTE3YjZhZTY1YWIwMjgxZmEwOWMwYTJmNGRhNWI2NDlhZGRhYzE0YTk4NmRjMzgxN2E4M2I5YThmNjk2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3MmY1ZDUzYjhkNzMxMGE0Mzc2NGFhODM3YzRiMzcwYjNlMDFkZDE0OTFjYzdkNzdiN2ZkYmZiZWQyZTk2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEyNTI3OTMwZDMxZWRlODAzMjU3NjI4YmNhYzU4MmEwZTliZjU4YjAyZWVmMjVhMDVlOWJmMWYzYmUxNWJjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjE0NTJiNzhlOTA2NDgxMmNkNjkxZWJiN2JhMzQ3NjY3OWQ1ZDAyMGYzODNhN2ZjZDZhMjE1ZjVkZDhjMDU4ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5f767877b94541ea968e88988bad46b3",
+      "statement": "Concurrent duplicate POST /api/orders submissions with the same idempotency key are safe because the unique constraint on idempotency_key in the orders table acts as a mutex; only one thread succeeds in OrderStore.create.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/com/commercelens/orders/OrderStoreTest.java#L15-L25",
+          "version": "repo-lines-v1:sha256:47544424c9c5eab35703de90bb9e08a33231cd875cfa8ac7a0861fceb4892451:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZGVhYjQ2MjI0YjRlMWQ1MzQ4NmFhOTAyNDk3NjQ4M2E3YWFjZTllMTQyMTgwNGQ3MzJkY2I2ZWE5N2Y1NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3MmFkMjVmYzMyYzA2ZGNlZTE4ZDBiNjcyMDZlMDE0NzlmNWNmNjc0NmJlYWQ3NGVhYmQ2ZDFmODRlYjYzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3NGYwMjE4M2IzY2MxN2JkMWRjNGYwOGJlMmNiZTQ5NTc0MWVkOWQxZGNkMWU4NTE4ZTFhOWM5N2FiOGRlZGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjM2JkODQwZmI0MmI4MzVjZDkyZDZhYWRkOTgxNTE4ZjIzZDQwZjc1MGFmYTVlYzNiNWFmZWY3OTRiOTBhMWMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:28:27.799Z"
+  }
+}

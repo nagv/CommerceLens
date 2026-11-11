@@ -1,0 +1,2197 @@
+{
+  "source_dataset_sha256": "b0013d20ec9e815db1dbd619cb7a9a1206f0efcaf24ee68bf0b2146841521dc9",
+  "date": "2026-11-11",
+  "note": "Only evidence locations/hashes and snapshot identifiers changed; approved questions, reference answers and rubrics unchanged.",
+  "changes": [
+    {
+      "case_id": "price-owner",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "checkout-coordinator",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "portal-idempotency",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "portal-idempotency",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "notification-delivery",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "notification-delivery",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "outbox",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "payment-timeout-conflict",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "payment-timeout-conflict",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-order-service/openwiki/workflows/failure-handling.md",
+        "source_url": "https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md",
+        "sha256": "dc77775f04856819fb553cd1a0fbf7c616818b1074b394dddb280b6951b14465"
+      },
+      "after": {
+        "path": "services/order-service/openwiki/workflows/failure-handling.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/workflows/failure-handling.md",
+        "sha256": "dc77775f04856819fb553cd1a0fbf7c616818b1074b394dddb280b6951b14465"
+      }
+    },
+    {
+      "case_id": "payment-timeout-conflict",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      }
+    },
+    {
+      "case_id": "payment-persistence",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      }
+    },
+    {
+      "case_id": "shipping-contract",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "shipping-contract",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "notification-gaps",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      },
+      "after": {
+        "path": "services/customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "plan-notification-replay",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderController.java",
+        "sha256": "2eeef399267ef537d955120fefea798cf5b773b0aa17d930af44f80f022ad86c"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderController.java",
+        "sha256": "2eeef399267ef537d955120fefea798cf5b773b0aa17d930af44f80f022ad86c"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-payment-reconciliation",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OutboxPublisher.java",
+        "sha256": "66a41350dd2a6497828b64f338605c001eaf33a8d8194a61148cbb42dfc580f8"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OutboxPublisher.java",
+        "sha256": "66a41350dd2a6497828b64f338605c001eaf33a8d8194a61148cbb42dfc580f8"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "plan-event-contract",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "portal-capabilities",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "portal-capabilities",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "portal-capabilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "fca5a7de6a2fd53350ce92ca0c1abd5a6ad0b44877f82ba6c7c1cde7ac3f8519",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/service-catalog.md"
+      },
+      "after": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "b158c1010551bdf22bcbdcac5ecf69735c6e7fd44b466eb59c533f08de7f5fb8",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/service-catalog.md"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "fca5a7de6a2fd53350ce92ca0c1abd5a6ad0b44877f82ba6c7c1cde7ac3f8519",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/service-catalog.md"
+      },
+      "after": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "b158c1010551bdf22bcbdcac5ecf69735c6e7fd44b466eb59c533f08de7f5fb8",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/service-catalog.md"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      },
+      "after": {
+        "path": "services/inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      }
+    },
+    {
+      "case_id": "unknown-live-orders",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "unknown-order-status",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "unknown-live-stock",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "uncertain-email-guarantee",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "uncertain-email-guarantee",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "uncertain-email-guarantee",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "uncertain-payment-guarantee",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "uncertain-payment-guarantee",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "uncertain-payment-guarantee",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "uncertain-payment-guarantee",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "uncertain-payment-guarantee",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "uncertain-email-arrival",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "uncertain-email-arrival",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "irrelevant-travel",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "irrelevant-poem",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "clarify-failure",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "clarify-provider",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "clarify-retry",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "clarify-data",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      },
+      "after": {
+        "path": "services/customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      }
+    },
+    {
+      "case_id": "plan-notification-attempt-limit",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/notification-worker/openwiki/service-context.md",
+        "sha256": "da84b2cb759aa289ccb35c2dea6699d3cdfb09bcdf32a252ef05a4c9aba63893",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "plan-notification-attempt-limit",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "plan-notification-attempt-limit",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/api.ts",
+        "sha256": "b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308"
+      },
+      "after": {
+        "path": "services/customer-portal/src/api.ts",
+        "sha256": "b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      },
+      "after": {
+        "path": "services/inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "fca5a7de6a2fd53350ce92ca0c1abd5a6ad0b44877f82ba6c7c1cde7ac3f8519",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/service-catalog.md"
+      },
+      "after": {
+        "path": "openwiki/service-catalog.md",
+        "sha256": "b158c1010551bdf22bcbdcac5ecf69735c6e7fd44b466eb59c533f08de7f5fb8",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/service-catalog.md"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderController.java",
+        "sha256": "2eeef399267ef537d955120fefea798cf5b773b0aa17d930af44f80f022ad86c"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderController.java",
+        "sha256": "2eeef399267ef537d955120fefea798cf5b773b0aa17d930af44f80f022ad86c"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      },
+      "after": {
+        "path": "services/inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/Dockerfile",
+        "sha256": "24df0f766d0639da1f0491fcd2a8b1e12acab781b06b70c68aaf36db2b876e24"
+      },
+      "after": {
+        "path": "services/customer-portal/Dockerfile",
+        "sha256": "24df0f766d0639da1f0491fcd2a8b1e12acab781b06b70c68aaf36db2b876e24"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "field": "verification_evidence",
+      "before": {
+        "path": "compose.yaml",
+        "sha256": "71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+      },
+      "after": {
+        "path": "compose.yaml",
+        "sha256": "e71d1befb087f15b0ceddd90a6de9fe7c2a20a1e544f9d7ac97d13d6d63a5fbb"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/tests/test_app.py",
+        "sha256": "c45751fd89699133ff747cfd8eafcbeef88dee3a071a7a7f3121dde2ec22ac99"
+      },
+      "after": {
+        "path": "services/payment-service/tests/test_app.py",
+        "sha256": "c45751fd89699133ff747cfd8eafcbeef88dee3a071a7a7f3121dde2ec22ac99"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "field": "verification_evidence",
+      "before": {
+        "path": "compose.yaml",
+        "sha256": "71d1f9ea55b7527c7c9448778b1baae0b714e65719a11b3e67ac1a1127ab6026"
+      },
+      "after": {
+        "path": "compose.yaml",
+        "sha256": "e71d1befb087f15b0ceddd90a6de9fe7c2a20a1e544f9d7ac97d13d6d63a5fbb"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/openwiki/service/overview.md",
+        "sha256": "a7df5e6a36446dfe5d938eaa4648ce6b9eb58feaf9e2e4591228fc28b3327f29",
+        "source_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md"
+      },
+      "after": {
+        "path": "services/shipping-service/openwiki/service/overview.md",
+        "sha256": "a7df5e6a36446dfe5d938eaa4648ce6b9eb58feaf9e2e4591228fc28b3327f29",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/service/overview.md"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/openwiki/integrations/provider.md",
+        "sha256": "9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480",
+        "source_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md"
+      },
+      "after": {
+        "path": "services/shipping-service/openwiki/integrations/provider.md",
+        "sha256": "9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/integrations/provider.md"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-clarify-retries",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/api.ts",
+        "sha256": "b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308"
+      },
+      "after": {
+        "path": "services/customer-portal/src/api.ts",
+        "sha256": "b7db51aadd3495a7831b941ca3516df0a629bd33209b011a5b0290e447ecd308"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      },
+      "after": {
+        "path": "services/inventory-service/main.go",
+        "sha256": "e3a192d34437badf523b4dadbcc3126c5f1e545194dbff0cf83afd7eb7895bcf"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "plan-unrelated-application",
+      "field": "reference_evidence",
+      "before": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/evals/ASK_POLICY.md"
+      },
+      "after": {
+        "path": "evals/ASK_POLICY.md",
+        "sha256": "b788b75b88772c9b9e43520e68e5b02bc118db1bf8c6feacd543d8e240070b84",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/evals/ASK_POLICY.md"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/openwiki/service/overview.md",
+        "sha256": "a7df5e6a36446dfe5d938eaa4648ce6b9eb58feaf9e2e4591228fc28b3327f29",
+        "source_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md"
+      },
+      "after": {
+        "path": "services/shipping-service/openwiki/service/overview.md",
+        "sha256": "a7df5e6a36446dfe5d938eaa4648ce6b9eb58feaf9e2e4591228fc28b3327f29",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/service/overview.md"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/openwiki/integrations/provider.md",
+        "sha256": "9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480",
+        "source_url": "https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md"
+      },
+      "after": {
+        "path": "services/shipping-service/openwiki/integrations/provider.md",
+        "sha256": "9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/integrations/provider.md"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/RemoteServices.java",
+        "sha256": "0fb40d756958fed10bdd1613e3fb1424e4b701688b75b0ed08b4bf2645030845"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      },
+      "after": {
+        "path": "services/shipping-service/Program.cs",
+        "sha256": "aeb6c1ed5c78077cc6b839058c2d67d8e2b49ce965beac68d070bae283b81734"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      },
+      "after": {
+        "path": "services/customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OutboxPublisher.java",
+        "sha256": "66a41350dd2a6497828b64f338605c001eaf33a8d8194a61148cbb42dfc580f8"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OutboxPublisher.java",
+        "sha256": "66a41350dd2a6497828b64f338605c001eaf33a8d8194a61148cbb42dfc580f8"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md"
+      },
+      "after": {
+        "path": "services/customer-portal/openwiki/service-context.md",
+        "sha256": "eac09cf6c3623eb06bb307dd6ae36e2ec9e8a7b1d117f6c84aa5a5a6caea6c6f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "bc2a615496c712f75fd1e7bf1659d04b5ffaec0f6f80f2d10efe4a99e87305fb",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/dependencies.md"
+      },
+      "after": {
+        "path": "openwiki/dependencies.md",
+        "sha256": "04b7440cc897c20dc9243b689acabb56e1e9ea017c6bc0c119f58c5641830e3f",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/dependencies.md"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      },
+      "after": {
+        "path": "services/customer-portal/src/domain.ts",
+        "sha256": "683c72572ccad7589ebb72c6cda25265b997a8c809f04e4e3fe19e24e808d65c"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/OrderStore.java",
+        "sha256": "c6a31be6e50fca0d3ac027d1111271f48a124cddb07078acd414f21abd0d39f6"
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "field": "reference_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      },
+      "after": {
+        "path": "services/payment-service/openwiki/service-context.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md",
+        "sha256": "90640b2564f7b01e59f3046d0592b5cf63ee5b4b81decfaa74481c79b1a43c9c"
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      },
+      "after": {
+        "path": "services/order-service/src/main/java/com/commercelens/orders/Checkout.java",
+        "sha256": "a091a0fdd7c63f852f7def25397a9ed3347e312aa9ea7bec53d1d4ef5f312742"
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      },
+      "after": {
+        "path": "services/payment-service/app.py",
+        "sha256": "cc7b46b7913b96913144a384052da836968b10019f9c80af77ec3499497cc3d0"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/application-overview.md",
+        "sha256": "2a0be6379da0d611f270c45158e551a839c1378cb330caaad4427c3531f24e65"
+      },
+      "after": {
+        "path": "openwiki/application-overview.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/application-overview.md",
+        "sha256": "f12744cb39736fdba864c376d65b0d10dc334e801ed559b72c6bbe295a6466ea"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/checkout-flow.md",
+        "sha256": "9755f56edb3556f4eecddbfea85a08562011f82cc6b4e5be8fa2150a43f18a3f"
+      },
+      "after": {
+        "path": "openwiki/checkout-flow.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/checkout-flow.md",
+        "sha256": "0bf4af1e54c5887f72783030502cc20452afd8a9a1d94cbcb74f30b675a234c9"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "reference_evidence",
+      "before": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/main/openwiki/data-and-events.md",
+        "sha256": "5799bf7a4cc9bd04f8df976410e8c9946608d86f34461ff087b011b3a13c6922"
+      },
+      "after": {
+        "path": "openwiki/data-and-events.md",
+        "source_url": "https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/openwiki/data-and-events.md",
+        "sha256": "2ba7e0b98824c6e27aa54ccc03700e3f9fbed1ba0ce1d74aed0b6b496e87bf9d"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      },
+      "after": {
+        "path": "services/notification-worker/src/main.ts",
+        "sha256": "397a4016a6be77bf4f492c76af754c73bc9c5e86995929b61d2c65b1b0ee47a9"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      },
+      "after": {
+        "path": "services/notification-worker/src/delivery.ts",
+        "sha256": "9e119ee0c39bb8495f8128796df4858f115beb0f6ba7bdeb39cfe7be7794e3c2"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "field": "verification_evidence",
+      "before": {
+        "path": "../commercelens-customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      },
+      "after": {
+        "path": "services/customer-portal/src/main.tsx",
+        "sha256": "0064ad3feaa381a42e8c77a5d662e1299a3572124de67958f1007446fe9f03a0"
+      }
+    }
+  ]
+}

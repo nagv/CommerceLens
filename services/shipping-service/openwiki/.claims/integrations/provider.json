@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9acb3267ce78bac074d03702a15d9e292068c8a48d8be59e7ee1896eda5ee480",
+  "claims": [
+    {
+      "id": "claim_54147ca67b024a5886a78d1e300430a1",
+      "statement": "The ShippingProvider HttpClient base address is configured from the SHIPPING_PROVIDER_URL environment variable with a default of http://mock-provider:8080, and the timeout is configured from PROVIDER_TIMEOUT_SECONDS with a default of 3 seconds.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L6-L9",
+          "version": "repo-lines-v1:sha256:fafe6a6b128b4883432147bad124bf049d57635641a32d7f11b962007c2e3b62:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjczZThhZjk3MDUwNDMwNTExMDg2M2NkNTY1ZjI3NjQ4YTNjNmRjNzg3NDkzMWMyY2EzM2ExZDRjMzgyMzNhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWEyNjA0NjFhYzVlYmY4ZjE2YzM1ODVjYmU3NDAyMmU1OTU2YjJkMjI5YWI3ZDU3OGJiYjBkOTZlOWQ1ZGMxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzM4YzA5ZWU5YmJkMjk0MThhODQ0MTY0OTViMDA4MGU5NzdiMWRmMjA4Yzg1YWU1ZGI1NGM5ZTllZWVjMzRlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_60b83045f24544f39f01240904881cc2",
+      "statement": "The outbound shipment creation request is a POST to /shipments and includes an Idempotency-Key HTTP header whose value is the request orderId.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L29-L30",
+          "version": "repo-lines-v1:sha256:cd98ab2b952d6e4179645f729c4b5241e0a45e1ed475fbdd37f2cce2ca53d590:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzg1MTE2NGZmNmY4MGJhY2IxNWEzODU3ZWM2Yzc2ZDM1MjU5ZmMzMjk4YWE5NGQ1YTQ5N2I0MTllMTBkM2U5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGMzYmJiNThkZWE0MmY4ZmJhZjQ3YWJlOGRhNDlmOTMyZmU3NDA4NjQ5NDU4YzgzMDFjM2U1N2YyZDJkZDIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEzZGIxODU3NDJhY2M2ODNmMDdjZmRiNzA2MjM1NTg5NTVhZTQwMzkyYWQ2N2Y2ZDA5YTlhYTIxNWNiZTZiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTdlYjMwMTllNjNjZGUyYjIwYjVlNTY0NzhmMWQwZDQzODFhODM4OTQ1OGZjMTZiMmVkNDM4YWNmNTY0OGJjZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2ec26c892114484fbadcdaafdac6d23b",
+      "statement": "The incoming request body on POST /api/shipments is validated for non-empty orderId and postalCode fields with maximum lengths of 128 and 32 respectively, and scenario must be \"success\" or \"failure\".",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L13-L15",
+          "version": "repo-lines-v1:sha256:2e12556d4e862f256961f0a86f09e2f8377d956d8633d1011d85dc8161764161:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI2Y2VhZmJmMWIyZmVhMTc5ZGYyMjAxNGUxMWRlNzk0YzJmMmM5ODI5NTdmMTBkZWQ1MDRiNjQ4NWZmYWVkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI3ZTMwNGZjZWNhODU5MzNkODc5ZDQ2MDI5ZDQ4M2RiM2Q2M2Y0OGIwZmJhNGYxMmQxZWM5ZjcyNTIxZDdmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzM4YzA5ZWU5YmJkMjk0MThhODQ0MTY0OTViMDA4MGU5NzdiMWRmMjA4Yzg1YWU1ZGI1NGM5ZTllZWVjMzRlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2QwNTQ0ZDVhMDMzOGRiNmNlMjJlYTg5ZmQ1Mzg3YTFiMTljZTljNmM4YTUzOGVkYzE2MDNlOTZlNDgyMzZiOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fc279be92bd04e01996833ba5ad66437",
+      "statement": "The provider must return a response with status \"created\", non-empty shipmentId, non-empty trackingNumber, and shippingCents equal to 500; any deviation causes a ProviderException mapped to 502 with status \"unknown\".",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L38-L40",
+          "version": "repo-lines-v1:sha256:0fcf9c1066d7ed3a415e2ebd80dced96c601ee5c40c215eb59cb32e2c5650540:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM5ZjQyZWJlNjNhZjEwNmY5Y2NiZDM3YmU2NWE4NTg4Y2JhOTQwMDY4OWJmYjU2MDI2YjM2NmU1ODNjOWQ4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQ5YTgwMTUxMTA4ZDU4YWZlMTBkZWU2NWI4ZjY4MjA2NDdjMGQ5ZmM4YmU4NGYzYTJkNGEzMTk2OWM4YmYwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJkNWIzNzU1MzI0OWFiYjU0MDdjYjUzZDQxMTdhYjdiMzVjODY3ZDRlNDIyY2ZmNTZjNzdhODM3MDc3NGIzOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTkyYWY0OTY3YzQ4ODQ2NTkxZDEwMjlmZjU2Y2MzZTgxNDlhMDAwYTA0MmM0Zjg1ZDQyMmJiYzk5OGVkMTQyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e690e449c8b4c4dbf467a1e1e2c5fb3",
+      "statement": "OperationCanceledException is caught in the local endpoint handler and mapped to HTTP 504 with status \"unknown\", indicating the shipment outcome is ambiguous and the caller must reconcile.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L17-L17",
+          "version": "repo-lines-v1:sha256:f6cfd8b2935a1f5783628eee6cc7087b052f7257ea579549b24f83b17312e878:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZjZmQ4YjI5MzVhMWY1NzgzNjI4ZWVlNmNjNzA4N2IwNTJmNzI1N2VhNTc5NTQ5YjI0ZjgzYjE3MzEyZTg3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZjZmQ4YjI5MzVhMWY1NzgzNjI4ZWVlNmNjNzA4N2IwNTJmNzI1N2VhNTc5NTQ5YjI0ZjgzYjE3MzEyZTg3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjE4Mjg3MWFiMTA1NjdjNDBjZjE0NWIwZjM5YWRiNTVhMzJhM2IwODY2OWI1ZTcxZDEwOTdiNTViMDMxOTRjZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWFiNzFkYjA1NDNjZmY3ZjJjNTFkNmViZmE2YTEyNzgxMGVhMWFjOTBmNjI3NDJjMTc4NTczODMwMTQ2NDFmMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_27ae69ba26524a06bb6287a4ee79fa96",
+      "statement": "HttpRequestException is caught and mapped to HTTP 502 with status \"unknown\", indicating the shipping provider is unavailable and the shipment outcome is ambiguous.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L19-L19",
+          "version": "repo-lines-v1:sha256:884d5902cbd2173a4463fa562eb8df374d9236771e8c3391416dee05f0bcd8bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODg0ZDU5MDJjYmQyMTczYTQ0NjNmYTU2MmViOGRmMzc0ZDkyMzY3NzFlOGMzMzkxNDE2ZGVlMDVmMGJjZDhiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg0ZDU5MDJjYmQyMTczYTQ0NjNmYTU2MmViOGRmMzc0ZDkyMzY3NzFlOGMzMzkxNDE2ZGVlMDVmMGJjZDhiZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2QwNTQ0ZDVhMDMzOGRiNmNlMjJlYTg5ZmQ1Mzg3YTFiMTljZTljNmM4YTUzOGVkYzE2MDNlOTZlNDgyMzZiOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIwMWI1MWIyM2RhYzU5YmMwNTNkMTY2OGM4OTAyMWJkMDYyOWUzNGZmNzZmNGMwMDY1ZmZmMTYyZmEyZTBjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_786fc874749c45b9adf23dfda20b5175",
+      "statement": "JsonException due to an invalid provider response body is caught and mapped to HTTP 502 with status \"unknown\", indicating the shipment outcome is ambiguous.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L20-L20",
+          "version": "repo-lines-v1:sha256:a7ba59e0e63d5fba69fe788d9b718b5ac504d4d0531608bf2ca026a80b0c93cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdiYTU5ZTBlNjNkNWZiYTY5ZmU3ODhkOWI3MThiNWFjNTA0ZDRkMDUzMTYwOGJmMmNhMDI2YTgwYjBjOTNjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdiYTU5ZTBlNjNkNWZiYTY5ZmU3ODhkOWI3MThiNWFjNTA0ZDRkMDUzMTYwOGJmMmNhMDI2YTgwYjBjOTNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTVmZWJhMDQ0NzFjNWU4ZmNkYmU3OGVhMWI1YjQyYmUyMWUwNjg1MWUxZDNjZjc2YmE2OTM0ZmYyMTc3ZGRhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzlkMjE3ODkyNTc3M2VkMTgyNzgxZjM2Zjk2ZWNkNjFiMjQ4ZWFhYzQ4NjU1ODYwYWRlZmJlYTY1YjQ3YThjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f48a91d1e023422885add0d53fe772eb",
+      "statement": "A provider HTTP 422 UnprocessableEntity response is mapped to HTTP 422 with status \"failed\", which is the only outcome safe for callers to compensate because it proves no shipment was created.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L18-L18",
+          "version": "repo-lines-v1:sha256:745d4e0752a3559ecdcad789a501af6d05a4d4b7b91143a6f7f312c35870ee7f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQ1ZDRlMDc1MmEzNTU5ZWNkY2FkNzg5YTUwMWFmNmQwNWE0ZDRiN2I5MTE0M2E2ZjdmMzEyYzM1ODcwZWU3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzQ1ZDRlMDc1MmEzNTU5ZWNkY2FkNzg5YTUwMWFmNmQwNWE0ZDRiN2I5MTE0M2E2ZjdmMzEyYzM1ODcwZWU3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjExMDI3OGU1OGE2NjVhYjEzY2VjODhhN2Q0OTdlYzE2NWQ4ZTcxYTQ3YmRjZWI2NWYzOWM4MWE0YjJkMzBmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2UxYWI1Y2M5ZmVkOTBkNjYzOTlkYmYxMDk5NWY1YmQyMzczZmRiYjhmYTA0ODQ4NzU2ODdkMjhiNDBhMWRiMCJ9"
+        },
+        {
+          "resource": "repo://Program.cs#L33-L35",
+          "version": "repo-lines-v1:sha256:5b7e1795c04cab605f21f258f479285be3036f1ee4097ed2f9f6ca761056634b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxMTg0MzIxNDM3ODI5NWE5MmNkOTY3ZDc0YjhhNzZiNzJhZmE2MTRlZDBmOTYwNTVhYjZlOTVkZDhjZTkwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTU5OWUzOTY5OTI5NWRmNDU5ZmFmNzI2MWY4YTVjZTA2NmFjNmQ1MmNmN2FkYTRmYzY2MmViZmEwYjgxZTU5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdkZjgxYTI5YTlhMjg5OTQ2ZTAzNzI0NzE4NTcyMTlkZDFhZTQ5ZWZkMTNmN2I3YWMyNmZkMzgzNzZiZTlhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDg4MGU3MGNmYzNkZWUxZmE5OTE0MzQxZjJmNmMwMGVmMTQ3ZGU3Mjg1ODg5NDIwMTJiZDNlYjg4ZDAzMzUyMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_84ef7006fe924f469d2800e5703ce1ad",
+      "statement": "Any other non-success HTTP response from the provider is mapped to HTTP 502 with status \"unknown\", meaning the caller cannot assume the shipment was not created.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L32-L36",
+          "version": "repo-lines-v1:sha256:3debe9acac5712e3e535ebb30b1df1dc88c4027adf283476b24c6ea5e3a9fc87:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU4NjUzYjQzNjRlMGI2MzkxY2FiNDI2NzdhODc5ODliNWY1NDEzNjYwNzBjMzNkYjhiYjIwNzUwZDNkOTYxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ExM2Q5ZTMwM2Y2ODEyMDM2NzFlMWNhM2JjNjNmOGZlNjU4YjFiZTE3NmVkM2ZiNzIyOWIwYWEyMjM1YjYzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzFmYzU5MTA4OTZmNzVlYjE3YzFiNDdkZWY5MmI1NjMwMTYzNDk2ODBhYjQzNzk4MGQ4NTQ4YjMyMTAwNjEzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJkMmI3NDk2ZDRiZjQxYmMzNGRmZjE5NTg1OTk2YWM2ZTkzNjNkNzFmOTIzYjJlMmE0MDRhZDc5MjU2ZmQ0YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bb05c7abe1249ada15e549db3e02811",
+      "statement": "The integration does not automatically retry ambiguous writes, and callers are expected to reconcile using the idempotency key instead of assuming failure.",
+      "evidence": [
+        {
+          "resource": "repo://Program.cs#L34-L36",
+          "version": "repo-lines-v1:sha256:83a7906f174e1de5e33b62b2a70af4342b89131b100068eb69818ece1e9078a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE2YTRhMTk4M2RkZmU0NzgzYjNiZTE3MTRkM2UzNmU0NWEwMjBhN2VhMzFlNDFiZTFmNDA5ZGQ1ZmI0YWI0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ExM2Q5ZTMwM2Y2ODEyMDM2NzFlMWNhM2JjNjNmOGZlNjU4YjFiZTE3NmVkM2ZiNzIyOWIwYWEyMjM1YjYzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTdlYjMwMTllNjNjZGUyYjIwYjVlNTY0NzhmMWQwZDQzODFhODM4OTQ1OGZjMTZiMmVkNDM4YWNmNTY0OGJjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJkMmI3NDk2ZDRiZjQxYmMzNGRmZjE5NTg1OTk2YWM2ZTkzNjNkNzFmOTIzYjJlMmE0MDRhZDc5MjU2ZmQ0YSJ9"
+        },
+        {
+          "resource": "repo://README.md#L10-L10",
+          "version": "repo-lines-v1:sha256:73b31ecc23871c4986dd5eb275a1719d03813fa849ec8541cbf66730d32cfdd7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNiMzFlY2MyMzg3MWM0OTg2ZGQ1ZWIyNzVhMTcxOWQwMzgxM2ZhODQ5ZWM4NTQxY2JmNjY3MzBkMzJjZmRkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNiMzFlY2MyMzg3MWM0OTg2ZGQ1ZWIyNzVhMTcxOWQwMzgxM2ZhODQ5ZWM4NTQxY2JmNjY3MzBkMzJjZmRkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWI2MWEwZWI2YzlmMThjMGJjYTI5ODI0NGRiNzBmYmEyNjAzMjhjMWQ5ZDJjZjk2YTAxNDc1NjAzMDhlYzRlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODIxN2I1YTliNGExMzMyNjI3YmMzNDg1MGI2MTZkNjBlY2Y3YTQwODc2OWRjNmIyMmMyNTc5ZmJlMjAzMzE2MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c281239e82714bf9b7890858a24babc6",
+      "statement": "The test suite validates that the Idempotency-Key header is set to the orderId, that generic provider failures map to status \"unknown\", and that explicit 422 rejections map to status \"failed\".",
+      "evidence": [
+        {
+          "resource": "repo://tests/ShippingTests.cs#L4-L25",
+          "version": "repo-lines-v1:sha256:ac7e0ddcc9c218955e0d37256a564f027d1b4e131571fef38100864ba8afd9e0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjYzQ0NWExYzNiNDZkZDkwOTZkMmU0NGQ3YWU4ZTllZGMwMWJmMTAwZGE2YjRlNGY0ZDdmN2ZjNzA2YjY0NzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NzJmNWQ1M2I4ZDczMTBhNDM3NjRhYTgzN2M0YjM3MGIzZTAxZGQxNDkxY2M3ZDc3YjdmZGJmYmVkMmU5NjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwMTcxN2VhZjEzZjE3ZTY3N2Y0MDVlMDI5NTgxYmVmMGZiMGY0YzZlZDExN2QzN2UxOWNhNDcwYTI1YjRlNTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:46.596Z"
+  }
+}

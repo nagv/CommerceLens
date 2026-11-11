@@ -14,10 +14,10 @@ sources:
     resource: repo://catalog/service-cards/payment-service.json
   - id: openwiki-source-4ddb29434ca8d6beb19d8c3f
     resource: repo://catalog/service-cards/shipping-service.json
-generated: { by: "codex/wiki-summary-catalog", at: "2026-11-09T04:14:05.802Z" }
+generated: { by: "codex/wiki-summary-catalog", at: "2026-11-11T23:33:01.875Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-11-09T04:25:14.217Z
+    at: 2026-11-11T23:36:30.387Z
 ---
 
 # Data and events
@@ -36,7 +36,7 @@ verified:
 ### Events
 - Not specified in supplied service documentation.
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-customer-portal/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/customer-portal/openwiki/service-context.md)
 
 ## order-service
 
@@ -48,7 +48,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-cu
 - order.confirmed (durable, with publisher confirms; consumers must deduplicate by eventId)
 - order.confirmed.dead (DLQ for unroutable messages)
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/commercelens-order-service/blob/main/openwiki/workflows/failure-handling.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/service-context.md) · [openwiki/workflows/failure-handling.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/order-service/openwiki/workflows/failure-handling.md)
 
 ## inventory-service
 
@@ -63,7 +63,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-or
 ### Events
 - Not specified in supplied service documentation.
 
-Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-inventory-service/blob/main/openwiki/service/overview.md)
+Read more: [openwiki/service/api.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/api.md) · [openwiki/service/dependencies.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/dependencies.md) · [openwiki/service/overview.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/inventory-service/openwiki/service/overview.md)
 
 ## payment-service
 
@@ -73,7 +73,7 @@ Read more: [openwiki/service/api.md](https://github.com/nagv/commercelens-invent
 ### Events
 - Not specified in supplied service documentation.
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-payment-service/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/payment-service/openwiki/service-context.md)
 
 ## shipping-service
 
@@ -86,7 +86,7 @@ Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-pa
 ### Events
 - Not specified in supplied service documentation.
 
-Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/commercelens-shipping-service/blob/main/openwiki/service/overview.md)
+Read more: [openwiki/integrations/provider.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/integrations/provider.md) · [openwiki/service/overview.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/shipping-service/openwiki/service/overview.md)
 
 ## notification-worker
 
@@ -100,6 +100,6 @@ Read more: [openwiki/integrations/provider.md](https://github.com/nagv/commercel
 - Dead-letters to AMQP order.confirmed.dead
 - Publishes no events/topics
 
-Read more: [openwiki/service-context.md](https://github.com/nagv/commercelens-notification-worker/blob/main/openwiki/service-context.md)
+Read more: [openwiki/service-context.md](https://github.com/nagv/CommerceLens/blob/codex/commercelens-monorepo/services/notification-worker/openwiki/service-context.md)
 
 [Master entry point](quickstart.md)

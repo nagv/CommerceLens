@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:c66a512ef085409d8be03e677511d16b35fcc153157f73c47f219d0d26344f6a",
+  "claims": [
+    {
+      "id": "claim_f7e5dc6ddb824bf6a74dffe0122441ca",
+      "statement": "The payment boundary exposes two write endpoints: POST /api/payments for authorization and POST /api/payments/{paymentId}/refund for refunds.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L56-L63",
+          "version": "repo-lines-v1:sha256:c9ee238d70206b613084384ee047d7a0eee920864b86f8b03afe1ab28bd0478f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwMTdlYjdiYmViN2M1ZDUyNDlmNmEzNTE3YTBjYzkxY2RlNGRiZWJiZmI2Y2JjMzE3YjRkNjQ2NjFkMzY5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNkZTUwYjcyNTg4MzY2MzE4NGQ4MGViNDdiMmU2MzgwNzk0ZDY0NmZjNzNjMDIzMjdiZDgyZTUzYTExYmJhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDkxZWE2YjE4OTc4YzEyOTc0MDNmMmQ4Yzg1MDY1MmEwM2QxOGVlYzEwMzBlNDRmYThiOWU0MzU5OTQxZDY4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_44c281e46bed4724adf7b651d870088e",
+      "statement": "The provider_client dependency creates an httpx.AsyncClient using environment variables PAYMENT_PROVIDER_URL (default http://mock-provider:8080) and PROVIDER_TIMEOUT_SECONDS (default 3).",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L23-L28",
+          "version": "repo-lines-v1:sha256:ae33c7246beaad86382b439afed26d09b03f5948ef1cbfa717e5a7d41e5be932:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTBiOWEwZDYzYjIwMTZjZjZiNDQ0YjlkZWJkNjcyZmM4OTZiMjRiZjU4YTE2ZDhkY2I4ZGY4ZjM4NjI2ZDkwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMyNjRmNmJiOTRjYWQ3NTA2NzVmOWQ3ZDMxNmE1OWJlYTFlNzFiNGY0NTY2NTBkNTNlZmQ1M2Q0NTQyNmRjNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjM1ZGU3Y2E5NDM0OGUwY2RhOWJhNmUxODAzY2YwMjQxY2Y0Mjc3ZDg5MzNiM2Q2NjdjZDljZTljMjAyOTBmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDA5MGM2NWQ3M2FhY2U1MTVmMGE5NWE5MWI5ZDA4NjExODZlZGNhMmFiOTNhODU1MWI0Njc3Y2RmMDBhZGNhNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb4c55ec59bf4d0587bfdf5a8c28e847",
+      "statement": "The forward() function sends a POST request to the provider with an Idempotency-Key header and validates the response before returning it.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L31-L48",
+          "version": "repo-lines-v1:sha256:e82e0591d833917c636168909ae88d1f5a7384b90a6032649bab0eb6f13a5ed3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkZjU3YzdhNDA2NDRhYTAwNmNiMjc3ZDdjNGI0NTQ5Njg3MDgzNzY1ZGY2YjU0MWM2MWQ5YzNiMmFiYTM4YmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMTc4OTZiNzI3MjdlZjQ5NGFlY2UzYWE3ZGI0YWNkMzJjN2Y0YWQxOWNlYjQ0NDdjZGVkN2NmMTAyMTNhYjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3Nzg0ZmJiODM5MDgxZDViM2FiYzE4ODcwOTBiNmJmNDgyZDJhZmFjMzYyZDY5M2M0YzQ2Mzk4NTM4MjQ2YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlMGE3MDgyMTM3YjlmNTM4YzAyOWJmNzA2MjM5YzllYTgzOTFjMDc4MGVhODgxMTA2NDI1YTQ0ODRjMDE3MDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e1fe1cab82bc46a9856e2c8697310f72",
+      "statement": "When forwarding to /payments, forward() requires the provider response to be a dict with status 'authorized' and a present paymentId; otherwise it raises ValueError.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L41-L43",
+          "version": "repo-lines-v1:sha256:10c40513dd4c59c29d7b2d0aaff8c3124de5123bd6d9a8d317c417ebfa248d16:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDU2M2IxMzc2ZTRmMGQwZWQ2ZTRlMjM1MzJmNTA4MWI5MzI2YTgwZDgzNTFkMTg2NDY5MWJmNGE5MDEzYzBlOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWNkZWYwNmRjOGM2M2JmMTllZmQ3Mzk0ODMyOTBlZjA4ZDk3NjA4ZTUxNjViMGVlZjA0YjAwMWUyMzIzZmIzYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTI3NDMwZjcyZjYwODZmNjZkOGRkODJhM2ExYTFhMjhjMWE3NTVlYWM4OTk1NjJiMjdmNGYyNDE1ZjUyOGE0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmMxZTk3ODE1ZWE3M2ZiNmYwMjY1NjdjYjFjMWM2ZTkwYTdhMmFlYThkNjJiNjZiMDQyYWU4M2Y3MDdiNmYxYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fa759d905b946b6bacd2ee29290fc8e",
+      "statement": "When forwarding to /refunds, forward() requires the provider response to be a dict with status 'refunded'; otherwise it raises ValueError.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L41-L43",
+          "version": "repo-lines-v1:sha256:10c40513dd4c59c29d7b2d0aaff8c3124de5123bd6d9a8d317c417ebfa248d16:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDU2M2IxMzc2ZTRmMGQwZWQ2ZTRlMjM1MzJmNTA4MWI5MzI2YTgwZDgzNTFkMTg2NDY5MWJmNGE5MDEzYzBlOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWNkZWYwNmRjOGM2M2JmMTllZmQ3Mzk0ODMyOTBlZjA4ZDk3NjA4ZTUxNjViMGVlZjA0YjAwMWUyMzIzZmIzYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTI3NDMwZjcyZjYwODZmNjZkOGRkODJhM2ExYTFhMjhjMWE3NTVlYWM4OTk1NjJiMjdmNGYyNDE1ZjUyOGE0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmMxZTk3ODE1ZWE3M2ZiNmYwMjY1NjdjYjFjMWM2ZTkwYTdhMmFlYThkNjJiNjZiMDQyYWU4M2Y3MDdiNmYxYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c2cc923713c46d39bccb66d1dc82373",
+      "statement": "A provider HTTP 402 response is returned to the client as 402 with status 'declined'.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L34-L35",
+          "version": "repo-lines-v1:sha256:b55cf570880f0ca8409050816320b612f87f1c90395d3e8894205c54849165a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFjY2E0MzNmZTA5YjlmNzVmYWU4M2E1YTg0MTE1MjU5MTBjNjZlNTcwMDg5MTM2NDU5ZTJjMzczN2E0M2Q0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmI2ZDNlOWE1ZDNmNDZhODhmNTc3MjJhYjJkZmY3ZWE0MmI1MGI1YzFkOWRkNWQzYWIzNjQzY2RjYzFhNjA0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDNiZTRkNmUxMzQwYjcwYjRkYTY0OGViMjUyYTU1ZWY2N2Q1N2JjMzNhYmI5MmU2Mzk3NTgxZDc1NDdiZjhkYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjhhMDcxOWVhOGE5MTE2NWY3YWYzNzUxMzU0YTZlZmFlZTFhNmVjZTlkMDkyZmJkYzNlNmQ1MjIzYTMxMTNhYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7e61d15e13947d4ae75c569064bbd16",
+      "statement": "A provider HTTP 409 response is returned to the client as 409 with status 'unknown'.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L36-L37",
+          "version": "repo-lines-v1:sha256:7f785bbad2220196861d9e4d7c3a42ebd1c83099b0e95ba97da4b3fbb52db159:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYxY2ZlYzk1M2Y5ZmQ4YTcxN2JhNzRjYTdmMjMxODE2ZmMwMGRiMGU5Mjg4MTEyNmY1NzFlYjlkMGE3NTFhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4MzdkOTgyNmNlMDQwOWM1YzdlMWQyNDAzMDE2YTEwNzhlZWQyZmRhYTVlY2I2ZTI1YmIyY2E3Nzk0NDhkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWQyMDgxNTc1NDU0MGMzN2EyOGRjYzVhY2JlYzUxOWFhN2JlYjg5ZDUwYTBhYjEwYjU2ZmNkOGVjM2M4NzkyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTI3NDMwZjcyZjYwODZmNjZkOGRkODJhM2ExYTFhMjhjMWE3NTVlYWM4OTk1NjJiMjdmNGYyNDE1ZjUyOGE0OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_976ee240f3354327b458eb9df15d9476",
+      "statement": "An httpx.TimeoutException bubbles out of forward() as a 504 with status 'unknown', indicating reconciliation is required.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L45-L46",
+          "version": "repo-lines-v1:sha256:e815171f170e610b3515f4ab46d1e92d53bde3e32a4acb3844129e2717c215d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMyZjI4MmY1NmYyMzIyNWQyMTE2ZDYzZDY4MTNjOWE4MjUwZDdhNTk0YTI5YzYwMzA3ZTZmNDFlY2FkN2E4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjFjNzljMjU1NmFlYmNhNWIwZWRjMzM4Mzc3ZjY0ODBmOWQyNzA2ZjllZGUyZTFjZjQ5ZGM2YWQwMGVlNmJhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVmMjdlYTc1MDkxY2QzODQ3MjM2MWM0YzY0NDBmNjEwMWJmY2NjZWY1YWM2MzMyOTUwNWMwOTY2NmM2NWFjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzkwZjBmOTkzYmY0NTllNjUzNGEyMWE1NGZmZGFiZjcxNGViZDcxZDc0OTAyZjhhNTY5YWY1YmEyMGM5ZWYxZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e769b119e5554b56b90ce33afd384e01",
+      "statement": "An httpx.RequestError or ValueError from invalid provider response bubbles out of forward() as a 502 with status 'unknown', indicating reconciliation is required.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L47-L48",
+          "version": "repo-lines-v1:sha256:6be777fcd602729cd4a52c1e9fcd5d700ce7e3dd70f796d8e9334608a63fe74d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTVkY2E1NDA1MmE2ZWQxZDA1MzYzZDQyZjM3MWMyY2E2YzIyNDU3ZjMzZWE2ODNmYTIzYjcwYTIyYjczOTYxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjExNzg5NmI3MjcyN2VmNDk0YWVjZTNhYTdkYjRhY2QzMmM3ZjRhZDE5Y2ViNDQ0N2NkZWQ3Y2YxMDIxM2FiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmMxZTk3ODE1ZWE3M2ZiNmYwMjY1NjdjYjFjMWM2ZTkwYTdhMmFlYThkNjJiNjZiMDQyYWU4M2Y3MDdiNmYxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWUwYTcwODIxMzdiOWY1MzhjMDI5YmY3MDYyMzljOWVhODM5MWMwNzgwZWE4ODExMDY0MjVhNDQ4NGMwMTcwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_50829d22f02f4b8eadf8852681cae27b",
+      "statement": "The authorize endpoint calls forward() with provider path /payments, the Payment model dump as body, and orderId as the Idempotency-Key.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L56-L58",
+          "version": "repo-lines-v1:sha256:f370b39ba33115255a1e2ad4cb82e1e474d836d97c476c5c2b090dd3ecc68d14:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwMTdlYjdiYmViN2M1ZDUyNDlmNmEzNTE3YTBjYzkxY2RlNGRiZWJiZmI2Y2JjMzE3YjRkNjQ2NjFkMzY5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThlOTBlMDMwNzZmYWI3Mjk3NDcyYmM0NGJlNjBlY2ZlOTU3YzMzM2E0ZDAyMDY5YzQwYmIxOTNhZjMzNjQyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDkxZWE2YjE4OTc4YzEyOTc0MDNmMmQ4Yzg1MDY1MmEwM2QxOGVlYzEwMzBlNDRmYThiOWU0MzU5OTQxZDY4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVhZTEzYzNjMmRjMWU5Y2I3Y2VkODlhOWRjNjI5ODEwN2FjMTgyZTZlMDQ4NmY5ZmQ1OWFiMDIwMzRjY2E4YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3b5589808fef48f5b8d1d5bf4a54b61f",
+      "statement": "The refund endpoint calls forward() with provider path /refunds, a body combining paymentId and orderId, and an Idempotency-Key formatted as refund:{orderId}:{paymentId}.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L61-L63",
+          "version": "repo-lines-v1:sha256:9c24dddb60dd169dc6e8fa5ea08603dd3a5d907d7a8f6d0094eb05ce47dc37f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNkNjliOGE1MTFkY2Q2ZWY4MzQ1ZjhjN2FlZTg1NTlmZTA3YzM0NGZiMGE2OWJmODJkYjljYjY3ZWQxMTE0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNkZTUwYjcyNTg4MzY2MzE4NGQ4MGViNDdiMmU2MzgwNzk0ZDY0NmZjNzNjMDIzMjdiZDgyZTUzYTExYmJhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGVmMzkyYjIzODNiZjlkNzBjMGE2NmU3MTQzMWE1MDlkMzM3ZWU2Y2RmOGIzNjZlOThkYWJkMDdlNzA5ZGJlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b3b432e2230241c68adc9bdcd3be63cd",
+      "statement": "The Payment Pydantic model enforces orderId length 1–128, amountCents strictly greater than 0 up to 100000000, currency USD, and scenario in success/decline/timeout.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L12-L17",
+          "version": "repo-lines-v1:sha256:898316e303ef924a410fddfa36ce780aed7d0950cb23196a7b61e593fd95ddb7:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmRhYjIyZTIyNzMzY2ZkZWQ3ZjQyZDE5YTU3NmQxYmVlNGFjODkyMzYzZTA4ZTI0NWMyZTc0OTNkYzFhNDhjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2VhZmFmOThiYTAxODdhYTE4YmZlZjI2ODViNDBiMDkyMjc2Yzg0YjE5Y2QzZTYzNWU0YjAyN2FmOGE1MmEwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjRjMDM1ZGFjZDk2Y2VhYzM4OWYwN2VhYzYzODEwYjdmOTI4NTgyMGQzM2VmYzBhYWU0MTRiZTgyZDEyNGVjOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c75a4c865384ecb8689825d91c81a90",
+      "statement": "The Refund Pydantic model enforces orderId length 1–128.",
+      "evidence": [
+        {
+          "resource": "repo://app.py#L19-L21",
+          "version": "repo-lines-v1:sha256:a53b048425498d0f6394af8c18f58ef3fc352e5c8b587617abe7614e50131110:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQxNzViZTQzOTY4NzMxZjc2NmZlNmIyNTliY2NmYmFhN2VmN2E0MmQ3NTI2ZTRhYzAyZTc1YWUxNDNjMjdhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTliNGZjODU1NWI3NmY5MTRlNjZhYjM2OWFkMWVjOGVmMjVjODZhY2EyMDZjYTkzZjRlZGIyYjc0ZGMyZTg3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU0ODc4MDZlMzdjMjMyZDA2OGM5YjEyMGQwODIxYzFhMzI3MDM4Yzc0M2QwYWIwODdhNTNjY2RmODg2ZDRlOCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-11-09T01:29:41.531Z"
+  }
+}
