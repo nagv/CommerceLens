@@ -1,0 +1,28 @@
+{
+  "evaluation_number": 4,
+  "commit": "d534241ea7f12db1f4b6d826c2a2bccaacd27e5d",
+  "dataset_sha256": "2dc357b54caddca9684086ec6f7a790fc967f57649bbd37275b7bb93d29f064b",
+  "repetitions": 2,
+  "previous_evaluation": 3,
+  "source_sha256": {
+    "commercelens_ai\\__init__.py": "b7cd7461570563a9fc5cb3d9565d6bc96ac41057b999a8605901a88fda48465f",
+    "commercelens_ai\\__main__.py": "63014bd9bff88e406982d7def6a1913309abc74d40eac5f8c29d210c568530bf",
+    "commercelens_ai\\cli.py": "54147e155d1861f0072024fc8346dd26f91ab7dbf85ff66674252b51ac594a1c",
+    "commercelens_ai\\config.py": "c350b9ccd0baf8322e42f3a91c8fe2802bc2e9ee2ff085f485c460ec7a6f3d69",
+    "commercelens_ai\\engine.py": "bc7b793c71ce10f8cf2cc1665706373bd593e2be7afaf3223fef37cfa3742553",
+    "commercelens_ai\\eval_contracts.py": "55c5e6997e41c91f3474f7fb800fff4a947fd2dcd815f7946175564c5dfc5c54",
+    "commercelens_ai\\evaluation.py": "930dee322ff2afdba6c089cc5f1b046474906233b7cadc334fd7e97041e10c10",
+    "commercelens_ai\\knowledge.py": "53236bd5136587f18b6de3aa5cf2d9e0ba4c3ac7f5626e208d8966ecf67fa780",
+    "commercelens_ai\\plan_evaluation.py": "4d8565d854b14e61f9206b5e1e50e3a14bcc94ad7c5b9ff11c94d34433b85058",
+    "commercelens_ai\\providers.py": "78788e06e3673dd65c47842301a7dab0009454459a698f685495499894f19b8c",
+    "commercelens_ai\\provision.py": "7b91be7dfab496094f2705faf9a955918b995cd1e322aed78ddc8534e91a6f34",
+    "commercelens_ai\\response_contract.py": "921c906eea4c8afee59352a77739ea3626de104d267a2c5ea9ab08821de26bb5",
+    "commercelens_ai\\retrieval.py": "e728a2ceea5ed6c5f1dbb4eeca51e28660ad6c146d7c3abc69b4b81f3837db76",
+    "commercelens_ai\\server.py": "8bb7dd1fa75a2fe690eb0be140daa29ca7fada6903d928662ff00640fe1f1327"
+  },
+  "changes": [
+    "Enhanced Plan routing, retrieval, structured output and bounded review from Eval 3 retained",
+    "Ask uses the previous default path; experimental Ask enhancement disabled"
+  ],
+  "scoring_changes": "No judge code, golden references or numerical gates changed in this iteration."
+}

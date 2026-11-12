@@ -1,0 +1,2819 @@
+{
+  "baseline_preserved": true,
+  "eval_002_files_verified": 163,
+  "evaluations": [
+    {
+      "number": 2,
+      "folder": "quality-final-20261111",
+      "langsmith": {
+        "status": "ok",
+        "dataset_name": "commercelens-golden-2dc357b54c-72f9f58d",
+        "experiment_name": "commercelens-eval-3342a04e2721",
+        "uploaded_runs": 90,
+        "project_id": "20c1a80e-cb6b-4f4b-b370-eb601ea64cdd",
+        "dataset_id": "02faf977-26b9-407a-86c0-68b4683f5bb8"
+      },
+      "repetitions": [
+        {
+          "repetition": 1,
+          "execution_ok": 44,
+          "judge": {
+            "ok": 43,
+            "error": 1,
+            "skipped": 1
+          },
+          "ragas": {
+            "ok": 12,
+            "skipped": 33
+          },
+          "gates": {
+            "meets_critical_requirements": 26,
+            "fail": 17,
+            "unassessed": 2
+          },
+          "ask": {
+            "passed": 19,
+            "total": 24,
+            "mean_seconds": 5.0
+          },
+          "plan": {
+            "passed": 7,
+            "total": 21,
+            "mean_seconds": 15.7
+          }
+        },
+        {
+          "repetition": 2,
+          "execution_ok": 44,
+          "judge": {
+            "skipped": 1,
+            "ok": 42,
+            "error": 2
+          },
+          "ragas": {
+            "skipped": 34,
+            "ok": 11
+          },
+          "gates": {
+            "unassessed": 3,
+            "meets_critical_requirements": 25,
+            "fail": 17
+          },
+          "ask": {
+            "passed": 15,
+            "total": 24,
+            "mean_seconds": 6.8
+          },
+          "plan": {
+            "passed": 10,
+            "total": 21,
+            "mean_seconds": 23.4
+          }
+        }
+      ],
+      "failures": [
+        {
+          "case_id": "checkout-coordinator",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer omits the recording of the uncertain payment state before payment authorization and misrepresents the final step as 'publishing an outbox event' instead of confirming the order and durably recording a confirmation event. These omissions contradict the verified current facts and reference.",
+              "answer_quote": "Each step is checkpointed to maintain consistency, and the process concludes with publishing an outbox event for further processing [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31][41c2c120b9da57f9770c7f16b58ccd2bbb69aee3b5fca63025b0ab2523aea9b4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to include required essential facts: recording uncertain payment state before payment and confirming the order with a durable event on success. Instead, it substitutes with less precise descriptions, failing to satisfy the expected answer behavior.",
+              "answer_quote": "Each step is checkpointed to maintain consistency, and the process concludes with publishing an outbox event for further processing [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31][41c2c120b9da57f9770c7f16b58ccd2bbb69aee3b5fca63025b0ab2523aea9b4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "evaluator_error"
+          ],
+          "failed_requirements": {},
+          "judge_error": {
+            "status": "error",
+            "error": "AssessmentValidationError",
+            "validation_errors": [
+              "Invalid evidence assessment",
+              "Invalid evidence assessment"
+            ],
+            "scoring_attempts": 2
+          },
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-delivery",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that duplicate prevention is enforced through internal mechanisms like eventId-based deduplication and database locking, but omits the critical role of the email provider in recognizing repeat requests during interrupted delivery. This creates a materially incomplete and misleading picture of the current behavior, contradicting verified facts.",
+              "answer_quote": "Duplicate prevention is enforced through eventId-based deduplication and database-level locking in PostgreSQL [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4][e47d6cf658c227474d8ff92a6acb2a34c93965014d0cab3dca0fbef106164403]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended behavior by omitting a required essential fact (the email provider's role in deduplication) and including prohibited low-level implementation details (table names, headers, locking mechanisms). It does not convey the reference meaning in high-level language as required.",
+              "answer_quote": "Duplicate prevention is enforced through eventId-based deduplication and database-level locking in PostgreSQL [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4][e47d6cf658c227474d8ff92a6acb2a34c93965014d0cab3dca0fbef106164403]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims the system dead-letters the message to 'order.confirmed.dead', which is not supported by the verified facts. The verified facts state only that the notification is marked as failed, with no mention of message queuing behavior. This is a material contradiction of current behavior.",
+              "answer_quote": "After exhausting retries, the message is dead-lettered to the order.confirmed.dead queue [e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to convey the reference meaning accurately in high-level language, instead introducing low-level mechanisms like table names and queue names. It omits the specific 'three retries' fact and distorts the failure handling by focusing on message dead-lettering rather than notification status.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-variable-shipping",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not deliver a high-level change plan addressing the full scope. It identifies technical changes but omits strategy, service details, implementation order, alternatives, and requirement coverage required by the acceptance criteria.",
+              "answer_quote": "To transition from fixed shipping rates to destination-based rates, the following high-level plan is proposed, focusing on the shipping-service and order-service:"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-replay",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer incorrectly claims that republishing `order.confirmed` is a safe replay (Q26), but the verified facts state that the `notification-worker` does not replay messages and that the order confirmation event triggers a full processing flow. This misrepresents current behavior.",
+              "answer_quote": "- Since the order is already confirmed, this is a safe replay."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposed approach does not satisfy the request to retry only the email delivery. Instead, it restarts the entire order confirmation flow, risking unintended side effects and violating the constraint to avoid repeating checkout, payment, or shipment.",
+              "answer_quote": "- Resets `status` to `pending`, increments a `manual_retry_count` field, and republishes a new `order.confirmed` event with the same `eventId`."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan requires changes to `order-service`, `payment-service`, and `inventory-service` by republishing the `order.confirmed` event, even though these services are not required and could be adversely affected. It also assumes the email provider supports `Idempotency-Key` without qualification, despite 6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42 stating the production contract is undocumented.",
+              "answer_quote": "- The republished `order.confirmed` event is processed normally."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-event-contract",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan fails to satisfy the request because it omits required discussion of alternatives and recommendation rationale, which are explicitly required by the alternatives_policy. A complete plan must include these elements to be acceptable.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "clarify-retry",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the clarify behavior as defined in the acceptance criteria. While it asks which operation is being retried and gives examples, it omits asking for details about what happened during the previous attempt, which is a required element.",
+              "answer_quote": "Could you please clarify which action you'd like to retry?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "application_execution"
+          ],
+          "failed_requirements": {},
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-attempt-limit",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "While the answer proposes a configurable retry limit, it fails to fully satisfy the request by omitting required elements: no implementation order, no discussion of alternatives, no rationale, and insufficient detail on handling existing notifications and terminal states. The plan is incomplete per acceptance_criteria.",
+              "answer_quote": "The solution is to replace the hardcoded value with a configurable parameter, such as an environment variable (e.g., MAX_DELIVERY_ATTEMPTS), read by notification-worker at startup."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response fails to propose a plan addressing the request. It asks for clarification instead of delivering a solution, despite the question and criteria being sufficiently specified.",
+              "answer_quote": "Please re-ask your question with the specific outcome you're aiming for."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "By not proposing any plan, the response avoids boundary violations but also fails to engage with the task. No service changes or dependencies are discussed, indicating complete omission.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-checkout-observability",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer identifies the problem and suggests a general solution but does not provide a complete plan that addresses how support staff will follow checkouts, identify failures, or diagnose delays. It lacks service details, implementation order, and alternatives as required.",
+              "answer_quote": "Therefore, to enable end-to-end tracking, the system must adopt structured logging and distributed tracing using a shared correlation ID (e.g., the Idempotency-Key), propagate this context across all services, and expose diagnostic data in the customer-portal for support use."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-clarify-retries",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the clarify behavior by omitting the request for the desired outcome (e.g., what problem the retry improvement should solve). It only asks for the operation, not the intended effect.",
+              "answer_quote": "Please re-ask with the specific operation you'd like to improve."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "investigation_only": {
+              "status": "fail",
+              "reason": "The answer does not provide investigation leads; instead, it asks the user to re-ask the question with more detail. The reference requires giving leads, not deferring the inquiry.",
+              "answer_quote": "Please re-ask your question specifying the area you'd like to address."
+            },
+            "uncertainty": {
+              "status": "fail",
+              "reason": "The answer does not articulate uncertainty about the root cause or distinguish between documented behavior and hypotheses. It avoids making any assertions but fails to frame the unknowns as required.",
+              "answer_quote": ""
+            },
+            "useful_checks": {
+              "status": "fail",
+              "reason": "The answer provides no concrete check that distinguishes plausible causes (e.g., comparing provider response times or tracing request stages). Asking for service clarification is not a useful diagnostic check.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-external-payment-provider",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan fails to address real payment collection in the customer-portal, a core part of replacing the mock and enabling real payments. The request outcome\u2014preserving safe checkout and refunds with an external provider\u2014cannot be fully achieved without portal integration for secure collection.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-shipment-tracking",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "Incorrectly asserts that `shipping-service` stores a delivery `status` as existing functionality, when verified facts state no delivery-status lookup exists. This materially contradicts verified_current_facts.",
+              "answer_quote": "The `shipping-service` currently creates shipments via `POST /shipments` to a provider and stores basic `Shipment` data including `trackingNumber` and `status` [0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e][91b5851d4512035fc2dade22e88de34e75fbb18c3250a7f67e60e8b93ca25e05][822359de1ceb16dc38108653745787d7c87e0e0e65a4066671cf469daeb9c325], but does not document ongoing synchronization of delivery status from the provider [7561d31a5be22b4de7ffbe47e0fcb6feb964f6f75c9f6abcf0b35752e1009274][a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b]."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "Fails to propose a complete, actionable plan. Instead, it ends with uncertainty about feasibility and lacks key elements like implementation order, alternatives, and requirement coverage.",
+              "answer_quote": "However, the absence of documented provider capabilities for status lookup [a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b] and event ingestion mechanisms [7561d31a5be22b4de7ffbe47e0fcb6feb964f6f75c9f6abcf0b35752e1009274] introduces uncertainty about feasibility without further investigation."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "Includes `inventory-service`, `notification-worker`, and `payment-service` in selected_services without justification, implying unnecessary changes. Also assumes provider polling is possible without verification.",
+              "answer_quote": "The `notification-worker` exposes an unauthenticated `GET /api/notifications` endpoint listing delivery attempt records, but these relate to internal notification retries, not shipment progress [679d43f0e1beeab98940a6ffe1c159d96391b42367128b3a3fc854f4b17e3682][51023e5eff8028198e9d47c4b2dd64a15f14191e8dc48ceb881aeac8accc5680]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that the requirement cannot be satisfied due to missing documentation and unconfirmed production deployment, implying it could be resolved with better docs or infrastructure. This contradicts the reference: the impossibility is logical, not technical. Claims about 'current system design' being the barrier are materially incorrect.",
+              "answer_quote": "The requirement to always show the current shipment delivery status, even when no updates can be received from the shipping provider, cannot be fully satisfied with the current system design and documentation."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the intended uncertain behavior: it avoids stating the logical incompatibility of the constraints, does not propose relaxing them (e.g., allowing last-known status), and omits discussion of alternatives. Instead, it suggests implementable changes, violating the core requirement to recognize infeasibility.",
+              "answer_quote": "To meet the requirement, changes would need to include implementing provider status polling, local status persistence with time-based inference, and a real-time status endpoint that avoids returning stale or cached data."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-missing-confirmation-email",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts specific database table and column names (e.g., `orders`, `order_outbox`, `notification_deliveries`) and API endpoints as existing implementation details, but the verified current facts (reference and verification evidence) do not confirm these. The reference describes behavior, not schema. These claims are not materially supported and contradict the principle of not inventing implementation details.",
+              "answer_quote": "- Verify the order exists with status `confirmed` in the `orders` table in `order-service` [5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-historical-status-filter",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "Lists inventory-service, notification-worker, payment-service, and shipping-service as selected services without justification. This implies unnecessary changes, violating the constraint that other services need no mandatory changes.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "checkout-coordinator",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "application_execution"
+          ],
+          "failed_requirements": {},
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts specific implementation mechanisms (e.g., transactional outbox, RabbitMQ, publisher confirms, order_outbox table) as current facts, which, while present in documentation, are not part of the verified current facts or approved reference description. The reference emphasizes behavioral reliability (save before publish, retry, confirm, deduplicate), not technical infrastructure. This constitutes an over-assertion of detail that misrepresents the current behavior's defining characteristics.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to include the required high-level explanation of reliability based on saving events, retrying delivery, confirmation of receipt, and duplicate handling by Notification Worker. Instead, it provides low-level technical details that were explicitly excluded by the acceptance criteria. The essential facts are missing, and the answer does not satisfy the intended behavior.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-delivery",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that the order-service's idempotency (via Idempotency-Key and request hash) prevents duplicate email delivery, which contradicts the verified fact that duplicate prevention during interrupted delivery relies on the email provider recognizing repeat requests. This is a material misrepresentation of current behavior.",
+              "answer_quote": "Duplicates are prevented through idempotent event handling: the order-service ensures order creation is idempotent using the Idempotency-Key and request hash [88e93b84b2b495e141843aa515f77b658463e1e72762051e8eb2892d3c886175][6333938699e98f5c0a45d5b096e839947984e370da147854e0e86beef6637d16], and the notification-worker uses the eventId as a deduplication key for email delivery [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to convey the correct mechanism for duplicate prevention during email delivery. It omits the essential fact that the email provider's recognition of repeat requests is what prevents duplicates during interrupted delivery, instead attributing it to internal deduplication and order creation idempotency. This omission and misattribution prevent satisfaction of the intended answer behavior.",
+              "answer_quote": "Duplicates are prevented through idempotent event handling: the order-service ensures order creation is idempotent using the Idempotency-Key and request hash [88e93b84b2b495e141843aa515f77b658463e1e72762051e8eb2892d3c886175][6333938699e98f5c0a45d5b096e839947984e370da147854e0e86beef6637d16], and the notification-worker uses the eventId as a deduplication key for email delivery [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "shipping-contract",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts a specific technical mechanism (Idempotency-Key header with orderId and payload comparison) for handling duplicates, which is not stated in the approved reference. The reference only says repeat requests are identified so the provider can avoid duplicates, without specifying how. This adds invented detail about existing capabilities, violating the prohibition on describing proposed or implementation-specific features as current behavior.",
+              "answer_quote": "Duplicate shipment requests are prevented using the Idempotency-Key header, which is set to the orderId; the provider must reject subsequent requests with the same key if the payload differs [0ea20af2628c95d818fdc0c403db18009cc11c1dac055e58776cf314e0c2d434]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "Although the answer provides the correct high-level facts, it fails to present them appropriately by including unnecessary implementation details (e.g., Idempotency-Key, 500 cents, payload comparison), which violates the acceptance criteria of conveying meaning in high-level language without requiring implementation mechanisms. The response is not aligned with the intended simplicity and abstraction level.",
+              "answer_quote": "The shipping charge is a fixed rate of 500 cents (USD 5.00) as defined in the fixed rate response [0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer claims the system dead-letters messages to order.confirmed.dead and records attempts in notification_deliveries, which are not part of the verified current facts. These are invented implementation details that contradict the approved reference stating only that retries occur and the notification is marked as failed.",
+              "answer_quote": "After failed attempts, the message is dead-lettered to the order.confirmed.dead queue [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to include the essential fact that the confirmed order remains unchanged and instead introduces unsupported technical mechanisms. It does not satisfy the intended answer behavior defined by the reference and acceptance criteria.",
+              "answer_quote": "There is no automatic replay or compensation mechanism for these failures, and dead-lettered messages lack manual or automated recovery processes [6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-variable-shipping",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response does not deliver a high-level change plan as required. It analyzes dependencies and prerequisites but fails to provide a structured implementation strategy, service details, order, or alternatives. It stops short of fulfilling the planning task.",
+              "answer_quote": "Therefore, enabling destination-based rates depends on verifying that the shipping provider supports variable rate responses [a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b], extending `shipping-service` logic to use `postalCode` for dynamic calculation [ddcee903bb357300811bfe1d3f750ff64038c2c51bcec4b4fa338be18465ed35], and ensuring consistent `shippingCents` propagation to `order-service` [32c76512f21431651d878127f264de41674ec41d00ba8b8d95d240783aef674f]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-replay",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposal does not fully satisfy the request because it omits required alternatives and rationale. While the core capability is addressed, the absence of alternatives analysis and recommendation justification means the response does not meet the full acceptance criteria.",
+              "answer_quote": "- **Add a manual retry endpoint** in `notification-worker` (e.g., `POST /api/notifications/retry`) that accepts an `eventId`."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-event-contract",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan fails to fully satisfy the request because it omits critical elements: implementation order, fallback handling, provider rendering confirmation, and alternatives analysis. While it proposes a direction, it lacks the completeness required to ensure reliable delivery and successful rollout.",
+              "answer_quote": "Therefore, the change requires modifying the `order-service` to include the `items` array (including `name` and `quantity`) in the `order.confirmed` event payload."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-order-status",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response makes unsupported claims about the order-service potentially including shipment status and the shipping-service 'likely' managing status, which imply knowledge not present in the system. These constitute invented capabilities or data access that contradict the reference's clear statement of unavailable information.",
+              "answer_quote": "The order-service can retrieve order details via GET /api/orders/{id} [0474ca946b4c8bf17b6b3a15c4879db0c74f6202c85d65e978c337899ff4565a], which may include shipment status if available."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the intended unknown behavior by not clearly acknowledging unavailable live data. Instead, it provides speculative architectural analysis, which violates the acceptance criteria. The answer must directly state lack of information, not suggest possible sources.",
+              "answer_quote": "There is no evidence confirming whether the order has been shipped, as shipping events or integration details are not specified [7561d31a5be22b4de7ffbe47e0fcb6feb964f6f75c9f6abcf0b35752e1009274]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-stock",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response invents a live stock count of 100 units for BOOK-001, which is a direct violation of the prohibition on inventing live data. The system does not have access to live stock, yet the answer presents a specific number as fact.",
+              "answer_quote": "According to the response schema, the product with SKU BOOK-001 currently has 100 units available [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The expected behavior is to clearly acknowledge the unavailability of live stock data. The response instead provides a fabricated number and technical details, failing to satisfy the intended unknown behavior.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-responsibilities",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the expected behavior by omitting the specific, verified responsibility of the notification-worker (sending confirmation emails). Instead, it deflects with 'specific details are not in the provided evidence', which violates the requirement to cover all six service responsibilities.",
+              "answer_quote": "CommerceLens consists of several core services: the customer-portal provides a browser interface for users to browse products and place demo orders [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the order-service orchestrates checkout by coordinating inventory, payment, and shipping processes [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the inventory-service manages product prices and stock reservations [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the payment-service handles payment authorization and refunds [b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c]; the shipping-service manages shipping logistics, typically through a mock provider in demo mode [a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b]; and the notification-worker processes and delivers notifications, though specific details are not in the provided evidence."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "clarify-failure",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "evaluator_error"
+          ],
+          "failed_requirements": {},
+          "judge_error": {
+            "status": "error",
+            "error": "AssessmentValidationError",
+            "validation_errors": [
+              "Invalid dimension",
+              "Invalid dimension"
+            ],
+            "scoring_attempts": 2
+          },
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-attempt-limit",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "While the core idea (configurable limit via env var) satisfies the request, the plan fails to address key constraints: no discussion of preventing replay of exhausted notifications when limit increases, no bounds validation, and missing implementation sequence. These omissions prevent full satisfaction of the request.",
+              "answer_quote": "The solution is to replace the hardcoded limit with a configurable value read from an environment variable, such as MAX_EMAIL_ATTEMPTS, defaulting to 3 for backward compatibility."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer selects six services (including inventory-service, payment-service, etc.) as impacted, but only customer-portal and optionally order-service are relevant. This overreach violates the feasible boundaries requirement by implying unnecessary cross-service changes.",
+              "answer_quote": "To enable operators to filter orders by status on the Operations screen, the change should be implemented primarily in the customer-portal service."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The user request is clear and sufficiently specified, asking for a plan to make health reporting consistent and prevent work from being sent to unready services. Instead of addressing this, the response asks for rephrasing, which violates the requirement to respond to a well-specified request.",
+              "answer_quote": "Please rephrase your request with the desired outcome so I can assist accurately."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "By failing to propose any plan or acknowledge the defined scope, the response implicitly disregards the feasible boundaries established by the verified current facts and required service impacts. It offers no boundaries at all, thus violating the requirement to stay within feasible and relevant scope.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "evaluator_error"
+          ],
+          "failed_requirements": {},
+          "judge_error": {
+            "status": "error",
+            "error": "AssessmentValidationError",
+            "validation_errors": [
+              "Invalid dimension",
+              "Invalid dimension"
+            ],
+            "scoring_attempts": 2
+          },
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-shipment-tracking",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that `shipping-service` currently stores a `status` field that reflects delivery progress and can be updated with real-time delivery states like 'in_transit' or 'delivered'. Verified facts state that while a `status` field exists, there is no delivery-status lookup interface, so the current `status` does not represent delivery progress. This materially contradicts verified current facts.",
+              "answer_quote": "- The service must be enhanced to support polling or receiving webhooks from the provider to update the `Shipment.status` field with real-time delivery progress (e.g., 'in_transit', 'out_for_delivery', 'delivered')."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan fails to satisfy the request because it omits a required verification step for provider capabilities, does not address resilience of order details during tracking outages, lacks a clear implementation sequence, and does not compare alternatives. The approach is incomplete and does not fully meet the acceptance criteria for requirement coverage and strategy.",
+              "answer_quote": ""
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan unnecessarily includes `inventory-service` and `payment-service` as selected services, implying they require changes. It also suggests `notification-worker` for alerts, which is out of scope for a viewing-only requirement. This violates the constraint that unrelated services need no change.",
+              "answer_quote": "**(Optional) Leverage notification-worker for status change alerts**:"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response invents a capability (status inference mechanism) and implies it can fulfill an impossible requirement, materially contradicting the reference which states the constraints cannot be satisfied.",
+              "answer_quote": "This could be achieved by introducing an internal status inference mechanism based on time elapsed since shipment creation, using estimated delivery windows derived from postalCode and scenario [ddcee903bb357300811bfe1d3f750ff64038c2c51bcec4b4fa338be18465ed35]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the uncertain behavior requirement by not acknowledging the infeasibility of the request. It does not state that current status cannot be guaranteed without provider updates, nor does it propose relaxing the constraints as required.",
+              "answer_quote": "To ensure CommerceLens always shows the current shipment delivery status\u2014even when updates cannot be received from the shipping provider\u2014a change must be implemented that avoids displaying cached information or an unavailable status."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-missing-confirmation-email",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents current capabilities and diagnostic procedures not stated in the reference, such as checking PostgreSQL tables and RabbitMQ queues as standard investigation steps. The reference does not confirm these as accessible or intended for this use.",
+              "answer_quote": "- Confirm the order status is `confirmed` by checking the `orders` table in the order-service PostgreSQL database [5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91]."
+            },
+            "investigation_only": {
+              "status": "fail",
+              "reason": "The answer includes implementation-level details and actions like enabling debug logging and checking configuration variables, which go beyond investigation leads into operational or development actions.",
+              "answer_quote": "- Consider enabling debug logging or tracing for the specific `eventId` to track end-to-end flow."
+            },
+            "uncertainty": {
+              "status": "fail",
+              "reason": "The answer asserts a deterministic investigation path without acknowledging uncertainty or the need for initial evidence. It does not separate known behavior from unverified incident outcomes.",
+              "answer_quote": "To investigate why a confirmed order has not resulted in a confirmation email delivery, follow this structured diagnostic plan using the CommerceLens architecture and available evidence:"
+            },
+            "useful_checks": {
+              "status": "fail",
+              "reason": "While some checks are relevant, they are not conditioned on missing evidence. The answer fails to start with requesting the order reference and confirmation time, making the checks premature and generic.",
+              "answer_quote": "- Confirm the order status is `confirmed` by checking the `orders` table in the order-service PostgreSQL database [5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-notification-portal",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan fails to fully satisfy the request because it omits the implementation order and alternatives, which are required by acceptance_criteria. A complete plan must include sequence and variations.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "folder": "eval-003",
+      "langsmith": {
+        "status": "ok",
+        "dataset_name": "commercelens-golden-2dc357b54c-ea236a7e",
+        "experiment_name": "commercelens-eval-003-20261111",
+        "uploaded_runs": 90,
+        "project_id": "b81679b4-08de-47dc-8434-1702526de40e",
+        "dataset_id": "2a25e4f7-e052-4e0a-ba0e-ac7e2c6fb14e"
+      },
+      "repetitions": [
+        {
+          "repetition": 1,
+          "execution_ok": 45,
+          "judge": {
+            "ok": 45
+          },
+          "ragas": {
+            "ok": 12,
+            "skipped": 33
+          },
+          "gates": {
+            "meets_critical_requirements": 26,
+            "fail": 19
+          },
+          "ask": {
+            "passed": 15,
+            "total": 24,
+            "mean_seconds": 8.2
+          },
+          "plan": {
+            "passed": 11,
+            "total": 21,
+            "mean_seconds": 32.2
+          }
+        },
+        {
+          "repetition": 2,
+          "execution_ok": 45,
+          "judge": {
+            "ok": 45
+          },
+          "ragas": {
+            "ok": 11,
+            "error": 1,
+            "skipped": 33
+          },
+          "gates": {
+            "meets_critical_requirements": 25,
+            "fail": 20
+          },
+          "ask": {
+            "passed": 13,
+            "total": 24,
+            "mean_seconds": 8.5
+          },
+          "plan": {
+            "passed": 12,
+            "total": 21,
+            "mean_seconds": 47.6
+          }
+        }
+      ],
+      "failures": [
+        {
+          "case_id": "notification-delivery",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer claims internal deduplication mechanisms (eventId-based deduplication, advisory locks, status gates in PostgreSQL) that are not present in the verified current facts. The verified facts state that duplicate prevention during interrupted delivery relies on the email provider, not internal database locks or eventId checks. These claims materially contradict the approved reference.",
+              "answer_quote": "Duplicates are prevented through a combination of eventId-based deduplication, where each event has a deterministic eventId ('order-confirmed-{orderId}') [e21b37a78c795c0b84055a18df98537f082f3d757cc74ea6ea155b425e89a191], and the use of an advisory lock on hashtext(eventId) in PostgreSQL to serialize concurrent processing [1f1f7698fc3171993007b5efe03818a39b9b197d6eed4525c4eb94473b99bfbd]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended behavior by providing low-level implementation details (e.g., table names, headers, locking mechanisms) that violate the acceptance criteria. It should have conveyed the process at a high level without referencing 'notification_deliveries', 'advisory lock', or 'Idempotency-Key' header.",
+              "answer_quote": "The notification_deliveries table tracks delivery state (sent, pending, dead), ensuring that if an email was already sent, subsequent events are acknowledged without re-sending [1b71531a966a80613890c9809f244376c2d2dcd300a421b364ed9a3994947015]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents implementation-specific mechanisms (e.g., 'transactional outbox pattern', 'publisher confirms', 'at-least-once delivery') not present in the verified current facts or approved reference. The reference describes behavior (save before publish, retry, confirm receipt, handle repeats), not technical patterns or AMQP features. This constitutes a material contradiction.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the Order Service using durable messaging with publisher confirms and a transactional outbox pattern, which guarantees that events are not lost during database commits [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the intended answer behavior. It omits the essential facts that the Order Service retries on failure and marks events as published only after confirmation. Instead, it replaces them with abstract messaging concepts. The required high-level meaning is not conveyed, and critical content is missing.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that failed messages are dead-lettered to the order.confirmed.dead queue and that delivery attempts are recorded in the notification_deliveries table, which are not part of the verified current facts. These are invented implementation details that contradict the approved reference.",
+              "answer_quote": "After failed attempts, the message is dead-lettered to the order.confirmed.dead queue [e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended behavior by including prohibited low-level details (table names, queue names, HTTP headers) and misrepresenting the failure handling mechanism. It does not convey the reference meaning in high-level language as required.",
+              "answer_quote": "If an order confirmation email cannot be delivered, the notification-worker processes the order.confirmed event and attempts to send the email via an HTTP provider, recording delivery attempts in the notification_deliveries table [9c80ed2cb1302b9cdc056f0d6e0b59e7fe77041cc1a2e996f3e7542af2334214][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-payment-reconciliation",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer incorrectly asserts that the order-service supports manual reconciliation via `payment_unknown`, but verified facts confirm no such capability exists. It also implies idempotency and reconciliation are sufficient to resolve uncertainty, but current behavior retains uncertainty without resolution path.",
+              "answer_quote": "This state allows operators to detect ambiguity (e.g., after a crash) and manually reconcile with the payment provider."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response does not plan for handling uncertain outcomes; it misrepresents existing documentation as implemented functionality. It fails to propose a new approach to achieve the requested outcome of resolving uncertainty without double charging.",
+              "answer_quote": "To safely handle uncertain payment outcomes without double charging, the system must rely on idempotency and reconciliation, as documented in the payment and order services."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer relies on unverified provider capabilities and assumes reconciliation is already possible, without qualifying assumptions. It does not acknowledge that payment-status lookup is missing, violating feasible boundaries.",
+              "answer_quote": "The payment-service uses idempotency keys and maps external provider responses to explicit HTTP statuses: 402 indicates a declined payment (safe to retry with changes), while 502, 504, and 409 indicate uncertain outcomes (reconciliation required before retry) [b6a6690e9db5f6e2d20c1176ae4cded646cb9dcfccdeeb3597001da6c5458547]."
+            },
+            "uncertain_payment": {
+              "status": "fail",
+              "reason": "While the answer correctly states that timeouts do not prove no charge occurred, it falsely implies the system can reconcile, which contradicts the verified fact that no lookup exists. It treats uncertainty as resolvable when current behavior retains it indefinitely.",
+              "answer_quote": "The reconciliation invariant strictly prohibits blind retries on these statuses to prevent double charges [c6dd6afb5ead110d09a3aaa8f3e41550be935dc711415ec7b38686b8678178e6]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-variable-shipping",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims the `GET /api/shipping/rate` endpoint exists and returns a fixed 500 cents, implying it can be modified to support destination-based rates. The verified facts state the Shipping Service does not expose a destination-based quote capability, and the current implementation uses a fixed rate without a documented public rate endpoint. This misrepresents the current system state.",
+              "answer_quote": "- **shipping-service**: Modify the `GET /api/shipping/rate` endpoint to accept the customer's postal code as input and return a shipping cost based on destination rather than the current fixed 500 cents [4d7a16b9bb6c5954cc34fe0bf110348f4e549af484e338f86874f7f63439c4f7]."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan relies on an unverified production carrier API integration without qualification, despite a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b and 4d7a16b9bb6c5954cc34fe0bf110348f4e549af484e338f86874f7f63439c4f7 stating that a real provider deployment is not confirmed. It also assumes the `GET /api/shipping/rate` endpoint can be enhanced, but no such endpoint is verified to exist. This violates the constraint against relying on unverified provider capabilities.",
+              "answer_quote": "- **shipping-service**: Modify the `GET /api/shipping/rate` endpoint to accept the customer's postal code as input and return a shipping cost based on destination rather than the current fixed 500 cents [4d7a16b9bb6c5954cc34fe0bf110348f4e549af484e338f86874f7f63439c4f7]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-event-contract",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that product names must be resolved via a catalog lookup, when verified facts state that order records include purchased items and the correct approach is to snapshot them at event creation. This misrepresents current capabilities and introduces an incorrect dependency.",
+              "answer_quote": "Introduce logic to resolve each SKU to a product name, which requires integration with a product catalog service (not documented in evidence)."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not ensure product names reflect the purchase at the time of order, as it relies on a catalog lookup that could return current names. The example plan explicitly requires using a snapshot to reflect the purchase, which this answer fails to implement.",
+              "answer_quote": "Introduce logic to resolve each SKU to a product name, which requires integration with a product catalog service (not documented in evidence)."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan requires integration with a product catalog service that is not documented in the evidence and may not exist. It also suggests the order-service write to the notification_deliveries table, which violates ownership as stated in 9c80ed2cb1302b9cdc056f0d6e0b59e7fe77041cc1a2e996f3e7542af2334214. These exceed feasible boundaries without justification.",
+              "answer_quote": "Introduce logic to resolve each SKU to a product name, which requires integration with a product catalog service (not documented in evidence)."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-purpose",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the acceptance criteria by not explaining how services coordinate stock reservation, payment, shipment, and emails\u2014only focusing on the customer-portal frontend. The backend coordination is a required part of the customer journey explanation.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-orders",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the intended unknown behavior by not clearly and simply acknowledging unavailable live data. Instead, it provides an architectural explanation, which violates the acceptance criteria.",
+              "answer_quote": "The provided documentation does not specify how to retrieve the number of orders placed today."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-stock",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that a live call to the inventory-service could provide the current availability, which is not a supported capability and contradicts the reference behavior.",
+              "answer_quote": "However, the exact current availability of BOOK-001 cannot be provided from the supplied documentation alone, as it requires a live call to the service."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the unknown behavior by implying a path to obtaining live data. It should have clearly stated inability to access current stock without suggesting workarounds or external queries.",
+              "answer_quote": "However, the exact current availability of BOOK-001 cannot be provided from the supplied documentation alone, as it requires a live call to the service."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-responsibilities",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely implies there are only four core services by listing only customer-portal, order-service, inventory-service, and payment-service. This materially contradicts the verified current facts, which list six core services including shipping-service and notification-worker.",
+              "answer_quote": "The core services in CommerceLens are customer-portal, order-service, inventory-service, and payment-service."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the intended answer behavior, which requires covering all six service responsibilities. Two services are entirely missing, and their distinct providers are not mentioned, violating the acceptance criteria.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "uncertain-payment-guarantee",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that the payment service enforces a reconciliation invariant prohibiting unsafe retries, which is not supported by the reference. The reference states only that the application helps prevent duplicates but cannot guarantee prevention, placing dependence on the provider. The answer invents a stronger, specific enforcement mechanism not present in verified facts.",
+              "answer_quote": "The payment service enforces a reconciliation invariant that prohibits retries after 502 or 504 responses (provider errors or timeouts) without first determining the outcome [c6dd6afb5ead110d09a3aaa8f3e41550be935dc711415ec7b38686b8678178e6]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the uncertain behavior required by the reference and acceptance criteria. It does not clearly express that duplicate charges cannot be guaranteed to be prevented. Instead, it presents a technical safeguard as if it ensures safety, contradicting the required 'neither guarantee nor claim definite occurrence' standard.",
+              "answer_quote": "No, safe checkout retries do not guarantee that a payment provider can never charge twice."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "clarify-retry",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the clarify behavior as defined: it does not ask for details about what happened on the previous attempt, which is a required part of the acceptance criteria.",
+              "answer_quote": "Could you please clarify which action you'd like to retry?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that backend filtering is necessary and that the current system does not support status filtering in the loaded list, contradicting verified facts that Customer Portal already loads and displays statuses and no backend change is needed.",
+              "answer_quote": "Enable status-based filtering by extending the existing `GET /api/orders` endpoint with a query parameter and adding a corresponding UI control in the customer-portal."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposed approach changes the backend and loads filtered subsets, which does not satisfy the request to filter the currently loaded orders in the Portal without backend changes.",
+              "answer_quote": "Enable status-based filtering by extending the existing `GET /api/orders` endpoint with a query parameter and adding a corresponding UI control in the customer-portal."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan requires changes to order-service, which is unrelated to the filtering of already-loaded data in the Portal, violating the constraint against unnecessary service changes.",
+              "answer_quote": "- **order-service**: Modify the `GET /api/orders` endpoint to accept an optional `status` query parameter."
+            },
+            "loaded_scope": {
+              "status": "fail",
+              "reason": "The answer implies the filter loads only matching orders from the backend, which contradicts the requirement to filter within the currently loaded list of 200 orders.",
+              "answer_quote": "- **Currently loaded orders**: Only orders matching the filter are loaded, reducing unnecessary data transfer."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The claim that shipping-service returns 503 when not healthy is false. Evidence 7664944d9acc159c7a84fc8e226417a5390db86e3ab0c51f951528213a7dae9b explicitly states its /health endpoint returns a static 200 OK with {status:\"ok\"}, contradicting the assertion of conditional 503 responses. This materially misrepresents current behavior.",
+              "answer_quote": "The selected services\u2014customer-portal, inventory-service, order-service, payment-service, and shipping-service\u2014all implement a `GET /health` endpoint that returns `200 OK` when healthy and `503 Service Unavailable` when not [70d243328bc095bc506f32afe2e3901aabc2bf689aafaf741a3c4c7da7f0797a][b05265fab80ed6f96614a5bda2247e37f3e3809aa2d925c1c26a0329305d548c][1a17776b72c27fab245aed63fc2e5f2604cf3f4bad60d628326e3344b0e22c41][04a82055ef64a0f2ccdaa90e8499df3ca821b6e91fb5a60e58f9b36b22fbfa42][7664944d9acc159c7a84fc8e226417a5390db86e3ab0c51f951528213a7dae9b]."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response does not propose a plan that achieves consistent health reporting or prevents work from being sent to unready services. It only identifies a problem and suggests generic options without a concrete, actionable approach that satisfies the request.",
+              "answer_quote": "To ensure consistency and prevent work from being sent to unhealthy services, a centralized health-aware routing or service mesh layer could be introduced, or each service could be required to probe dependencies' `/health` endpoints before interaction."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The response suggests introducing a centralized health-aware routing or service mesh layer without assessing feasibility, dependencies, or integration requirements. This proposes a major architectural change without qualification or justification, potentially requiring unverified capabilities.",
+              "answer_quote": "To ensure consistency and prevent work from being sent to unhealthy services, a centralized health-aware routing or service mesh layer could be introduced, or each service could be required to probe dependencies' `/health` endpoints before interaction."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-external-payment-provider",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely implies that the current system supports real payment collection by suggesting that only provider reconfiguration is needed. This contradicts the verified fact that 'The current Portal does not collect a real payment method.'",
+              "answer_quote": "Leverage the current idempotency, failure handling, and saga checkpointing mechanisms to ensure safe checkout and refunds without code changes, provided the external provider adheres to the expected API contract."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposed approach does not address real payment collection in the Portal, so it cannot achieve the requested outcome of replacing the mock provider with a real one while preserving safe checkout and refunds.",
+              "answer_quote": "Replace the mock provider by reconfiguring the existing external payment-provider boundary in payment-service."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer relies on the unverified assumption that the external provider adheres to the expected API contract and supports real-time synchronous outcomes, without requiring changes to the Portal. This violates the constraint to not rely on unverified existing provider capabilities.",
+              "answer_quote": "Leverage the current idempotency, failure handling, and saga checkpointing mechanisms to ensure safe checkout and refunds without code changes, provided the external provider adheres to the expected API contract."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "useful_checks": {
+              "status": "fail",
+              "reason": "The answer fails to provide any concrete check that distinguishes plausible causes (e.g., comparing traces, examining provider latencies). It only asks the user to specify a suspected service, which is not a diagnostic check.",
+              "answer_quote": "To help plan changes for the slow checkout bottleneck, please specify which operation or service you suspect is causing the delay."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response suggests modifying the shipping service to generate synthetic updates or suppress display, which implies capabilities or behaviors not supported by the reference and contradicts the prohibition on fabricating status. This invents invalid solutions.",
+              "answer_quote": "For example, should the shipping service generate synthetic status updates when provider data is missing, or should the customer portal suppress display until a definitive status is available?"
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the uncertain behavior requirement by failing to state the logical conflict in the constraints. It does not propose any adjustment to the requirements or explain why the original goal is unachievable.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-provider-quotes",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer fails to address the requested outcome of planning a high-level change to destination-based rates using provider-supplied quotes. Instead, it requests clarification, abandoning the replan task.",
+              "answer_quote": "To plan a change from fixed to destination-based shipping rates, we need to clarify: Which operation are you looking to change\u2014rate calculation, customer display, order processing, or provider integration?"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not propose any boundaries or service changes, instead deferring the entire request. It fails to assess feasibility within the given constraints.",
+              "answer_quote": "Key options include updating the shipping-service rate engine, modifying order-service cost validation, or adapting the customer-portal checkout flow."
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The answer does not adopt the selected alternative of provider-supplied quotes. It makes no mention of the alternative or any replanning effort.",
+              "answer_quote": ""
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The answer does not preserve the original request or the instruction to use provider-supplied quotes and prevent fallback. It discards the replan context entirely.",
+              "answer_quote": "Please re-ask with your desired outcome (e.g., 'support ZIP-code-based rates', 'show real-time shipping at checkout')."
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not address excluded changes (e.g., no fallback to regional pricing) because it fails to engage with the replan instruction at all.",
+              "answer_quote": ""
+            },
+            "no_fallback": {
+              "status": "fail",
+              "reason": "The answer does not mention or enforce the constraint of no regional or fixed-price fallback, as it does not attempt to replan.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-payment-timeout-assumption",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "useful_checks": {
+              "status": "fail",
+              "reason": "No concrete diagnostic check is suggested (e.g., inspect Order Service record, check provider transaction log). Asking for clarification is not a check.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-delivery",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "ragas_error",
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts specific implementation mechanisms (e.g., advisory locks, upserts, Idempotency-Key header enforcement) as current behavior, which are not present in the verified current facts. These claims materially contradict the approved reference, which describes a high-level, non-technical process without such details.",
+              "answer_quote": "Duplicates are prevented through a combination of idempotency enforcement and state tracking: each event is upserted into the notification_deliveries table with a unique eventId, and an advisory lock on hashtext(eventId) ensures only one instance processes a given event at a time [1f1f7698fc3171993007b5efe03818a39b9b197d6eed4525c4eb94473b99bfbd]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended answer behavior by not conveying the reference meaning in high-level language. Instead, it provides low-level technical details explicitly prohibited by the acceptance criteria, such as table names and API headers.",
+              "answer_quote": "Duplicates are prevented through a combination of idempotency enforcement and state tracking: each event is upserted into the notification_deliveries table with a unique eventId, and an advisory lock on hashtext(eventId) ensures only one instance processes a given event at a time [1f1f7698fc3171993007b5efe03818a39b9b197d6eed4525c4eb94473b99bfbd]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": {
+            "status": "error",
+            "error": "TimeoutError"
+          }
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents or misattributes current behavior: it claims 'publisher confirms' and 'transactional outbox' are used for reliability, but the verified facts describe saving events before publishing and retrying on failure. It also states that 'downstream consumers' must deduplicate, but the verified fact specifies the Notification Worker handles repeat events. These are material contradictions.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the Order Service using durable messaging and publisher confirms on the order.confirmed event queue, with messages persisted in a transactional outbox to prevent loss during failures [5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer does not satisfy the intended answer behavior. It omits all three essential facts from the reference: event saving before publishing with retries, confirmation of receipt before marking as published, and Notification Worker handling duplicates. Instead, it provides implementation-specific details not required and omits required high-level behavior.",
+              "answer_quote": "The system guarantees at-least-once delivery, so downstream consumers must handle duplicates by using the eventId for deduplication [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][ae6fc5156d1722ac1eaa2eb58ccf0a1bf42860abbc802b7f346256ed8b1a78fe]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that failed messages are dead-lettered to order.confirmed.dead queue, which contradicts the verified fact that the Notification Worker marks notifications as failed. It also describes implementation mechanisms not present in the current system as described in the reference.",
+              "answer_quote": "Failed or exhausted messages are dead-lettered to the order.confirmed.dead queue without automatic replay [e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b][6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to convey the correct sequence of three retry attempts followed by marking as failed, instead describing an incorrect dead-lettering mechanism. It also includes prohibited implementation details like table names and HTTP headers.",
+              "answer_quote": "If an order confirmation email cannot be delivered, the notification-worker consumes the order.confirmed event and attempts to send the email via an HTTP provider, recording delivery attempts in the notification_deliveries table [9c80ed2cb1302b9cdc056f0d6e0b59e7fe77041cc1a2e996f3e7542af2334214][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "shipping-contract",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that the Order Service enforces idempotency to prevent duplicate shipments, which contradicts the verified facts stating only that the Shipping Service identifies repeat requests. This is a prohibited invented capability attribution.",
+              "answer_quote": "The Order Service also enforces idempotency for its own operations by using the same header combined with a hash of the request body, rejecting duplicates with conflicting data [88e93b84b2b495e141843aa515f77b658463e1e72762051e8eb2892d3c886175]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to correctly convey that the Shipping Service is responsible for identifying repeat requests. Instead, it misattributes this behavior to the Order Service and adds unsupported detail, violating the requirement to satisfy the intended answer behavior.",
+              "answer_quote": "Duplicate shipment requests are prevented using idempotency: the shipping service sends an `Idempotency-Key` header set to the order ID when making a request to the provider [0ea20af2628c95d818fdc0c403db18009cc11c1dac055e58776cf314e0c2d434], ensuring that if the same order is submitted more than once, the provider will not create a duplicate shipment."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-replay",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response does not address the requested outcome \u2014 planning a capability for operator retry of failed emails. Instead, it deflects with a clarification request despite the task being well-defined and matching the example plan.",
+              "answer_quote": "To plan this capability, we need to clarify: Which operation should be retried \u2014 email dispatch, order confirmation, or notification workflow?"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "By failing to propose any plan, the response does not establish feasible boundaries or avoid overreach. It avoids the task entirely rather than proposing a bounded, justified solution.",
+              "answer_quote": "To plan this capability, we need to clarify: Which operation should be retried \u2014 email dispatch, order confirmation, or notification workflow?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-purpose",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "Fails to fully satisfy the acceptance criteria by not explaining the full customer journey involving coordinated services (stock, payment, shipping, notifications). Focuses only on frontend interaction without describing backend coordination.",
+              "answer_quote": "CommerceLens provides a browser-based customer portal that allows users to browse products, place demo orders, and review their order and notification history [b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-orders",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that 'order-service owns the orders data in PostgreSQL' and exposes a 'GET /api/orders' endpoint, which, while possibly documented, constitutes a claim about current system architecture that goes beyond the approved reference. The reference states only that the agent lacks information about today's orders. Making assertions about data ownership and API endpoints risks implying access to live or internal knowledge not permitted under the 'unknown' behavior. This violates the prohibition on inventing or asserting system facts not explicitly required.",
+              "answer_quote": "While the order-service owns the orders data in PostgreSQL and exposes a GET /api/orders endpoint, it does not specify whether this endpoint supports filtering by date or retrieving a count of today's orders."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The expected response is a clear, high-level acknowledgment of unavailable live data without fabrication or technical elaboration. The answer fails this by introducing unnecessary details about the order-service, PostgreSQL, and API endpoints. It does not satisfy the intended unknown behavior as defined by the acceptance criteria, which require avoiding invented or unsupported facts and using high-level language.",
+              "answer_quote": "While the order-service owns the orders data in PostgreSQL and exposes a GET /api/orders endpoint, it does not specify whether this endpoint supports filtering by date or retrieving a count of today's orders."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-order-status",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response implies system-level knowledge about data ownership and integration gaps, which goes beyond acknowledging unavailable live data. It fabricates a structural explanation not required or supported by the reference.",
+              "answer_quote": "The order-service can provide order details, including status, through its API [0474ca946b4c8bf17b6b3a15c4879db0c74f6202c85d65e978c337899ff4565a], but it does not own shipping-specific data."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer does not satisfy the intended unknown behavior. Instead of a clear acknowledgment of missing information, it provides a detailed technical analysis, violating the acceptance criteria.",
+              "answer_quote": "Without access to live data or a direct integration point showing shipment confirmation for order CL-98765, it cannot be determined from the supplied evidence whether the order has been shipped."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-responsibilities",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer does not contradict any stated facts about the services it describes, but it materially omits two core services (Shipping Service and Notification Worker), implying they are not part of the system. This omission constitutes a failure to represent the current application structure truthfully.",
+              "answer_quote": "The core services in CommerceLens are customer-portal, order-service, inventory-service, and payment-service."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer does not satisfy the intended answer behavior: it fails to cover all six service responsibilities as required by the acceptance criteria. It omits two services and their distinct provider relationships.",
+              "answer_quote": "The core services in CommerceLens are customer-portal, order-service, inventory-service, and payment-service."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-stock",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely implies that 100 units is a current or real-time value by citing it from the example response and stating it 'reflects real-time inventory', which is a fabricated claim not supported by live data.",
+              "answer_quote": "According to the documented API response schema, a request to GET /api/products includes the 'available' field showing current stock levels, and the example response lists 100 units available for BOOK-001 [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the intended unknown behavior by presenting a specific stock number in a way that suggests it could be current. It should have clearly stated from the beginning that live stock data is unavailable without referencing example values as if they were indicative of current state.",
+              "answer_quote": "According to the documented API response schema, a request to GET /api/products includes the 'available' field showing current stock levels, and the example response lists 100 units available for BOOK-001 [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "uncertain-payment-guarantee",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer claims the payment service enforces a reconciliation invariant that prevents retries after 502/504 without confirmation, which is not supported by the approved reference. The reference explicitly states that duplicate charges cannot be guaranteed not to happen, implying no such foolproof system exists. This claim materially contradicts the verified facts.",
+              "answer_quote": "The payment service enforces a reconciliation invariant that prohibits retries after 502 or 504 responses (provider errors or timeouts) without first confirming the outcome, because such retries risk double-charging or creating orphaned payments [c6dd6afb5ead110d09a3aaa8f3e41550be935dc711415ec7b38686b8678178e6]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the uncertain behavior required by the reference and acceptance criteria. It does not explain provider dependence and instead presents a deterministic safeguard, which replaces the required uncertain clarification with a false sense of security.",
+              "answer_quote": "The payment service enforces a reconciliation invariant that prohibits retries after 502 or 504 responses (provider errors or timeouts) without first confirming the outcome, because such retries risk double-charging or creating orphaned payments [c6dd6afb5ead110d09a3aaa8f3e41550be935dc711415ec7b38686b8678178e6]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "clarify-retry",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the clarify behavior as defined in the acceptance criteria. While it asks which operation the user is retrying and provides examples, it omits asking for details about what happened on the previous attempt, which is explicitly required.",
+              "answer_quote": "Could you please clarify which action you'd like to retry?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer avoids making any claims about current behavior, but the task requires assessing and building upon verified facts. By failing to acknowledge that the Customer Portal already loads order statuses and that no backend change is needed, the answer materially omits verified truths, which constitutes a failure under this requirement.",
+              "answer_quote": ""
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the requested outcome of enabling operators to filter currently loaded orders by status. Instead, it deflects by asking for rephrasing, despite the request being sufficiently specified with clear constraints and an example plan.",
+              "answer_quote": "Please re-ask with the desired outcome, such as 'allow server-side filtering of orders by status in the Operations screen' or 'add a status dropdown to filter visible orders'."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer fails to establish feasible boundaries by questioning whether server-side changes are needed, which contradicts the verified fact that filtering the loaded list requires no new backend capability. It introduces unnecessary uncertainty about service changes that are explicitly out of scope.",
+              "answer_quote": "Also, should the filtering happen client-side or server-side?"
+            },
+            "loaded_scope": {
+              "status": "fail",
+              "reason": "The answer does not maintain the required scope of filtering only the currently loaded orders. By asking whether filtering should be client-side or server-side, it opens the door to backend changes, which violates the constraint of keeping the change within the Portal and not implying historical search.",
+              "answer_quote": "Also, should the filtering happen client-side or server-side?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response fails to address the request by asking for clarification instead of proposing a plan. The question is application-wide and explicitly scoped to six named services; no further scoping is needed.",
+              "answer_quote": "To plan a change for consistent service health reporting and prevent work from being sent to unready services, I need to know which specific service or interaction you're focusing on."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "By declining to plan and requesting a narrower scope, the response implicitly assumes that an application-wide plan cannot be formed without additional constraints, which contradicts the approved reference and example plan that demonstrate such a plan is feasible.",
+              "answer_quote": "To plan a change for consistent service health reporting and prevent work from being sent to unready services, I need to know which specific service or interaction you're focusing on."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-attempt-limit",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer incorrectly claims that configuration changes do not require redeployment, contradicting the verified fact that settings are read at startup. It also fails to state that exhausted notifications are skipped, a verified current behavior.",
+              "answer_quote": "The change is controlled entirely through configuration, requires no redeployment for future adjustments, and maintains consistency across service restarts."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not ensure that increasing the limit will not replay exhausted notifications, violating a core constraint. It also does not explicitly define the limit as total attempts, risking misinterpretation as additional retries.",
+              "answer_quote": "The solution allows operators to set the maximum number of automatic email delivery attempts without modifying service code, fulfilling the core requirement."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-external-payment-provider",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that no code changes are needed and that the current system supports real payment collection, contradicting the verified fact that 'The current Portal does not collect a real payment method.'",
+              "answer_quote": "This approach requires no code changes, only configuration and validation of the external provider\u2019s contract compliance."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not address how real payment methods will be collected from customers, a core part of replacing the mock provider. It focuses only on backend configuration, ignoring the frontend integration needed for a complete solution.",
+              "answer_quote": "- **payment-service**: Update the `PAYMENT_PROVIDER_URL` environment variable to point to the external provider\u2019s API."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer relies on the assumption that the external provider's contract is compatible with the current integration without verifying capabilities like real-time authentication, asynchronous notifications, or lookup APIs. It also fails to require changes to the customer-portal, which are necessary.",
+              "answer_quote": "Confirm the provider implements `POST /payments` and `POST /payments/{paymentId}/refund` and respects the `Idempotency-Key` header."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "useful_checks": {
+              "status": "fail",
+              "reason": "The answer fails to provide any concrete diagnostic check that could distinguish between hypotheses (e.g., review trace, compare provider response times). Asking the user to speculate which service is slow is not a useful investigative step.",
+              "answer_quote": "To help plan changes for the checkout bottleneck, please specify which operation or service you suspect is causing the slowdown."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the expected uncertain behavior as defined by the acceptance criteria. It correctly identifies the impossibility but does not propose relaxing the constraints or suggest displaying last-known status with freshness, which is required. It also does not explain alternatives or provide conditional implementation guidance.",
+              "answer_quote": "The requirement to always show the current shipment delivery status, even when no updates are available from the shipping provider, cannot be fulfilled with the current system design."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-provider-quotes",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the replan request. It asks for clarification instead of producing a revised plan using provider-supplied quotes.",
+              "answer_quote": "To plan a change from fixed shipping to destination-based rates, we need to clarify the intended scope: Do you want to (1) support region-based flat rates, (2) integrate real-time carrier rate APIs, or (3) customize rates by postal code?"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer fails to propose any boundaries or service impacts, instead avoiding the task entirely.",
+              "answer_quote": "To plan a change from fixed shipping to destination-based rates, we need to clarify the intended scope: Do you want to (1) support region-based flat rates, (2) integrate real-time carrier rate APIs, or (3) customize rates by postal code?"
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The selected alternative (provider-supplied quotes) is not adopted. The answer does not mention it or any related implementation.",
+              "answer_quote": ""
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The original request and constraints (destination-based rates, customer confirmation, no fallback) are not preserved because they are not addressed.",
+              "answer_quote": ""
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not exclude the rejected regional-rule approach because it does not engage with the replan task.",
+              "answer_quote": ""
+            },
+            "no_fallback": {
+              "status": "fail",
+              "reason": "The answer does not address the 'no fallback' constraint, as it provides no plan at all.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-historical-status-filter",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer claims the solution enables filtering of all stored historical orders (Q25), but verified facts do not confirm that archived or deleted orders are available. This overstates current capabilities and contradicts the grounding requirement to not claim deleted/archived history is available.",
+              "answer_quote": "The solution enables filtering of all stored historical orders by status, not just the most recent 200."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not fully address the request because it omits changes to the customer-portal, which is required to request and display filtered results. Client-only filtering is insufficient, but server-side filtering without UI integration does not deliver the operator-facing feature.",
+              "answer_quote": ""
+            },
+            "historical_scope": {
+              "status": "fail",
+              "reason": "The answer claims access to 'all historical orders' without acknowledging the unverified retention or archived data availability. It also fails to mention that the customer-portal must integrate with the new filtering, making the solution incomplete.",
+              "answer_quote": "The solution enables filtering of all stored historical orders by status, not just the most recent 200."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "folder": "eval-004",
+      "langsmith": {
+        "status": "ok",
+        "dataset_name": "commercelens-golden-2dc357b54c-c3ca127b",
+        "experiment_name": "commercelens-eval-004-20261111",
+        "uploaded_runs": 90,
+        "project_id": "16dde6c6-4301-432a-b14d-7c07b63bc3c8",
+        "dataset_id": "53064e9d-2f09-42f9-8a40-f7cfc843a7dd"
+      },
+      "repetitions": [
+        {
+          "repetition": 1,
+          "execution_ok": 45,
+          "judge": {
+            "ok": 44,
+            "error": 1
+          },
+          "ragas": {
+            "ok": 12,
+            "skipped": 33
+          },
+          "gates": {
+            "meets_critical_requirements": 25,
+            "fail": 19,
+            "unassessed": 1
+          },
+          "ask": {
+            "passed": 17,
+            "total": 24,
+            "mean_seconds": 6.8
+          },
+          "plan": {
+            "passed": 8,
+            "total": 21,
+            "mean_seconds": 34.8
+          }
+        },
+        {
+          "repetition": 2,
+          "execution_ok": 45,
+          "judge": {
+            "ok": 44,
+            "error": 1
+          },
+          "ragas": {
+            "ok": 12,
+            "skipped": 33
+          },
+          "gates": {
+            "meets_critical_requirements": 27,
+            "fail": 17,
+            "unassessed": 1
+          },
+          "ask": {
+            "passed": 17,
+            "total": 24,
+            "mean_seconds": 7.1
+          },
+          "plan": {
+            "passed": 10,
+            "total": 21,
+            "mean_seconds": 40.3
+          }
+        }
+      ],
+      "failures": [
+        {
+          "case_id": "checkout-coordinator",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer fails to mention the recording of an uncertain payment state before payment authorization, which is a verified current fact. Omitting this step misrepresents the actual behavior and implies payment is attempted before any state is recorded, contradicting the safe recovery design.",
+              "answer_quote": ""
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the intended answer behavior because it omits a required essential fact: recording an uncertain payment state before payment. This fact is central to the coordination mechanism and cannot be omitted for brevity.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents a focus on 'transactional outbox pattern' and 'publisher confirms' as the primary reliability mechanism, which, while present in documentation, are not the current-behavior claims emphasized in the verified facts. The verified facts center on save-before-publish, retry, confirmation-based marking, and worker-side deduplication\u2014none of which are accurately reflected.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern via the 'order_outbox' table in PostgreSQL [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended behavior by omitting all essential facts and including prohibited low-level details. It does not convey the reference meaning in high-level language and instead dives into implementation mechanisms explicitly excluded by the acceptance criteria.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern via the 'order_outbox' table in PostgreSQL [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-delivery",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer claims that duplicate prevention is achieved through internal database upserts and advisory locks in the notification-worker, but the verified facts state that preventing duplicates during interrupted delivery relies on the email provider recognizing repeat requests. This is a material contradiction.",
+              "answer_quote": "Duplicate prevention is achieved through idempotency: the notification-worker uses the eventId to upsert a record in the notification_deliveries table and acquires an advisory lock on hashtext(eventId) to prevent duplicate processing [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer does not satisfy the intended answer behavior: it omits essential facts (email provider's role in deduplication), adds incorrect details (internal locking as primary dedup mechanism), and includes prohibited low-level implementation details. It fails to convey the reference meaning in high-level language.",
+              "answer_quote": "Duplicate prevention is achieved through idempotency: the notification-worker uses the eventId to upsert a record in the notification_deliveries table and acquires an advisory lock on hashtext(eventId) to prevent duplicate processing [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that failed messages are dead-lettered to order.confirmed.dead and that delivery attempts are recorded in notification_deliveries, which are not part of the verified current facts. These are invented capabilities that contradict the approved reference stating only that the notification is marked as failed after three retries.",
+              "answer_quote": "After failed attempts, the message is dead-lettered to the order.confirmed.dead queue [e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to include the essential fact that the confirmed order remains unchanged and instead provides excessive low-level implementation details. It does not satisfy the intended answer behavior of conveying the reference meaning accurately in high-level language.",
+              "answer_quote": "There is no automatic replay or compensation mechanism for these failures, and dead-lettered messages lack manual or automated recovery processes [6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "shipping-contract",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that the provider 'must reject subsequent requests with the same key but different payloads', which is not supported by the verified current facts. The reference only states the system identifies repeat requests so the provider can avoid duplicates, not that rejection is enforced via idempotency keys. This is a material overstatement of current behavior.",
+              "answer_quote": "Duplicate shipment requests are prevented using the `Idempotency-Key` header, which is set to the `orderId`; the provider must reject subsequent requests with the same key but different payloads [0ea20af2628c95d818fdc0c403db18009cc11c1dac055e58776cf314e0c2d434]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "While the answer attempts to respond to the question, it fails to satisfy the intended behavior by introducing unsupported technical mechanisms (idempotency key rejection logic) not present in the reference. The response should have described the high-level behavior without implementation specifics.",
+              "answer_quote": "Duplicate shipment requests are prevented using the `Idempotency-Key` header, which is set to the `orderId`; the provider must reject subsequent requests with the same key but different payloads [0ea20af2628c95d818fdc0c403db18009cc11c1dac055e58776cf314e0c2d434]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-variable-shipping",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response fails to deliver a high-level plan for changing from fixed to destination-based shipping rates. Instead, it requests clarification, which does not satisfy the explicit request to plan the change.",
+              "answer_quote": "To plan a change from fixed shipping to destination-based rates, we need to clarify the intended scope: Do you want to (1) estimate rates based on postal code/country, (2) integrate real-time carrier pricing, or (3) define custom regional rate zones?"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "By not proposing any plan, the response avoids overreaching into unrelated services, but it also fails to establish any feasible boundaries for the required change. The task was to define impacts within known services, not to abstain entirely.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-notification-replay",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The response does not address the requested outcome of planning a retry capability for exhausted order confirmation emails. Instead, it requests rephrasing of the question, which violates the requirement to deliver a plan.",
+              "answer_quote": "Please re-ask with the desired outcome and operator workflow."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The response fails to establish any boundaries or assumptions for the plan. It does not rule in or out service changes, operator workflows, or technical constraints, effectively refusing to engage with the planning task.",
+              "answer_quote": "To plan this capability, we need to clarify: Which specific operation should be retried\u2014resending the email for a specific order, or reprocessing a batch of failed deliveries?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-payment-reconciliation",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that no code changes are needed in payment-service and order-service, and that reconciliation is already supported. Verified facts confirm that payment-status lookup does not exist, making these claims incorrect.",
+              "answer_quote": "- **payment-service**: No changes needed."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposed approach does not enable recovery of uncertain payments because it lacks a mechanism to check the original payment outcome. Without payment-status lookup, reconciliation cannot occur, so the request is not addressed.",
+              "answer_quote": "- **Support recovery**: Operators must manually reconcile by checking the provider\u2019s actual payment status before advancing or canceling the order."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan relies on unverified existing capabilities (operator tooling to query provider, payment-status lookup) without qualification. It assumes reconciliation is possible without implementing new functionality, violating feasible boundaries.",
+              "answer_quote": "Confirm that operator tooling supports querying the external payment provider to reconcile orders in `payment_unknown`."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-order-status",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response implies that shipment status may be available via order-service or shipping-service, which invents a capability not confirmed in the context and contradicts the reference stating no information is available. This constitutes a fabricated possibility of data retrieval.",
+              "answer_quote": "The order-service can retrieve order details via GET /api/orders/{id} [0474ca946b4c8bf17b6b3a15c4879db0c74f6202c85d65e978c337899ff4565a], which may include shipment status if available."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the intended unknown behavior by not clearly acknowledging unavailable live data. Instead, it offers architectural speculation, which replaces the required direct acknowledgment with irrelevant filler.",
+              "answer_quote": "There is no evidence confirming whether the order has been shipped, as no specific order status or event data is provided."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-stock",
+          "repetition": 1,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents a current stock level of 100 units for BOOK-001, which is a fabricated live data point. The reference and evaluation contract prohibit invented live values.",
+              "answer_quote": "According to the API response schema, the product with SKU BOOK-001 currently has 100 units available [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the unknown behavior by asserting a specific stock level instead of acknowledging unavailable data. It does not meet the acceptance criteria of clearly acknowledging unavailable live data and avoiding fabrication.",
+              "answer_quote": "According to the API response schema, the product with SKU BOOK-001 currently has 100 units available [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer fails to state any verified current facts, such as the Portal already displaying statuses without a filter. By omitting these, it implies a lack of understanding of the current system, violating the requirement to avoid materially contradicting verified facts.",
+              "answer_quote": ""
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the requested outcome of enabling status filtering on the Operations screen. Instead, it deflects by asking for rephrasing, despite the request being clear and supported by context.",
+              "answer_quote": "Please re-ask your question specifying the desired outcome, such as 'Only show pending orders on the Operations screen.'"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not define any boundaries for the change and fails to reject backend modifications as unnecessary. It does not assert that filtering can occur client-side using existing data.",
+              "answer_quote": ""
+            },
+            "loaded_scope": {
+              "status": "fail",
+              "reason": "The answer does not maintain the required scope of filtering only the loaded orders. It does not mention the 200-order limit or reject historical search implications, leaving the scope undefined.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer incorrectly states that order-service, inventory-service, and notification-worker already meet the standard for dependency-aware health checks (Q12, Q22), implying no changes are needed. Verified facts only confirm database connectivity for order and inventory, and startup/connection for notification-worker. The answer overstates current capability by not acknowledging gaps in post-startup dependency monitoring and bounded probes.",
+              "answer_quote": "- **order-service**, **inventory-service**, **notification-worker**: These already implement dependency-aware health checks\u2014database for order and inventory services [70d243328bc095bc506f32afe2e3901aabc2bf689aafaf741a3c4c7da7f0797a][b05265fab80ed6f96614a5bda2247e37f3e3809aa2d925c1c26a0329305d548c], and both database and RabbitMQ for notification-worker [33ae3fe37373ab921a1877d4c0828e6f7e0eb08e932b733d898a36e45d822fca]."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not fully satisfy the request to prevent work from being sent to unready services. It focuses on HTTP routing via Kubernetes but under-specifies message queue consumption controls for notification-worker. It also fails to ensure readiness checks are bounded and safe (no business effects), and does not address how in-progress work is handled during dependency loss.",
+              "answer_quote": "- **Prevent work to unready services**: Ensured by aligning orchestrator readiness gates (e.g., Kubernetes) with accurate `/health` responses that reflect dependency health."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-checkout-observability",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer implies that Correlation-ID propagation and diagnostic endpoints are part of the current or immediately implementable system, but verified facts confirm no consistent end-to-end tracing exists. It presents proposed features as if they are current or trivially addable without acknowledging they are new developments, violating the prohibition against describing proposed features as existing capabilities.",
+              "answer_quote": "The strategy is to implement end-to-end traceability by introducing a Correlation-ID that is generated at checkout initiation in the customer-portal and propagated through all downstream services."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-external-payment-provider",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that no code modifications are needed and that the current system supports real payment collection, contradicting the verified fact that 'The current Portal does not collect a real payment method'.",
+              "answer_quote": "This is a configuration-driven change that does not require code modifications, as the service already abstracts the provider behind a defined HTTP interface with safety guarantees for uncertain outcomes."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The plan does not address how real customer payment collection will be implemented, which is central to replacing the mock. It focuses only on backend configuration, ignoring the frontend collection requirement.",
+              "answer_quote": "Replace the mock payment provider by reconfiguring the payment-service to point to the external provider\u2019s production endpoint."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan relies on the assumption that the external provider supports idempotency and error codes without verifying it, and it omits necessary changes to the customer-portal, making the approach infeasible.",
+              "answer_quote": "Ensure the external provider supports idempotency and predictable error responses before full cutover."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "evaluator_error"
+          ],
+          "failed_requirements": {},
+          "judge_error": {
+            "status": "error",
+            "error": "AssessmentValidationError",
+            "validation_errors": [
+              "Coverage requires evidence",
+              "Coverage requires evidence"
+            ],
+            "scoring_attempts": 2
+          },
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response implies the request might be feasible with clarification, which contradicts the verified fact that the requirements are logically incompatible. It fails to acknowledge the impossibility, thus making an incorrect implicit claim about feasibility.",
+              "answer_quote": ""
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response does not satisfy the uncertain behavior requirement by failing to state the logical conflict. Instead of explaining infeasibility and proposing a resolution, it deflects with a clarification request, which is not aligned with the intended behavior.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-provider-quotes",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the requested outcome of planning a change to destination-based rates using provider-supplied quotes. Instead, it asks for more information, failing to deliver the required plan.",
+              "answer_quote": "To plan this change, I need to clarify a few key aspects."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not propose any plan boundaries or service responsibilities. It fails to avoid requiring unrelated changes because it proposes nothing at all.",
+              "answer_quote": "To plan this change, I need to clarify a few key aspects."
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The selected alternative (provider-supplied quotes) is not adopted. The answer does not mention it or build upon it.",
+              "answer_quote": ""
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The original request and constraints (e.g., no fallback, customer confirmation) are not preserved in any proposed solution, as no solution is offered.",
+              "answer_quote": ""
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not address or exclude the rejected regional or hybrid fallback approaches. It avoids the replan task entirely.",
+              "answer_quote": ""
+            },
+            "no_fallback": {
+              "status": "fail",
+              "reason": "The constraint against regional or fixed-price fallback is not addressed in any proposed plan, as no plan is provided.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-payment-timeout-assumption",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "useful_checks": {
+              "status": "fail",
+              "reason": "Suggests checking payment status and idempotency but does not provide a concrete, discriminating check that distinguishes between success and failure. Generic prompts like 'check payment status' are insufficient.",
+              "answer_quote": "Would you like to check the payment status first, design an idempotent retry mechanism, or coordinate with order fulfillment?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-confirmed-decline-stock",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that retained stock after a decline 'contradicts documented behavior' (Q1), when verified facts confirm that release attempts may fail and stock may remain reserved pending manual review. This asserts a deviation where none is guaranteed.",
+              "answer_quote": "The reported issue \u2014 that stock remains reserved despite an explicit payment decline \u2014 contradicts documented behavior."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-notification-portal",
+          "repetition": 1,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer fails to address the requested outcome of planning a notification recovery capability via the Customer Portal. Instead, it requests clarification.",
+              "answer_quote": "Please re-ask with the desired outcome, such as 'Allow customer support to manually resend confirmation emails for failed deliveries via the portal.'"
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not propose any boundaries or approach, instead deferring the request.",
+              "answer_quote": "To plan this capability, we need to clarify: Which operation should be retried \u2014 the initial confirmation email or a specific follow-up?"
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The selected alternative from replan_context is to use the Customer Portal Operations screen, but the answer does not adopt this approach.",
+              "answer_quote": ""
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The answer does not preserve the original request or the surviving constraints (e.g., Order Service unchanged, Portal changes allowed and required).",
+              "answer_quote": ""
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not address any changes, so it fails to exclude the previously rejected command-only approach or affirm the required Portal changes.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "outbox",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents or overemphasizes implementation mechanisms (e.g., 'transactional outbox', 'publisher confirms') as the basis for reliability, which are not stated in the verified current facts. The verified facts emphasize saving events before publishing, retrying on failure, confirmation-based publishing status, and deduplication by Notification Worker \u2014 none of which are accurately reflected. This materially contradicts the approved reference.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern via the 'order_outbox' table in PostgreSQL [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to convey the essential facts about how reliability is ensured: saving events before publishing, retrying on failure, confirmation of receipt before marking as published, and handling of duplicates by Notification Worker. Instead, it provides low-level technical infrastructure details not required or requested, replacing required content with irrelevant implementation specifics.",
+              "answer_quote": "Reliable delivery of order confirmation events is ensured by the order-service using a durable AMQP event queue 'order.confirmed' with publisher confirms and a transactional outbox pattern via the 'order_outbox' table in PostgreSQL [364b03084e2329c60975ce051b25c58ab63a4f31904d239182d8e50588040787][5984f8046b6483d55374a8a5b0c19a64995fe6de1608623a0565965a22a8ef91][829219b6b7203121d07a40eaa3de7ef97afc593506c763c4c65be67831dc8a6b]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-delivery",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents implementation-specific mechanisms (advisory lock, upsert, Idempotency-Key header) as the primary means of duplicate prevention, which contradicts the verified fact that duplicate prevention during interrupted delivery relies on the email provider recognizing repeat requests. This materially misrepresents existing capabilities.",
+              "answer_quote": "Duplicate emails are prevented through idempotency: the notification-worker uses the eventId to upsert into the notification_deliveries table and acquires an advisory lock on hashtext(eventId) to ensure only one delivery attempt proceeds [cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended answer behavior by omitting the essential fact about the email provider's role in duplicate prevention and instead providing low-level implementation details not required or supported by the reference. It does not convey the reference meaning accurately at a high level.",
+              "answer_quote": "Each delivery attempt is recorded with status, attempts, and last error in PostgreSQL, and the external email provider is called with an Idempotency-Key header to prevent duplicates at the provider level [9c80ed2cb1302b9cdc056f0d6e0b59e7fe77041cc1a2e996f3e7542af2334214][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "notification-gaps",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that failed messages are dead-lettered to the order.confirmed.dead queue, which contradicts the verified fact that the notification is simply marked as failed. This invents a current capability (queue-based dead-lettering) not present in the reference.",
+              "answer_quote": "After failed attempts, the message is dead-lettered to the order.confirmed.dead queue [e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b][cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to mention that 'the confirmed order remains unchanged', a required essential fact. Instead, it focuses on message dead-lettering and database tables, which are not required and distract from the core behavior. It also includes prohibited low-level details.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "shipping-contract",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that the provider 'must reject subsequent requests with the same key if the payload differs', which is not stated in the verified facts or reference. The reference only says repeat requests are identified so the provider can avoid duplicates, not that rejection is required based on payload differences. This is a material overstatement.",
+              "answer_quote": "Duplicate shipment requests are prevented using the Idempotency-Key header, which is set to the orderId; the provider must reject subsequent requests with the same key if the payload differs [0ea20af2628c95d818fdc0c403db18009cc11c1dac055e58776cf314e0c2d434]."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The answer fails to satisfy the intended behavior by including unnecessary implementation details (e.g., Idempotency-Key header, 500 cents, payload comparison) and omitting a clear, high-level summary of how duplicates are handled per the reference. It does not convey the essential facts in high-level language as required.",
+              "answer_quote": "The shipping charge is a fixed rate of 500 cents (USD 5.00) as defined in the fixed rate response [0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-variable-shipping",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the requested outcome of planning a change to destination-based rates; instead, it deflects with questions despite sufficient context being provided.",
+              "answer_quote": "Please re-ask with your intended outcome and constraints."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer fails to establish any boundaries for the change and does not leverage the verified facts to avoid unverified assumptions, instead avoiding the task altogether.",
+              "answer_quote": "Please re-ask with your intended outcome and constraints."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "application-responsibilities",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the acceptance criterion: 'Cover all six service responsibilities and distinguish services from their providers.' It does not clearly state that Notification Worker sends confirmation emails through an email provider, nor does it consistently distinguish all services from providers (e.g., payment and shipping providers are mentioned only implicitly). The notification-worker omission is material.",
+              "answer_quote": "CommerceLens consists of several core services: the customer-portal provides a browser UI for users to browse products and place demo orders [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the order-service orchestrates checkout by coordinating inventory, payment, and shipping workflows [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the inventory-service manages product prices and stock reservations [3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c]; the payment-service handles payment authorization and refunds [b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c]; the shipping-service manages shipping creation, typically using a mock provider in demo mode [a2acc99ea171140c1af1216ac0f024eed54125c07d194084a2e8dd1ba139fb1b]; and the notification-worker processes and delivers notifications, though specific details are not in the provided evidence."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "unknown-live-stock",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer invents a live stock count of 100 units for BOOK-001, which is not supported by any verified fact and contradicts the approved reference stating that current stock information is unavailable.",
+              "answer_quote": "Therefore, there are 100 units of BOOK-001 available right now."
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to satisfy the unknown behavior by fabricating a specific stock level instead of acknowledging the lack of live data. It does not meet the acceptance criteria of clearly acknowledging unavailable live data and avoiding fabrication.",
+              "answer_quote": "Therefore, there are 100 units of BOOK-001 available right now."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "clarify-retry",
+          "repetition": 2,
+          "mode": "ask",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "expected_response": {
+              "status": "fail",
+              "reason": "The response fails to fully satisfy the clarify behavior as defined by the acceptance criteria. It asks which operation is being retried and requests more detail, but does not explicitly ask about what happened on the previous attempt, which is a required component.",
+              "answer_quote": "Please specify the operation and re-ask your question with the desired outcome."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-portal-status-filter",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims that server-side filtering is necessary and that the current system does not support status-based queries, contradicting verified facts that the Portal already loads statuses and no backend change is needed.",
+              "answer_quote": "Implement server-side filtering in the `order-service` to support status-based queries and extend the `customer-portal` UI with a status filter control."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposed approach changes the backend and implements server-side filtering, which exceeds the request to filter only the currently loaded orders in the Portal. It does not satisfy the core constraint of avoiding historical search implications.",
+              "answer_quote": "Implement server-side filtering in the `order-service` to support status-based queries and extend the `customer-portal` UI with a status filter control."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan requires changes to `order-service` and resolution of documentation conflicts, which are unrelated to the current task and not justified by verified capabilities. It relies on unverified assumptions about backend filtering necessity.",
+              "answer_quote": "- **order-service**: Update the `GET /api/orders` endpoint to accept an optional `status` query parameter."
+            },
+            "loaded_scope": {
+              "status": "fail",
+              "reason": "The answer proposes server-side filtering that implies querying the entire order history, violating the requirement to keep filtering within the currently loaded Portal orders. It does not clarify that only 200 orders are loaded.",
+              "answer_quote": "Filtering occurs at the server level, reducing client-side load and ensuring only relevant data is retrieved."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-checkout-observability",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely claims the Idempotency-Key is currently usable as a universal correlation identifier for end-to-end tracing. Verified fact: 'Inspected request paths do not establish consistent end-to-end tracing.' This materially contradicts the approved reference and verified facts.",
+              "answer_quote": "Enable end-to-end checkout tracing for support staff by leveraging the existing Idempotency-Key as a universal correlation identifier."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-external-payment-provider",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer falsely implies the current system can handle real payment collection by only changing the provider URL, but the verified fact states 'The current Portal does not collect a real payment method.' This is a material contradiction.",
+              "answer_quote": "Replace the mock payment provider with a production external provider by reconfiguring the `PAYMENT_PROVIDER_URL` in the payment-service."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposal does not address real payment collection in the customer-portal, which is essential to replacing the mock. It focuses only on backend configuration, failing to deliver the requested outcome of enabling real customer payments.",
+              "answer_quote": "- **payment-service**: No code changes required."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer incorrectly assumes no changes are needed to the customer-portal, which is a required service for real payment collection. It also fails to recognize that the current design may not support the provider's collection method (e.g., redirect, embedded component), relying on unverified assumptions.",
+              "answer_quote": "- **order-service**: No changes required."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-service-readiness",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer correctly describes current health checks for payment-service, shipping-service, order-service, and inventory-service. However, it omits that Notification Worker only reports startup/connection readiness (per verified facts), making its claim that only payment and shipping services need updates materially incomplete. This omission misrepresents the current state.",
+              "answer_quote": "- **payment-service**: Currently returns a static 200 OK on `GET /health` without checking the external payment provider [1fe3879c9957e65c68a6b7ad21ec480f482ad54d4c13f98226902d7c5cac03b5]."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The proposal does not fully satisfy the request to make service health reporting consistent across all services and prevent work from being sent to unready services. It omits Notification Worker, which is responsible for consuming work and must pause consumption when dependencies fail. Without this, work can still be sent to an unready worker.",
+              "answer_quote": "## Service changes"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-production-checkout-evidence",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "evaluator_error"
+          ],
+          "failed_requirements": {},
+          "judge_error": {
+            "status": "error",
+            "error": "AssessmentValidationError",
+            "validation_errors": [
+              "Invalid dimension application_correctness: requires exactly score and reason; reason must be a nonempty string",
+              "Coverage requires evidence"
+            ],
+            "scoring_attempts": 2
+          },
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-incompatible-tracking-requirements",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The response implies uncertainty about current behavior but makes no verifiable claim. However, by not stating the known limitation (that current status cannot be guaranteed without provider updates), it fails to uphold truthful current claims. The omission of this essential fact constitutes a material contradiction by silence.",
+              "answer_quote": ""
+            },
+            "expected_response": {
+              "status": "fail",
+              "reason": "The expected behavior is to recognize the infeasibility of the request and propose a constraint adjustment. The response instead asks for clarification, which does not satisfy the required uncertain behavior as defined by the reference. It avoids addressing the logical conflict entirely.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-provider-quotes",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer makes no claims about current behavior and instead requests clarification, failing to acknowledge verified facts such as the fixed $5 USD rate or lack of provider quote capability.",
+              "answer_quote": ""
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer does not address the requested outcome of replanning with provider-supplied quotes. It asks for more details instead of fulfilling the clearly specified replan instruction.",
+              "answer_quote": ""
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not propose any boundaries or service changes, failing to avoid unverified assumptions by simply not engaging with the task.",
+              "answer_quote": ""
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The selected alternative (provider-supplied quotes) is not adopted. The answer does not mention it or build a plan around it.",
+              "answer_quote": ""
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The original request and constraints (destination-based rates, customer confirmation, no fallback) are not preserved because they are not addressed.",
+              "answer_quote": ""
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not acknowledge or exclude the rejected regional or hybrid fallback approaches, leaving them unaddressed.",
+              "answer_quote": ""
+            },
+            "no_fallback": {
+              "status": "fail",
+              "reason": "The constraint against regional or fixed-price fallback is not mentioned or enforced in any way.",
+              "answer_quote": ""
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "replan-notification-portal",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "request_outcome": {
+              "status": "fail",
+              "reason": "The answer fails to address the requested outcome of planning a notification recovery capability using the Customer Portal. Instead, it requests clarification despite sufficient context being provided in the case.",
+              "answer_quote": "Please re-ask with the desired outcome and context (e.g., operator workflow, failure scenario)."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The answer does not propose any boundaries or approach, instead deferring the entire request. It fails to recognize that the replan instruction provides sufficient context and direction.",
+              "answer_quote": "To plan this capability, we need to clarify: Which operation should be retried \u2014 the email send attempt, the order confirmation trigger, or a manual operator action?"
+            },
+            "selected_alternative": {
+              "status": "fail",
+              "reason": "The answer does not adopt the selected alternative (Customer Portal Operations screen) and instead asks for input on initiation method, ignoring the explicit instruction.",
+              "answer_quote": "Should the retry be initiated via the customer portal, an internal tool, or an API?"
+            },
+            "preserved_requirements": {
+              "status": "fail",
+              "reason": "The answer does not preserve the original request (operator retry for exhausted emails) or the replan instruction (use Portal, keep Order Service unchanged). It treats the request as ambiguous rather than acting on the provided direction.",
+              "answer_quote": "Please re-ask with the desired outcome and context (e.g., operator workflow, failure scenario)."
+            },
+            "excluded_changes": {
+              "status": "fail",
+              "reason": "The answer does not recognize that the previous command-only approach is excluded and that Portal changes are now required. It reopens decisions already resolved in the replan context.",
+              "answer_quote": "Should the retry be initiated via the customer portal, an internal tool, or an API?"
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "debug-confirmed-decline-stock",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "Answer incorrectly asserts that a 402 decline guarantees order transition to `failed` and stock release, contradicting verified facts that only an *attempt* is made and failure may result in `manual_review`. This is a material contradiction of current behavior.",
+              "answer_quote": "When the payment provider returns a 402 (explicit decline), the order service is expected to transition the order to `failed` and trigger compensation by releasing the inventory reservation [d8538beec38dd1c0071e66f00ab6b331c7b6fb549b99d3db109c9125c9b1c094][42b0a476259d907de85788b9a303394cb6892d6142ce5f02c1c90989a4019750]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        },
+        {
+          "case_id": "plan-historical-status-filter",
+          "repetition": 2,
+          "mode": "plan",
+          "categories": [
+            "answer_quality"
+          ],
+          "failed_requirements": {
+            "truthful_current_claims": {
+              "status": "fail",
+              "reason": "The answer asserts that the Order Service 'persists the complete order history' and that 'all historical orders' can be accessed by removing the 200-order limit. This contradicts verified facts stating that 'retention or archived data availability is not established.'",
+              "answer_quote": "- **All historical orders**: Achieved by removing the 200-order limit and supporting pagination [9d185a4c51677dda7c5496a87bd3d0668fd1cedb875f499ae5e34cdc962d54bf]."
+            },
+            "request_outcome": {
+              "status": "fail",
+              "reason": "While the approach supports filtering beyond the loaded set, it fails to acknowledge the uncertainty around historical data availability, which is an explicit requirement. The plan assumes full access without qualification, risking misleading implementation.",
+              "answer_quote": "- **All historical orders**: Achieved by removing the 200-order limit and supporting pagination [9d185a4c51677dda7c5496a87bd3d0668fd1cedb875f499ae5e34cdc962d54bf]."
+            },
+            "feasible_boundaries": {
+              "status": "fail",
+              "reason": "The plan assumes the Order Service can already query all historical orders without verifying retention or performance implications. It also omits necessary changes to the customer-portal in the service details, implying the change is backend-only, which violates the requirement for both services to change.",
+              "answer_quote": "- **order-service**: Update the `GET /api/orders` endpoint to accept optional `status` (string) and `limit`/`offset` or cursor-based pagination parameters."
+            },
+            "historical_scope": {
+              "status": "fail",
+              "reason": "The answer claims access to 'all historical orders' and does not acknowledge that archived or deleted data availability is unknown. It also relies solely on Order Service changes without detailing Portal integration responsibilities, making the solution incomplete.",
+              "answer_quote": "- **All historical orders**: Achieved by removing the 200-order limit and supporting pagination [9d185a4c51677dda7c5496a87bd3d0668fd1cedb875f499ae5e34cdc962d54bf]."
+            }
+          },
+          "judge_error": null,
+          "ragas_error": null
+        }
+      ]
+    }
+  ]
+}
