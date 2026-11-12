@@ -20,21 +20,21 @@ class AnswerQualityTests(unittest.TestCase):
   with self.assertRaises(ValueError):decode_response(json.dumps(dict(behavior='uncertain',factual_claims=True,answer='Investigate [S1]',plan=PLAN)))
  def test_editor_preserves_citations_and_updates_answer(self):
   model=Mock(complete=Mock(side_effect=[envelope('Technical draft [S1].'),envelope('Order Service owns this behavior [S1].')]))
-  r=Assistant(Retriever(),model,GRAPH).run('What does order do?')
+  r=Assistant(Retriever(),model,GRAPH,enhance_ask=True).run('What does order do?')
   self.assertEqual(r['status'],'ok');self.assertIn('owns this behavior',r['answer'])
   self.assertTrue(any(t.get('purpose')=='quality_review' for t in r['trace']))
  def test_invalid_editor_does_not_destroy_valid_draft(self):
   model=Mock(complete=Mock(side_effect=[envelope(),'{bad']))
-  r=Assistant(Retriever(),model,GRAPH).run('What does order do?')
+  r=Assistant(Retriever(),model,GRAPH,enhance_ask=True).run('What does order do?')
   self.assertEqual(r['status'],'ok');self.assertIn('Draft',r['answer'])
   self.assertTrue(any(t['step']=='quality_review_rejected' for t in r['trace']))
  def test_editor_respects_existing_model_budget(self):
   model=Mock(complete=Mock(return_value=envelope()))
-  r=Assistant(Retriever(),model,GRAPH,max_model_calls=1).run('What does order do?')
+  r=Assistant(Retriever(),model,GRAPH,enhance_ask=True,max_model_calls=1).run('What does order do?')
   self.assertEqual(r['status'],'ok');self.assertEqual(model.complete.call_count,1)
  def test_unknown_response_needs_no_editor(self):
   model=Mock(complete=Mock(return_value=json.dumps(dict(behavior='unknown',factual_claims=False,answer='I do not have this information.'))))
-  r=Assistant(Retriever(),model,GRAPH).run('What is the live order status?')
+  r=Assistant(Retriever(),model,GRAPH,enhance_ask=True).run('What is the live order status?')
   self.assertEqual(r['status'],'ok');self.assertEqual(model.complete.call_count,1)
 
  def test_router_adds_services_without_discarding_named_service(self):
@@ -63,5 +63,10 @@ class AnswerQualityTests(unittest.TestCase):
 
  def test_editor_invented_citation_preserves_valid_draft(self):
   model=Mock(complete=Mock(side_effect=[envelope('Valid draft [S1].'),envelope('Revised [S999].')]))
-  r=Assistant(Retriever(),model,GRAPH).run('What does order do?')
+  r=Assistant(Retriever(),model,GRAPH,enhance_ask=True).run('What does order do?')
   self.assertEqual(r['status'],'ok');self.assertIn('Valid draft',r['answer'])
+
+ def test_default_ask_keeps_the_single_answer_path(self):
+  model=Mock(complete=Mock(return_value=envelope('Business answer [S1].')))
+  r=Assistant(Retriever(),model,GRAPH).run('What does order do?')
+  self.assertEqual(r['status'],'ok');self.assertEqual(model.complete.call_count,1)
