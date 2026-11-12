@@ -80,8 +80,16 @@ class OpenAICompatibleModel(_Client):
         self.max_tokens = max(1, min(16000, max_tokens))
 
     def complete(self, messages):
-        data = self._post('/chat/completions', {'model': self.model, 'messages': messages,
-                          'max_tokens': self.max_tokens, 'temperature': 0})
+        return self._complete(messages)
+
+    def complete_structured(self, messages, schema):
+        return self._complete(messages, {'type':'json_schema','json_schema':
+                              {'name':'commercelens_response','strict':True,'schema':schema}})
+
+    def _complete(self, messages, response_format=None):
+        body={'model':self.model,'messages':messages,'max_tokens':self.max_tokens,'temperature':0}
+        if response_format is not None:body['response_format']=response_format
+        data = self._post('/chat/completions', body)
         try:
             choice = data['choices'][0]
             content = choice['message']['content']
