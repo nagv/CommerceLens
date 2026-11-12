@@ -66,7 +66,7 @@ class _Client:
                             'http_error' if status else 'timeout' if isinstance(exc,TimeoutError) or
                             isinstance(getattr(exc,'reason',None),TimeoutError) else
                             'connection' if isinstance(exc,(urllib.error.URLError,OSError)) else 'invalid_response')
-                transient = status in (408,429,500,502,503,504) or (status is None and category in ('timeout','connection'))
+                transient = status in (408,429,500,502,503,504,529) or (status is None and category in ('timeout','connection'))
                 if transient and attempt < 2:
                     time.sleep(0.5)
                     continue

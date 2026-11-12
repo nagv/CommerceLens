@@ -122,7 +122,7 @@ def _validate_contract(payload,case,result):
     scores={};reasons={}
     if not isinstance(payload['dimensions'],dict) or set(payload['dimensions'])!=set(dimensions):raise ValueError('Missing dimensions')
     for key,item in payload['dimensions'].items():
-        if not isinstance(item,dict) or set(item)!={'score','reason'} or not isinstance(item['reason'],str) or not item['reason'].strip():raise ValueError('Invalid dimension')
+        if not isinstance(item,dict) or set(item)!={'score','reason'} or not isinstance(item['reason'],str) or not item['reason'].strip():raise ValueError(f'Invalid dimension {key}: requires exactly score and reason; reason must be a nonempty string')
         score=item['score']
         nullable=key in ('application_correctness','documentation_grounding','citation_support') or (key=='plan_alternatives' and case.get('alternatives_policy')!='required')
         if score is None:
@@ -137,8 +137,8 @@ def _validate_contract(payload,case,result):
         if item['answer_quote'] and item['answer_quote'] not in result.get('answer',''):raise ValueError('Fabricated answer quotation')
     if not isinstance(payload['evidence_topics'],dict) or set(payload['evidence_topics'])!=set(topics):raise ValueError('Missing evidence topics')
     ids=set(result.get('retrieved_ids',[]))
-    for item in payload['evidence_topics'].values():
-        if not isinstance(item,dict) or set(item)!={'status','evidence_ids','reason'} or item['status'] not in ('covered','missing','uncertain'):raise ValueError('Invalid evidence assessment')
+    for topic,item in payload['evidence_topics'].items():
+        if not isinstance(item,dict) or set(item)!={'status','evidence_ids','reason'} or item['status'] not in ('covered','missing','uncertain'):raise ValueError(f'Invalid evidence assessment {topic}: requires exactly status, evidence_ids and reason; status must be covered, missing or uncertain')
         if not isinstance(item['evidence_ids'],list) or any(not isinstance(i,str) or i not in ids for i in item['evidence_ids']):raise ValueError('Invented evidence ID')
         if item['status']=='covered' and not item['evidence_ids']:raise ValueError('Coverage requires evidence')
         if not isinstance(item['reason'],str) or not item['reason'].strip():raise ValueError('Missing evidence reason')

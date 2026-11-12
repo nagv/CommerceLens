@@ -240,6 +240,12 @@ class Assistant:
                     result.update(behavior=payload['behavior'], factual_claims=payload['factual_claims'])
                     answer = payload['answer']
                     break
+                def expand_range(match):
+                    first,last=int(match[1]),int(match[2])
+                    if 1 <= first <= last <= len(aliases):
+                        return ''.join(f'[S{i}]' for i in range(first,last+1))
+                    return match[0]  # Invalid/reversed ranges still fail validation.
+                answer = re.sub(r'\[S(\d+)\s*[-\u2013\u2014]\s*S(\d+)\]',expand_range,answer)
                 answer = re.sub(r'\[(S\d+(?:\s*,\s*S\d+)+)\]',
                                 lambda m: ''.join('['+x.strip()+']' for x in m[1].split(',')), answer)
                 # The input-field label is not a documentary source citation.

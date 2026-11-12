@@ -55,6 +55,11 @@ class ContractTests(unittest.TestCase):
         payload=self.payload();item=payload['requirements']['owner'];item.pop('answer_quote');item['quote_id']='Q999'
         self.assertEqual(self.grade(payload)['status'],'error')
 
+    def test_invalid_dimension_feedback_identifies_field(self):
+        payload=self.payload();payload['dimensions']['application_correctness']['reason']=''
+        r=self.grade(payload)
+        self.assertIn('application_correctness',r['validation_errors'][0])
+
     def test_failed_requirement_cannot_be_hidden_by_perfect_scores(self):
         result=self.grade(self.payload())
         self.assertEqual(result['status'],'ok')

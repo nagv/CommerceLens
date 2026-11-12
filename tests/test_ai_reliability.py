@@ -43,3 +43,13 @@ class ReliabilityTests(unittest.TestCase):
   r=Assistant(Retriever(),Model('Order [S1]'),GRAPH).run('How does order avoid duplicate requests?')
   self.assertIn('payment',r['selected_services'])
   self.assertIn('payment-service',r['retrieved_ids'])
+
+ def test_known_citation_range_expands_and_unknown_range_rejects(self):
+  for text,expected in [('Facts [S1\u2013S2]','ok'),('Facts [S1\u2013S999]','invalid_citations'),('Facts [S2-S1]','invalid_citations')]:
+   r=Assistant(Retriever(),Model(text),GRAPH).run('What is order?')
+   self.assertEqual(r['status'],expected)
+ def test_provider_overload_529_retried_once(self):
+  good=Response({'choices':[{'message':{'content':'ok'},'finish_reason':'stop'}]})
+  with patch('urllib.request.OpenerDirector.open',side_effect=[urllib.error.HTTPError('https://example.test',529,'secret',{},None),good]) as op,patch('time.sleep'):
+   self.assertEqual(OpenAICompatibleModel('secret','https://example.test','chat').complete([]),'ok')
+   self.assertEqual(op.call_count,2)
