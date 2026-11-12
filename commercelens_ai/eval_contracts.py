@@ -1,5 +1,6 @@
 """Task-specific semantic assessment with explicit, non-averaged requirement gates."""
 import json
+import re
 import statistics
 from .plan_evaluation import DIMENSIONS
 
@@ -30,6 +31,13 @@ def dimensions_for(case):
                           behavior_appropriateness='Assess actual response, not its self-label: answer, clarification, uncertainty, unknown or scope redirect as appropriate.')
     return dimensions
 
+class AssessmentValidationError(ValueError):
+    def __init__(self, errors):
+        super().__init__('Judge response failed contract validation')
+        self.validation_errors = errors
+        self.scoring_attempts = len(errors)
+
+
 def judge_contract(judge,case,result):
     contract=case['evaluation_contract'];dimensions=dimensions_for(case)
     requirements=contract['must_pass'];topics=contract.get('evidence_topics',{})
@@ -51,9 +59,9 @@ def judge_contract(judge,case,result):
         'When alternatives_policy is required, plan_alternatives MUST be a numeric score; absent alternatives score 0 even for Replan. '
         'Do not call an omission a factual contradiction unless the answer actually makes an incompatible claim. Score omissions under coverage and positive requirements. '
         'A documentation conflict must be reported in documentation_gap without requiring the user-facing answer to discuss it. '
-        'requirements must have exactly the must_pass keys. Each value is {status:pass|fail|unknown,reason:string,answer_quote:string}. '
+        'requirements must have exactly the must_pass keys. Each value is {status:pass|fail|unknown,reason:string,quote_id:string|null}. '
         'Assess each requirement independently. Missing required content is fail, not unknown. Unknown is only genuine assessment uncertainty. '
-        'Use a short EXACT substring from the answer for relevant assertions/violations. Empty quote is allowed for an omission or an absent prohibited claim; explain. '
+        'For relevant assertions or violations select one quote_id from answer_excerpts. Never invent IDs. Use null for an omission or absent prohibited claim and explain. The host resolves the ID to exact text. '
         'Negated prohibited claims are not violations. A polished answer that violates one requirement fails that gate regardless of other scores. '
         'Do not treat the example plan as mandatory architecture. Accept feasible alternatives meeting constraints. '
         'For Replan explicitly compare the previous proposal and selection with the revised answer; do not treat prior proposals as implemented code. '
@@ -63,22 +71,46 @@ def judge_contract(judge,case,result):
         'documentation_gap is {status:none|conflict|insufficient,reason:string}; conflict means retrieved docs contradict verified current facts, not merely omit something. '
         'Required task details and omissions are in evaluation_contract, acceptance_criteria and reference. Be strict about constraints and fair about wording.'
     )
-    messages=[{'role':'system','content':prompt}, {'role':'user','content':json.dumps({'case':case,'result':result})}]
+    # Short aliases prevent copy errors without changing evidence or scoring rules.
+    excerpts={f'Q{i}':text for i,text in enumerate((part.strip() for part in re.split(r'(?<=[.!?])\s+|\n+',result.get('answer','')) if part.strip()),1)}
+    serialized=json.dumps(result)
+    aliases={}
+    for cid in dict.fromkeys(result.get('retrieved_ids',[])):
+        if re.fullmatch('[0-9a-f]{64}',cid):
+            index=len(aliases)+1
+            while 'E'+str(index) in serialized or 'E'+str(index) in aliases:index+=1
+            aliases['E'+str(index)]=cid
+    for alias,cid in aliases.items():serialized=serialized.replace(cid,alias)
+    excerpt_text=json.dumps(excerpts)
+    for alias,cid in aliases.items():excerpt_text=excerpt_text.replace(cid,alias)
+    messages=[{'role':'system','content':prompt},
+              {'role':'user','content':json.dumps({'case':case,'result':json.loads(serialized),'answer_excerpts':json.loads(excerpt_text)})}]
+
     errors=[]
     for attempt in range(2):
         raw=judge.complete(messages)
         try:
-            assessment=_validate_contract(json.loads(raw),case,result)
+            restored=raw
+            if aliases:
+                restored=re.sub(r'\b(?:'+ '|'.join(map(re.escape,aliases))+r')\b',lambda m:aliases[m[0]],raw)
+            payload=json.loads(restored)
+            if isinstance(payload,dict) and isinstance(payload.get('requirements'),dict):
+                for item in payload['requirements'].values():
+                    if isinstance(item,dict) and set(item)=={'status','reason','quote_id'}:
+                        qid=item.pop('quote_id')
+                        if qid is not None and (not isinstance(qid,str) or qid not in excerpts):raise ValueError('Invented answer excerpt ID')
+                        item['answer_quote']=excerpts[qid] if qid else ''
+            assessment=_validate_contract(payload,case,result)
+            assessment['judge_transport_version']='v3-excerpts-1'
             assessment['scoring_attempts']=attempt+1
             assessment['validation_errors']=errors
             return assessment
         except ValueError as exc:
             errors.append(type(exc).__name__ if isinstance(exc,json.JSONDecodeError) else str(exc))
-            if attempt:raise
+            if attempt:raise AssessmentValidationError(errors) from None
             messages.extend([{'role':'assistant','content':raw}, {'role':'user','content':
                 'Your assessment failed validation: '+errors[-1]+'. Return the complete corrected JSON. '
-                'Keep the same substantive assessment. Copy quotations exactly from the response, including punctuation and whitespace; '
-                'use a shorter exact substring instead of paraphrasing or joining fragments. Required numeric dimensions cannot be null. '
+                'Keep the same substantive assessment. Choose quote_id from answer_excerpts, or null for omissions; do not copy or invent quotations. Required numeric dimensions cannot be null. '
                 'Use only supplied evidence IDs and all required keys.'}])
 
 

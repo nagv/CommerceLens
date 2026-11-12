@@ -12,7 +12,7 @@ class CliTests(unittest.TestCase):
    self.assertEqual(main(['evaluate','--ragas']),0)
   for client in (llm,emb):
    self.assertEqual(client.call_args.kwargs['timeout'],60)
-   self.assertEqual(client.call_args.kwargs['max_retries'],0)
+   self.assertEqual(client.call_args.kwargs['max_retries'],1)
 
  def test_json_mode_keeps_error_exit_status(self):
   from commercelens_ai.cli import main

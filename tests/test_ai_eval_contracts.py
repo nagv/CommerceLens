@@ -29,6 +29,32 @@ class ContractTests(unittest.TestCase):
     def grade(self,payload):
         return _judge(Mock(complete=Mock(return_value=json.dumps(payload))),CASE,{'answer':'Order Service owns stock.','retrieved_ids':['c1']})
 
+    def test_long_evidence_ids_use_short_aliases_and_restore_validation(self):
+        cid='a'*64
+        payload=self.payload();payload['evidence_topics']['ownership']['evidence_ids']=['E1']
+        payload['requirements']['owner']['answer_quote']='Order Service [E1]'
+        model=Mock(complete=Mock(return_value=json.dumps(payload)))
+        result=_judge(model,CASE,{'answer':'Order Service ['+cid+'] owns stock.','retrieved_ids':[cid]})
+        self.assertEqual(result['status'],'ok')
+        self.assertEqual(result['evidence_topics']['ownership']['evidence_ids'],[cid])
+        self.assertNotIn(cid,model.complete.call_args.args[0][1]['content'])
+
+    def test_validation_failure_keeps_safe_reason_and_attempts(self):
+        payload=self.payload();payload['requirements']['owner']['answer_quote']='fabricated'
+        result=self.grade(payload)
+        self.assertEqual(result['validation_errors'],['Fabricated answer quotation']*2)
+        self.assertEqual(result['scoring_attempts'],2)
+
+    def test_quote_selection_resolves_exact_original_excerpt(self):
+        payload=self.payload();item=payload['requirements']['owner'];item.pop('answer_quote');item['quote_id']='Q1'
+        r=self.grade(payload)
+        self.assertEqual(r['status'],'ok')
+        self.assertEqual(r['requirements']['owner']['answer_quote'],'Order Service owns stock.')
+
+    def test_unknown_quote_selection_stays_error(self):
+        payload=self.payload();item=payload['requirements']['owner'];item.pop('answer_quote');item['quote_id']='Q999'
+        self.assertEqual(self.grade(payload)['status'],'error')
+
     def test_failed_requirement_cannot_be_hidden_by_perfect_scores(self):
         result=self.grade(self.payload())
         self.assertEqual(result['status'],'ok')

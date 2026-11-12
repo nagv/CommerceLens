@@ -38,3 +38,8 @@ class ReliabilityTests(unittest.TestCase):
   instruction=model.messages[-1][-1]['content']
   self.assertIn('plan is a mode, not a behavior',instruction)
   self.assertIn('answer, partial_answer, uncertain, unknown, clarify, redirect',instruction)
+
+ def test_duplicate_question_fetches_adjacent_service_evidence(self):
+  r=Assistant(Retriever(),Model('Order [S1]'),GRAPH).run('How does order avoid duplicate requests?')
+  self.assertIn('payment',r['selected_services'])
+  self.assertIn('payment-service',r['retrieved_ids'])

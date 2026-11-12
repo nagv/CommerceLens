@@ -116,7 +116,7 @@ class Assistant:
             services = {n['id']: n for n in nodes if n.get('type', 'service') == 'service'}
             global_question = bool(re.search(r'\b(entire|all services|whole|overview|architecture|application|system)\b', question, re.I))
             cross_service = bool(re.search(
-                r'\b(timeouts?|workflows?|flows?|conflicts?|agree|disagree|dependencies|connected)\b', question, re.I))
+                r'\b(timeouts?|workflows?|flows?|conflicts?|agree|disagree|dependencies|connected|duplicates?|idempoten\w*|coordinat\w*)\b', question, re.I))
             selected = []
             for sid, node in services.items():
                 aliases = [sid, node.get('name', ''), sid.removeprefix('commercelens-').removesuffix('-service').removesuffix('-worker')]
@@ -180,6 +180,12 @@ class Assistant:
                           'Clearly distinguish documented behavior, proposed changes and unknowns. Preserve conflicts and uncertainty. If evidence is insufficient say so. '
                           'Do not provide code filenames, line numbers or line-level implementation plans. General help may be concise; unrelated questions should state this assistant scope. '
                           'Only cite IDs actually supplied. Citations establish evidence pointers, not proof that unsupported assertions are true.')
+                system += (' Before answering, distinguish current documented capabilities from proposed capabilities; never invent an existing endpoint or provider guarantee. '
+                           'For cross-service behavior, identify both the initiating service and the service that enforces the outcome. Include relevant uncertainty, recovery limits and final customer-visible outcomes from the evidence. '
+                           'For requests about a particular live order, current stock or present operational status, state plainly that you do not have that live information. Static documentation does not establish a live value; do not substitute API instructions for that admission. '
+                           'For high-level Ask, explain money in dollars and behavior in business language; use browser storage rather than storage APIs, duplicate prevention rather than header names, and failed delivery rather than queue identifiers. '
+                           'For overview questions cover all core service responsibilities and distinguish services from external providers, without technology-stack details. '
+                           'For proposed changes, explicitly account for customer-facing effects, consistency on repeated requests, and prerequisite provider capabilities; label unverified capabilities as checks or proposed additions. ')
                 system += (' Return ONLY a JSON object with behavior, factual_claims (boolean), and answer (string). '
                            'behavior must be answer, partial_answer, uncertain, unknown, clarify, or redirect. Plan is a request mode, never a behavior value. '
                            'Use answer for supported facts; partial_answer when only part is supported; uncertain when evidence supports only a qualified conclusion; '

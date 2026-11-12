@@ -120,7 +120,12 @@ def _judge(judge, case, result):
                 raise ValueError('Invalid score')
         return {'status':'ok','scores':values}
     except Exception as exc:
-        return {'status':'error','error':type(exc).__name__}
+        error={'status':'error','error':type(exc).__name__}
+        if hasattr(exc,'validation_errors'):
+            error.update(validation_errors=exc.validation_errors,scoring_attempts=exc.scoring_attempts)
+        if hasattr(exc,'category'):
+            error.update(error_category=exc.category,http_status=exc.http_status,attempts=exc.attempts)
+        return error
 
 
 def _strip_known_citations(text, known_ids):

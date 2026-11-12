@@ -123,8 +123,8 @@ def main(argv=None):
             if args.ragas:
                 # Imports are explicit: optional missing evaluator dependencies never silently disappear.
                 from langchain_openai import ChatOpenAI,OpenAIEmbeddings
-                kwargs['ragas_llm']=ChatOpenAI(model=settings.chat_model,api_key=settings.chat_api_key,base_url=settings.chat_base_url,temperature=0,timeout=60,max_retries=0)
-                kwargs['ragas_embeddings']=OpenAIEmbeddings(model=settings.embedding_model,api_key=settings.embedding_api_key,base_url=settings.embedding_base_url,check_embedding_ctx_length=False,timeout=60,max_retries=0)
+                kwargs['ragas_llm']=ChatOpenAI(model=settings.chat_model,api_key=settings.chat_api_key,base_url=settings.chat_base_url,temperature=0,timeout=60,max_retries=1)
+                kwargs['ragas_embeddings']=OpenAIEmbeddings(model=settings.embedding_model,api_key=settings.embedding_api_key,base_url=settings.embedding_base_url,check_embedding_ctx_length=False,timeout=60,max_retries=1)
             if args.langsmith:
                 if not settings.langsmith_api_key:raise ValueError('LANGSMITH_API_KEY is required for experiment upload')
                 from langsmith import Client
