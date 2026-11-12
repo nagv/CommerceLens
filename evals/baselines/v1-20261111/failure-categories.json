@@ -1,0 +1,854 @@
+{
+  "application_failures": [
+    {
+      "case_id": "notification-delivery",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "retrieve",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "outbox",
+      "status": "invalid_citations",
+      "detail": {
+        "step": "citation_validation",
+        "valid": false,
+        "invalid_ids": [
+          "S1, S3, S7",
+          "S1, S6, S7",
+          "S1, S7"
+        ],
+        "missing": false
+      }
+    },
+    {
+      "case_id": "plan-checkout-observability",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "retrieve",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-notification-attempt-limit",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-portal-status-filter",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-external-payment-provider",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "retrieve",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-shipment-tracking",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "retrieve",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-service-readiness",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:route",
+        "error_type": "ProviderError"
+      }
+    },
+    {
+      "case_id": "plan-incompatible-tracking-requirements",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "case_id": "debug-missing-confirmation-email",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "case_id": "replan-notification-command",
+      "status": "invalid_citations",
+      "detail": {
+        "step": "citation_validation",
+        "valid": false,
+        "invalid_ids": [
+          "S1, S14"
+        ],
+        "missing": false
+      }
+    },
+    {
+      "case_id": "debug-payment-timeout-assumption",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "case_id": "plan-historical-status-filter",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "case_id": "replan-notification-portal",
+      "status": "invalid_citations",
+      "detail": {
+        "step": "citation_validation",
+        "valid": false,
+        "invalid_ids": [
+          "replan_context"
+        ],
+        "missing": false
+      }
+    },
+    {
+      "case_id": "debug-confirmed-decline-stock",
+      "status": "error",
+      "detail": {
+        "step": "provider_error",
+        "stage": "model:answer",
+        "error_type": "ValueError"
+      }
+    }
+  ],
+  "answer_quality_failures": [
+    {
+      "case_id": "checkout-coordinator",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.5,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.5,
+          "correctness": 1.0,
+          "completeness": 0.5,
+          "behavior_appropriateness": 1.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.7857142857142857,
+          "evidence_topic_recall": 1.0,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer correctly states that order-service coordinates inventory, payment, and shipping, and cites the reservation of inventory, payment authorization, and shipment creation. However, it omits the essential verified fact that the order service records an uncertain payment state before requesting payment, which is a key part of safe recovery. This omission reduces completeness but does not make stated facts false.",
+          "documentation_grounding": "All factual claims in the answer are directly supported by the retrieved documents. The reservation via inventory-service, payment authorization via payment-service, and shipment creation via shipping-service are all described in the cited contexts, particularly in the order-service flow [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31] and related service overviews.",
+          "citation_support": "Each major claim is supported by at least one citation ID that appears in the retrieved contexts. The citations are relevant: inventory reservation [1034379ec65631028f57f78393ef9d2f13c512e8e872220480427a244ba02e3a], payment authorization [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31], and shipment creation [ddcee903bb357300811bfe1d3f750ff64038c2c51bcec4b4fa338be18465ed35] are all properly cited with matching IDs from the retrieved set.",
+          "appropriate_detail": "The answer includes some implementation-specific details such as 'Idempotency-Key header' and references to locking mechanisms in inventory-service, which go beyond the high-level coordination requested. While idempotency is relevant, the emphasis on technical mechanisms like row locking and advisory locks exceeds the required level of abstraction per acceptance criteria.",
+          "correctness": "The answer conveys the essential meaning of the reference: order-service orchestrates the three services in sequence. It correctly describes the coordination flow and outcome (confirmation), even if it omits the intermediate uncertain state. Paraphrasing is accurate and acceptable.",
+          "completeness": "The answer covers the main coordination steps but omits the critical fact that the order service checkpoints to 'payment_unknown' before calling payment-service, which supports safe recovery. This is a material omission from the essential facts in the evaluation contract.",
+          "behavior_appropriateness": "The response is a direct answer to the question, as expected. It does not deflect, request clarification, or express uncertainty, which is appropriate given the available information."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "pass",
+            "reason": "No claims contradict verified facts. The described behavior aligns with the reference, though a key step is omitted. Omission is not a falsehood.",
+            "answer_quote": "The order-service acts as the checkout coordinator, orchestrating inventory, payment, and shipping through a defined sequence."
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The answer fails to include the essential fact about recording an uncertain payment state before payment authorization, which is required for safe recovery and explicitly listed in verified_current_facts and essential_facts.",
+            "answer_quote": ""
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31"
+            ],
+            "reason": "The retrieved context [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31] explicitly describes order-service reserving inventory, authorizing payment, and creating shipment."
+          },
+          "fact_2": {
+            "status": "covered",
+            "evidence_ids": [
+              "a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31"
+            ],
+            "reason": "The same context describes checkpointing to 'confirmed' and inserting an outbox event, which corresponds to confirming the order and durable recording."
+          },
+          "fact_3": {
+            "status": "covered",
+            "evidence_ids": [
+              "a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31"
+            ],
+            "reason": "The retrieved context includes 'Checkpoint order to payment_unknown before payment call', which directly supports the fact that an uncertain payment state is recorded before requesting payment."
+          }
+        },
+        "documentation_gap": {
+          "status": "none",
+          "reason": "The retrieved documents fully support the verified facts, including the recording of the uncertain payment state. The answer's omission of this fact does not reflect a documentation gap but a failure to include available information."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "portal-idempotency",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.5,
+          "correctness": 0.5,
+          "completeness": 0.0,
+          "behavior_appropriateness": 1.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": null,
+          "quality": 0.5714285714285714,
+          "evidence_topic_recall": 0.5,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer claims the Customer Portal stores the 'Idempotency-Key and checkout payload in sessionStorage', which aligns with the verified current facts. However, it omits the role of the Order Service in recognizing the existing attempt to avoid duplicates, a required essential fact. The answer focuses only on the frontend and idempotency key mechanism without explicitly stating that the Order Service uses this to prevent duplicate orders, making the response materially incomplete on a core behavior.",
+          "documentation_grounding": "The claims about storing the Idempotency-Key and checkout payload in sessionStorage are directly supported by retrieved documents [540dfbeec23c9bf0c5af2915456cf4c2c48f4dd5778a414dc4c52342a4c13c74] and [86ad950fc3381c126e617a63c75402b6144699cbd8c3a1dd4f415a340fd801ae], and the purpose of deduplication is confirmed in [86ad950fc3381c126e617a63c75402b6144699cbd8c3a1dd4f415a340fd801ae]. The general mechanism is well-grounded in the provided evidence.",
+          "citation_support": "Each key factual claim in the answer is supported by a citation with a valid ID and relevant excerpt. The use of idempotency key and sessionStorage is cited to [540dfbeec23c9bf0c5af2915456cf4c2c48f4dd5778a414dc4c52342a4c13c74] and [86ad950fc3381c126e617a63c75402b6144699cbd8c3a1dd4f415a340fd801ae], and the consistency during failures is supported by [32c76512f21431651d878127f264de41674ec41d00ba8b8d95d240783aef674f], all of which contain relevant supporting text.",
+          "appropriate_detail": "The answer includes specific implementation details like 'sessionStorage', 'Idempotency-Key', and 'payload' which go beyond the high-level explanation requested. While not entirely inappropriate, the focus on technical mechanisms (e.g., headers, exact storage method) exceeds the required level of abstraction per acceptance criteria that prohibit requiring table names or implementation mechanisms.",
+          "correctness": "The answer correctly describes the idempotency mechanism and browser storage, but fails to mention the Order Service's role in recognizing the existing attempt to prevent duplicates. This omission prevents full correctness, though the portion stated is accurate.",
+          "completeness": "The answer omits the essential fact that the Order Service recognizes the existing attempt to avoid creating duplicate orders. This is one of two essential facts in the evaluation contract and is not covered, making the response materially incomplete.",
+          "behavior_appropriateness": "The response is an answer, which matches the expected behavior. It directly addresses the question without unnecessary deflection, clarification, or uncertainty, fulfilling the 'answer' intent appropriately."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer makes no false claims but omits a core current behavior (Order Service recognizing existing attempt), which constitutes a material omission under the prohibition of materially contradicting verified facts. Omission of a verified current fact fails this requirement.",
+            "answer_quote": ""
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The response fails to satisfy the intended answer behavior by omitting the Order Service's role in deduplication, which is a required essential fact. The answer focuses only on the frontend mechanism and does not convey the full cross-service behavior as defined in the reference.",
+            "answer_quote": ""
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "540dfbeec23c9bf0c5af2915456cf4c2c48f4dd5778a414dc4c52342a4c13c74",
+              "86ad950fc3381c126e617a63c75402b6144699cbd8c3a1dd4f415a340fd801ae",
+              "32c76512f21431651d878127f264de41674ec41d00ba8b8d95d240783aef674f"
+            ],
+            "reason": "Multiple retrieved documents confirm that the Customer Portal saves checkout details (including Idempotency-Key and payload) in sessionStorage, supporting fact_1."
+          },
+          "fact_2": {
+            "status": "missing",
+            "evidence_ids": [],
+            "reason": "No retrieved document explicitly states that the Order Service recognizes the existing attempt to avoid duplicate orders. While [a03e655ab59a60bf3bbb59ccf2b56c78a8031f8cf95126a28f32e33291538b31] describes the Order Service creating an idempotency record, it does not clearly state that it uses this to recognize and reuse an existing attempt, which is the core of fact_2."
+          }
+        },
+        "documentation_gap": {
+          "status": "insufficient",
+          "reason": "The retrieved contexts lack a clear statement that the Order Service recognizes an existing checkout attempt to prevent duplicates, despite describing idempotency record creation. This leaves a gap in documenting the actual deduplication behavior, which is required by the verified facts but not sufficiently explained in the retrieved evidence."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "shipping-contract",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.0,
+          "correctness": 0.5,
+          "completeness": 1.0,
+          "behavior_appropriateness": 1.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.6428571428571429,
+          "evidence_topic_recall": 1.0,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer claims duplicate shipment requests are prevented using the 'Idempotency-Key header, which is set to the orderId'. This specific implementation mechanism is not part of the verified current facts, which only state that repeat requests are identified to avoid duplicates. The reference does not specify any header or technical method, so this detail constitutes an invented current capability, violating the prohibition against describing proposed or technical features as existing behavior.",
+          "documentation_grounding": "The claim about the fixed charge is grounded in the retrieved document [0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e], which states 'Fixed rate response {shippingCents:500, currency:\"USD\"}'. The claim about duplicate handling is grounded in [91b5851d4512035fc2dade22e88de34e75fbb18c3250a7f67e60e8b93ca25e05], which says 'Send POST /shipments to provider with Idempotency-Key header equal to orderId'. Both claims are directly supported by the retrieved evidence.",
+          "citation_support": "Each factual claim is paired with a valid citation. The shipping charge is cited to [0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e], and the duplicate handling mechanism is cited to [91b5851d4512035fc2dade22e88de34e75fbb18c3250a7f67e60e8b93ca25e05]. Both IDs correspond to documents that contain the claimed information, satisfying the citation policy.",
+          "appropriate_detail": "The answer includes low-level implementation details such as '500 cents (USD)' and 'Idempotency-Key header', which violate the instruction to 'Do not require table names or implementation mechanisms'. The reference uses high-level language ('fixed charge of $5 USD') and does not mention headers or technical identifiers. These specifics are unnecessary and contradict the requirement for high-level explanation.",
+          "correctness": "The answer captures the essential facts\u2014fixed shipping charge and prevention of duplicate shipments\u2014but expresses them in a technically detailed way not aligned with the reference. '500 cents (USD)' is numerically correct but not equivalent in tone to '$5 USD'. The core meaning is partially preserved, but the presentation fails to match the high-level intent.",
+          "completeness": "Both parts of the question are addressed: the shipping charge and duplicate request handling. No essential fact from the reference is omitted. The answer includes more detail than required, but nothing is missing.",
+          "behavior_appropriateness": "The response is an 'answer', which matches the expected behavior. It directly responds to the question without deflection, clarification, or uncertainty, fulfilling the intended behavior."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer asserts a specific technical mechanism\u2014'Idempotency-Key header'\u2014as part of current behavior, which is not present in the verified facts. The reference only states that repeat requests are identified to avoid duplicates, without specifying how. This adds a concrete implementation detail not verified as existing, violating the prohibition on invented capabilities.",
+            "answer_quote": "Idempotency-Key header, which is set to the orderId"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The answer fails to convey the reference meaning in high-level language as required. Instead of stating a simple '$5 USD' charge and general duplicate prevention, it uses '500 cents (USD)' and specifies the 'Idempotency-Key header', violating the instruction to avoid implementation mechanisms.",
+            "answer_quote": "500 cents (USD)"
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e"
+            ],
+            "reason": "The fixed charge of 500 cents in USD is explicitly stated in the retrieved context: 'Fixed rate response {shippingCents:500, currency:\"USD\"}'."
+          },
+          "fact_2": {
+            "status": "covered",
+            "evidence_ids": [
+              "91b5851d4512035fc2dade22e88de34e75fbb18c3250a7f67e60e8b93ca25e05"
+            ],
+            "reason": "The mechanism for avoiding duplicates is described in the retrieved context: 'Send POST /shipments to provider with Idempotency-Key header equal to orderId'."
+          }
+        },
+        "documentation_gap": {
+          "status": "none",
+          "reason": "The retrieved documents do not contradict the verified current facts. They provide additional implementation detail (e.g., Idempotency-Key) but do not conflict with the high-level behavior described in the reference. The reference states that repeat requests are identified to prevent duplicates, and the documents explain a method for doing so. This is elaboration, not contradiction."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 2,
+        "validation_errors": [
+          "Fabricated answer quotation"
+        ]
+      }
+    },
+    {
+      "case_id": "notification-gaps",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.0,
+          "correctness": 0.0,
+          "completeness": 0.5,
+          "behavior_appropriateness": 0.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 1,
+          "quality": 0.35714285714285715,
+          "evidence_topic_recall": 1.0,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer incorrectly states that the message is dead-lettered after failed attempts, which contradicts the verified current facts stating that the Notification Worker retries up to three times and marks the notification as failed. There is no mention of dead-lettering in the verified facts. The reference and verified facts do not support dead-lettering as the outcome; instead, they specify marking as failed without replay. This is a material contradiction.",
+          "documentation_grounding": "The answer's claims about dead-lettering to order.confirmed.dead and lack of replay are directly supported by retrieved documents, specifically IDs e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b and 6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42. These documents explicitly describe dead-lettering and absence of replay, so the answer is well-grounded in the retrieved context.",
+          "citation_support": "Each material claim in the answer is associated with a valid citation ID that appears in the retrieved contexts and corresponds to supporting excerpts. The citations include specific IDs that back the claims about delivery attempts, dead-lettering, and absence of replay/rollback.",
+          "appropriate_detail": "The answer includes excessive low-level implementation details not requested, such as 'notification-worker consumes the order.confirmed event', 'recording delivery attempts... in the notification_deliveries table', 'POST /email to HTTP provider with Idempotency-Key header', and specific queue names. These violate the acceptance criterion to avoid table names, endpoints, and implementation mechanisms.",
+          "correctness": "The answer misrepresents the system behavior by asserting dead-lettering as the outcome, while the verified facts state the notification is marked as failed after three retries. It also introduces unrequested technical mechanisms (e.g., advisory locks, Idempotency-Key) that distort the high-level meaning. The core behavior is inaccurately conveyed.",
+          "completeness": "The answer touches on retry attempts and the lack of replay and order rollback, but mischaracterizes the failure handling (dead-lettering vs marking as failed). It omits the explicit 'three retries' limit mentioned in the reference and verified facts, which is an essential detail.",
+          "behavior_appropriateness": "The response attempts to answer but does so incorrectly and with inappropriate detail. It fails to provide a high-level, accurate summary as required and instead delivers a technically detailed but factually incorrect account. The behavior is not appropriate for the task."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer claims the message is dead-lettered to order.confirmed.dead, which contradicts the verified current facts stating that the notification is marked as failed after three retries. This is a material factual contradiction.",
+            "answer_quote": "After failed attempts, the message is dead-lettered to the order.confirmed.dead queue"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The answer fails to convey the correct high-level behavior (three retries, mark as failed, no replay, order unchanged) and instead introduces incorrect mechanisms (dead-lettering) and excessive implementation details, violating both accuracy and simplicity requirements.",
+            "answer_quote": "the notification-worker consumes the order.confirmed event and attempts to send the email via an HTTP provider, recording delivery attempts and errors in the notification_deliveries table"
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4"
+            ],
+            "reason": "The retrieved context ID cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4 describes retry logic and delivery attempts, supporting the fact that retries occur."
+          },
+          "fact_2": {
+            "status": "covered",
+            "evidence_ids": [
+              "6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42"
+            ],
+            "reason": "The retrieved context ID 6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42 states that dead messages lack automatic or manual replay implementation, supporting the absence of a replay feature."
+          },
+          "fact_3": {
+            "status": "covered",
+            "evidence_ids": [
+              "6c412c461578ae7e3bc09b7698c2c3e2d314777390d82f1c2d32dfe8c2408c42"
+            ],
+            "reason": "The same context ID confirms that no compensation or rollback exists for email failures against confirmed orders, supporting that the order remains unchanged."
+          }
+        },
+        "documentation_gap": {
+          "status": "conflict",
+          "reason": "The retrieved documentation describes dead-lettering (e.g., in IDs e8ca03eee00e6b84fffa3187dee9fdf18eb40db1f9f143beed7ee3dcd1a4761b and cd6c53876b64ca2dc2faa1bddef21f5a81c8767172ad650bec602e15c91bece4), while the verified current facts and approved reference state that the notification is marked as failed after three retries, with no mention of dead-lettering. This constitutes a direct contradiction between documentation and verified system behavior."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "plan-variable-shipping",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 0.5,
+          "citation_support": 0.5,
+          "appropriate_detail": 0.0,
+          "plan_strategy": 0.5,
+          "plan_service_impacts": 0.0,
+          "plan_service_details": 0.0,
+          "plan_implementation_order": 0.0,
+          "plan_requirement_coverage": 0.0,
+          "plan_alternatives": 0.0,
+          "plan_recommendation_rationale": 0.0,
+          "plan_feasibility": 0.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": null,
+          "quality": 0.125,
+          "evidence_topic_recall": 1.0,
+          "plan_quality": 0.0625
+        },
+        "rationale": {
+          "application_correctness": "The answer claims the `shipping-service` currently has a `/api/shipping/rate` endpoint that returns a fixed `shippingCents: 500`, but the verified current facts and retrieved documentation do not confirm this endpoint exists. The current behavior is that the service returns a fixed rate during shipment creation, not via a dedicated rate endpoint. This misrepresents the existing implementation.",
+          "documentation_grounding": "The answer references retrieved documents (e.g., `postalCode` in ShipmentRequest, fixed rate response) but incorrectly infers the existence of a `/api/shipping/rate` endpoint. While some data elements are correctly cited (e.g., `postalCode`, `shippingCents`), the endpoint itself is not documented in the retrieved contexts, making key claims partially grounded at best.",
+          "citation_support": "Citations are provided for data structures (e.g., `ShipmentRequest`, fixed rate) but are misapplied to support the existence of a rate endpoint that is not described in the cited documents. Citations do not validate the core claim about the current API surface of `shipping-service`.",
+          "appropriate_detail": "The answer includes unnecessary low-level details such as endpoint paths (`/api/shipping/rate`), HTTP methods, and field-level constraints that were not requested. The task asked for a high-level plan, not API specifications or schema details.",
+          "plan_strategy": "The strategy mentions destination-based rates using `postalCode` and considers integration between services, but fails to explain how the agreed quote is preserved across retries or how customer consent is managed. It lacks a clear pre-payment quote/confirmation step, which is essential for consistency.",
+          "plan_service_impacts": "The answer omits the `customer-portal` despite it being required and listed in `expected_services`. The portal is critical for customer visibility and consent, yet no changes or impacts are discussed. This is a material omission.",
+          "plan_service_details": "Only `shipping-service` and `order-service` are addressed, and even then, failure modes (unsupported destinations), quote validity, and retry consistency are not explained. The `customer-portal` is completely missing, and no service has a complete high-level description of responsibilities or interactions.",
+          "plan_implementation_order": "The implementation order is vague (e.g., 'Requirement Analysis', 'Testing and Mocking') and does not follow a logical dependency sequence. It lacks prerequisites, parallel work identification, or validation steps. No explanation of why one step precedes another.",
+          "plan_requirement_coverage": "The answer fails to map how destination-sensitive charges, payment total consistency, customer visibility, or retry behavior are addressed. Key requirements from `acceptance_criteria` such as quote preservation and customer confirmation on change are not covered.",
+          "plan_alternatives": "No alternatives are discussed. The `alternatives_policy` is 'required', yet the answer presents only one approach without comparing options like regional rules vs. provider quotes or justifying the choice.",
+          "plan_recommendation_rationale": "There is no justification for the selected approach. The answer does not compare trade-offs, reference verified capabilities, or explain why this plan fits better than others. No rationale is provided at all.",
+          "plan_feasibility": "The plan assumes a `/api/shipping/rate` endpoint exists without confirming it, and proposes changes to `order-service` based on that unverified assumption. It does not check capability, define interface agreements, or address how quote validity or failure handling would work, making the proposal infeasible as described."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer falsely claims the `shipping-service` has a `/api/shipping/rate` endpoint that returns a fixed rate, which is not supported by verified facts or documentation. The current behavior is fixed-rate validation during shipment creation, not a dedicated rate API.",
+            "answer_quote": "Update the `/api/shipping/rate` endpoint to accept `postalCode` and return a dynamic rate instead of a fixed `shippingCents: 500`"
+          },
+          "request_outcome": {
+            "status": "fail",
+            "reason": "The plan does not address customer visibility or consent, omits the `customer-portal`, and fails to ensure consistent retry behavior. It does not satisfy the core request to implement a customer-visible destination-based quote flow.",
+            "answer_quote": ""
+          },
+          "feasible_boundaries": {
+            "status": "fail",
+            "reason": "The plan relies on an unverified assumption that a `/api/shipping/rate` endpoint exists and can be modified, without qualifying that this capability must first be confirmed. It also omits necessary changes to the `customer-portal`.",
+            "answer_quote": "Update the `/api/shipping/rate` endpoint to accept `postalCode` and return a dynamic rate"
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "0e96d47953511d161ff802f220cfcb86f8563ce6d574c46bc09cf11a8eb0fb6e",
+              "91b5851d4512035fc2dade22e88de34e75fbb18c3250a7f67e60e8b93ca25e05"
+            ],
+            "reason": "The fixed $5 rate and validation of shipment responses against it are supported by the fixed rate response and flow documentation."
+          },
+          "fact_2": {
+            "status": "covered",
+            "evidence_ids": [
+              "cecd58a8f610b98d746eec6055c919c11bcdfc035a5f0b7b1bab725c898f1034"
+            ],
+            "reason": "The order service creates shipments after payment is confirmed, as stated in the checkout saga documentation."
+          },
+          "fact_3": {
+            "status": "covered",
+            "evidence_ids": [
+              "32c76512f21431651d878127f264de41674ec41d00ba8b8d95d240783aef674f"
+            ],
+            "reason": "The customer portal includes `shippingCents` in the order details it displays, indicating it shows a fixed shipping estimate."
+          }
+        },
+        "documentation_gap": {
+          "status": "insufficient",
+          "reason": "The retrieved documentation does not describe a `/api/shipping/rate` endpoint, but the answer assumes its existence. While the fixed rate and `postalCode` usage are documented, the specific API for rate quoting is missing, creating a gap between the documented capabilities and the proposed changes."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "unknown-order-status",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.0,
+          "correctness": 0.0,
+          "completeness": 0.0,
+          "behavior_appropriateness": 0.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.2857142857142857,
+          "evidence_topic_recall": null,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The reference specifies that the correct behavior is to acknowledge lack of information about the shipping status of order CL-98765. The response instead discusses system architecture, service capabilities, and potential data flows, implying a level of system knowledge and reasoning that shifts focus away from the required acknowledgment of unknown status. It fails to directly align with the expected 'unknown' behavior by overcomplicating with irrelevant technical details.",
+          "documentation_grounding": "The response accurately reflects content from the retrieved documents: it cites the order-service's GET /api/orders/{id} endpoint and the shipping-service's ownership of shipment data like trackingNumber and status, both of which are supported by the provided excerpts. No claims contradict the retrieved evidence.",
+          "citation_support": "Each factual claim about service capabilities is supported by a citation with a valid ID and relevant excerpt. The use of [0474ca94...] and [0e96d479...] directly backs the statements about order-service and shipping-service data, meeting the optional citation policy with sufficient support.",
+          "appropriate_detail": "The response includes unnecessary low-level details such as endpoint paths (GET /api/orders/{id}), service names, and data field names (trackingNumber, status), which were not requested and violate the requirement for high-level language. The answer fails to abstract appropriately and instead dives into technical implementation, breaching the acceptance criteria.",
+          "correctness": "While the response correctly avoids inventing a shipping status, it misrepresents the expected behavior by framing the issue as a documentation or integration gap rather than a simple lack of live data. The core message should be an acknowledgment of unavailable information, not a system architecture analysis.",
+          "completeness": "The answer fails to clearly state that the shipping status is unknown due to lack of information, which is the essential expected behavior. Instead, it substitutes this with a technical explanation about service boundaries and data ownership, omitting the required direct acknowledgment of unavailable live data.",
+          "behavior_appropriateness": "The response is labeled and structured as a documentation explanation rather than an uncertainty or unknown response. It does not match the required 'unknown' behavior, which demands a clear statement of inability to confirm status, not a system design commentary."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "pass",
+            "reason": "The response does not invent a shipping status or claim to have queried a live system. It correctly refrains from asserting any live data.",
+            "answer_quote": "the shipping status of order CL-98765 cannot be confirmed"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The answer fails to satisfy the intended unknown behavior by not clearly acknowledging unavailable live data in a direct and simple manner. Instead, it provides architectural commentary, which is not equivalent to the required acknowledgment.",
+            "answer_quote": ""
+          }
+        },
+        "evidence_topics": {},
+        "documentation_gap": {
+          "status": "none",
+          "reason": "The retrieved documents do not contradict the verified current facts because no verified current facts about live order status are available or expected. The documentation accurately describes service capabilities and data ownership without conflict."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "application-responsibilities",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 1.0,
+          "documentation_grounding": 0.5,
+          "citation_support": 0.5,
+          "appropriate_detail": 0.5,
+          "correctness": 1.0,
+          "completeness": 0.5,
+          "behavior_appropriateness": 1.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": null,
+          "quality": 0.7142857142857143,
+          "evidence_topic_recall": 1.0,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer correctly states the purpose of each core service in alignment with the verified current facts: Customer Portal provides the UI, Order Service coordinates checkout, Inventory Service owns prices and stock, Payment Service handles payments and refunds, Shipping Service manages shipping logistics, and Notification Worker sends notifications. No incorrect claims are made about existing behavior.",
+          "documentation_grounding": "Most claims are grounded in the retrieved documents, such as the UI role of customer-portal and the coordination role of order-service. However, the description of notification-worker says 'specific details are not provided in the supplied documentation,' which is accurate, but the service's purpose (sending confirmation emails) is stated in the reference and verified facts, yet not supported by any citation or retrieved context for that specific claim.",
+          "citation_support": "Citations support most factual claims for customer-portal, order-service, inventory-service, payment-service, and shipping-service. However, the claim about notification-worker sending emails lacks any citation or supporting excerpt, despite being a required fact. The answer acknowledges the lack of documentation but fails to cite any source confirming the service's actual purpose.",
+          "appropriate_detail": "The answer includes some unnecessary detail like 'React 19, Vite, nginx' and 'Go 1.23, net/http', which were not requested and go beyond high-level descriptions. While it avoids code and file paths, the inclusion of tech stacks violates the requirement for high-level language.",
+          "correctness": "The essential facts about each service's purpose are conveyed accurately and align with the reference and verified facts. Paraphrasing is appropriate and does not distort meaning.",
+          "completeness": "All six services are named and their general roles described, but the purpose of Notification Worker is under-specified \u2014 it says 'processes and dispatches notifications' but does not explicitly state it sends confirmation emails through an email provider, which is a required fact. This omission reduces completeness despite mentioning the service.",
+          "behavior_appropriateness": "The response is an answer, as expected, and directly addresses the question by listing and describing each core service. It does not deflect or express uncertainty inappropriately."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "pass",
+            "reason": "All stated claims about service responsibilities are consistent with the verified current facts and do not invent unsupported capabilities.",
+            "answer_quote": "The customer-portal provides a browser UI for users to browse products, place demo orders, and view order and notification history"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The answer fails to fully satisfy the acceptance criteria by not clearly distinguishing all services from their providers (e.g., payment provider and email provider are mentioned only implicitly), and it includes low-level implementation details like tech stacks, violating the 'high-level language' requirement.",
+            "answer_quote": "The inventory-service is an internal Go service that owns authoritative product prices and stock reservations"
+          }
+        },
+        "evidence_topics": {
+          "fact_1": {
+            "status": "covered",
+            "evidence_ids": [
+              "3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c",
+              "83b0d90050916078294a133eba49a5f63fb9080448acf2770e390da5b6ec8c6d",
+              "b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c"
+            ],
+            "reason": "Multiple citations confirm that customer-portal provides a browser UI for user interaction."
+          },
+          "fact_2": {
+            "status": "covered",
+            "evidence_ids": [
+              "3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c",
+              "b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c"
+            ],
+            "reason": "The order-service is described as a checkout coordinator that orchestrates key steps in the checkout flow."
+          },
+          "fact_3": {
+            "status": "covered",
+            "evidence_ids": [
+              "3172d40c82e775717b165e02e321eaff5581c28e7dd2390258c6de0704326a3c",
+              "b24c1db97da8d933af866993641bade046e4c3d54a978e2f596b77fa4a4aec5c"
+            ],
+            "reason": "The inventory-service is confirmed to own product prices and stock reservations in the retrieved contexts."
+          }
+        },
+        "documentation_gap": {
+          "status": "insufficient",
+          "reason": "The retrieved documentation lacks explicit description of the Notification Worker's role in sending confirmation emails via an email provider, despite this being a verified fact. The service is mentioned only in the context of documentation gaps, leading to incomplete support for this claim in the answer."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "unknown-live-stock",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.5,
+          "correctness": 0.0,
+          "completeness": 0.0,
+          "behavior_appropriateness": 0.0,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.35714285714285715,
+          "evidence_topic_recall": null,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer incorrectly implies that the example value (100 units) from documentation reflects real-time stock by stating 'the actual current value would require calling the live endpoint', which suggests the model possesses or can access live data. The reference states that current stock is unknown, and the correct behavior is to clearly acknowledge unavailability of live data without implying it can be retrieved. The answer fails to adhere to the approved reference behavior of treating live stock as unknown.",
+          "documentation_grounding": "The factual claims about the inventory-service, the GET /api/products endpoint, the 'available' field in the response schema, and the example value of 100 units for BOOK-001 are all directly supported by the retrieved documentation [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79]. The mention of needing to call the live endpoint is consistent with the service catalog [995e8dc64e23a082ca9d5e9285bdd373f32d6a69b5d8522d1571e26cec1122f4]. All stated facts are grounded in the provided evidence.",
+          "citation_support": "Citations [0be7dd94c36274c120791af67ff9a0feab00675764eac582b3f7be910d36cf79] and [995e8dc64e23a082ca9d5e9285bdd373f32d6a69b5d8522d1571e26cec1122f4] directly support the claims about the API endpoint, schema, and example data. The citations are relevant and correctly linked to the factual assertions in the response.",
+          "appropriate_detail": "The answer includes useful high-level context about the inventory service and API, but introduces unnecessary technical detail such as endpoint paths (GET /api/products), field names (available), and service architecture, which were not requested. The question only asked for the current stock, and the expected behavior is to acknowledge unavailability\u2014excessive technical elaboration violates the requirement for high-level language.",
+          "correctness": "The answer misrepresents the system's capability by suggesting that the current stock can be obtained by calling a live endpoint, which implies access to real-time data. The reference explicitly states that current stock is unknown, and the correct response must not imply that such data is accessible. This constitutes a material misrepresentation of system behavior.",
+          "completeness": "The answer fails to satisfy the essential requirement of clearly acknowledging that live stock data is unavailable. Instead, it suggests the value can be obtained by calling a live endpoint, which contradicts the expected behavior of treating such data as unknown. It does not fulfill the core requirement of the case.",
+          "behavior_appropriateness": "The response is labeled as 'answer' but should have been 'unknown' or a clarification of unavailability. It attempts to answer with inferred technical pathways rather than acknowledging the lack of live data, which is inappropriate for the requested behavior. The actual response misleads by implying data accessibility."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer implies that the current stock of BOOK-001 can be determined by calling a live endpoint, which fabricates access to real-time data. The reference states that current stock is unknown, and no such capability should be claimed.",
+            "answer_quote": "the actual current value would require calling the live endpoint"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The response fails to clearly acknowledge unavailable live data and instead suggests a method to obtain it, violating the acceptance criteria. It does not satisfy the intended unknown behavior.",
+            "answer_quote": "the actual current value would require calling the live endpoint"
+          }
+        },
+        "evidence_topics": {},
+        "documentation_gap": {
+          "status": "none",
+          "reason": "The retrieved documentation accurately describes the API schema and example data. There is no conflict between the retrieved evidence and the verified current facts, as the issue lies in the model's interpretation and response behavior, not in the documentation itself."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    },
+    {
+      "case_id": "uncertain-email-guarantee",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 0.0,
+          "documentation_grounding": 1.0,
+          "citation_support": 1.0,
+          "appropriate_detail": 0.0,
+          "correctness": 0.5,
+          "completeness": 0.5,
+          "behavior_appropriateness": 0.5,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.5,
+          "evidence_topic_recall": null,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The answer claims the notification-worker uses 'advisory lock on hashtext(eventId)' and 'upsert into notification_deliveries', and that there is 'no compensation or rollback for email failures'. The reference states only that 'Notification Worker tracks delivery to avoid duplicate emails, but prevention also depends on the email provider' and does not confirm these specific mechanisms. These details are not present in the verified facts and constitute invented claims, contradicting the approved high-level, non-guaranteed behavior.",
+          "documentation_grounding": "The claims about deduplication by eventId, use of Idempotency-Key header, and lack of production email provider guarantees are directly supported by retrieved contexts. [364b0308] states consumers must deduplicate by eventId, [cd6c5387] describes the Idempotency-Key in POST /email, and [6c412c46] confirms no compensation for email failures. All factual assertions are grounded in the provided documentation.",
+          "citation_support": "Each material claim is supported by a valid citation: eventId deduplication ([364b0308]), processing flow with Idempotency-Key ([cd6c5387]), and documentation gaps including lack of rollback ([6c412c46]). Citations are relevant and cover the key assertions.",
+          "appropriate_detail": "The answer includes low-level details such as 'upsert into notification_deliveries', 'advisory lock on hashtext(eventId)', and 'POST /email to HTTP provider', which violate the instruction to 'use high-level language and do not invent unsupported facts'. These specifics are unnecessary and exceed the required scope.",
+          "correctness": "The answer correctly denies a guarantee and references provider dependency, aligning with the reference's uncertainty. However, it adds unapproved technical details not in the reference, distorting the essential meaning by implying a more deterministic system than allowed.",
+          "completeness": "The answer addresses internal deduplication and provider dependency, partially satisfying the need to explain protection and limits. But it fails to stay high-level, introducing unsupported specifics that detract from completeness as defined by the criteria.",
+          "behavior_appropriateness": "The response denies a guarantee and cites limitations, aligning with the expected 'uncertain' behavior. However, it overreaches by providing low-level mechanics not required, making it less appropriate than a concise, high-level explanation."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "fail",
+            "reason": "The answer invents specific implementation details not confirmed by the reference or verification evidence. The reference only states that the worker 'tracks delivery' without specifying mechanism. These additions materially contradict the approved high-level, non-committal stance.",
+            "answer_quote": "applies an advisory lock on hashtext(eventId)"
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The response fails to satisfy the intended uncertain behavior at the appropriate level of abstraction. Instead of a concise, high-level explanation of dependency on the provider, it delivers a technically detailed account that introduces unsupported specifics, violating the acceptance criteria.",
+            "answer_quote": "The notification-worker uses the eventId to upsert into notification_deliveries"
+          }
+        },
+        "evidence_topics": {},
+        "documentation_gap": {
+          "status": "none",
+          "reason": "There is no conflict between the retrieved documentation and the verified current facts. The reference acknowledges uncertainty and provider dependency, and the retrieved docs describe deduplication mechanisms and gaps consistently. The answer's overinterpretation is an agent error, not a documentation conflict."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 2,
+        "validation_errors": [
+          "Fabricated answer quotation"
+        ]
+      }
+    },
+    {
+      "case_id": "clarify-retry",
+      "judge": {
+        "status": "ok",
+        "rubric_version": "v3",
+        "scores": {
+          "application_correctness": 1.0,
+          "documentation_grounding": null,
+          "citation_support": null,
+          "appropriate_detail": 1.0,
+          "correctness": 1.0,
+          "completeness": 0.5,
+          "behavior_appropriateness": 0.5,
+          "critical_gate_pass": 0,
+          "documentation_conflict": 0,
+          "quality": 0.8,
+          "evidence_topic_recall": null,
+          "plan_quality": null
+        },
+        "rationale": {
+          "application_correctness": "The response correctly asks the user to clarify which operation they are retrying, aligning with the approved reference that requires identifying the specific operation (e.g., checkout, payment). It does not assert that retrying is safe, avoiding forbidden assumptions. No incorrect claims about current behavior are made.",
+          "documentation_grounding": "No retrieved contexts or documentation were provided in the response or retrieval data, and the task does not require grounding in external documents since citation_policy is optional and the reference is a behavior rubric. Thus, grounding cannot be assessed and is not required for correctness.",
+          "citation_support": "Citations are optional per the case configuration, and no factual claims requiring citation were made. The response is a clarification request, which does not necessitate citations.",
+          "appropriate_detail": "The response provides a high-level clarification request with relevant examples (placing an order, processing a payment, updating shipping details) without including unnecessary technical details like endpoints, code, or file names. The detail level matches the user's question and task requirements.",
+          "correctness": "The response accurately conveys the need for more information before assessing retry safety, consistent with the reference. It paraphrases the intent of the reference without distortion.",
+          "completeness": "The response asks which operation is being retried and gives examples, satisfying the first acceptance criterion. However, it does not explicitly ask the user to re-ask with details about what happened on the previous attempt, which is a required part of the reference and acceptance criteria.",
+          "behavior_appropriateness": "The response is labeled and structured as a clarification, which is appropriate. However, it only partially fulfills the expected clarify behavior by omitting the request for details about the previous attempt\u2019s outcome, a key element of the reference."
+        },
+        "gate_status": "fail",
+        "requirements": {
+          "truthful_current_claims": {
+            "status": "pass",
+            "reason": "The response makes no claims about current system behavior or safety of retrying; it only requests clarification. Thus, it avoids any untruthful assertions.",
+            "answer_quote": ""
+          },
+          "expected_response": {
+            "status": "fail",
+            "reason": "The response fails to fully satisfy the clarify behavior as defined in the acceptance criteria. It asks which operation is being retried but does not ask the user to re-ask with more details including what happened on the previous attempt.",
+            "answer_quote": "Could you please clarify which action you'd like to retry?"
+          }
+        },
+        "evidence_topics": {},
+        "documentation_gap": {
+          "status": "none",
+          "reason": "No documentation was retrieved or required for this task. The response aligns with the approved reference, and there is no conflict or insufficiency in documentation since none was expected."
+        },
+        "score_scale": "All numeric scores are normalized 0\u00e2\u20ac\u201c1; gate is separate from mean quality. Null is not assessed/not applicable.",
+        "scoring_attempts": 1,
+        "validation_errors": []
+      }
+    }
+  ],
+  "evaluator_failures": [
+    {
+      "case_id": "plan-payment-reconciliation",
+      "evaluator": "judge",
+      "detail": {
+        "status": "error",
+        "error": "ValueError"
+      }
+    },
+    {
+      "case_id": "application-purpose",
+      "evaluator": "ragas",
+      "detail": {
+        "status": "error",
+        "error": "OpenAIAPIError"
+      }
+    },
+    {
+      "case_id": "portal-capabilities",
+      "evaluator": "judge",
+      "detail": {
+        "status": "error",
+        "error": "ValueError"
+      }
+    },
+    {
+      "case_id": "clarify-data",
+      "evaluator": "judge",
+      "detail": {
+        "status": "error",
+        "error": "ValueError"
+      }
+    },
+    {
+      "case_id": "plan-production-checkout-evidence",
+      "evaluator": "judge",
+      "detail": {
+        "status": "error",
+        "error": "ValueError"
+      }
+    },
+    {
+      "case_id": "replan-provider-quotes",
+      "evaluator": "judge",
+      "detail": {
+        "status": "error",
+        "error": "ValueError"
+      }
+    }
+  ]
+}

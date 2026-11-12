@@ -1,0 +1,14 @@
+{
+  "label": "v1 baseline before reliability fixes",
+  "baseline_commit": "4c00aa4",
+  "date": "2026-11-11",
+  "immutable": true,
+  "note": "Preserve originals; future runs belong in separate directories. Categories are distinct dimensions and may overlap. Skipped/unassessed is not a quality failure.",
+  "sha256": {
+    "failure-categories.json": "52725b8dfb3f624a86f2c148623d69e8a094a976bcf9d7b844f52840d9546996",
+    "golden.jsonl": "2dc357b54caddca9684086ec6f7a790fc967f57649bbd37275b7bb93d29f064b",
+    "human_review.csv": "7cc995a0b5ab0b72c08692cb87e6f826b8807ac63924018b1d38edad18647c15",
+    "runs.jsonl": "04502050d2b3e545b0805f5530d97ba00aa8a3d73043de98610b829b010f6828",
+    "summary.json": "86ecfa4d982301150589d74658f3688c6a21ba4af79de96dd8cf5fee4455abd5"
+  }
+}

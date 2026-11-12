@@ -1,0 +1,296 @@
+{
+  "dataset_sha256": "2dc357b54caddca9684086ec6f7a790fc967f57649bbd37275b7bb93d29f064b",
+  "case_mode": null,
+  "case_count": 45,
+  "repetitions": 1,
+  "reference_snapshot_status": {
+    "status": "validated",
+    "checked_files": 28,
+    "mismatches": []
+  },
+  "run_count": 45,
+  "workers": 3,
+  "failure_count": 15,
+  "metrics": {
+    "behavior_match": {
+      "mean": 0.8,
+      "count": 30,
+      "missing_count": 15,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "citation_validity": {
+      "mean": 1.0,
+      "count": 21,
+      "missing_count": 24,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "judge_application_correctness": {
+      "mean": 0.7,
+      "count": 25,
+      "missing_count": 20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_appropriate_detail": {
+      "mean": 0.66,
+      "count": 25,
+      "missing_count": 20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_behavior_appropriateness": {
+      "mean": 0.8181818181818182,
+      "count": 22,
+      "missing_count": 23,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_citation_support": {
+      "mean": 0.9583333333333334,
+      "count": 24,
+      "missing_count": 21,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "judge_completeness": {
+      "mean": 0.7272727272727273,
+      "count": 22,
+      "missing_count": 23,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_correctness": {
+      "mean": 0.7954545454545454,
+      "count": 22,
+      "missing_count": 23,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_critical_gate_pass": {
+      "mean": 0.6,
+      "count": 25,
+      "missing_count": 20,
+      "min": 0,
+      "max": 1
+    },
+    "judge_documentation_conflict": {
+      "mean": 0.14285714285714285,
+      "count": 21,
+      "missing_count": 24,
+      "min": 0,
+      "max": 1
+    },
+    "judge_documentation_grounding": {
+      "mean": 0.9210526315789473,
+      "count": 19,
+      "missing_count": 26,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "judge_evidence_topic_recall": {
+      "mean": 0.9583333333333334,
+      "count": 12,
+      "missing_count": 33,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "judge_plan_alternatives": {
+      "mean": 0.3333333333333333,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_feasibility": {
+      "mean": 0.6666666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_implementation_order": {
+      "mean": 0.6666666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_quality": {
+      "mean": 0.6041666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0625,
+      "max": 1.0
+    },
+    "judge_plan_recommendation_rationale": {
+      "mean": 0.3333333333333333,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_requirement_coverage": {
+      "mean": 0.6666666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_service_details": {
+      "mean": 0.6666666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_service_impacts": {
+      "mean": 0.6666666666666666,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "judge_plan_strategy": {
+      "mean": 0.8333333333333334,
+      "count": 3,
+      "missing_count": 42,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "judge_quality": {
+      "mean": 0.7853333333333333,
+      "count": 25,
+      "missing_count": 20,
+      "min": 0.125,
+      "max": 1.0
+    },
+    "latency_seconds": {
+      "mean": 17.914,
+      "count": 45,
+      "missing_count": 0,
+      "min": 0.156,
+      "max": 78.453
+    },
+    "lexical_consideration_coverage": {
+      "mean": null,
+      "count": 0,
+      "missing_count": 45,
+      "min": null,
+      "max": null
+    },
+    "lexical_forbidden_phrase_rate": {
+      "mean": 0.0,
+      "count": 5,
+      "missing_count": 40,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "lexical_required_fact_coverage": {
+      "mean": null,
+      "count": 0,
+      "missing_count": 45,
+      "min": null,
+      "max": null
+    },
+    "model_calls": {
+      "mean": 1.1555555555555554,
+      "count": 45,
+      "missing_count": 0,
+      "min": 0,
+      "max": 2
+    },
+    "ragas_answer_relevancy": {
+      "mean": 0.8881032984955183,
+      "count": 9,
+      "missing_count": 36,
+      "min": 0.7498580820050679,
+      "max": 0.9999489354847649
+    },
+    "ragas_context_recall": {
+      "mean": 0.9074074074074074,
+      "count": 9,
+      "missing_count": 36,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "ragas_factual_correctness(mode=f1)": {
+      "mean": 0.4955555555555555,
+      "count": 9,
+      "missing_count": 36,
+      "min": 0.12,
+      "max": 0.67
+    },
+    "ragas_faithfulness": {
+      "mean": 0.895983645983646,
+      "count": 9,
+      "missing_count": 36,
+      "min": 0.5,
+      "max": 1.0
+    },
+    "ragas_llm_context_precision_with_reference": {
+      "mean": 0.5861739083736416,
+      "count": 9,
+      "missing_count": 36,
+      "min": 0.0909090909,
+      "max": 0.9666666666473333
+    },
+    "service_f1": {
+      "mean": 0.7708994708994709,
+      "count": 18,
+      "missing_count": 27,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "service_precision": {
+      "mean": 0.787037037037037,
+      "count": 18,
+      "missing_count": 27,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "service_recall": {
+      "mean": 0.8564814814814815,
+      "count": 18,
+      "missing_count": 27,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "tool_calls": {
+      "mean": 3.088888888888889,
+      "count": 45,
+      "missing_count": 0,
+      "min": 0,
+      "max": 9
+    }
+  },
+  "critical_gates": {
+    "meets_critical_requirements": 15,
+    "not_assessed": 20,
+    "fail": 10
+  },
+  "rubric_versions": {
+    "v3": 25,
+    "legacy_or_unscored": 20
+  },
+  "judge": {
+    "ok": 25,
+    "skipped": 15,
+    "error": 5
+  },
+  "ragas": {
+    "ok": 9,
+    "skipped": 35,
+    "error": 1
+  },
+  "metric_note": "Lexical coverage is phrase matching, not correctness. Missing/error scores excluded.",
+  "langsmith": {
+    "status": "ok",
+    "dataset_name": "commercelens-golden-2dc357b54c-253e1059",
+    "experiment_name": "commercelens-eval-857bdc48310d",
+    "uploaded_runs": 45,
+    "project_id": "11e333bc-65d3-4903-8867-8ddab0883791",
+    "dataset_id": "7cbe601f-53cd-426f-919e-1e54481b6f7c"
+  }
+}

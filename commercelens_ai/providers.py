@@ -2,12 +2,17 @@
 import json
 import math
 import threading
+import time
+import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
 
 
 class ProviderError(RuntimeError):
-    pass
+    def __init__(self, message, *, category='provider_response', http_status=None, attempts=1):
+        super().__init__(message)
+        self.category, self.http_status, self.attempts = category, http_status, attempts
+
 
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -38,24 +43,35 @@ class _Client:
         return getattr(self._stats, 'call_count', 0)
 
     def _post(self, endpoint, payload):
-        self._stats.call_count = self.call_count + 1
         request = urllib.request.Request(self.base_url + endpoint,
             data=json.dumps(payload).encode('utf-8'),
             headers={'Authorization': 'Bearer ' + self._api_key, 'Content-Type': 'application/json'}, method='POST')
-        try:
-            with urllib.request.build_opener(_NoRedirect()).open(request, timeout=self.timeout) as response:
-                raw = response.read(16 * 1024 * 1024 + 1)
-            if len(raw) > 16 * 1024 * 1024:
-                raise ValueError('response limit')
-            result = json.loads(raw)
-            if not isinstance(result, dict):
-                raise ValueError('response shape')
-            usage = result.get('usage', {})
-            if isinstance(usage, dict):
-                self._stats.usage = {k: v for k, v in usage.items() if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)}
-            return result
-        except Exception:
-            raise ProviderError('Provider request failed. Check the endpoint, credentials, model, and service availability.') from None
+        for attempt in range(1, 3):
+            self._stats.call_count = self.call_count + 1
+            try:
+                with urllib.request.build_opener(_NoRedirect()).open(request, timeout=self.timeout) as response:
+                    raw = response.read(16 * 1024 * 1024 + 1)
+                if len(raw) > 16 * 1024 * 1024: raise ValueError('response limit')
+                result = json.loads(raw)
+                if not isinstance(result, dict): raise ValueError('response shape')
+                usage = result.get('usage', {})
+                if isinstance(usage, dict):
+                    self._stats.usage = {k: v for k, v in usage.items() if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)}
+                return result
+            except ProviderError:
+                raise
+            except Exception as exc:
+                status = exc.code if isinstance(exc, urllib.error.HTTPError) else None
+                category = ('authentication' if status in (401,403) else 'rate_limit' if status==429 else
+                            'http_error' if status else 'timeout' if isinstance(exc,TimeoutError) or
+                            isinstance(getattr(exc,'reason',None),TimeoutError) else
+                            'connection' if isinstance(exc,(urllib.error.URLError,OSError)) else 'invalid_response')
+                transient = status in (408,429,500,502,503,504) or (status is None and category in ('timeout','connection'))
+                if transient and attempt < 2:
+                    time.sleep(0.5)
+                    continue
+                raise ProviderError('Provider request failed.',category=category,http_status=status,attempts=attempt) from None
+
 
 
 class OpenAICompatibleModel(_Client):
